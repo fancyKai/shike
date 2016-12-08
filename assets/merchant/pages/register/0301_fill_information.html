@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布试用</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/fill_information.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧店铺管理-->
+        <div class="store_content left">
+            <h1 class="title">发布试用</h1>
+            <!--进度条-->
+            <div class="progress_bar">
+                <img src="../../images/sj_fbsy_bg_jdt_two_default.png" alt="">
+            </div>
+            <!--2.填写商品信息-->
+            <div class="fill_information">
+                <h2 class="title">2.填写商品信息</h2>
+                <div class="shop_information">
+                    <form class="commodity_information" action="">
+                        <label for="commodity_name">商品名称：</label>
+                        <input id="commodity_name" type="text"/>
+                        <span>商品名称不能为空</span>
+                        <br/>
+                        <p>
+                            请输入试用品名称，
+                            <a href="javascript:void(0);">不要和淘宝商品名称相同，</a>
+                            防止试客直接搜索名称购买
+                        </p>
+                        <label for="shop_url">商品链接：</label>
+                        <input id="shop_url" type="text"/>
+                        <span>商品链接不能为空</span>
+                        <br/>
+                        <p>平台会根据您填写的商品链接抓取对应淘宝商品的宝贝描述，显示在试用详情页。</p>
+                        <label for="commodity_classify">商品的分类：</label>
+                        <select id="commodity_classify">
+                            <option value ="女装">女装</option>
+                            <option value ="男装">男装</option>
+                            <option value="美妆">美妆</option>
+                        </select>
+                        <br/>
+                        <p>此分类为<a href="javascript:void(0);">平台的分类</a></p>
+                        <label for="commodity_picture">商品主图：</label>
+                        <input id="commodity_picture" type="text"/>
+                        <span>商品主图链接不能为空</span>
+                        <br/>
+                        <p>请输入商品URL</p>
+                        <label for="norms">规格：</label>
+                        <input class="norms" id="norms" type="text" placeholder="颜色" />
+                        <input class="norms"  type="text" placeholder="尺码" />
+                        <br/>
+                        <p>如需试客拍下指定规格，请务必填写此项信息，如不填写,</p>
+                        <p>
+                            默认试客可以拍下任意规格的商品。
+                            <a href="javascript:void(0);">
+                                鞋子服装类商品，不可限制产品的尺码。</a>
+                        </p>
+                        <label for="unit_price">单品售价：</label>
+                        <input class="norms" id="unit_price" type="text" placeholder="元" />
+                        <label for="buy_num">每单拍：</label>
+                        <input class="norms" id="buy_num" type="text" placeholder="件" />
+                        <span>单品售价不能为空</span>
+                        <p class="total_money">下单总金额：<span>0</span>元</p>
+                        <label for="freight">商品运费：</label>
+
+                        <a href="javascript:void(0);">
+                            <span class="pinkage">全国包邮</span><span class="pinkage freight">收取运费：</span>
+                        </a>
+
+                        <input class="norms" id="freight" type="text" placeholder="元" />
+                    </form>
+                </div>
+                <p class="note">
+                    <b>提示：</b>
+                    试客成功领取试用后，商家需按照提交的试用商品进行发货。若试客收到的商品与任务商品不一致，<br/>
+                    平台会对商家进行严厉的处罚。
+                </p>
+                <div class="nextStep_btn">
+                    <input onclick="location.href='03_issue_try.html'" type="button" value="上一步"/>
+                    <input onclick="location.href='0301_settings_search.html'" type="button" value="下一步"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+
+        $('.pinkage').bind('click',function(){
+            $(this).css({'background':'url(../../images/spot.png) left center no-repeat'});
+            $(this).siblings().css({'background':'url(../../images/sj_fbsy_icon_quan_default.png) left center no-repeat'})
+        });
+
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

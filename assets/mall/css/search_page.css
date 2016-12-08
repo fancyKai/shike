@@ -1,0 +1,135 @@
+.classify_active {
+  color: #f10180 !important;
+  text-decoration: underline;
+}
+#section {
+  width: 1200px;
+  margin: 0 auto;
+}
+#section .search_title ul,
+#section .classify_title ul {
+  overflow: hidden;
+  padding-top: 18px;
+}
+#section .search_title ul li,
+#section .classify_title ul li {
+  float: left;
+}
+#section .search_title ul li:not(:first-child),
+#section .classify_title ul li:not(:first-child) {
+  padding-left: 10px;
+}
+#section .classify_nav {
+  height: 40px;
+  line-height: 40px;
+  margin-top: 30px;
+  border: 1px solid #f0f0f0;
+}
+#section .classify_nav ul {
+  overflow: hidden;
+}
+#section .classify_nav ul li {
+  float: left;
+  padding-left: 20px;
+}
+#section .classify_nav ul li a {
+  color: #323232;
+  font-size: 14px;
+}
+#section .classify_nav ul li a:hover {
+  color: #f10180;
+  text-decoration: underline;
+}
+#section .classify_nav ul li span {
+  display: inline-block;
+  margin-left: 20px;
+  color: #c8c8c8;
+}
+#section .search_commodity,
+#section .classify_commodity {
+  overflow: hidden;
+}
+#section .search_commodity .products,
+#section .classify_commodity .products {
+  width: 220px;
+  margin-left: 25px;
+  margin-top: 30px;
+}
+#section .search_commodity .products a img,
+#section .classify_commodity .products a img {
+  width: 220px;
+  height: 300px;
+}
+#section .search_commodity .products .product_introduction,
+#section .classify_commodity .products .product_introduction {
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #323232;
+  padding-top: 8px;
+}
+#section .search_commodity .products .quantity,
+#section .classify_commodity .products .quantity {
+  margin: 13px 0;
+}
+#section .search_commodity .products .quantity span,
+#section .classify_commodity .products .quantity span {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  padding: 0 5px;
+}
+#section .search_commodity .products .quantity span:first-of-type,
+#section .classify_commodity .products .quantity span:first-of-type {
+  background-color: #a766e6;
+}
+#section .search_commodity .products .quantity span:last-of-type,
+#section .classify_commodity .products .quantity span:last-of-type {
+  background-color: #63dabe;
+  margin-left: 10px;
+}
+#section .search_commodity .products .price,
+#section .classify_commodity .products .price {
+  padding-bottom: 18px;
+  overflow: hidden;
+}
+#section .search_commodity .products .price span:first-of-type,
+#section .classify_commodity .products .price span:first-of-type {
+  float: left;
+  color: #f10180;
+  font-size: 20px;
+}
+#section .search_commodity .products .price span:last-of-type,
+#section .classify_commodity .products .price span:last-of-type {
+  float: right;
+  font-size: 14px;
+  padding-top: 5px;
+}
+#section .search_commodity .products .price span:last-of-type b,
+#section .classify_commodity .products .price span:last-of-type b {
+  font-weight: normal;
+}
+#section .search_commodity .products:nth-of-type(5n+1),
+#section .classify_commodity .products:nth-of-type(5n+1) {
+  margin-left: 0;
+}
+#section .search_commodity .see_more,
+#section .classify_commodity .see_more {
+  text-align: center;
+}
+#section .search_commodity .see_more input,
+#section .classify_commodity .see_more input {
+  width: 150px;
+  height: 50px;
+  margin: 30px 0 50px 0;
+  background: url(../images/button_more_buttom_default.png) center no-repeat;
+}
+#section .search_commodity .see_more input:hover,
+#section .classify_commodity .see_more input:hover {
+  background: url(../images/button_more_buttom_selected.png) center no-repeat;
+}

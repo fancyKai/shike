@@ -1,0 +1,136 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@border_color:#f0f0f0;
+@title_color:#f5f5f5;
+@bg_color:#fff;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@deepborder-color:#c8c8c8;
+.classify_active{
+  color:@deepred_color!important;
+  text-decoration:underline;
+}
+
+#section{
+  width:1200px;
+  margin:0 auto;
+  //搜索页和分类页的标题
+  .search_title,.classify_title{
+    ul{
+      overflow:hidden;
+      padding-top:18px;
+      li{
+        float:left;
+      }
+      li:not(:first-child){
+        padding-left:10px;
+      }
+    }
+  }
+//<!--分类导航-->
+  .classify_nav{
+    height:40px;
+    line-height:40px;
+    margin-top:30px;
+    border:1px solid @border_color;
+    ul{
+      overflow:hidden;
+      li{
+        float:left;
+        padding-left:20px;
+        a{
+          color:@deepfont_color ;
+          font-size:14px;
+          &:hover{
+            color:@deepred_color;
+            text-decoration:underline;
+          }
+        }
+        span{
+          display:inline-block;
+          margin-left:20px;
+          color:#c8c8c8;
+        }
+      }
+    }
+  }
+
+  //搜索页商品和分类页商品的详情
+  .search_commodity,.classify_commodity{
+    overflow:hidden;
+    .products {
+      width:220px;
+      margin-left:25px;
+      margin-top:30px;
+      a{
+        img{
+          width:220px;
+          height:300px;
+        }
+      }
+      .product_introduction{
+        width:220px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        font-size:14px;
+        color:@deepfont_color ;
+        padding-top:8px;
+      }
+      .quantity{
+        margin:13px 0;
+        span{
+          display:inline-block;
+          height:20px;
+          line-height:20px;
+          border-radius:5px;
+          color:#fff;
+          font-size:12px;
+          padding:0 5px;
+        }
+        span:first-of-type{
+          background-color:#a766e6;
+        }
+        span:last-of-type{
+          background-color:#63dabe;
+          margin-left:10px;
+        }
+      }
+      .price{
+        padding-bottom:18px;
+        overflow:hidden;
+        span:first-of-type {
+          float:left;
+          color:@deepred_color;
+          font-size:20px;
+        }
+        span:last-of-type {
+          float:right;
+          font-size:14px;
+          padding-top: 5px;
+          b{
+            font-weight:normal;
+          }
+        }
+      }
+    }
+    .products:nth-of-type(5n+1){
+      margin-left:0;
+    }
+
+    .see_more{
+      text-align:center;
+      input{
+        width:150px;
+        height:50px;
+        margin:30px 0 50px 0;
+        background:url(../images/button_more_buttom_default.png) center no-repeat;
+        &:hover{
+          background:url(../images/button_more_buttom_selected.png) center no-repeat;
+        }
+      }
+    }
+  }
+
+
+}

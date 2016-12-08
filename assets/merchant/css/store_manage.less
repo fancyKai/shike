@@ -1,0 +1,274 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+
+#section{
+  .section_main{
+    .store_content{
+      min-height:555px;
+      .binding_shops{
+        padding:20px 0;
+        input{
+          height:30px;
+          width:100px;
+          line-height:30px;
+          border-radius:5px;
+          background-color:@deepred_color;
+          margin-right:10px;
+          color:#fff;
+        }
+        img{
+          margin:-2px 0 0 10px;
+          cursor:pointer;
+        }
+      }
+      .shops_details{
+        .detalis{
+          //没商品时
+          img.noContent{
+            margin:85px 405px 0 405px;
+          }
+          ul{
+            height:118px;
+            border-top:1px solid @bg_color;
+            border-bottom:1px solid @bg_color;
+            padding:18px;
+            overflow:hidden;
+            //display:none;
+            li{
+              float:left;
+              color:@deepfont_color;
+              font-size:14px;
+              height:80px;
+            }
+            li:first-of-type {
+              img{
+                width:80px;
+                height:80px;
+              }
+            }
+            li:nth-of-type(2),li:nth-of-type(3){
+              padding:0 40px 0 28px;
+              border-right:1px solid @bg_color;
+              p{
+                span{
+                  color:#969696;
+                }
+              }
+              p.two{
+                padding:12px 0;
+              }
+              p.clothes_name{
+                width:250px;
+                white-space: nowrap;
+                overflow:hidden;
+                text-overflow: ellipsis;
+              }
+            }
+            li:nth-of-type(3){
+              padding:0 48px;
+              color:#969696;
+              b{
+                color:@deepfont_color;
+              }
+            }
+            li:nth-of-type(4){
+              border-right:1px solid @bg_color;
+              padding:0 20px;
+              p{
+                height:80px;
+                line-height:80px;
+                input{
+                  height:30px;
+                  width:100px;
+                  line-height:30px;
+                  border-radius:5px;
+                  border:1px solid @deepred_color;
+                  background-color:#fff;
+                  font-size:12px;
+                  color:@deepred_color;
+                }
+              }
+            }
+            li:nth-of-type(5){
+              padding:0 15px;
+              p{
+                height:80px;
+                line-height:80px;
+                color:#969696;
+                b{
+                  color:@deepfont_color;
+                }
+              }
+            }
+          }
+          ul:not(:first-child){
+            border-top:none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//弹框
+
+//<!--弹框--绑定店铺（超过3次绑定）-->
+.binding_modal{
+  display:none;
+  .modal_content{
+    padding:55px 0;
+    p:first-of-type{
+      font-size:16px;
+      padding-bottom:18px;
+    }
+  }
+}
+.modal_submit{
+  input{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #f10180;
+    border-radius: 5px;
+  }
+}
+
+//修改联系方式
+.modify_modal{
+  display:none;
+  .amend_box{
+    padding-top:30px;
+    label {
+      font-size: 14px;
+    }
+    input{
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      border: 1px solid #969696;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    p{
+      height: 30px;
+      line-height: 30px;
+      text-align: left;
+      padding-left: 152px;
+      span{
+        color:@span_color;
+      }
+    }
+  }
+}
+
+//绑定新店铺
+.bindingShops_modal{
+  display:none;
+  .modal_box{
+    margin-top:-354px;
+    margin-left:-255px;
+  }
+
+
+  //店铺信息
+  .shop_information{
+    box-sizing: border-box;
+    width:560px;
+    padding:20px 0;
+    font-size:14px;
+    label{
+      display:inline-block;
+      width:177px;
+      text-align:right;
+      //font-size:14px;
+    }
+    input{
+      height:28px;
+      line-height:28px;
+      border:1px solid #969696;
+      border-radius:5px;
+      margin-bottom:20px;
+    }
+    input[type="text"]{
+      width:200px;
+    }
+    input[type="file"]{
+      border:none;
+      width:80px;
+      height:28px;
+      line-height:28px;
+      padding-left:10px;
+    }
+    input[type="button"]{
+      width:93px;
+      background-color:#fff;
+      color:@deepred_color;
+      margin-top:10px;
+      margin-bottom:0;
+    }
+    input[type="button"].clone{
+      margin-left:10px;
+      &:hover{
+        color:@deepred_color;
+        border:1px solid @deepred_color;
+      }
+    }
+    span{
+      display:inline-block;
+      width:153px;
+      text-align:left;
+      padding-left:10px;
+      color:#e61e28;
+    }
+    a.file{
+      display:inline-block;
+      position:relative;
+      width:80px;
+      height:28px;
+      line-height:28px;
+      border:1px solid #969696;
+      border-radius:5px;
+      background-color:#f0f0f0;
+      z-index:9;
+      input{
+        position:absolute;
+        right:0px;
+        top: 0;
+        opacity: 0;
+      }
+    }
+    b.not_select{
+      width:100px;
+      display:inline-block;
+      font-size:12px;
+      text-align:left;
+      padding-left:8px;
+    }
+    p{
+      line-height:28px;
+      text-align:left;
+      padding-left:177px;
+      font-size:12px;
+      color:#969696;
+    }
+    p.picture{
+      >span{
+        display:inline-block;
+        width:332px;
+        height:57px;
+        border:1px solid #f9f9f9;
+        padding:1px;
+        img{
+          width:330px;
+          height:55px;
+        }
+      }
+    }
+  }
+}

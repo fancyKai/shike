@@ -1,0 +1,82 @@
+#section .login_content {
+  width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  background: url(../images/login_bg.png) center no-repeat;
+}
+#section .login_content .login_box {
+  width: 350px;
+  height: 350px;
+  background-color: #e8e9ea;
+  border-radius: 5px;
+  margin-top: 132px;
+  margin-right: 100px;
+  padding: 25px;
+}
+#section .login_content .login_box .password_login {
+  overflow: hidden;
+  margin-top: 8px;
+}
+#section .login_content .login_box .password_login h1 {
+  color: #323232;
+  font-size: 16px;
+}
+#section .login_content .login_box .password_login p a {
+  display: inline-block;
+  padding-left: 8px;
+}
+#section .login_content .login_box .password_login p a:hover {
+  color: #f10180;
+  text-decoration: underline;
+}
+#section .login_content .login_box .password_login p span {
+  display: inline-block;
+  padding-left: 8px;
+}
+#section .login_content .login_box ul {
+  width: 300px;
+}
+#section .login_content .login_box ul li {
+  width: 300px;
+  height: 42px;
+  margin-top: 30px;
+}
+#section .login_content .login_box ul li input {
+  width: 258px;
+  height: 42px;
+  line-height: 42px;
+  margin-left: 42px;
+}
+#section .login_content .login_box ul li.account {
+  background: url(../images/login_icon_zh_default.png) left no-repeat;
+}
+#section .login_content .login_box ul li.password {
+  background: url(../images/login_icon_mm_default.png) left no-repeat;
+}
+#section .login_content .login_box .error {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+}
+#section .login_content .login_box .error span {
+  color: #e61e28;
+  size: 14px;
+}
+#section .login_content .login_box .login_btn input {
+  width: 300px;
+  height: 42px;
+  line-height: 42px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #f10180;
+}
+#section .login_content .login_box .forget_password {
+  float: right;
+  margin-top: 35px;
+}
+#section .login_content .login_box .forget_password img {
+  margin-top: -2px;
+}
+#section .login_content .login_box .forget_password span {
+  margin-left: 10px;
+}

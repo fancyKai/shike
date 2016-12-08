@@ -1,0 +1,77 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+
+#section{
+  .section_main{
+    .store_content{
+      padding-bottom:20px;
+      .progress_bar{
+        padding:50px 0;
+        border-bottom:1px solid #f5f5f5;
+      }
+      .have_bindingShops,.no_bindingShops{
+        h2.title{
+          font-size:16px;
+          padding:18px 0;
+        }
+        .shop_information{
+          overflow:hidden;
+          .shop{
+            cursor:pointer;
+            width:150px;
+            height:157px;
+            border:1px solid #f5f5f5;
+            text-align:center;
+            padding:15px 0;
+            margin-right:50px;
+            .logo{
+              width:70px;
+              height:70px;
+            }
+            .shop_name{
+              color:@deepfont_color;
+              font-size:14px;
+              padding:10px 0;
+            }
+          }
+        }
+        .nextStep_btn{
+          input {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            margin-top: 30px
+          }
+          input.one{
+            background-color:#c8c8c8;
+          }
+          input.two{
+            display:none;
+            background-color:#f10180;
+          }
+          input.binding{
+            color:#fff;
+            background-color:@deepred_color;
+          }
+        }
+        .note{
+          padding-top:15px;
+          b {
+            font-size: 14px;
+            color: @deepfont_color;
+          }
+        }
+        .no_binding{
+          padding:45px 0;
+          font-size:14px;
+        }
+      }
+    }
+  }
+}

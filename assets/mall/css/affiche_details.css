@@ -1,0 +1,40 @@
+#section {
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+#section .affiche_title ul {
+  overflow: hidden;
+  padding-top: 18px;
+}
+#section .affiche_title ul li {
+  float: left;
+}
+#section .affiche_title ul li:not(:first-child) {
+  padding-left: 10px;
+}
+#section .affiche_details {
+  margin-top: 30px;
+  border: 1px solid #f0f0f0;
+}
+#section .affiche_details > h1 {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #323232;
+  font-size: 24px;
+}
+#section .affiche_details > p {
+  color: #969696;
+  text-align: center;
+  padding: 18px 0;
+}
+#section .affiche_details .content {
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 18px 0 48px 0;
+}

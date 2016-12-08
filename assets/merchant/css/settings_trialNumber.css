@@ -1,0 +1,106 @@
+.search_active {
+  background: url(../images/spot.png) left center no-repeat !important;
+}
+#section .section_main .store_content {
+  padding-bottom: 20px;
+}
+#section .section_main .store_content .progress_bar {
+  padding: 50px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_main .store_content .settings_trialNumber h2.title {
+  font-size: 16px;
+  padding: 18px 0;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul {
+  height: 118px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 18px 0;
+  overflow: hidden;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li {
+  box-sizing: border-box;
+  float: left;
+  color: #323232;
+  height: 80px;
+  padding: 0 20px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li p {
+  font-size: 12px;
+  color: #969696;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li p span {
+  color: #323232;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(2),
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(3),
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(4) {
+  width: 230px;
+  border-right: 1px solid #f5f5f5;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(2) p,
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(3) p,
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(4) p {
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(2) p,
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(4) p {
+  line-height: 20px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(3) p,
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:nth-of-type(5) p {
+  line-height: 26px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul .li:first-of-type {
+  padding-left: 10px;
+  width: 110px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content ul li:last-of-type {
+  width: 170px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content .try_num p {
+  color: #323232;
+  font-size: 14px;
+  padding-top: 20px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content .try_num p input {
+  width: 100px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: 1px solid #969696;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content .try_num p b {
+  font-size: 12px;
+  color: #646464;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content .try_num p.error_hint {
+  padding-left: 114px;
+  padding-top: 5px;
+}
+#section .section_main .store_content .settings_trialNumber .trial_content .try_num p.error_hint span {
+  color: #e61e28;
+  font-size: 12px;
+}
+#section .section_main .store_content .settings_trialNumber .nextStep_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: #f10180;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #f10180;
+  margin: 20px 30px 30px 0;
+}
+#section .section_main .store_content .settings_trialNumber .nextStep_btn input:hover {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .store_content .settings_trialNumber .nextStep_btn input:first-of-type {
+  margin-left: 100px;
+}

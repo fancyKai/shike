@@ -1,0 +1,240 @@
+#section .section_main .store_content {
+  min-height: 555px;
+}
+#section .section_main .store_content .binding_shops {
+  padding: 20px 0;
+}
+#section .section_main .store_content .binding_shops input {
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  border-radius: 5px;
+  background-color: #f10180;
+  margin-right: 10px;
+  color: #fff;
+}
+#section .section_main .store_content .binding_shops img {
+  margin: -2px 0 0 10px;
+  cursor: pointer;
+}
+#section .section_main .store_content .shops_details .detalis img.noContent {
+  margin: 85px 405px 0 405px;
+}
+#section .section_main .store_content .shops_details .detalis ul {
+  height: 118px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 18px;
+  overflow: hidden;
+}
+#section .section_main .store_content .shops_details .detalis ul li {
+  float: left;
+  color: #323232;
+  font-size: 14px;
+  height: 80px;
+}
+#section .section_main .store_content .shops_details .detalis ul li:first-of-type img {
+  width: 80px;
+  height: 80px;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(2),
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(3) {
+  padding: 0 40px 0 28px;
+  border-right: 1px solid #f5f5f5;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(2) p span,
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(3) p span {
+  color: #969696;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(2) p.two,
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(3) p.two {
+  padding: 12px 0;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(2) p.clothes_name,
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(3) p.clothes_name {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(3) {
+  padding: 0 48px;
+  color: #969696;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(3) b {
+  color: #323232;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(4) {
+  border-right: 1px solid #f5f5f5;
+  padding: 0 20px;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(4) p {
+  height: 80px;
+  line-height: 80px;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(4) p input {
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  border-radius: 5px;
+  border: 1px solid #f10180;
+  background-color: #fff;
+  font-size: 12px;
+  color: #f10180;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(5) {
+  padding: 0 15px;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(5) p {
+  height: 80px;
+  line-height: 80px;
+  color: #969696;
+}
+#section .section_main .store_content .shops_details .detalis ul li:nth-of-type(5) p b {
+  color: #323232;
+}
+#section .section_main .store_content .shops_details .detalis ul:not(:first-child) {
+  border-top: none;
+}
+.binding_modal {
+  display: none;
+}
+.binding_modal .modal_content {
+  padding: 55px 0;
+}
+.binding_modal .modal_content p:first-of-type {
+  font-size: 16px;
+  padding-bottom: 18px;
+}
+.modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.modify_modal {
+  display: none;
+}
+.modify_modal .amend_box {
+  padding-top: 30px;
+}
+.modify_modal .amend_box label {
+  font-size: 14px;
+}
+.modify_modal .amend_box input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.modify_modal .amend_box p {
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 152px;
+}
+.modify_modal .amend_box p span {
+  color: #e61e28;
+}
+.bindingShops_modal {
+  display: none;
+}
+.bindingShops_modal .modal_box {
+  margin-top: -354px;
+  margin-left: -255px;
+}
+.bindingShops_modal .shop_information {
+  box-sizing: border-box;
+  width: 560px;
+  padding: 20px 0;
+  font-size: 14px;
+}
+.bindingShops_modal .shop_information label {
+  display: inline-block;
+  width: 177px;
+  text-align: right;
+}
+.bindingShops_modal .shop_information input {
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.bindingShops_modal .shop_information input[type="text"] {
+  width: 200px;
+}
+.bindingShops_modal .shop_information input[type="file"] {
+  border: none;
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  padding-left: 10px;
+}
+.bindingShops_modal .shop_information input[type="button"] {
+  width: 93px;
+  background-color: #fff;
+  color: #f10180;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.bindingShops_modal .shop_information input[type="button"].clone {
+  margin-left: 10px;
+}
+.bindingShops_modal .shop_information input[type="button"].clone:hover {
+  color: #f10180;
+  border: 1px solid #f10180;
+}
+.bindingShops_modal .shop_information span {
+  display: inline-block;
+  width: 153px;
+  text-align: left;
+  padding-left: 10px;
+  color: #e61e28;
+}
+.bindingShops_modal .shop_information a.file {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  z-index: 9;
+}
+.bindingShops_modal .shop_information a.file input {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  opacity: 0;
+}
+.bindingShops_modal .shop_information b.not_select {
+  width: 100px;
+  display: inline-block;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 8px;
+}
+.bindingShops_modal .shop_information p {
+  line-height: 28px;
+  text-align: left;
+  padding-left: 177px;
+  font-size: 12px;
+  color: #969696;
+}
+.bindingShops_modal .shop_information p.picture > span {
+  display: inline-block;
+  width: 332px;
+  height: 57px;
+  border: 1px solid #f9f9f9;
+  padding: 1px;
+}
+.bindingShops_modal .shop_information p.picture > span img {
+  width: 330px;
+  height: 55px;
+}
