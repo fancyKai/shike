@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>活动管理</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/modal_alert.css">
+    <link rel="stylesheet" href="../../css/activity_manage.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧活动中心-->
+        <div class="content left">
+            <div class="activity_manage">
+                <h1 class="title">活动管理</h1>
+                <!--所有订单的状态种类-->
+                <div class="order_status">
+                    <ul>
+                        <li class="order"><a class="personal_active" href="javascript:void(0);">所有活动（<span>4</span>）</a><b>|</b></li>
+                        <li class="order"><a href="javascript:void(0);">待付款活动（<span>1</span>）</a><b>|</b></li>
+                        <li class="order"><a href="javascript:void(0);">待发布活动（<span>1</span>）</a><b>|</b></li>
+                        <li class="order"><a href="javascript:void(0);">待开奖活动（<span>1</span>）</a></li>
+                        <li class="order"><a href="javascript:void(0);">已开奖活动（<span>1</span>）</a></li>
+                    </ul>
+                </div>
+                <!--商品发货状态-->
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>活动订单号：123460000</span>
+                        </p>
+                        <p class="right">
+                            <a href="0302_obligations_details.html">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p>商品名称：<span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
+                                <p>店铺名称：<span>夏季尼官方旗舰店</span></p>
+                                <p>商品来源：<span>淘宝</span></p>
+                                <p>商品分类：<span>女装，每单拍1个</span></p>
+                            </li>
+                            <li>
+                                <p>商品押金：<span>100.00元</span></p>
+                                <p>试用担保金：<span>5.00元</span></p>
+                                <p>商品运费：<span>0.00元</span></p>
+                                <p>订单合计：<span>105.00元</span></p>
+                            </li>
+                            <li>
+                                <p><span>待付款</span></p>
+                            </li>
+                            <li>
+                                <p class="status">
+                                    <span>
+                                        <input id="pay_now" type="button" value="立即付款"/>
+                                    </span>
+                                </p>
+                                <p>还剩48小时00分00秒</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="0302_canceled_details.html">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">商品名称：<span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
+                                <p class="two">店铺名称：<span>夏季尼官方旗舰店</span></p>
+                                <p>商品来源：<span>米色.M</span></p>
+                                <p>商品分类：<span>女装，每单拍1个</span></p>
+                            </li>
+                            <li>
+                                <p>商品押金：<span>100.00元</span></p>
+                                <p>试用担保金：<span>5.00元</span></p>
+                                <p>商品运费：<span>0.00元</span></p>
+                                <p>订单合计：<span>105.00元</span></p>
+                            </li>
+                            <li>
+                                <p><span>已取消</span></p>
+                            </li>
+                            <li>
+                                <p class="status"><span>试用活动已取消</span></p>
+                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="../../images/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="0302_lottery_details.html">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">商品名称：<span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
+                                <p class="two">店铺名称：<span>夏季尼官方旗舰店</span></p>
+                                <p>商品来源：<span>米色.M</span></p>
+                                <p>商品分类：<span>女装，每单拍1个</span></p>
+                            </li>
+                            <li>
+                                <p>商品押金：<span>100.00元</span></p>
+                                <p>试用担保金：<span>5.00元</span></p>
+                                <p>商品运费：<span>0.00元</span></p>
+                                <p>订单合计：<span>105.00元</span></p>
+                            </li>
+                            <li>
+                                <p><span>已开奖</span></p>
+                            </li>
+                            <li>
+                                <p class="status"><span>试用活动已开奖</span></p>
+                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="../../images/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="0302_nolottery_details.html">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">商品名称：<span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
+                                <p class="two">店铺名称：<span>夏季尼官方旗舰店</span></p>
+                                <p>商品来源：<span>米色.M</span></p>
+                                <p>商品分类：<span>女装，每单拍1个</span></p>
+                            </li>
+                            <li>
+                                <p>商品押金：<span>100.00元</span></p>
+                                <p>试用担保金：<span>5.00元</span></p>
+                                <p>商品运费：<span>0.00元</span></p>
+                                <p>订单合计：<span>105.00元</span></p>
+                            </li>
+                            <li>
+                                <p><span>待开奖</span></p>
+                            </li>
+                            <li>
+                                <p class="status"><span>试用活动已取消</span></p>
+                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="../../images/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="0302_tobebeannounced_details.html">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">商品名称：<span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
+                                <p class="two">店铺名称：<span>夏季尼官方旗舰店</span></p>
+                                <p>商品来源：<span>米色.M</span></p>
+                                <p>商品分类：<span>女装，每单拍1个</span></p>
+                            </li>
+                            <li>
+                                <p>商品押金：<span>100.00元</span></p>
+                                <p>试用担保金：<span>5.00元</span></p>
+                                <p>商品运费：<span>0.00元</span></p>
+                                <p>订单合计：<span>105.00元</span></p>
+                            </li>
+                            <li>
+                                <p><span>待发布</span></p>
+                            </li>
+                            <li>
+                                <p class="status"><span>试用活动正在审核中</span></p>
+                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="../../images/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<!--弹框--确认发货-->
+<div class="pay_now_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>提示</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认付款-->
+           <p>请输入支付密码</p>
+            <table>
+                <tr>
+                    <td><input type="text"/></td>
+                    <td><input type="text"/></td>
+                    <td><input type="text"/></td>
+                    <td><input type="text"/></td>
+                    <td><input type="text"/></td>
+                    <td><input type="text"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal_submit">
+            <input id="confirm_payment"type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+
+<!--确认付款成功弹框-->
+<div class="payment_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>提示</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="succeed_content">
+            <p><img src="../../images/sj_fbsy_tc_icon_right_default.png" alt=""></p>
+            <p class="payment_succeed">支付成功！</p>
+            <p>请等待客服审核任务审核通过后会上线发布。</p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+<!--确认付款失败弹框-->
+<div class="paymentFailure_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>提示</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="succeed_content">
+            <p><img src="../../images/sj_fbsy_tc_icon_no_default.png" alt=""></p>
+            <p class="payment_succeed">支付失败！</p>
+            <p style="height:20px;"></p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+
+<script src="../../js/jquery-1.10.2.js"></script>
+<script src="../../js/modal_scrollbar.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+//        标题的点击事件
+        $('.order').bind('click',function(){
+            $(this).find('a').addClass('personal_active');
+            $(this).siblings().find('a').removeClass('personal_active');
+        });
+//          弹框
+//        模态框的高度(500：表示头部和尾部高度的和)；
+        $('.mask_layer').height(document.body.offsetHeight+500);
+//        确认付款弹框
+        $('#pay_now').bind('click',function(){
+            $('.pay_now_modal').css('display','block');
+            disableScroll();
+        });
+//        付款成功弹框
+//        $('#confirm_payment').bind('click',function(){
+//            $('.payment_modal').css('display','block');
+//            $('.pay_now_modal').css('display','none');
+//            disableScroll();
+//        });
+//        付款失败弹框
+       $('#confirm_payment').bind('click',function(){
+        $('.paymentFailure_modal').css('display','block');
+        disableScroll();
+        });
+
+        $('.close,.cancel,.confirm').bind('click',function(){
+            $('.pay_now_modal,.paymentFailure_modal,.payment_modal').css('display','none');
+            enableScroll();
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

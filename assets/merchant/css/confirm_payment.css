@@ -32,27 +32,24 @@
   height: 50px;
   font-size: 14px;
 }
-#section .section_main .store_content .confirm_payment .payment_content > table td {
+#section .section_main .store_content .confirm_payment .payment_content > table td span {
   color: #323232;
 }
-#section .section_main .store_content .confirm_payment .payment_content > table td:first-of-type {
-  color: #646464;
-}
-#section .section_main .store_content .confirm_payment .payment_content > table td:last-of-type {
+#section .section_main .store_content .confirm_payment .payment_content > table td b {
   color: #e61e28;
 }
 #section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) {
   width: 375px;
-  font-size: 12px;
 }
-#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) p span {
-  color: #646464;
+#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) p {
+  font-size: 12px;
 }
 #section .section_main .store_content .confirm_payment .payment_content p.total {
   text-align: right;
   padding-top: 20px;
   padding-right: 20px;
   font-size: 16px;
+  color: #323232;
 }
 #section .section_main .store_content .confirm_payment .payment_content p.total span {
   color: #e61e28;
@@ -116,17 +113,21 @@
 }
 .payment_modal .succeed_content,
 .paymentFailure_modal .succeed_content {
-  padding: 20px 0;
+  padding-top: 20px;
 }
 .payment_modal .succeed_content p.payment_succeed,
 .paymentFailure_modal .succeed_content p.payment_succeed {
   color: #323232;
   font-size: 16px;
-  padding: 20px 0 10px 0;
+  padding: 15px 0 10px 0;
 }
 .payment_modal .succeed_content p,
 .paymentFailure_modal .succeed_content p {
   font-size: 14px;
+}
+.payment_modal .modal_submit,
+.paymentFailure_modal .modal_submit {
+  padding-top: 15px;
 }
 .payment_modal .modal_submit input,
 .paymentFailure_modal .modal_submit input {

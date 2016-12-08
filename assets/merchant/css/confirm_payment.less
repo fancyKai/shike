@@ -39,21 +39,17 @@
               font-size:14px;
             }
             td{
-              color:@deepfont_color;
-            }
-            td:first-of-type{
-              color:#646464;
-            }
-            td:last-of-type{
-              color:@span_color;
+              span {
+                color: @deepfont_color;
+              }
+              b{
+                color:@span_color;
+              }
             }
             td:nth-of-type(4){
               width:375px;
-              font-size:12px;
-              p{
-                span{
-                  color:#646464;
-                }
+              p {
+                font-size: 12px;
               }
             }
           }
@@ -62,6 +58,7 @@
             padding-top:20px;
             padding-right:20px;
             font-size:16px;
+            color:@deepfont_color;
             span{
               color:@span_color;
             }
@@ -130,17 +127,18 @@
 .payment_modal,.paymentFailure_modal{
   display:none;
   .succeed_content{
-    padding:20px 0;
+    padding-top:20px;
     p.payment_succeed{
       color:#323232;
       font-size:16px;
-      padding:20px 0 10px 0;
+      padding:15px 0 10px 0;
     }
     p{
       font-size:14px;
     }
   }
   .modal_submit{
+    padding-top:15px;
     input{
       width: 80px;
       height: 30px;

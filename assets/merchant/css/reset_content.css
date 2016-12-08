@@ -12,6 +12,7 @@
 #section .section_main .store_content {
   width: 1040px;
   margin-left: 10px;
+  min-height: 555px;
 }
 #section .section_main h1.title {
   color: #323232;

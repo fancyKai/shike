@@ -1,0 +1,328 @@
+#section {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-bottom: 50px;
+}
+#section .activity_details {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-bottom: 50px;
+}
+#section .activity_details .location_title {
+  padding: 30px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .activity_details .location_title ul {
+  overflow: hidden;
+}
+#section .activity_details .location_title ul li {
+  float: left;
+  font-size: 14px;
+  padding-right: 10px;
+}
+#section .activity_details .location_title ul li a:hover {
+  color: #f10180;
+}
+#section .activity_details .commodity_information {
+  padding: 0 30px;
+}
+#section .activity_details .commodity_information h1 {
+  padding-top: 30px;
+  font-size: 16px;
+  color: #323232;
+}
+#section .activity_details .commodity_information .title {
+  overflow: hidden;
+  padding: 10px;
+}
+#section .activity_details .commodity_information .title p {
+  font-size: 14px;
+  height: 16px;
+}
+#section .activity_details .commodity_information .title p a {
+  color: #005ea7;
+}
+#section .activity_details .commodity_information .title p:first-of-type {
+  background: url(../images/line.png) left no-repeat;
+  padding-left: 25px;
+}
+#section .activity_details .commodity_information .title p:first-of-type span {
+  margin-right: 40px;
+}
+#section .activity_details .commodity_information .details ul {
+  height: 115px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 15px 0;
+  overflow: hidden;
+}
+#section .activity_details .commodity_information .details ul li {
+  box-sizing: border-box;
+  float: left;
+  color: #323232;
+  height: 80px;
+  width: 260px;
+}
+#section .activity_details .commodity_information .details ul li p {
+  width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  color: #969696;
+  line-height: 20px;
+}
+#section .activity_details .commodity_information .details ul li p span {
+  color: #323232;
+}
+#section .activity_details .commodity_information .details ul li p b {
+  color: #f10180;
+}
+#section .activity_details .commodity_information .details ul li p a {
+  color: #005ea7;
+}
+#section .activity_details .commodity_information .details ul li:nth-of-type(1) {
+  width: 120px;
+  padding: 0 20px;
+}
+#section .activity_details .commodity_information .details ul li:nth-of-type(2),
+#section .activity_details .commodity_information .details ul li:nth-of-type(3),
+#section .activity_details .commodity_information .details ul li:nth-of-type(4) {
+  border-right: 1px solid #f5f5f5;
+  padding-left: 30px;
+}
+#section .activity_details .commodity_information .details ul li:nth-of-type(5) {
+  padding-left: 30px;
+  width: 240px;
+}
+#section .activity_details .commodity_information .details ul li:nth-of-type(3) p {
+  line-height: 28px;
+}
+#section .activity_details .commodity_information > table {
+  height: 154px;
+  margin-top: 10px;
+}
+#section .activity_details .commodity_information > table td,
+#section .activity_details .commodity_information > table th {
+  border: 1px  solid #c8c8c8;
+  text-align: center;
+  height: 50px;
+  font-size: 14px;
+  width: 160px;
+}
+#section .activity_details .commodity_information > table td span {
+  color: #323232;
+}
+#section .activity_details .commodity_information > table td b {
+  color: #e61e28;
+}
+#section .activity_details .commodity_information > table td:nth-of-type(4) {
+  width: 504px;
+}
+#section .activity_details .commodity_information > table td:nth-of-type(4) p {
+  font-size: 12px;
+}
+#section .activity_details .commodity_information > table td:nth-of-type(5) {
+  width: 150px;
+}
+#section .activity_details .commodity_information p.total {
+  text-align: right;
+  padding-top: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  color: #323232;
+}
+#section .activity_details .commodity_information p.total span {
+  color: #e61e28;
+}
+#section .activity_details .commodity_information .order_status {
+  width: 100%;
+  height: 100px;
+  padding: 20px 50px 20px 0;
+  background-color: #fbfcff;
+  margin-top: 60px;
+}
+#section .activity_details .commodity_information .order_status p {
+  text-align: right;
+}
+#section .activity_details .commodity_information .order_status p:first-of-type {
+  font-size: 16px;
+  color: #323232;
+}
+#section .activity_details .commodity_information .order_status p:first-of-type span {
+  font-size: 20px;
+  color: #e61e28;
+}
+#section .activity_details .commodity_information .order_status p:last-of-type {
+  font-size: 12px;
+  padding-top: 10px;
+}
+#section .activity_details .commodity_information .order_status p:last-of-type img {
+  margin-top: -2px;
+}
+#section .activity_details .commodity_information .winning_shike {
+  width: 590px;
+  height: 103px;
+  border: 1px solid #f10180;
+  margin: 30px 0 8px 550px;
+  padding: 20px 50px;
+}
+#section .activity_details .commodity_information .winning_shike p {
+  font-size: 16px;
+  color: #323232;
+}
+#section .activity_details .commodity_information .winning_shike table {
+  font-size: 14px;
+}
+#section .activity_details .commodity_information .winning_shike table td {
+  width: 80px;
+  text-align: center;
+  height: 32px;
+}
+#section .activity_details .commodity_information .payment_box {
+  overflow: hidden;
+  padding-top: 50px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment {
+  float: right;
+  width: 484px;
+  height: 222px;
+  border: 1px solid #f10180;
+  padding: 25px 50px 30px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p {
+  text-align: right;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p.real_payment {
+  color: #323232;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p.real_payment span {
+  font-size: 20px;
+  color: #e61e28;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p.deposit {
+  font-size: 14px;
+  color: #646464;
+  padding: 8px 0;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p.deposit span {
+  color: #e61e28;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p.explain {
+  color: #969696;
+  font-size: 12px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment div.payment_code {
+  padding-top: 20px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment div.payment_code p {
+  font-size: 14px;
+  color: #646464;
+  padding-right: 76px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment div.payment_code > table {
+  margin-left: 194px;
+  margin-top: 5px;
+  width: 187px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment div.payment_code > table td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment div.payment_code > table td input {
+  width: 30px;
+  height: 30px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment div.payment_code > table td input:focus {
+  border: 1px solid #a6cef1;
+}
+#section .activity_details .commodity_information .nextStep_btn {
+  text-align: right;
+  padding-top: 50px;
+}
+#section .activity_details .commodity_information .nextStep_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: #f10180;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #f10180;
+}
+#section .activity_details .commodity_information .nextStep_btn input:hover {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .activity_details .commodity_information .nextStep_btn input:first-of-type {
+  margin-right: 30px;
+}
+#section .activity_details .commodity_information p.try_task {
+  text-align: right;
+  color: #323232;
+}
+#section .activity_details .commodity_information p.try_task a {
+  color: #f10180;
+}
+.cancel_order_modal,
+.payment_modal,
+.paymentFailure_modal {
+  display: none;
+}
+.cancel_order_modal .modal_content,
+.payment_modal .modal_content,
+.paymentFailure_modal .modal_content {
+  text-align: center;
+}
+.cancel_order_modal .modal_content p,
+.payment_modal .modal_content p,
+.paymentFailure_modal .modal_content p {
+  font-size: 16px;
+  padding-top: 50px;
+}
+.cancel_order_modal .modal_content p.confirm_cancel,
+.payment_modal .modal_content p.confirm_cancel,
+.paymentFailure_modal .modal_content p.confirm_cancel {
+  padding: 64px;
+}
+.cancel_order_modal .succeed_content,
+.payment_modal .succeed_content,
+.paymentFailure_modal .succeed_content {
+  padding-top: 24px;
+}
+.cancel_order_modal .succeed_content p.payment_succeed,
+.payment_modal .succeed_content p.payment_succeed,
+.paymentFailure_modal .succeed_content p.payment_succeed {
+  color: #323232;
+  font-size: 16px;
+  padding: 15px 0 10px 0;
+}
+.cancel_order_modal .succeed_content p,
+.payment_modal .succeed_content p,
+.paymentFailure_modal .succeed_content p {
+  font-size: 14px;
+}
+.cancel_order_modal .modal_submit,
+.payment_modal .modal_submit,
+.paymentFailure_modal .modal_submit {
+  padding-top: 15px;
+}
+.cancel_order_modal .modal_submit input,
+.payment_modal .modal_submit input,
+.paymentFailure_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.cancel_order_modal .modal_submit input:nth-of-type(2),
+.payment_modal .modal_submit input:nth-of-type(2),
+.paymentFailure_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}

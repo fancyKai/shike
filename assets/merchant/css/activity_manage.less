@@ -3,6 +3,7 @@
 @bg_color:#f5f5f5;
 @red_color:#ffb7bb;
 @deepred_color:#f10180;
+@span_color:#e61e28;
 .personal_active{
   color:@deepred_color !important;
 }
@@ -15,6 +16,7 @@
         padding:30px;
       //<!--所有订单的状态种类-->
         .order_status{
+          padding-top:10px;
           ul{
             overflow:hidden;
             height:38px;
@@ -65,76 +67,75 @@
           }
           .detalis{
             ul{
-              height:118px;
+              height:115px;
               border-top:1px solid @bg_color;
               border-bottom:1px solid @bg_color;
-              padding:18px;
+              padding:15px 0;
               overflow:hidden;
               li{
+                box-sizing: border-box;
                 float:left;
                 color:@deepfont_color;
-                font-size:14px;
                 height:80px;
-              }
-              li:first-of-type {
-                img{
-                  width:80px;
-                  height:80px;
-                }
-              }
-              li:nth-of-type(2){
-                padding:0 40px 0 28px;
-                border-right:1px solid @bg_color;
+                padding:0 20px;
                 p{
+                  font-size:12px;
+                  color:#969696;
+                  line-height:20px;
                   span{
-                    color:#969696;
+                    color:#323232;
                   }
                 }
-                p.two{
-                  padding:12px 0;
-                }
-                p.clothes_name{
+              }
+              li:nth-of-type(2),li:nth-of-type(3),li:nth-of-type(4){
+                border-right:1px solid #f5f5f5;
+              }
+              li:nth-of-type(1){
+                width:120px;
+              }
+              li:nth-of-type(2){
+                width:310px;
+                p{
                   width:250px;
                   white-space: nowrap;
                   overflow:hidden;
                   text-overflow: ellipsis;
                 }
               }
-              li:nth-of-type(3),li:nth-of-type(4){
-                border-right:1px solid @bg_color;
-                padding:0 48px;
-                p{
-                  height:80px;
-                  line-height:80px;
-                  span{
-                    color:#969696;
-                  }
+              li:nth-of-type(3){
+                width:210px;
+                padding-left:40px;
+              }
+              li:nth-of-type(4){
+                width:130px;
+                text-align:center;
+                padding-top:30px;
+                p {
+                  font-size: 14px;
                 }
               }
               li:nth-of-type(5){
                 text-align:center;
-                width:200px;
-                .status{
-                  padding:15px 0 10px 0;
+                width:210px;
+                input {
+                  width: 100px;
+                  height: 30px;
+                  line-height: 30px;
+                  border: 1px solid #f10180;
+                  border-radius: 5px;
+                  background-color: #fff;
+                  color: #f10180;
+                  font-size: 14px;
                 }
-                >p{
-                  input{
-                    width:100px;
-                    height:30px;
-                    line-height:30px;
-                    border:1px solid #f10180;
-                    border-radius:5px;
-                    background-color:#fff;
-                    color:#f10180;
-                    font-size:14px;
+                padding:15px;
+                p{
+                  img{
+                    margin-left:5px;
                   }
-                  span{
-                    color:#969696;
-                    font-size:12px;
-                  }
-                  a{
-                    margin-left:10px;
-                  }
+                }
+                p:first-of-type {
+                  font-size: 14px;
+                  padding-bottom:10px;
                 }
               }
             }
@@ -146,35 +147,46 @@
 }
 
 //弹框
-.delivery_modal,.audit_modal {
+.pay_now_modal,.payment_modal,.paymentFailure_modal {
   display:none;
-  .confirm_delivery {
-    margin-top: 40px;
-    label {
-      font-size: 14px;
+  .modal_content {
+    text-align:center;
+    p{
+      font-size:16px;
+      padding-top:50px;
     }
-    input {
-      width: 200px;
-      height: 28px;
-      line-height: 28px;
-      border: 1px solid #969696;
-      border-radius: 5px;
-      margin-left: 10px;
-    }
-    p {
-      height: 30px;
-      line-height: 30px;
-      text-align: left;
-      padding-left: 152px;
-      span {
-        color: #e61e28;
-        font-size: 14px;
+    table {
+      margin:20px 0 25px 130px;
+      width: 187px;
+      td {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c8c8c8;
+        input {
+          width: 30px;
+          height: 30px;
+          &:focus {
+            border: 1px solid #a6cef1;
+          }
+        }
       }
     }
   }
 
+  .succeed_content{
+    padding-top:24px;
+    p.payment_succeed{
+      color:#323232;
+      font-size:16px;
+      padding:15px 0 10px 0;
+    }
+    p{
+      font-size:14px;
+    }
+  }
+
   .modal_submit {
-    padding-top: 10px;
+    padding-top:15px;
     input {
       width: 80px;
       height: 30px;
@@ -187,14 +199,6 @@
     input:nth-of-type(2){
       margin-left: 35px;
     }
-  }
-}
-
-.audit_modal {
-  display:none;
-  .confirm_audit {
-    padding: 67px 0;
-    font-size: 16px;
   }
 }
 

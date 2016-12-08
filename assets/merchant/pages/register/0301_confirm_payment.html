@@ -36,29 +36,29 @@
                         </tr>
                         <tr>
                             <td>商品押金</td>
-                            <td>20元</td>
-                            <td>5单</td>
+                            <td><span>20元</span></td>
+                            <td><span>5单</span></td>
                             <td>
-                                <p>商品押金=商品单价*免单数量</p>
-                                <p><span>试用完成后，平台直接将押金返给试客</span></p>
+                                <p><span>商品押金=商品单价*免单数量</span></p>
+                                <p>试用完成后，平台直接将押金返给试客</p>
                             </td>
-                            <td><span>100元</span></td>
+                            <td><b>100元</b></td>
                         </tr>
                         <tr>
                             <td>试用担保金</td>
-                            <td>20元</td>
-                            <td>5单</td>
+                            <td><span>20元</span></td>
+                            <td><span>5单</span></td>
                             <td>
-                                <p>试用担保金=商品押金*5%</p>
-                                <p><span>试用完成后，平台会自动将试用担保金返回到您的账户可用押金中。</span></p>
+                                <p><span>试用担保金=商品押金*5%</span></p>
+                                <p>试用完成后，平台会自动将试用担保金返回到您的账户可用押金中。</p>
                             </td>
-                            <td><span>5元</span></td>
+                            <td><b>5元</b></td>
                         </tr>
                     </table>
                     <p class="total">订单合计：<span>10005元</span></p>
                     <h3>进行支付</h3>
                     <p class="deposit">使用押金支付：可用押金：<span>&yen;20</span></p>
-                    <p>可用押金不足，请先去进行押金充值，然后在试用活动-代付款活动中进行支付</p>
+                    <p>可用押金不足，请先充值押金，然后在试用活动-待付款活动中进行支付</p>
                     <div class="payment_code">
                         <p>请输入支付密码：</p>
                         <table>
@@ -132,12 +132,19 @@
         $('#left_nav').load("../common/left_nav.html");
 
         $('.mask_layer').height(document.body.offsetHeight+500);
+
+////        支付成功弹框
+//        $('#confirm_payment').bind('click',function(){
+//            $('.payment_modal').css('display','block');
+//            disableScroll();
+//        });
+////        支付失败弹框
         $('#confirm_payment').bind('click',function(){
-            $('.payment_modal').css('display','block');
+            $('.paymentFailure_modal').css('display','block');
             disableScroll();
         });
         $('.close,.cancel,.confirm').bind('click',function(){
-            $('.payment_modal').css('display','none');
+            $('.payment_modal,.paymentFailure_modal').css('display','none');
             enableScroll();
         });
     })
