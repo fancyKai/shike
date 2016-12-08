@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/modal_alert.css">
+    <link rel="stylesheet" href="../../css/personal_center.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧个人中心-->
+        <div class="content left">
+            <!--会员信息及试用押金说明-->
+            <div class="member_power">
+                <!--个人信息-->
+                <div class="left personal_details">
+                    <div class="left  avatar">
+                        <img src="../../images/sj_grzx_icon_touxiang_default.png" alt="">
+                    </div>
+                    <div class="left username">
+                        <h1>无所谓A</h1>
+                        <p>会员等级：<span>试用会员</span> <b>2016.12.12会员到期</b></p>
+                        <input type="button" value="购买正式会员"/>
+                    </div>
+                </div>
+                <!--试用任务-->
+                <div class="left try_task">
+                    <div class="try_monery">
+                        <input type="button" value="发布试用任务"/>
+                        可用押金：<span>890.00</span>元
+                        <a href="#">充值押金</a>
+                        冻结押金：<span>1590.00</span>元
+                    </div>
+                    <p>
+                        押&nbsp; &nbsp;&nbsp; &nbsp;金：可用来支付平台一切费用，可提现。
+                    </p>
+                    <p>
+                        冻结押金：试用任务中支付的押金和保证金费用，试用任务结束，押金打给试客，保证金返还到银行卡上。
+                    </p>
+                </div>
+            </div>
+            <!--任务说明-->
+            <div class="task_specification">
+                <h1>
+                    <span>任务进展</span>
+                    下方如有提示请点击操作，超过48小时未操作，平台自动确认。
+                </h1>
+                <!--所有订单的状态种类-->
+                <div class="order_status">
+                    <ul>
+                        <li class="order"><a class="personal_active" href="javascript:void(0);">所有订单（<span>12</span>）</a><b>|</b></li>
+                        <li class="order"><a href="javascript:void(0);">待发货订单（<span>5</span>）</a><b>|</b></li>
+                        <li class="order"><a href="javascript:void(0);">已审核评价订单（<span>6</span>）</a><b>|</b></li>
+                        <li class="order"><a href="javascript:void(0);">待确认评价订单（<span>1</span>）</a></li>
+                    </ul>
+                </div>
+                <!--商品发货状态-->
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="#">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                                <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                                <p><span>来源：</span>淘宝</p>
+                            </li>
+                            <li>
+                                <p><span>试客：</span>li***ying</p>
+                            </li>
+                            <li>
+                                <p>待发货</p>
+                            </li>
+                            <li>
+                                <p class="status" id="delivery"><input type="button" value="确认发货"/></p>
+                                <p><span>还剩48小时00分00秒</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="#">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                                <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                                <p><span>来源：</span>淘宝</p>
+                            </li>
+                            <li>
+                                <p><span>试客：</span>li***ying</p>
+                            </li>
+                            <li>
+                                <p>待发货</p>
+                            </li>
+                            <li>
+                                <p class="status">试用待领取</p>
+                                <p><span>还剩48小时00分00秒</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="#">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                                <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                                <p><span>来源：</span>淘宝</p>
+                            </li>
+                            <li>
+                                <p><span>试客：</span>li***ying</p>
+                            </li>
+                            <li>
+                                <p>待发货</p>
+                            </li>
+                            <li>
+                                <p class="status">试用待领取</p>
+                                <p><span>联系客服QQ:</span><a href="javascript:void(0);"><img src="../../images/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="#">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                                <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                                <p><span>来源：</span>淘宝</p>
+                            </li>
+                            <li>
+                                <p><span>试客：</span>li***ying</p>
+                            </li>
+                            <li>
+                                <p>待发货</p>
+                            </li>
+                            <li>
+                                <p class="status" id="audit"><input type="button" value="审核通过"/></p>
+                                <p><span>还剩48小时00分00秒</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--查看更多按钮-->
+                <div class="see_more">
+                    <input onclick="location.href='0303_order_manage.html'" type="button"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<!--弹框--确认发货-->
+<div class="delivery_modal ">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>确认发货</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认发货-->
+            <form class="confirm_delivery" action="">
+                <label for="logistics">物&nbsp; &nbsp;流</label>
+                <input id="logistics" type="text"/>
+                <p><span>物流不能为空</span></p>
+                <label for="waybill_number">运单号</label>
+                <input id="waybill_number" type="text"/>
+                <p><span></span></p>
+            </form>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+<!--弹框--确认审核-->
+<div class="audit_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>确认发货</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认审核-->
+           <p class="confirm_audit">确认审核通过</p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定通过"/>
+            <input class="confirm" type="button" value="取消"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+
+<script src="../../js/jquery-1.10.2.js"></script>
+<script src="../../js/modal_scrollbar.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+//        标题的点击事件
+        $('.order').bind('click',function(){
+            $(this).find('a').addClass('personal_active');
+            $(this).siblings().find('a').removeClass('personal_active');
+        });
+//          弹框
+//        模态框的高度(500：表示头部和尾部高度的和)；
+        $('.mask_layer').height(document.body.offsetHeight+500);
+//        确认发货
+        $('#delivery').bind('click',function(){
+            $('.delivery_modal').css('display','block');
+            disableScroll();
+        });
+//        确认审核
+        $('#audit').bind('click',function(){
+            $('.audit_modal').css('display','block');
+            disableScroll();
+        });
+
+        $('.close,.cancel,.confirm').bind('click',function(){
+            $('.delivery_modal,.audit_modal').css('display','none');
+            enableScroll();
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

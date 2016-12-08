@@ -1,0 +1,151 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+.search_active{
+  background:url(../images/spot.png)left center no-repeat !important ;
+}
+#section{
+  .section_main{
+    .store_content{
+      padding-bottom:20px;
+      //进度条
+      .progress_bar{
+        padding:50px 0;
+        border-bottom:1px solid #f5f5f5;
+      }
+      .confirm_payment{
+        h2.title{
+          font-size:16px;
+          padding-top:18px;
+        }
+        .payment_content{
+          padding:20px;
+          h3{
+            font-size:16px;
+            color:@deepfont_color;
+          }
+          >table{
+            width:940px;
+            height:154px;
+            margin-top:10px;
+            td,th{
+              border:1px  solid #c8c8c8;
+              text-align:center;
+              width:140px;
+              height:50px;
+              font-size:14px;
+            }
+            td{
+              span {
+                color: @deepfont_color;
+              }
+              b{
+                color:@span_color;
+              }
+            }
+            td:nth-of-type(4){
+              width:375px;
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+          p.total{
+            text-align:right;
+            padding-top:20px;
+            padding-right:20px;
+            font-size:16px;
+            color:@deepfont_color;
+            span{
+              color:@span_color;
+            }
+          }
+          p.deposit{
+            font-size:14px;
+            color:#646464;
+            padding:8px 0;
+            span{
+              color:@span_color;
+            }
+          }
+          p{
+            color:#969696;
+            font-size:14px;
+          }
+          div.payment_code{
+            padding-top:20px;
+            p{
+              font-size:14px;
+              color:#646464;
+            }
+            >table{
+              margin-top:5px;
+              width:187px;
+              td{
+                width: 30px;
+                height: 30px;
+                border: 1px solid #c8c8c8;
+                input{
+                  width: 30px;
+                  height: 30px;
+                  &:focus{
+                    border:1px solid #a6cef1;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .nextStep_btn{
+          input {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            color:@deepred_color;
+            font-size: 16px;
+            background-color:#fff;
+            border:1px solid @deepred_color;
+            margin:30px 30px 30px 0;
+            &:hover{
+              background-color:@deepred_color;
+              color:#fff;
+            }
+          }
+          input:first-of-type{
+            margin-left:100px;
+          }
+        }
+        }
+      }
+  }
+}
+
+.payment_modal,.paymentFailure_modal{
+  display:none;
+  .succeed_content{
+    padding-top:20px;
+    p.payment_succeed{
+      color:#323232;
+      font-size:16px;
+      padding:15px 0 10px 0;
+    }
+    p{
+      font-size:14px;
+    }
+  }
+  .modal_submit{
+    padding-top:15px;
+    input{
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: #f10180;
+      border-radius: 5px;
+    }
+  }
+}

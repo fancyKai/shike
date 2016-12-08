@@ -1,0 +1,124 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+.search_active{
+  background:url(../images/spot.png)left center no-repeat !important ;
+}
+#section{
+  .section_main{
+    .store_content{
+      padding-bottom:20px;
+      //进度条
+      .progress_bar{
+        padding:50px 0;
+        border-bottom:1px solid #f5f5f5;
+      }
+      .settings_trialNumber{
+        h2.title{
+          font-size:16px;
+          padding:18px 0;
+        }
+        .trial_content{
+          ul{
+            height:118px;
+            border-top:1px solid @bg_color;
+            border-bottom:1px solid @bg_color;
+            padding:18px 0;
+            overflow:hidden;
+            li{
+              box-sizing: border-box;
+              float:left;
+              color:@deepfont_color;
+              height:80px;
+              padding:0 20px;
+              p{
+                font-size:12px;
+                color:#969696;
+                span{
+                  color:#323232;
+                }
+              }
+            }
+            li:nth-of-type(2),li:nth-of-type(3),li:nth-of-type(4){
+              width:230px;
+              border-right:1px solid #f5f5f5;
+              p{
+                width:190px;
+                white-space: nowrap;
+                overflow:hidden;
+                text-overflow: ellipsis;
+              }
+            }
+            li:nth-of-type(2),li:nth-of-type(4){
+              p{
+                line-height:20px;
+              }
+            }
+            li:nth-of-type(3),li:nth-of-type(5){
+              p{
+                line-height:26px;
+              }
+            }
+            .li:first-of-type{
+             padding-left:10px;
+              width:110px;
+            }
+            li:last-of-type{
+              width:170px;
+            }
+          }
+          .try_num {
+            p{
+              color: @deepfont_color;
+              font-size: 14px;
+              padding-top:20px;
+              input {
+                width: 100px;
+                height: 28px;
+                line-height: 28px;
+                border-radius: 5px;
+                border: 1px solid #969696;
+              }
+              b{
+                font-size:12px;
+                color:#646464;
+              }
+            }
+            p.error_hint{
+              padding-left:114px;
+              padding-top:5px;
+              span{
+                color:@span_color;
+                font-size:12px;
+              }
+            }
+          }
+
+        }
+        .nextStep_btn{
+          input {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            color:@deepred_color;
+            font-size: 16px;
+            background-color:#fff;
+            border:1px solid @deepred_color;
+            margin:20px 30px 30px 0;
+            &:hover{
+              background-color:@deepred_color;
+              color:#fff;
+            }
+          }
+          input:first-of-type{
+            margin-left:100px;
+          }
+        }
+        }
+      }
+  }
+}

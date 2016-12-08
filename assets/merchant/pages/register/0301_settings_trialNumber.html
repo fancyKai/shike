@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布试用</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/settings_trialNumber.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧店铺管理-->
+        <div class="store_content left">
+            <h1 class="title">发布试用</h1>
+            <!--进度条-->
+            <div class="progress_bar">
+                <img src="../../images/sj_fbsy_bg_jdt_four_default.png" alt="">
+            </div>
+            <!--4.设置试用份数-->
+            <div class="settings_trialNumber">
+                <h2 class="title">4.设置试用份数</h2>
+                <div class="trial_content">
+                    <ul>
+                        <li>
+                            <img src="../../images/sj_grzx_bg_sp_default.png" alt="">
+                        </li>
+                        <li>
+                            <p>商品名称：<span>yingyingyingyingyingyingying</span></p>
+                            <p>商品分类：<span>女装</span></p>
+                            <p>商品规格：<span>米色.M</span></p>
+                            <p>商品链接：<span>httPs://wwww.yuntuigou.com</span></p>
+                        </li>
+                        <li>
+                            <p>店铺名称：<span>yingyingyingyingyingyingying</span></p>
+                            <p>平台：<span>淘宝</span></p>
+                            <p><span>通过淘宝自然搜索</span></p>
+                        </li>
+                        <li>
+                            <p>商品关键词：<span>女装</span></p>
+                            <p>筛选列表：<span>香奈儿、裙装...</span></p>
+                            <p>折扣和服务：<span>24小时发货、货到付款</span></p>
+                            <p>排列方式：<span>httPs://wwww.yuntuigou.com</span></p>
+                        </li>
+                        <li>
+                            <p>价格：<span>&yen;1000</span></p>
+                            <p>发货地：<span>全国</span></p>
+                            <p>商品运费：<span>全国包邮</span></p>
+                        </li>
+                    </ul>
+                    <div class="try_num">
+                        <p>
+                        投放试用总份数：
+                        <input type="text" placeholder="份" />
+                        <b>（试用份数不得少于5件）</b>
+                        </p>
+                        <p class="error_hint"><span>投放份数不能为空</span></p>
+                    </div>
+                </div>
+
+                <div class="nextStep_btn">
+                    <input onclick="location.href='0301_settings_search.html'" type="button" value="上一步"/>
+                    <input onclick="location.href='0301_confirm_payment.html'" type="button" value="下一步"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+
+        $('[data-toggle="search"]').bind('click',function(){
+            $(this).addClass('search_active');
+            $(this).siblings().removeClass('search_active');
+        });
+        $('.by_taobao').click(function(){
+            $('.tmall_content').slideUp();
+            $('.taobao_content'). slideDown()
+        });
+        $('.by_tmall').click(function(){
+            $('.taobao_content').slideUp();
+            $('.tmall_content'). slideDown()
+        });
+        $('.checkbox').click(function(){
+            $(this).toggleClass('search_active');
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+.search_active {
+  background: url(../images/spot.png) left center no-repeat !important;
+}
+#section .section_main .store_content {
+  padding-bottom: 20px;
+}
+#section .section_main .store_content .progress_bar {
+  padding: 50px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_main .store_content .confirm_payment h2.title {
+  font-size: 16px;
+  padding-top: 18px;
+}
+#section .section_main .store_content .confirm_payment .payment_content {
+  padding: 20px;
+}
+#section .section_main .store_content .confirm_payment .payment_content h3 {
+  font-size: 16px;
+  color: #323232;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table {
+  width: 940px;
+  height: 154px;
+  margin-top: 10px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td,
+#section .section_main .store_content .confirm_payment .payment_content > table th {
+  border: 1px  solid #c8c8c8;
+  text-align: center;
+  width: 140px;
+  height: 50px;
+  font-size: 14px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td span {
+  color: #323232;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td b {
+  color: #e61e28;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) {
+  width: 375px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) p {
+  font-size: 12px;
+}
+#section .section_main .store_content .confirm_payment .payment_content p.total {
+  text-align: right;
+  padding-top: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  color: #323232;
+}
+#section .section_main .store_content .confirm_payment .payment_content p.total span {
+  color: #e61e28;
+}
+#section .section_main .store_content .confirm_payment .payment_content p.deposit {
+  font-size: 14px;
+  color: #646464;
+  padding: 8px 0;
+}
+#section .section_main .store_content .confirm_payment .payment_content p.deposit span {
+  color: #e61e28;
+}
+#section .section_main .store_content .confirm_payment .payment_content p {
+  color: #969696;
+  font-size: 14px;
+}
+#section .section_main .store_content .confirm_payment .payment_content div.payment_code {
+  padding-top: 20px;
+}
+#section .section_main .store_content .confirm_payment .payment_content div.payment_code p {
+  font-size: 14px;
+  color: #646464;
+}
+#section .section_main .store_content .confirm_payment .payment_content div.payment_code > table {
+  margin-top: 5px;
+  width: 187px;
+}
+#section .section_main .store_content .confirm_payment .payment_content div.payment_code > table td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+}
+#section .section_main .store_content .confirm_payment .payment_content div.payment_code > table td input {
+  width: 30px;
+  height: 30px;
+}
+#section .section_main .store_content .confirm_payment .payment_content div.payment_code > table td input:focus {
+  border: 1px solid #a6cef1;
+}
+#section .section_main .store_content .confirm_payment .nextStep_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: #f10180;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #f10180;
+  margin: 30px 30px 30px 0;
+}
+#section .section_main .store_content .confirm_payment .nextStep_btn input:hover {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .store_content .confirm_payment .nextStep_btn input:first-of-type {
+  margin-left: 100px;
+}
+.payment_modal,
+.paymentFailure_modal {
+  display: none;
+}
+.payment_modal .succeed_content,
+.paymentFailure_modal .succeed_content {
+  padding-top: 20px;
+}
+.payment_modal .succeed_content p.payment_succeed,
+.paymentFailure_modal .succeed_content p.payment_succeed {
+  color: #323232;
+  font-size: 16px;
+  padding: 15px 0 10px 0;
+}
+.payment_modal .succeed_content p,
+.paymentFailure_modal .succeed_content p {
+  font-size: 14px;
+}
+.payment_modal .modal_submit,
+.paymentFailure_modal .modal_submit {
+  padding-top: 15px;
+}
+.payment_modal .modal_submit input,
+.paymentFailure_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}

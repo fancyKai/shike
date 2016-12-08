@@ -1,0 +1,205 @@
+.personal_active {
+  color: #f10180 !important;
+}
+#section .section_main .content .activity_manage {
+  background-color: #fff;
+  padding: 30px;
+}
+#section .section_main .content .activity_manage .order_status {
+  padding-top: 10px;
+}
+#section .section_main .content .activity_manage .order_status ul {
+  overflow: hidden;
+  height: 38px;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin: 18px 0;
+}
+#section .section_main .content .activity_manage .order_status ul li {
+  float: left;
+  font-size: 14px;
+  padding-left: 18px;
+  line-height: 38px;
+}
+#section .section_main .content .activity_manage .order_status ul li > a span {
+  color: #f10180;
+}
+#section .section_main .content .activity_manage .order_status ul li > a:hover {
+  color: #f10180;
+}
+#section .section_main .content .activity_manage .order_status ul li > b {
+  font-weight: normal;
+  color: #969696;
+  margin-left: 16px;
+}
+#section .section_main .content .activity_manage .delivery_status {
+  margin-bottom: 35px;
+}
+#section .section_main .content .activity_manage .delivery_status .title {
+  overflow: hidden;
+  padding: 10px;
+}
+#section .section_main .content .activity_manage .delivery_status .title p {
+  font-size: 14px;
+  height: 16px;
+}
+#section .section_main .content .activity_manage .delivery_status .title p a {
+  color: #005ea7;
+}
+#section .section_main .content .activity_manage .delivery_status .title p:first-of-type {
+  background: url(../images/line.png) left no-repeat;
+  padding-left: 25px;
+}
+#section .section_main .content .activity_manage .delivery_status .title p:first-of-type span {
+  margin-right: 40px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul {
+  height: 115px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 15px 0;
+  overflow: hidden;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li {
+  box-sizing: border-box;
+  float: left;
+  color: #323232;
+  height: 80px;
+  padding: 0 20px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li p {
+  font-size: 12px;
+  color: #969696;
+  line-height: 20px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li p span {
+  color: #323232;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(2),
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(3),
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(4) {
+  border-right: 1px solid #f5f5f5;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(1) {
+  width: 120px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(2) {
+  width: 310px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(2) p {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(3) {
+  width: 210px;
+  padding-left: 40px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(4) {
+  width: 130px;
+  text-align: center;
+  padding-top: 30px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(4) p {
+  font-size: 14px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) {
+  text-align: center;
+  width: 210px;
+  padding: 15px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) input {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #f10180;
+  font-size: 14px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) p img {
+  margin-left: 5px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) p:first-of-type {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+.pay_now_modal,
+.payment_modal,
+.paymentFailure_modal {
+  display: none;
+}
+.pay_now_modal .modal_content,
+.payment_modal .modal_content,
+.paymentFailure_modal .modal_content {
+  text-align: center;
+}
+.pay_now_modal .modal_content p,
+.payment_modal .modal_content p,
+.paymentFailure_modal .modal_content p {
+  font-size: 16px;
+  padding-top: 50px;
+}
+.pay_now_modal .modal_content table,
+.payment_modal .modal_content table,
+.paymentFailure_modal .modal_content table {
+  margin: 20px 0 25px 130px;
+  width: 187px;
+}
+.pay_now_modal .modal_content table td,
+.payment_modal .modal_content table td,
+.paymentFailure_modal .modal_content table td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+}
+.pay_now_modal .modal_content table td input,
+.payment_modal .modal_content table td input,
+.paymentFailure_modal .modal_content table td input {
+  width: 30px;
+  height: 30px;
+}
+.pay_now_modal .modal_content table td input:focus,
+.payment_modal .modal_content table td input:focus,
+.paymentFailure_modal .modal_content table td input:focus {
+  border: 1px solid #a6cef1;
+}
+.pay_now_modal .succeed_content,
+.payment_modal .succeed_content,
+.paymentFailure_modal .succeed_content {
+  padding-top: 24px;
+}
+.pay_now_modal .succeed_content p.payment_succeed,
+.payment_modal .succeed_content p.payment_succeed,
+.paymentFailure_modal .succeed_content p.payment_succeed {
+  color: #323232;
+  font-size: 16px;
+  padding: 15px 0 10px 0;
+}
+.pay_now_modal .succeed_content p,
+.payment_modal .succeed_content p,
+.paymentFailure_modal .succeed_content p {
+  font-size: 14px;
+}
+.pay_now_modal .modal_submit,
+.payment_modal .modal_submit,
+.paymentFailure_modal .modal_submit {
+  padding-top: 15px;
+}
+.pay_now_modal .modal_submit input,
+.payment_modal .modal_submit input,
+.paymentFailure_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.pay_now_modal .modal_submit input:nth-of-type(2),
+.payment_modal .modal_submit input:nth-of-type(2),
+.paymentFailure_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}

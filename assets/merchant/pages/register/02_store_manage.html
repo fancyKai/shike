@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店铺管理--已绑定</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/modal_alert.css">
+    <link rel="stylesheet" href="../../css/store_manage.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧店铺管理-->
+        <div class="store_content left">
+            <h1 class="title">店铺管理</h1>
+            <div class="binding_shops">
+                <input id="binding_shops" type="button" value="绑定新店铺"/>
+                最多可以绑定3家店铺，如需换绑店铺请联系客服QQ:
+                <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
+            </div>
+            <div class="shops_details">
+                <div class="detalis">
+                    <ul>
+                        <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li>
+                            <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                            <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                            <p><span>来源：</span>淘宝</p>
+                        </li>
+                        <li>
+                            <p>QQ：<b>1234567890</b></p>
+                            <p class="two">微信：<b>lyykun</b></p>
+                            <p>手机：<b>12345678909</b></p>
+                        </li>
+                        <li>
+                            <p><input class="modify_contact" type="button" value="修改联系方式"/></p>
+                        </li>
+                        <li>
+                            <p>绑定时间：<b>2016.11.18</b></p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li>
+                            <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                            <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                            <p><span>来源：</span>淘宝</p>
+                        </li>
+                        <li>
+                            <p>QQ：<b>1234567890</b></p>
+                            <p class="two">微信：<b>lyykun</b></p>
+                            <p>手机：<b>12345678909</b></p>
+                        </li>
+                        <li>
+                            <p><input class="modify_contact" type="button" value="修改联系方式"/></p>
+                        </li>
+                        <li>
+                            <p>绑定时间：<b>2016.11.18</b></p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li>
+                            <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                            <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                            <p><span>来源：</span>淘宝</p>
+                        </li>
+                        <li>
+                            <p>QQ：<b>1234567890</b></p>
+                            <p class="two">微信：<b>lyykun</b></p>
+                            <p>手机：<b>12345678909</b></p>
+                        </li>
+                        <li>
+                            <p><input class="modify_contact" type="button" value="修改联系方式"/></p>
+                        </li>
+                        <li>
+                            <p>绑定时间：<b>2016.11.18</b></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+
+<!--弹框--修改联系方式-->
+<div class="modify_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>修改联系方式</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--修改联系方式-->
+            <form class="amend_box" action="">
+                <label for="logistics">QQ</label>
+                <input id="logistics" type="text"/>
+                <p><span>负责人QQ不能为空</span></p>
+                <label for="WeChat">微信</label>
+                <input id="WeChat" type="text"/>
+                <p><span></span></p>
+                <label for="mobile_phone">手机</label>
+                <input id="mobile_phone" type="text"/>
+                <p><span></span></p>
+            </form>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+<!--弹框--绑定店铺（超过3次绑定）-->
+<div class="binding_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>提示</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认审核-->
+            <p>最多只能绑定3家店铺</p>
+            <p>如需更换店铺，请联系客服QQ：54545487</p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+
+<script src="../../js/jquery-1.10.2.js"></script>
+<script src="../../js/modal_scrollbar.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+//          弹框
+//        模态框的高度(500：表示头部和尾部高度的和)；
+        $('.mask_layer').height(document.body.offsetHeight+500);
+//        <!--弹框--绑定店铺（超过3次绑定）-->
+        $('#binding_shops').bind('click',function(){
+            $('.binding_modal').css('display','block');
+            disableScroll();
+        });
+//        修改联系方式
+        $('.modify_contact').bind('click',function(){
+            $('.modify_modal').css('display','block');
+            disableScroll();
+        });
+        $('.close,.cancel,.confirm').bind('click',function(){
+            $('.binding_modal,.modify_modal').css('display','none');
+            enableScroll();
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

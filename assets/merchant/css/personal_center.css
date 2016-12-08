@@ -1,0 +1,280 @@
+.personal_active {
+  color: #f10180 !important;
+}
+#section .section_main .content .member_power {
+  overflow: hidden;
+}
+#section .section_main .content .member_power .personal_details {
+  width: 393px;
+  height: 150px;
+  margin-right: 2px;
+  background-color: #fff;
+  overflow: hidden;
+}
+#section .section_main .content .member_power .personal_details .avatar {
+  padding: 40px 15px 0 25px;
+}
+#section .section_main .content .member_power .personal_details .avatar img {
+  width: 72px;
+  height: 73px;
+}
+#section .section_main .content .member_power .personal_details .username > h1 {
+  padding-top: 28px;
+  color: #323232;
+  font-size: 18px;
+}
+#section .section_main .content .member_power .personal_details .username > p {
+  padding: 13px 0;
+  font-size: 14px;
+}
+#section .section_main .content .member_power .personal_details .username > p span {
+  color: #f10180;
+  padding-right: 5px;
+}
+#section .section_main .content .member_power .personal_details .username > p b {
+  font-weight: normal;
+  color: #969696;
+  font-size: 12px;
+}
+#section .section_main .content .member_power .personal_details .username > input {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #f10180;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+#section .section_main .content .member_power .try_task {
+  width: 645px;
+  height: 150px;
+  background-color: #fff;
+  padding: 25px 28px;
+}
+#section .section_main .content .member_power .try_task .try_monery {
+  font-size: 14px;
+  color: #323232;
+}
+#section .section_main .content .member_power .try_task .try_monery > input {
+  width: 120px;
+  height: 34px;
+  line-height: 34px;
+  background-color: #f10180;
+  border-radius: 5px;
+  margin-right: 18px;
+  color: #fff;
+  font-size: 14px;
+}
+#section .section_main .content .member_power .try_task .try_monery > span {
+  color: #ef2528;
+  font-weight: normal;
+  font-size: 20px;
+}
+#section .section_main .content .member_power .try_task .try_monery > a {
+  padding: 0 18px 0 8px;
+  color: #f10180;
+  font-size: 12px;
+  cursor: pointer;
+}
+#section .section_main .content .member_power .try_task > p {
+  padding-top: 18px;
+  letter-spacing: 0.5px;
+}
+#section .section_main .content .task_specification {
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 30px;
+}
+#section .section_main .content .task_specification h1 {
+  font-size: 14px;
+}
+#section .section_main .content .task_specification h1 span {
+  color: #323232;
+  font-size: 20px;
+  margin-right: 18px;
+}
+#section .section_main .content .task_specification .order_status ul {
+  overflow: hidden;
+  height: 38px;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin: 18px 0;
+}
+#section .section_main .content .task_specification .order_status ul li {
+  float: left;
+  font-size: 14px;
+  padding-left: 18px;
+  line-height: 38px;
+}
+#section .section_main .content .task_specification .order_status ul li > a span {
+  color: #f10180;
+}
+#section .section_main .content .task_specification .order_status ul li > a:hover {
+  color: #f10180;
+}
+#section .section_main .content .task_specification .order_status ul li > b {
+  font-weight: normal;
+  color: #969696;
+  margin-left: 16px;
+}
+#section .section_main .content .task_specification .delivery_status {
+  margin-bottom: 35px;
+}
+#section .section_main .content .task_specification .delivery_status .title {
+  overflow: hidden;
+  padding: 10px;
+}
+#section .section_main .content .task_specification .delivery_status .title p {
+  font-size: 14px;
+  height: 16px;
+}
+#section .section_main .content .task_specification .delivery_status .title p a {
+  color: #005ea7;
+}
+#section .section_main .content .task_specification .delivery_status .title p:first-of-type {
+  background: url(../images/line.png) left no-repeat;
+  padding-left: 25px;
+}
+#section .section_main .content .task_specification .delivery_status .title p:first-of-type span {
+  margin-right: 40px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul {
+  height: 118px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 18px;
+  overflow: hidden;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li {
+  float: left;
+  color: #323232;
+  font-size: 14px;
+  height: 80px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:first-of-type img {
+  width: 80px;
+  height: 80px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(2) {
+  padding: 0 40px 0 28px;
+  border-right: 1px solid #f5f5f5;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(2) p span {
+  color: #969696;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(2) p.two {
+  padding: 12px 0;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(2) p.clothes_name {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(3),
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(4) {
+  border-right: 1px solid #f5f5f5;
+  padding: 0 48px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(3) p,
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(4) p {
+  height: 80px;
+  line-height: 80px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(3) p span,
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(4) p span {
+  color: #969696;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(5) {
+  text-align: center;
+  width: 200px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(5) .status {
+  padding: 15px 0 10px 0;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(5) > p input {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #f10180;
+  font-size: 14px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(5) > p span {
+  color: #969696;
+  font-size: 12px;
+}
+#section .section_main .content .task_specification .delivery_status .detalis ul li:nth-of-type(5) > p a {
+  margin-left: 10px;
+}
+#section .section_main .content .task_specification .see_more {
+  text-align: center;
+}
+#section .section_main .content .task_specification .see_more input {
+  width: 150px;
+  height: 50px;
+  margin: 0 0 20px 0;
+  background: url(../images/button_more_buttom_default.png) center no-repeat;
+}
+#section .section_main .content .task_specification .see_more input:hover {
+  background: url(../images/button_more_buttom_selected.png) center no-repeat;
+}
+.delivery_modal,
+.audit_modal {
+  display: none;
+}
+.delivery_modal .confirm_delivery,
+.audit_modal .confirm_delivery {
+  margin-top: 40px;
+}
+.delivery_modal .confirm_delivery label,
+.audit_modal .confirm_delivery label {
+  font-size: 14px;
+}
+.delivery_modal .confirm_delivery input,
+.audit_modal .confirm_delivery input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.delivery_modal .confirm_delivery p,
+.audit_modal .confirm_delivery p {
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 152px;
+}
+.delivery_modal .confirm_delivery p span,
+.audit_modal .confirm_delivery p span {
+  color: #e61e28;
+  font-size: 14px;
+}
+.delivery_modal .modal_submit,
+.audit_modal .modal_submit {
+  padding-top: 10px;
+}
+.delivery_modal .modal_submit input,
+.audit_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.delivery_modal .modal_submit input:nth-of-type(2),
+.audit_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}
+.audit_modal {
+  display: none;
+}
+.audit_modal .confirm_audit {
+  padding: 67px 0;
+  font-size: 16px;
+}

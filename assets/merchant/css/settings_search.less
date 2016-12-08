@@ -1,0 +1,151 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+.search_active{
+  background:url(../images/spot.png)left center no-repeat !important ;
+}
+#section{
+  .section_main{
+    .store_content{
+      padding-bottom:20px;
+      .progress_bar{
+        padding:50px 0;
+        border-bottom:1px solid #f5f5f5;
+      }
+      .settings_search{
+        p{
+          font-size:14px;
+          color:#969696;
+          padding-bottom:18px;
+          a{
+            display:inline-block;
+            border-bottom:1px solid #646464;
+            color:#646464;
+          }
+        }
+        h2.title{
+          font-size:16px;
+          padding:18px 0;
+        }
+        .search_content{
+          padding-left:20px;
+          .by_taobao,.by_tmall{
+            cursor:pointer;
+            padding-left:21px;
+            font-size:16px;
+            color:@deepred_color;
+            padding-bottom:2px;
+            background:url(../images/sj_fbsy_icon_quan_default.png)left center no-repeat;
+          }
+          //.by_taobao{
+          //   background:url(../images/spot.png)left center no-repeat;
+          // }
+          .taobao_content,.tmall_content{
+            h3{
+              color:@deepfont_color;
+              font-size:16px;
+              padding:10px 0;
+            }
+            h4{
+              color:@deepfont_color;
+              font-size:14px;
+            }
+            p.such_as{
+              padding-left:246px;
+            }
+            p.search_commodity{
+              padding-bottom:0px;
+            }
+            p {
+              font-size: 12px;
+              color: #969696;
+              padding-bottom:20px;
+              a {
+                display: inline-block;
+                border-bottom: 1px solid #646464;
+                color: #646464;
+              }
+              input{
+                border:1px solid #969696;
+                border-radius:5px;
+                width:100px;
+                height:28px;
+                margin:0 5px;
+              }
+              input.picture_url{
+                width:300px;
+              }
+              span{
+                color:@span_color;
+                display:inline-block;
+                margin-left:5px;
+              }
+            }
+            div.serve{
+              p{
+                font-size:14px;
+                color:@deepfont_color;
+                >span{
+                  display:inline-block;
+                  padding-left:21px;
+                  background:url(../images/sj_fbsy_icon_quan_default.png)left center no-repeat;
+                  color:#646464;
+                  margin-left:20px;
+                  cursor:pointer;
+                }
+                span:first-of-type{
+                  margin-left:8px;
+                }
+                select{
+                  width:120px;
+                  height:28px;
+                  border:1px solid #969696;
+                  border-radius:5px;
+                  color:#969696;
+                }
+              }
+              p:nth-of-type(2){
+                padding-left:87px;
+              }
+            }
+            p.last{
+              color:#646464;
+              >input:nth-of-type(2){
+                margin-right:30px;
+              }
+            }
+          }
+          .tmall_content{
+            display:none;
+          }
+          .taobao_content{
+            display:block;
+          }
+        }
+        .nextStep_btn{
+          input {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            color:@deepred_color;
+            font-size: 16px;
+            background-color:#fff;
+            border:1px solid @deepred_color;
+            margin:50px 30px 30px 0;
+            &:hover{
+              background-color:@deepred_color;
+              color:#fff;
+            }
+          }
+          input:first-of-type{
+            margin-left:100px;
+          }
+        }
+        }
+      }
+  }
+}
