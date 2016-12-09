@@ -1,0 +1,400 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+@a_color:#005ea7;
+
+#section{
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-bottom: 50px;
+//活动详情
+  .order_details{
+    width:1200px;
+    margin:0 auto;
+    background-color:#fff;
+    padding-bottom:50px;
+    //所在位置
+    .location_title{
+      padding:30px;
+      border-bottom:1px solid #f5f5f5;
+      ul{
+        overflow:hidden;
+        li{
+          float:left;
+          font-size:14px;
+          padding-right:10px;
+          a{
+            &:hover{
+              color:@deepred_color;
+            }
+          }
+        }
+      }
+    }
+    //商品的所有信息
+    .commodity_information{
+      padding:0 30px;
+      h1{
+        padding-top:30px;
+        font-size:16px;
+        color:@deepfont_color;
+        padding-bottom:20px;
+      }
+      .collapse_active{
+        background:url(../images/sj_ddgl_icon_sq_default.png) right center no-repeat !important;
+      }
+      .collapse,.collapse_evaluate{
+        text-align: right;
+        margin-top: -44px;
+        margin-bottom:15px;
+        line-height: 30px;
+        height:30px;
+        background:url(../images/sj_ddgl_icon_zk_default.png) right center no-repeat;
+      }
+      //试用信息
+      .title{
+        overflow:hidden;
+        padding:10px;
+        p{
+          font-size:14px;
+          height:16px;
+          a{
+            color:#005ea7;
+          }
+        }
+        p:first-of-type{
+          background:url(../images/line.png) left no-repeat;
+          padding-left:25px;
+          span{
+            margin-right:40px;
+          }
+        }
+      }
+      .details{
+        ul{
+          height:115px;
+          border-top:1px solid @bg_color;
+          border-bottom:1px solid @bg_color;
+          padding:15px 0;
+          overflow:hidden;
+          li{
+            box-sizing: border-box;
+            float:left;
+            color:@deepfont_color;
+            height:80px;
+            width:260px;
+            p{
+              width:210px;
+              white-space: nowrap;
+              overflow:hidden;
+              text-overflow: ellipsis;
+              font-size:12px;
+              color:#969696;
+              line-height:28px;
+              span{
+                color:#323232;
+                b{
+                  color:@deepred_color;
+                }
+              }
+              a{
+                color:#005ea7;
+              }
+            }
+          }
+          li:nth-of-type(1){
+            width:120px;
+            padding:0 20px;
+          }
+          li:nth-of-type(2),li:nth-of-type(3),li:nth-of-type(4){
+            border-right:1px solid #f5f5f5;
+            padding-left:30px;
+          }
+          li:nth-of-type(5){
+            padding:25px 0 0 50px;
+            width:240px;
+          }
+        }
+      }
+      //申请信息    //评价信息
+      .application_information,.evaluate_information{
+        .content{
+          border:1px solid #f5f5f5;
+          margin-bottom:20px;
+          p.application_title{
+            width:100%;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            background-color:#f5f5f5;
+            font-size:14px;
+            color:@deepfont_color;
+          }
+          //收藏宝贝与店铺
+          .screenshot{
+            overflow:hidden;
+            .collect{
+              width:569px;
+              text-align:center;
+              padding-bottom:20px;
+              height:286px;
+              >p{
+                text-align:left;
+                padding:20px 0 5px 85px;
+                font-size:14px;
+              }
+              .picture{
+                width:402px;
+                height:222px;
+                border:1px solid #f5f5f5;
+                margin-left:84px;
+                img{
+                  width:400px;
+                  height: 220px;
+                }
+              }
+            }
+            .collect:nth-of-type(2){
+              border-left:1px solid #f5f5f5;
+            }
+          }
+          //客服聊天
+          .serviceChat{
+            overflow:hidden;
+            .collect{
+              width:569px;
+              text-align:center;
+              padding-bottom:20px;
+              height:290px;
+              .picture{
+                width:352px;
+                height:252px;
+                border:1px solid #f5f5f5;
+                margin-left:108.5px;
+                margin-top:20px;
+                img{
+                  width:350px;
+                  height: 250px;
+                }
+              }
+            }
+            .collect:nth-of-type(2){
+              border-left:1px solid #f5f5f5;
+            }
+          }
+          //浏览店铺
+          .browse_shop{
+            padding-top:20px;
+            p.baby_url{
+              box-sizing: border-box;
+              margin:0 80px 18px 80px;
+              width:980px;
+              white-space: nowrap;
+              overflow:hidden;
+              text-overflow: ellipsis;
+              font-size:14px;
+            }
+          }
+          //淘宝订单
+          .taobao_order{
+            text-align:center;
+            padding-bottom:20px;
+            >p{
+              text-align:left;
+              padding:20px 0 5px 100px;
+              font-size:14px;
+            }
+          }
+        //评价信息
+          //评价内容
+          .evaluate_content{
+            padding:20px 80px;
+            p{
+              width:1038px;
+              line-height:18px;
+              font-size:14px;
+            }
+          }
+          //晒单照片
+          .show_picture{
+            padding:20px 80px 0 80px;
+            ul{
+              overflow:hidden;
+              li{
+                float:left;
+                margin-left:39px;
+                margin-bottom:20px;
+                img{
+                  width:300px;
+                  height:300px;
+                }
+              }
+              li:nth-of-type(3n+1){
+                margin-left:0;
+              }
+            }
+          }
+          //淘宝评价截图
+          .taobao_evaluate{
+            text-align:center;
+            padding:20px 0;
+            img{
+              width:972px;
+              height:300px;
+            }
+          }
+        }
+
+        //无申请信息
+        .no_information{
+          margin-bottom:-20px;
+          padding-top:35px;
+          font-size:14px;
+        }
+      }
+      //返款信息
+      .quidco{
+        padding-top:10px;
+      }
+      .quidco_information{
+        padding-top:20px;
+        table{
+          th,td{
+            border:1px solid #f5f5f5;
+            width:227px;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+          }
+          th{
+            background-color:#f5f5f5;
+          }
+          td{
+            color:@deepfont_color;
+          }
+        }
+      }
+      //订单状态
+      .order_status{
+        width:100%;
+        //height:100px;
+        padding:20px 50px 20px 0;
+        background-color:#fbfcff;
+        margin-top:60px;
+        p{
+          text-align:right;
+          b{
+            color:@deepfont_color;
+          }
+          padding-bottom:10px;
+        }
+        p:first-of-type{
+          font-size:16px;
+          color:@deepfont_color;
+          span{
+            font-size:20px;
+            color:@span_color;
+          }
+        }
+        p:last-of-type{
+          font-size:12px;
+          padding-bottom:0;
+          img{
+            margin-top:-2px;
+          }
+        }
+      }
+      //取消支付--付款按钮
+      .btn{
+        text-align:right;
+        padding-top:50px;
+        input{
+          width: 150px;
+          height: 40px;
+          line-height: 40px;
+          border-radius: 5px;
+          color:@deepred_color;
+          font-size: 16px;
+          background-color:#fff;
+          border:1px solid @deepred_color;
+          &:hover{
+            background-color:@deepred_color;
+            color:#fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+//弹框
+.delivery_modal,.audit_modal,.pass_modal{
+  display:none;
+  .confirm_delivery {
+    margin-top: 40px;
+    label {
+      font-size: 14px;
+    }
+    input {
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      border: 1px solid #969696;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    p {
+      height: 30px;
+      line-height: 30px;
+      text-align: left;
+      padding-left: 152px;
+      span {
+        color: #e61e28;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .modal_submit {
+    padding-top: 9px;
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
+    }
+  }
+}
+
+.audit_modal,.pass_modal {
+  display:none;
+  .confirm_audit {
+    padding: 67px 0;
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
