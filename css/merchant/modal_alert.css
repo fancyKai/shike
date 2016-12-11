@@ -1,0 +1,46 @@
+.modal_box {
+  padding-bottom: 40px;
+  position: fixed;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  margin-left: -225px;
+  margin-top: -132.5px;
+  min-width: 450px;
+  min-height: 265px;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+.modal_box .modal_prompt {
+  height: 30px;
+  line-height: 30px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+.modal_box .modal_prompt span,
+.modal_box .modal_prompt a {
+  display: inline-block;
+}
+.modal_box .modal_prompt span {
+  float: left;
+  color: #646464;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.modal_box .modal_prompt a {
+  float: right;
+  padding-right: 10px;
+}
+.mask_layer {
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 88;
+}
