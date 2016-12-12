@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试用订单管理</title>
+    <link rel="stylesheet" href="css/merchant/reset.css">
+    <link rel="stylesheet" href="css/merchant/reset_content.css">
+    <link rel="stylesheet" href="css/merchant/modal_alert.css">
+    <link rel="stylesheet" href="css/merchant/order_manage.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧个人中心-->
+            <!--任务说明-->
+        <div class="store_content left">
+            <h1 class="title">试用订单管理</h1>
+                <!--所有订单的状态种类-->
+            <div class="order_status">
+                <ul>
+                    <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/merchant_order_manage?order_status=0">所有订单（<span><?php echo $sum_order_list['count'];?></span>）</a><b>|</b></li>
+                    <li class="order"><a <?php if($order_status == 1):?> class="personal_active" <?php endif;?> href="/merchant_order_manage?order_status=1">待发货订单（<span><?php echo $sum_1_order_list['count'];?></span>）</a><b>|</b></li>
+                    <li class="order"><a <?php if($order_status == 2):?> class="personal_active" <?php endif;?> href="/merchant_order_manage?order_status=2">待审核评价订单（<span><?php echo $sum_2_order_list['count'];?></span>）</a><b>|</b></li>
+                    <li class="order"><a <?php if($order_status == 3):?> class="personal_active" <?php endif;?> href="/merchant_order_manage?order_status=3">待确认评价订单（<span><?php echo $sum_3_order_list['count'];?></span>）</a></li>
+                </ul>
+            </div>
+                <!--商品发货状态-->
+            <?php foreach($order_list as $v):?>
+            <div class="delivery_status">
+                <div class="title">
+                    <p class="left">
+                        <span><?php echo substr($v['time'],0,10);?></span>
+                        <span>任务编号：123460000</span>
+                        <span>淘宝商品订单号：2222222222</span>
+                    </p>
+                    <?php if($v['status'] == 1):?>
+                    <p class="right">
+                        <a href="/merchant_wait_deliverGoods_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 2):?>
+                    <p class="right">
+                        <a href="/merchant_wait_audit_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 3):?>
+                    <p class="right">
+                        <a href="/merchant_wait_confirmEvaluate_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 4):?>
+                    <p class="right">
+                        <a href="/merchant_unclaimed_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 5):?>
+                    <p class="right">
+                        <a href="/merchant_wait_cloneEvaluate_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 6):?>
+                    <p class="right">
+                        <a href="/merchant_wait_receiving_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 7):?>
+                    <p class="right">
+                        <a href="/merchant_finish_details">查看详情</a>                        
+                    </p>
+                    <?php endif;?>
+                    <?php if($v['status'] == 8):?>
+                    <p class="right">
+                        <a href="/merchant_order_canceled_details">查看详情</a>
+                    </p>
+                    <?php endif;?>
+                </div>
+                <div class="detalis">
+                    <ul>
+                        <li><img src="images/merchant/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li>
+                            <p class="clothes_name"><?php echo $v['product_name'];?></p>
+                            <p class="two"><span>店铺：</span><?php echo $v['shopname'];?></p>
+                            <p><span>来源：</span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></p>
+                        </li>
+                        <li>
+                            <p><span>试客：</span><?php echo $v['shikename'];?></p>
+                        </li>
+                        <?php if($v['status'] == 1):?>
+                        <li>
+                            <p>待发货</p>
+                        </li>
+                        <li>
+                            <p class="status" id="delivery"><input type="button" value="确认发货"/></p>
+                            <p><span>还剩48小时00分00秒</span></p>
+                        </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 2):?>
+                        <li>
+                            <p>待审核评价</p>
+                        </li>
+                        <li>
+                            <p class="status" id="audit"><input type="button" value="审核通过"/></p>
+                            <p><span>还剩48小时00分00秒</span></p>
+                        </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 3):?>
+                        <li>
+                            <p>待确认评价</p>
+                        </li>
+                        <li>
+                            <p class="status" id="confirm_pass"><input type="button" value="确认通过"/></p>
+                            <p><span>还剩48小时00分00秒</span></p>
+                        </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 4):?>
+                        <li>
+                            <p>待领取</p>
+                        </li>
+                        <li>
+                            <p class="status">试用待领取</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                        </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 5):?>
+                        <li>
+                            <p>待复制评价</p>
+                        </li>
+                        <li>
+                            <p class="status" >待试客复制发布评价评价</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                        </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 6):?>
+                        <li>
+                            <p>待收货评价</p>
+                        </li>
+                        <li>
+                            <p class="status" >试用待试客收货评价</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                        </li>                        
+                        <?php endif;?>
+                        <?php if($v['status'] == 7):?>
+                        <li>
+                            <p>已完成</p>
+                        </li>
+                        <li>
+                            <p class="status finish" >试用已结束</p>
+                        </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 8):?>
+                        <li>
+                            <p>已取消</p>
+                        </li>
+                        <li>
+                            <p class="status">试用已取消</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                        </li>
+                        <?php endif;?>
+                    </ul>
+                </div>
+            </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<!--弹框--确认发货-->
+<div class="delivery_modal ">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>确认发货</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认发货-->
+            <form class="confirm_delivery" action="">
+                <label for="logistics">物&nbsp; &nbsp;流</label>
+                <input id="logistics" type="text"/>
+                <p><span>物流不能为空</span></p>
+                <label for="waybill_number">运单号</label>
+                <input id="waybill_number" type="text"/>
+                <p><span></span></p>
+            </form>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+<!--弹框--确认审核-->
+<div class="audit_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>确认发货</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认审核-->
+           <p class="confirm_audit">确认审核通过</p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定通过"/>
+            <input class="confirm" type="button" value="取消"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+<!--弹框--确认通过-->
+<div class="pass_modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>确认通过</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <!--确认审核-->
+            <p class="confirm_audit">确认通过？</p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定通过"/>
+            <input class="confirm" type="button" value="取消"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+
+<script src="../../js/jquery-1.10.2.js"></script>
+<script src="../../js/modal_scrollbar.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+//        标题的点击事件
+        $('.order').bind('click',function(){
+            $(this).find('a').addClass('personal_active');
+            $(this).siblings().find('a').removeClass('personal_active');
+        });
+//          弹框
+//        模态框的高度(500：表示头部和尾部高度的和)；
+        $('.mask_layer').height(document.body.offsetHeight+500);
+//        确认发货
+        $('#delivery').bind('click',function(){
+            $('.delivery_modal').css('display','block');
+            disableScroll();
+        });
+//        确认审核通过
+        $('#audit').bind('click',function(){
+            $('.audit_modal').css('display','block');
+            disableScroll();
+        });
+//        确认通过
+        $('#confirm_pass').bind('click',function(){
+            $('.pass_modal').css('display','block');
+            disableScroll();
+        });
+
+        $('.close,.cancel,.confirm').bind('click',function(){
+            $('.delivery_modal,.audit_modal,.pass_modal').css('display','none');
+            enableScroll();
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

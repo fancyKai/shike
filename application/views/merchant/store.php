@@ -20,17 +20,17 @@
             <div class="binding_shops">
                 <input id="binding_shops" type="button" onclick="check_binding_shop('<?php echo sizeof($shops);?>')" value="绑定新店铺"/>
                 最多可以绑定3家店铺，如需换绑店铺请联系客服QQ:
-                <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
+                <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="">
             </div>
             <div class="shops_details">
                 <div class="detalis">
                     <?php foreach($shops as $v): ?>
                     <ul>
-                        <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li><img src="images/merchant/sj_grzx_bg_sp_default.png" alt=""></li>
                         <li>
                             <p class="clothes_name"><?php echo $v['shop_id']; ?>
                             <p class="two"><span>店铺：</span><?php echo $v['shop_name']; ?></p>
-                            <p><span>来源：</span><?php echo $v['platform_id']; ?></p>
+                            <p><span>来源：</span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></p>
                         </li>
                         <li>
                             <p>QQ：<b><?php echo $v['chargeqq']; ?></b></p>
