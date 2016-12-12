@@ -1,0 +1,93 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@border_color:#dcdcdc;
+@title_color:#f5f5f5;
+.header_active{
+  background:url(../images/nva_top_button_dafault.png)2px  2px no-repeat;
+  color:#fff!important ;
+}
+
+.header{
+  .top{
+   width:100%;
+   height:36px;
+   line-height:36px;
+   background-color:@title_color;
+   border-bottom:1px solid @border_color;
+   .top_main{
+     width:1200px;
+     margin:0 auto;
+     ul{
+       float:right;
+       li{
+        float:left;
+         padding-left:30px;
+       }
+     }
+   }
+ }
+  .search{
+    width:1200px;
+    height:80px;
+    margin:0 auto;
+    .logo{
+      cursor:pointer;
+    }
+    .details_title{
+      display:inline-block;
+      height:50px;
+      line-height:50px;
+      color:@font_color;
+      font-size:16px;
+      padding-left:20px;
+      margin-left:20px;
+      border-left:1px solid #c8c8c8;
+    }
+    .right{
+      overflow:hidden;
+      height:80px;
+      line-height:80px;
+      .nav{
+        overflow:hidden;
+        li{
+          float: left;
+          a{
+            display:inline-block;
+            line-height:52px;
+            width:124px;
+            text-align:center;
+            color:@deepfont_color;
+            font-size:18px;
+            font-weight:bold;
+            &:hover{
+              background:url(../images/nva_top_button_dafault.png)2px  2px no-repeat;
+              color:#fff!important ;
+            }
+          }
+        }
+      }
+      .search_box{
+        border:1px solid @border_color ;
+        border-radius:5px;
+        width:220px;
+        height:30px;
+        line-height:30px;
+        margin:24px 0 0 25px;
+        background:url(../images/nav_icon_loupe_default.png) 15px center no-repeat ;
+        cursor:pointer;
+        input{
+          margin-left:30px;
+        }
+      }
+    }
+
+  }
+  .line{
+    width:100%;
+    height:10px;
+    background: -webkit-linear-gradient(#f1f1f1, #fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f1f1f1, #fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f1f1f1, #fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f1f1f1, #fff); /* 标准的语法（必须放在最后） */
+  }
+}

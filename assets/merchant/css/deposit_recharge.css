@@ -1,0 +1,96 @@
+#section .section_main .deposit_recharge h2 {
+  color: #323232;
+  font-size: 16px;
+}
+#section .section_main .deposit_recharge h2.select_bank {
+  padding-top: 30px;
+}
+#section .section_main .deposit_recharge table {
+  margin-left: -10px;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+#section .section_main .deposit_recharge table td {
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #c8c8c8;
+  border-spacing: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+#section .section_main .deposit_recharge table td img {
+  width: 105px;
+  height: 22px;
+}
+#section .section_main .deposit_recharge table td a {
+  color: #005ea7;
+}
+#section .section_main .deposit_recharge .recharge_amount p {
+  font-size: 14px;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+#section .section_main .deposit_recharge .recharge_amount p span {
+  color: #e61e28;
+  font-size: 20px;
+}
+#section .section_main .deposit_recharge .recharge_amount p.recharge_amount {
+  padding-top: 30px;
+}
+#section .section_main .deposit_recharge .recharge_amount p.recharge_amount input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+}
+#section .section_main .deposit_recharge .recharge_amount p.recharge_amount b {
+  font-size: 12px;
+  color: #969696;
+  margin-left: 10px;
+}
+#section .section_main .deposit_recharge .recharge_amount p.error {
+  padding-left: 90px;
+  height: 30px;
+  padding-top: 3px;
+}
+#section .section_main .deposit_recharge .recharge_amount p.error span {
+  color: #e61e28;
+  font-size: 12px;
+}
+#section .section_main .deposit_recharge .confirm_btn {
+  width: 100%;
+  padding: 30px 0 50px 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_main .deposit_recharge .confirm_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #f10180;
+  font-size: 16px;
+}
+#section .section_main .deposit_recharge .confirm_btn input:hover {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .deposit_recharge .warm_prompt {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+#section .section_main .deposit_recharge .warm_prompt h1 {
+  color: #323232;
+  font-size: 14px;
+  padding: 30px 0 10px 0;
+}
+#section .section_main .deposit_recharge .warm_prompt p {
+  padding-top: 10px;
+}
+#section .section_main .deposit_recharge .warm_prompt p img {
+  margin-top: -2px;
+  cursor: pointer;
+}
