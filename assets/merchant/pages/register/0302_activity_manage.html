@@ -217,7 +217,7 @@
     </div>
 </section>
 <footer id="footer"></footer>
-<!--弹框--确认发货-->
+<!--弹框--立即付款-->
 <div class="pay_now_modal">
     <div class="modal_box">
         <div class="modal_prompt">
@@ -312,12 +312,11 @@
 //        $('#confirm_payment').bind('click',function(){
 //            $('.payment_modal').css('display','block');
 //            $('.pay_now_modal').css('display','none');
-//            disableScroll();
 //        });
 //        付款失败弹框
        $('#confirm_payment').bind('click',function(){
-        $('.paymentFailure_modal').css('display','block');
-        disableScroll();
+            $('.paymentFailure_modal').css('display','block');
+            $('.pay_now_modal').css('display','none');
         });
 
         $('.close,.cancel,.confirm').bind('click',function(){
