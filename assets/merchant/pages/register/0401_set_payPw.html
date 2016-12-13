@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置支付密码</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/revamp_loginPw.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--设置支付密码-->
+        <div class="basic_setup left">
+            <h1 class="title">设置支付密码</h1>
+            <form class="revamp_content">
+                <label for="mewPw">新密码：</label>
+                <input id="mewPw" type="text"/>
+                <br/>
+                <p><span>密码不能为空</span></p>
+
+                <label for="confirmPw">确认新密码：</label>
+                <input id="confirmPw" type="text"/>
+                <br/>
+                <p><span></span></p>
+
+                <p class="btn">
+                    <input onclick="location.href='0401_setPw_succeed.html'" type="button" value="确定"/>
+                    <input type="button" value="取消"/>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html");
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

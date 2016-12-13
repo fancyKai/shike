@@ -1,0 +1,276 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@border_color:#f0f0f0;
+@title_color:#f5f5f5;
+@bg_color:#fff;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@deepborder-color:#c8c8c8;
+
+#section{
+  width:100%;
+  margin-bottom:50px;
+  .section_content{
+    width:1200px;
+    margin:0 auto;
+    .location{
+      ul{
+        overflow:hidden;
+        padding:18px 0 28px;
+        li{
+          float:left;
+        }
+        li:not(:first-child){
+          padding-left:10px;
+        }
+      }
+    }
+  //<!--商品详情-->
+    .commodity_details{
+      overflow:hidden;
+      height:350px;
+      //第一块---左
+      .commodity_picture{
+        height:350px;
+        width:350px;
+        border:1px solid #f0f0f0;
+        margin-right:30px;
+        img {
+          width: 348px;
+          height:348px;
+        }
+      }
+      //第二块---中
+      .commodity_content{
+        height:350px;
+        margin-right:40px;
+        h1{
+          color:@deepfont_color;
+          font-size:16px;
+          font-weight:bold;
+          width:550px;
+          white-space: nowrap;
+          overflow:hidden;
+          text-overflow:ellipsis;
+        }
+        .serve{
+          width:550px;
+          height:150px;
+          background-color:#f8f8f8;
+          margin:23px 0;
+          padding:20px 15px;
+          b{
+            font-weight:normal;
+          }
+          p{
+            font-size:14px;
+          }
+          .price{
+            padding-bottom:20px;
+            b{
+              font-size:24px;
+              color:@deepred_color;
+            }
+          }
+          .freight{
+            padding-bottom:20px;
+            b{
+              font-size:14px;
+              color:#323232;
+            }
+            span{
+              display:inline-block;
+              background-color:#2fbb98;
+              height:20px;
+              width:80px;
+              border-radius:10px;
+              text-align:center;
+              margin-left:8px;
+              color:#fff;
+            }
+          }
+          .offer{
+            span{
+              color:@deepred_color;
+            }
+          }
+        }
+        .standard,.number{
+          padding-bottom:19px;
+          font-size:14px;
+          b{
+            font-weight:normal;
+          }
+        }
+        .application_button{
+          width:200px;
+          height:50px;
+          color:#fff;
+          font-size:18px;
+          background-color:@deepred_color;
+          margin-top:9px;
+        }
+      }
+      //第三块---又
+      .activity{
+        width:230px;
+        height:350px;
+        border-left:1px solid #f0f0f0;
+        border-right:1px solid #f0f0f0;
+        padding-left:14px;
+        .activity_time{
+          color:@deepfont_color;
+          line-height:32px;
+        }
+        .apply_step{
+          padding-top:23px;
+          margin:20px 0;
+          border-top:1px dashed @border_color;
+          border-bottom:1px dashed @border_color;
+          h1{
+            font-size:12px;
+            color:@deepfont_color;
+            padding-bottom:3px;
+          }
+          ul{
+            li{
+              margin:20px 0;
+              span{
+                display:inline-block;
+                width:30px;
+                height:30px;
+                line-height:30px;
+                text-align:center;
+                background:url(../images/xqy_icon_line_default.png) center no-repeat;
+              }
+            }
+          }
+        }
+        >p{
+          color:@deepfont_color;
+        }
+      }
+    }
+  //<!--试用流程-->
+    .use_flow{
+      margin:50px 0;
+      .has_apply{
+        height:50px;
+        line-height:50px;
+        border:1px solid @border_color ;
+        border-bottom:none;
+        span{
+          display:inline-block;
+          width:150px;
+          text-align:center;
+          color:@deepfont_color;
+          background-color:#dcdcdc;
+          font-size:14px;
+          b{
+            font-weight:normal;
+            color:@deepred_color;
+          }
+        }
+      }
+    }
+  //<!--商品试用-->
+    .commodity_try{
+      overflow:hidden;
+    //<!--左侧试用的其他的商品-->
+      .others_try{
+        width:260px;
+        border:1px solid @border_color;
+        h1{
+          padding:0 20px;
+          line-height:42px;
+          background-color:@title_color;
+        }
+        .products {
+          width:220px;
+          margin:20px 0 0 20px;
+          a{
+            img{
+              width:220px;
+              height:300px;
+            }
+          }
+          .product_introduction{
+            width:220px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            font-size:14px;
+            color:@deepfont_color ;
+            padding-top:8px;
+          }
+          .quantity{
+            margin:13px 0;
+            span{
+              display:inline-block;
+              height:20px;
+              line-height:20px;
+              border-radius:5px;
+              color:#fff;
+              font-size:12px;
+              padding:0 5px;
+            }
+            span:first-of-type{
+              background-color:#a766e6;
+            }
+            span:last-of-type{
+              background-color:#63dabe;
+              margin-left:10px;
+            }
+          }
+          .price{
+            padding-bottom:18px;
+            overflow:hidden;
+            span:first-of-type {
+              float:left;
+              color:@deepred_color;
+              font-size:20px;
+            }
+            span:last-of-type {
+              float:right;
+              font-size:14px;
+              padding-top: 5px;
+              b{
+                font-weight:normal;
+              }
+            }
+          }
+        }
+      }
+    //<!--右侧试用商品的详情-->
+      .try_details{
+        width:920px;
+        margin-left:20px;
+        h1{
+          padding:0 20px;
+          line-height:42px;
+          background-color:@title_color;
+          border:1px solid @border_color ;
+        }
+        .details_picture{
+          img{
+            margin-top:20px;
+            max-width:920px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

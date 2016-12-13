@@ -1,0 +1,238 @@
+#section {
+  width: 100%;
+  margin-bottom: 50px;
+}
+#section .section_content {
+  width: 1200px;
+  margin: 0 auto;
+}
+#section .section_content .location ul {
+  overflow: hidden;
+  padding: 18px 0 28px;
+}
+#section .section_content .location ul li {
+  float: left;
+}
+#section .section_content .location ul li:not(:first-child) {
+  padding-left: 10px;
+}
+#section .section_content .commodity_details {
+  overflow: hidden;
+  height: 350px;
+}
+#section .section_content .commodity_details .commodity_picture {
+  height: 350px;
+  width: 350px;
+  border: 1px solid #f0f0f0;
+  margin-right: 30px;
+}
+#section .section_content .commodity_details .commodity_picture img {
+  width: 348px;
+  height: 348px;
+}
+#section .section_content .commodity_details .commodity_content {
+  height: 350px;
+  margin-right: 40px;
+}
+#section .section_content .commodity_details .commodity_content h1 {
+  color: #323232;
+  font-size: 16px;
+  font-weight: bold;
+  width: 550px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_content .commodity_details .commodity_content .serve {
+  width: 550px;
+  height: 150px;
+  background-color: #f8f8f8;
+  margin: 23px 0;
+  padding: 20px 15px;
+}
+#section .section_content .commodity_details .commodity_content .serve b {
+  font-weight: normal;
+}
+#section .section_content .commodity_details .commodity_content .serve p {
+  font-size: 14px;
+}
+#section .section_content .commodity_details .commodity_content .serve .price {
+  padding-bottom: 20px;
+}
+#section .section_content .commodity_details .commodity_content .serve .price b {
+  font-size: 24px;
+  color: #f10180;
+}
+#section .section_content .commodity_details .commodity_content .serve .freight {
+  padding-bottom: 20px;
+}
+#section .section_content .commodity_details .commodity_content .serve .freight b {
+  font-size: 14px;
+  color: #323232;
+}
+#section .section_content .commodity_details .commodity_content .serve .freight span {
+  display: inline-block;
+  background-color: #2fbb98;
+  height: 20px;
+  width: 80px;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 8px;
+  color: #fff;
+}
+#section .section_content .commodity_details .commodity_content .serve .offer span {
+  color: #f10180;
+}
+#section .section_content .commodity_details .commodity_content .standard,
+#section .section_content .commodity_details .commodity_content .number {
+  padding-bottom: 19px;
+  font-size: 14px;
+}
+#section .section_content .commodity_details .commodity_content .standard b,
+#section .section_content .commodity_details .commodity_content .number b {
+  font-weight: normal;
+}
+#section .section_content .commodity_details .commodity_content .application_button {
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  font-size: 18px;
+  background-color: #f10180;
+  margin-top: 9px;
+}
+#section .section_content .commodity_details .activity {
+  width: 230px;
+  height: 350px;
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+  padding-left: 14px;
+}
+#section .section_content .commodity_details .activity .activity_time {
+  color: #323232;
+  line-height: 32px;
+}
+#section .section_content .commodity_details .activity .apply_step {
+  padding-top: 23px;
+  margin: 20px 0;
+  border-top: 1px dashed #f0f0f0;
+  border-bottom: 1px dashed #f0f0f0;
+}
+#section .section_content .commodity_details .activity .apply_step h1 {
+  font-size: 12px;
+  color: #323232;
+  padding-bottom: 3px;
+}
+#section .section_content .commodity_details .activity .apply_step ul li {
+  margin: 20px 0;
+}
+#section .section_content .commodity_details .activity .apply_step ul li span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: url(../images/xqy_icon_line_default.png) center no-repeat;
+}
+#section .section_content .commodity_details .activity > p {
+  color: #323232;
+}
+#section .section_content .use_flow {
+  margin: 50px 0;
+}
+#section .section_content .use_flow .has_apply {
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #f0f0f0;
+  border-bottom: none;
+}
+#section .section_content .use_flow .has_apply span {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  color: #323232;
+  background-color: #dcdcdc;
+  font-size: 14px;
+}
+#section .section_content .use_flow .has_apply span b {
+  font-weight: normal;
+  color: #f10180;
+}
+#section .section_content .commodity_try {
+  overflow: hidden;
+}
+#section .section_content .commodity_try .others_try {
+  width: 260px;
+  border: 1px solid #f0f0f0;
+}
+#section .section_content .commodity_try .others_try h1 {
+  padding: 0 20px;
+  line-height: 42px;
+  background-color: #f5f5f5;
+}
+#section .section_content .commodity_try .others_try .products {
+  width: 220px;
+  margin: 20px 0 0 20px;
+}
+#section .section_content .commodity_try .others_try .products a img {
+  width: 220px;
+  height: 300px;
+}
+#section .section_content .commodity_try .others_try .products .product_introduction {
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #323232;
+  padding-top: 8px;
+}
+#section .section_content .commodity_try .others_try .products .quantity {
+  margin: 13px 0;
+}
+#section .section_content .commodity_try .others_try .products .quantity span {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  padding: 0 5px;
+}
+#section .section_content .commodity_try .others_try .products .quantity span:first-of-type {
+  background-color: #a766e6;
+}
+#section .section_content .commodity_try .others_try .products .quantity span:last-of-type {
+  background-color: #63dabe;
+  margin-left: 10px;
+}
+#section .section_content .commodity_try .others_try .products .price {
+  padding-bottom: 18px;
+  overflow: hidden;
+}
+#section .section_content .commodity_try .others_try .products .price span:first-of-type {
+  float: left;
+  color: #f10180;
+  font-size: 20px;
+}
+#section .section_content .commodity_try .others_try .products .price span:last-of-type {
+  float: right;
+  font-size: 14px;
+  padding-top: 5px;
+}
+#section .section_content .commodity_try .others_try .products .price span:last-of-type b {
+  font-weight: normal;
+}
+#section .section_content .commodity_try .try_details {
+  width: 920px;
+  margin-left: 20px;
+}
+#section .section_content .commodity_try .try_details h1 {
+  padding: 0 20px;
+  line-height: 42px;
+  background-color: #f5f5f5;
+  border: 1px solid #f0f0f0;
+}
+#section .section_content .commodity_try .try_details .details_picture img {
+  margin-top: 20px;
+  max-width: 920px;
+}

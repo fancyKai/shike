@@ -1,0 +1,210 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+@a_color:#005ea7;
+#section{
+  .section_main{
+    .deposit_withdraw{
+      h2{
+        color:@deepfont_color;
+        font-size:16px;
+        padding:30px 0;
+      }
+      .fillIn_money{
+        >div{
+          width:1040px;
+          >b{
+            display:inline-block;
+            width:100px;
+            text-align:right;
+            font-size:14px;
+          }
+          >span{
+            color:@span_color;
+            font-size:20px;
+          }
+          >input{
+            width:200px;
+            height:28px;
+            line-height:28px;
+            border:1px solid #969696;
+            border-radius:5px;
+            margin-top:30px;
+          }
+          span.error{
+            font-size:12px;
+            margin-left:5px;
+          }
+          >p{
+            padding-left:100px;
+          }
+        }
+        div.main_two{
+          margin-top:35px;
+          b{
+            float:left;
+          }
+          overflow:hidden;
+          .bankCard_one {
+            width: 236px;
+            height: 136px;
+            border: 1px solid @a_color;
+            border-radius: 5px;
+            padding: 20px;
+            margin-right:50px;
+            p.one {
+              .bank_logo {
+                width: 105px;
+                height: 22px;
+              }
+            }
+            p.two {
+              padding: 12px 0 20px 0;
+              span {
+                display: inline-block;
+                width: 50px;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 4px;
+                background-color: @a_color;
+                color: #fff;
+                text-align: center;
+              }
+            }
+            p.three {
+              color: #323232;
+              font-size: 16px;
+            }
+          }
+          .bankCard_two{
+            width: 236px;
+            height: 136px;
+            border: 1px solid #c8c8c8;
+            border-radius: 5px;
+            padding: 20px;
+            >p{
+              text-align:center;
+              img{
+                margin-bottom:20px;
+                cursor:pointer;
+              }
+            }
+          }
+        }
+        div.main_three,.main_five{
+          p.one{
+            color:#969696;
+            padding:8px 0 25px 100px;
+            img{
+              margin-top:-2px;
+              cursor:pointer;
+            }
+          }
+          p.two{
+            line-height:28px;
+            font-size:14px;
+            padding-bottom:25px;
+          }
+        }
+      }
+
+      .confirm_btn{
+        width:100%;
+        padding:25px 0 50px 100px;
+        border-bottom:1px solid #f5f5f5;
+        input{
+          width:150px;
+          height:40px;
+          line-height:40px;
+          border:1px solid @deepred_color;
+          border-radius:5px;
+          background-color:#fff;
+          color:@deepred_color;
+          font-size:16px;
+          &:hover{
+            background-color:@deepred_color;
+            color:#fff;
+          }
+
+        }
+      }
+      //温馨提示
+      .warm_prompt{
+        padding-left:20px;
+        padding-bottom:20px;
+        h1{
+          color:#323232;
+          font-size:14px;
+          padding:30px 0 10px 0;
+        }
+        p{
+          padding-top:10px;
+          img{
+            margin-top:-2px;
+            cursor:pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//弹框
+.withdraw_modal,.withdrawFailure_modal {
+  display:none;
+  .modal_content {
+    text-align:center;
+    p{
+      font-size:16px;
+      padding-top:50px;
+    }
+    table {
+      margin:20px 0 25px 130px;
+      width: 187px;
+      td {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c8c8c8;
+        input {
+          width: 30px;
+          height: 30px;
+          &:focus {
+            border: 1px solid #a6cef1;
+          }
+        }
+      }
+    }
+  }
+
+  .succeed_content{
+    padding-top:24px;
+    p.payment_succeed{
+      color:#323232;
+      font-size:16px;
+      padding:15px 0 10px 0;
+    }
+    p{
+      font-size:14px;
+    }
+  }
+
+  .modal_submit {
+    padding-top:15px;
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
+    }
+  }
+}

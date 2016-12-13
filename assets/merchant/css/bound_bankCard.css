@@ -1,0 +1,97 @@
+#section .section_main .bound_bankCard .bankCard_kind .bound_num {
+  padding: 28px 0;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bound_num img {
+  margin-top: -2px;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bound_num input {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bankCard {
+  width: 236px;
+  height: 136px;
+  border: 1px solid #005ea7;
+  border-radius: 5px;
+  padding: 20px;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bankCard p.one .bank_logo {
+  width: 105px;
+  height: 22px;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bankCard p.one a {
+  color: #005ea7;
+  margin-left: 60px;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bankCard p.two {
+  padding: 10px 0 24px 0;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bankCard p.two span {
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 4px;
+  background-color: #005ea7;
+  color: #fff;
+  text-align: center;
+}
+#section .section_main .bound_bankCard .bankCard_kind .bankCard p.three {
+  color: #323232;
+  font-size: 16px;
+}
+#section .section_main .bound_bankCard .bankCard_kind .notBound_bankCard {
+  padding: 60px 375px;
+}
+.delete_modal {
+  display: none;
+}
+.delete_modal .confirm_delivery {
+  margin-top: 40px;
+}
+.delete_modal .confirm_delivery label {
+  font-size: 14px;
+}
+.delete_modal .confirm_delivery input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.delete_modal .confirm_delivery p {
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 152px;
+}
+.delete_modal .confirm_delivery p span {
+  color: #e61e28;
+  font-size: 14px;
+}
+.delete_modal .modal_submit {
+  padding-top: 10px;
+}
+.delete_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.delete_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}
+.delete_modal {
+  display: none;
+}
+.delete_modal .confirm_audit {
+  padding: 67px 0;
+  font-size: 16px;
+}
