@@ -41,14 +41,21 @@ class merchant_personal extends MY_Controller {
 		$wuliu = $this->input->post('wuliu');
 		$yundan = $this->input->post('yundan');
 		$order_id = $this->input->post('order_id');
-		$info = array("wuliu"=>$wuliu,"yundan"=>$yundan,'status'=>2);
+		$info = array("wuliu"=>$wuliu,"yundan"=>$yundan,'status'=>6);
 		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
 		echo json_encode($res);
 	}
 
 	public function update_shenhe(){
 		$order_id = $this->input->post('order_id');
-		$info = array('status'=>3);
+		$info = array('status'=>5);
+		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
+		echo json_encode($res);
+	}
+
+	public function tongguo_shenhe(){
+		$order_id = $this->input->post('order_id');
+		$info = array('status'=>7);
 		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
 		echo json_encode($res);
 	}

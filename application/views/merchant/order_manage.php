@@ -56,7 +56,7 @@
                             <p>待发货</p>
                         </li>
                         <li>
-                            <p class="status" id="delivery"><input type="button" value="确认发货"/></p>
+                            <p class="status" id="delivery" onclick="show_deliver_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认发货"/></p>
                             <p><span>还剩48小时00分00秒</span></p>
                         </li>
                         <?php endif;?>
@@ -65,7 +65,7 @@
                             <p>待审核评价</p>
                         </li>
                         <li>
-                            <p class="status" id="audit"><input type="button" value="审核通过"/></p>
+                            <p class="status" id="audit" onclick="show_audit_modal(<?php echo $v['order_id'];?>)"><input type="button" value="审核通过"/></p>
                             <p><span>还剩48小时00分00秒</span></p>
                         </li>
                         <?php endif;?>
@@ -74,7 +74,7 @@
                             <p>待确认评价</p>
                         </li>
                         <li>
-                            <p class="status" id="confirm_pass"><input type="button" value="确认通过"/></p>
+                            <p class="status" id="confirm_pass" onclick="show_pass_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认通过"/></p>
                             <p><span>还剩48小时00分00秒</span></p>
                         </li>
                         <?php endif;?>
@@ -141,6 +141,7 @@
         </div>
     </div>
 </section>
+<input type="hidden" id="hidden_orderid">
 <footer id="footer"></footer>
 <!--弹框--确认发货-->
 <div class="delivery_modal ">
@@ -153,17 +154,17 @@
         </div>
         <div class="modal_content">
             <!--确认发货-->
-            <form class="confirm_delivery" action="">
+            <div class="confirm_delivery" action="">
                 <label for="logistics">物&nbsp; &nbsp;流</label>
                 <input id="logistics" type="text"/>
                 <p><span>物流不能为空</span></p>
                 <label for="waybill_number">运单号</label>
                 <input id="waybill_number" type="text"/>
                 <p><span></span></p>
-            </form>
+            </div>
         </div>
         <div class="modal_submit">
-            <input class="confirm" type="button" value="确定"/>
+            <input class="confirm" type="button" value="确定" onclick="post_yundan()">
         </div>
     </div>
     <div class="mask_layer"></div>
@@ -172,9 +173,9 @@
 <div class="audit_modal">
     <div class="modal_box">
         <div class="modal_prompt">
-            <span>确认发货</span>
+            <span>确认审核</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="modal_content">
@@ -182,7 +183,7 @@
            <p class="confirm_audit">确认审核通过</p>
         </div>
         <div class="modal_submit">
-            <input class="confirm" type="button" value="确定通过"/>
+            <input type="button" value="确定通过" onclick="post_shenhe()"/>
             <input class="confirm" type="button" value="取消"/>
         </div>
     </div>
@@ -194,15 +195,15 @@
         <div class="modal_prompt">
             <span>确认通过</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="modal_content">
             <!--确认审核-->
-            <p class="confirm_audit">确认通过？</p>
+            <p class="confirm_audit">确认通过</p>
         </div>
         <div class="modal_submit">
-            <input class="confirm" type="button" value="确定通过"/>
+            <input type="button" value="确定通过" onclick="post_tongguo()"/>
             <input class="confirm" type="button" value="取消"/>
         </div>
     </div>
@@ -225,26 +226,114 @@
 //        模态框的高度(500：表示头部和尾部高度的和)；
         $('.mask_layer').height(document.body.offsetHeight+500);
 //        确认发货
-        $('#delivery').bind('click',function(){
-            $('.delivery_modal').css('display','block');
-            disableScroll();
-        });
-//        确认审核通过
-        $('#audit').bind('click',function(){
-            $('.audit_modal').css('display','block');
-            disableScroll();
-        });
-//        确认通过
-        $('#confirm_pass').bind('click',function(){
-            $('.pass_modal').css('display','block');
-            disableScroll();
-        });
+//         $('#delivery').bind('click',function(){
+//             $('.delivery_modal').css('display','block');
+//             disableScroll();
+//         });
+// //        确认审核通过
+//         $('#audit').bind('click',function(){
+//             $('.audit_modal').css('display','block');
+//             disableScroll();
+//         });
+// //        确认通过
+//         $('#confirm_pass').bind('click',function(){
+//             $('.pass_modal').css('display','block');
+//             disableScroll();
+//         });
 
         $('.close,.cancel,.confirm').bind('click',function(){
             $('.delivery_modal,.audit_modal,.pass_modal').css('display','none');
             enableScroll();
         });
     })
+
+    function post_yundan(){
+        var wuliu = $("#logistics").val();
+        var yundan = $("#waybill_number").val();
+        var order_id = $("#hidden_orderid").val();
+        $.ajax({
+        url : admin.url+'merchant_personal/update_confirm_ship',
+        data:{wuliu:wuliu,yundan:yundan,order_id:order_id},
+        type : 'post',
+        cache : false,
+        success : function (data){
+            console.log(data);
+            if(data == 'true'){
+                // alert("确认发货成功");
+                location.reload();
+            }
+            else{
+                alert("确认发货失败");
+            }
+        },
+        error : function (XMLHttpRequest, textStatus){
+            alert(2);
+        }
+    })
+    }
+
+    function post_shenhe(){
+        var order_id = $("#hidden_orderid").val();
+        $.ajax({
+        url : admin.url+'merchant_personal/update_shenhe',
+        data:{order_id:order_id},
+        type : 'post',
+        cache : false,
+        success : function (data){
+            console.log(data);
+            if(data == 'true'){
+                // alert("确认审核成功");
+                location.reload();
+            }
+            else{
+                alert("确认审核失败");
+            }
+        },
+        error : function (XMLHttpRequest, textStatus){
+            alert(2);
+        }
+    })
+    }
+    
+    function post_tongguo(){
+        var order_id = $("#hidden_orderid").val();
+        $.ajax({
+        url : admin.url+'merchant_personal/tongguo_shenhe',
+        data:{order_id:order_id},
+        type : 'post',
+        cache : false,
+        success : function (data){
+            console.log(data);
+            if(data == 'true'){
+                // alert("确认通过成功");
+                location.reload();
+            }
+            else{
+                alert("确认通过失败");
+            }
+        },
+        error : function (XMLHttpRequest, textStatus){
+            alert(2);
+        }
+    })
+    }
+
+    function show_deliver_modal(o){
+        $('.delivery_modal').css('display','block');
+        // disableScroll();
+        $('#hidden_orderid').val(o);
+    }
+
+    function show_audit_modal(o){
+        $('.audit_modal').css('display','block');
+        // disableScroll();
+        $('#hidden_orderid').val(o);
+    }
+    function show_pass_modal(o){
+        $('.pass_modal').css('display','block');
+        // disableScroll();
+        $('#hidden_orderid').val(o);
+    }
 </script>
 </body>
 </html>
