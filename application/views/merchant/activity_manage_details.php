@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>活动管理</title>
     <link rel="stylesheet" href="css/merchant/reset.css">
-    <!--<link rel="stylesheet" href="../../css/reset_content.css">-->
     <link rel="stylesheet" href="css/merchant/modal_alert.css">
     <link rel="stylesheet" href="css/merchant/activity_details.css">
 </head>
@@ -95,7 +94,10 @@
                     <td><b>5元</b></td>
                 </tr>
             </table>
-            <p class="total">订单合计：<span>10005元</span></p>
+            <p class="total">订单合计：<span>105元</span></p>
+
+            <!--状态为1 待付款状态处理流程-->
+            <?php if($act['status'] == 1):?>
             <div class="order_status">
                 <p>订单状态：<span>待付款</span></p>
                 <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
@@ -121,11 +123,65 @@
                 </div>
             </div>
             </div>
-
             <div class="nextStep_btn">
                 <input id="cancel_order" type="button" value="取消订单"/>
                 <input id="confirm_payment" type="button" value="确认付款"/>
             </div>
+            <?php endif;?>
+            <!--状态为2 待发布状态处理流程-->
+            <?php if($act['status'] == 2):?>
+            <p class="total">已冻结押金：<span>105元</span></p>
+            <div class="order_status">
+                <p>订单状态：<span>待发布</span></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+            </div>
+            <?php endif;?>
+            <!--状态为3 待开奖状态处理流程-->
+            <?php if($act['status'] == 3):?>
+            <p class="total">已冻结押金：<span>105元</span></p>
+            <div class="order_status">
+                <p>订单状态：<span>待开奖</span></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+            </div>
+            <?php endif;?>
+            <!--状态为4 已开奖状态处理流程-->
+            <?php if($act['status'] == 4):?>
+            <p class="total">已冻结押金：<span>105元</span></p>
+            <div class="order_status">
+                <p>订单状态：<span>已开奖</span></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+            </div>
+            <div class="winning_shike">
+                <p class="left">中奖试客：</p>
+                <div class="left">
+                   <table>
+                       <tr>
+                           <td>yin***yin、</td>
+                           <td>yin***yin、</td>
+                           <td>yin***yin、</td>
+                           <td>yin***yin、</td>
+                           <td>yin***yin</td>
+                       </tr>
+                       <tr>
+                           <td>yin***yin、</td>
+                           <td>yin***yin、</td>
+                           <td>yin***yin、</td>
+                           <td>yin***yin、</td>
+                           <td>yin***yin</td>
+                       </tr>
+                   </table>
+                </div>
+            </div>
+            <p class="try_task">请到<a href="javascript:void(0);">试用任务</a>中进行查看试客下单领取信息。</p>
+            <?php endif;?>
+            <!--状态为5 已取消状态处理流程-->
+            <?php if($act['status'] == 5):?>
+            <div class="order_status">
+                <p>订单状态：<span>已取消</span></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+            </div>
+            <?php endif;?>
+
         </div>
     </div>
 </section>

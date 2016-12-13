@@ -36,46 +36,9 @@
                         <span>任务编号：123460000</span>
                         <span>淘宝商品订单号：2222222222</span>
                     </p>
-                    <?php if($v['status'] == 1):?>
                     <p class="right">
-                        <a href="/merchant_wait_deliverGoods_details">查看详情</a>
+                        <a href="/merchant_order_details?order_id=<?php echo $v['order_id'];?>">查看详情</a>
                     </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 2):?>
-                    <p class="right">
-                        <a href="/merchant_wait_audit_details">查看详情</a>
-                    </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 3):?>
-                    <p class="right">
-                        <a href="/merchant_wait_confirmEvaluate_details">查看详情</a>
-                    </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 4):?>
-                    <p class="right">
-                        <a href="/merchant_unclaimed_details">查看详情</a>
-                    </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 5):?>
-                    <p class="right">
-                        <a href="/merchant_wait_cloneEvaluate_details">查看详情</a>
-                    </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 6):?>
-                    <p class="right">
-                        <a href="/merchant_wait_receiving_details">查看详情</a>
-                    </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 7):?>
-                    <p class="right">
-                        <a href="/merchant_finish_details">查看详情</a>                        
-                    </p>
-                    <?php endif;?>
-                    <?php if($v['status'] == 8):?>
-                    <p class="right">
-                        <a href="/merchant_order_canceled_details">查看详情</a>
-                    </p>
-                    <?php endif;?>
                 </div>
                 <div class="detalis">
                     <ul>
@@ -246,8 +209,8 @@
     <div class="mask_layer"></div>
 </div>
 
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/modal_scrollbar.js"></script>
+<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/modal_scrollbar.js"></script>
 <script>
     $(function(){
         $('#header').load("../common/merchant_header.html");
