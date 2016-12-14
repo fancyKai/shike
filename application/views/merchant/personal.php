@@ -115,6 +115,64 @@
                                 <p><span>还剩48小时00分00秒</span></p>
                             </li>
                             <?php endif;?>
+
+                            <?php if($v['status'] == 4):?>
+                            <li>
+                                <p>待领取</p>
+                            </li>
+                            <li>
+                            <p class="status">试用待领取</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                            </li>
+                            <?php endif;?>
+                            <?php if($v['status'] == 5):?>
+                            <li>
+                                <p>待复制评价</p>
+                            </li>
+                            <li>
+                            <p class="status" >待试客复制发布评价评价</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                            </li>
+                            <?php endif;?>
+                            <?php if($v['status'] == 6):?>
+                            <li>
+                                <p>待收货评价</p>
+                            </li>
+                            <li>
+                            <p class="status" >试用待试客收货评价</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                            </li>                        
+                            <?php endif;?>
+                            <?php if($v['status'] == 7):?>
+                            <li>
+                                <p>已完成</p>
+                            </li>
+                            <li>
+                            <p class="status finish" >试用已结束</p>
+                            </li>
+                            <?php endif;?>
+                            <?php if($v['status'] == 8):?>
+                            <li>
+                                <p>已取消</p>
+                            </li>
+                            <li>
+                            <p class="status">试用已取消</p>
+                            <p>
+                                <span>联系客服QQ:</span>
+                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            </p>
+                            </li>
+                            <?php endif;?>
+
                         </ul>
                     </div>
                 </div>
