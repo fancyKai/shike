@@ -30,6 +30,6 @@
         </ul>
     </div>
     <div class="title message_center">
-        <a href="/merchant_message_manage">消息中心</a>
+        <a href="/merchant_message_center">消息中心</a>
     </div>
 </div>
