@@ -1,5 +1,5 @@
 .header_active {
-  background: url(../images/nva_top_button_dafault.png) 2px 2px no-repeat;
+  background: url(../../images/mall/nva_top_button_dafault.png) 2px 2px no-repeat;
   color: #fff!important ;
 }
 .header .top {
@@ -59,7 +59,7 @@
   font-weight: bold;
 }
 .header .search .right .nav li a:hover {
-  background: url(../images/nva_top_button_dafault.png) 2px 2px no-repeat;
+  background: url(../../images/mall/nva_top_button_dafault.png) 2px 2px no-repeat;
   color: #fff!important ;
 }
 .header .search .right .search_box {
@@ -69,7 +69,7 @@
   height: 30px;
   line-height: 30px;
   margin: 24px 0 0 25px;
-  background: url(../images/nav_icon_loupe_default.png) 15px center no-repeat;
+  background: url(../../images/mall/nav_icon_loupe_default.png) 15px center no-repeat;
   cursor: pointer;
 }
 .header .search .right .search_box input {

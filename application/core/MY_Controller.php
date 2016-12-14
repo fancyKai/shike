@@ -20,7 +20,7 @@ class MY_Controller extends CI_Controller {
 		$admin_login = $this->session->userdata('admin_login');
 		if(!$admin_login)
 		{
-			header("Location:".base_url()."login");
+			//header("Location:".base_url()."login");
 		}
 	}
 
