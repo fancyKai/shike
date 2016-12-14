@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>资金记录</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/reset_content.css">
-    <link rel="stylesheet" href="../../css/funds_record.css">
+    <link rel="stylesheet" href="css/merchant/reset.css">
+    <link rel="stylesheet" href="css/merchant/reset_content.css">
+    <link rel="stylesheet" href="css/merchant/funds_record.css">
 </head>
 <body>
 <header id="header"></header>

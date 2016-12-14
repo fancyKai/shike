@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>押金充值</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/reset_content.css">
-    <link rel="stylesheet" href="../../css/deposit_recharge.css">
+    <link rel="stylesheet" href="css/merchant/reset.css">
+    <link rel="stylesheet" href="css/merchant/reset_content.css">
+    <link rel="stylesheet" href="css/merchant/deposit_recharge.css">
 </head>
 <body>
 <header id="header"></header>

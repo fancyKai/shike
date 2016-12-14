@@ -62,11 +62,13 @@
                     </ul>
                 </div>
                 <!--商品发货状态-->
+                <?php $order_list_count=-1;?>
                 <?php foreach($order_list as $v):?>
+                    <?php $order_list_count++;?>
                     <div class="delivery_status">
                     <div class="title">
                         <p class="left">
-                            <span><?php echo substr($sellerinfo['end_time'],0,10);?></span>
+                            <span><?php echo substr($v['time'],0,10);?></span>
                             <span>任务编号：<?php echo $v['order_id'];?></span>
                             <span>淘宝商品订单号：<?php echo $v['out_sorderid']?></span>
                         </p>
@@ -92,7 +94,7 @@
                             </li>
                             <li>
                                 <p class="status" id="delivery" onclick="show_deliver_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认发货"/></p>
-                                <p><span>还剩48小时00分00秒</span></p>
+                                <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
 
@@ -102,7 +104,7 @@
                             </li>
                             <li>
                                 <p class="status" id="audit" onclick="show_audit_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认审核"/></p>
-                                <p><span>还剩48小时00分00秒</span></p>
+                                <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
 
@@ -112,20 +114,20 @@
                             </li>
                             <li>
                                 <p class="status" id="pass" onclick="show_pass_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认评价"/></p>
-                                <p><span>还剩48小时00分00秒</span></p>
+                                <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
-
-                            <?php if($v['status'] == 4):?>
+                             <?php if($v['status'] == 4):?>
                             <li>
                                 <p>待领取</p>
                             </li>
                             <li>
-                            <p class="status">试用待领取</p>
-                            <p>
+                                <p class="status">试用待领取</p>
+                                <p>
                                 <span>联系客服QQ:</span>
                                 <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
-                            </p>
+                                </p>
+                                <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 5):?>
@@ -133,11 +135,12 @@
                                 <p>待复制评价</p>
                             </li>
                             <li>
-                            <p class="status" >待试客复制发布评价评价</p>
-                            <p>
+                                <p class="status" >待试客复制发布评价</p>
+                                <p>
                                 <span>联系客服QQ:</span>
                                 <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
-                            </p>
+                                </p>
+                                <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 6):?>
@@ -145,19 +148,21 @@
                                 <p>待收货评价</p>
                             </li>
                             <li>
-                            <p class="status" >试用待试客收货评价</p>
-                            <p>
+                                <p class="status" >试用待试客收货评价</p>
+                                <p>
                                 <span>联系客服QQ:</span>
                                 <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
-                            </p>
-                            </li>                        
+                                </p>
+                                <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
+                            </li>
                             <?php endif;?>
                             <?php if($v['status'] == 7):?>
                             <li>
                                 <p>已完成</p>
                             </li>
                             <li>
-                            <p class="status finish" >试用已结束</p>
+                                <p class="status finish" >试用已结束</p>
+                                <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 8):?>
@@ -165,14 +170,16 @@
                                 <p>已取消</p>
                             </li>
                             <li>
-                            <p class="status">试用已取消</p>
-                            <p>
+                                <p class="status">试用已取消</p>
+                                <p>
                                 <span>联系客服QQ:</span>
                                 <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
-                            </p>
+                                </p>
+                               <!--  <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
                             <?php endif;?>
-
+                            <input type="hidden" id="order_list_id_<?php echo $order_list_count;?>" value="<?php echo $v['order_id'];?>">
+                            <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo strtotime($v['time']);?>">
                         </ul>
                     </div>
                 </div>
@@ -252,15 +259,26 @@
     </div>
     <div class="mask_layer"></div>
 </div>
-
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
+<script src="js/ydcountdown.js"></script>
 <script>
     $(function(){
+        var order_list_count = <?php echo count($order_list);?>;
+        for(var i=0;i<order_list_count;i++){
+            var timestamp = $("#order_list_time_"+i).val();
+            var now ="<?php echo time();?>";
+            var order_id = $("#order_list_id_"+i).val();
+            var obj = $("#lefttime_"+order_id);
+            leftseconds = parseInt(timestamp)+ 3600*48 - parseInt(now);
+            console.log(leftseconds);
+            //console.log(obj);
+            ydcountdown(leftseconds,obj);
+        }
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
         $('#left_nav').load("../common/left_nav.html");
-//        标题的点击事件
+//        标题的点击事件   
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');
             $(this).siblings().find('a').removeClass('personal_active');
@@ -271,6 +289,7 @@
 //        确认发货
         // $('#delivery').bind('click',function(){
         //     $('.delivery_modal').css('display','block');
+
         //     disableScroll();
         // });
 //        确认审核
@@ -298,7 +317,7 @@
         success : function (data){
             console.log(data);
             if(data == 'true'){
-                // alert("确认发货成功");
+                alert("确认发货成功");
                 location.reload();
             }
             else{
@@ -321,7 +340,7 @@
         success : function (data){
             console.log(data);
             if(data == 'true'){
-                // alert("确认审核成功");
+                alert("确认审核成功");
                 location.reload();
             }
             else{
@@ -344,7 +363,7 @@
         success : function (data){
             console.log(data);
             if(data == 'true'){
-                // alert("确认通过成功");
+                alert("确认通过成功");
                 location.reload();
             }
             else{

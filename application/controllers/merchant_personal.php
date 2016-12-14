@@ -28,6 +28,7 @@ class merchant_personal extends MY_Controller {
   //       $this->out_data['user'] = $this->db->query("select * from user where user_id='1'")->row_array();
 		$this->out_data['sellerinfo'] = $this->db->query("select * from seller where seller_id ={$user_id}")->row_array();
 		$this->out_data['order_list'] = $this->db->query("select * from sorder".$orderwhere)->result_array();
+		//var_dump($this->out_data['order_list']);die();
 		$this->out_data['sum_order_list'] = $this->db->query("select count(*) as count from sorder")->row_array();
 		$this->out_data['sum_1_order_list'] = $this->db->query("select count(*) as count from sorder where status=1")->row_array();
 		$this->out_data['sum_2_order_list'] = $this->db->query("select count(*) as count from sorder where status=2")->row_array();

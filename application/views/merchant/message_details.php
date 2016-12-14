@@ -26,7 +26,7 @@
                 <li class="order">消息详情</li>
             </ul>
         </div>
-        <h1><?php echo $v['title'];?></h1>
+        <h1><?php echo $message['title'];?></h1>
         <p>时间：<?php echo $message['message_time'];?></p>
         <div  class="content">
             <p>

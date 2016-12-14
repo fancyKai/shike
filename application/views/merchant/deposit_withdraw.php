@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>押金提现</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/reset_content.css">
-    <link rel="stylesheet" href="../../css/modal_alert.css">
-    <link rel="stylesheet" href="../../css/deposit_withdraw.css">
+    <link rel="stylesheet" href="css/merchant/reset.css">
+    <link rel="stylesheet" href="css/merchant/reset_content.css">
+    <link rel="stylesheet" href="css/merchant/modal_alert.css">
+    <link rel="stylesheet" href="css/merchant/deposit_withdraw.css">
 </head>
 <body>
 <header id="header"></header>

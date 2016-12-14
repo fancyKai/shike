@@ -27,14 +27,16 @@
                     <li class="order"><a <?php if($order_status == 3):?> class="personal_active" <?php endif;?> href="/merchant_order_manage?order_status=3">待确认评价订单（<span><?php echo $sum_3_order_list['count'];?></span>）</a></li>
                 </ul>
             </div>
-                <!--商品发货状态-->
+            <!--商品发货状态-->
+            <?php $order_list_count=-1;?>
             <?php foreach($order_list as $v):?>
-            <div class="delivery_status">
+                <?php $order_list_count++;?>
+                <div class="delivery_status">
                 <div class="title">
                     <p class="left">
                         <span><?php echo substr($v['time'],0,10);?></span>
-                        <span>任务编号：123460000</span>
-                        <span>淘宝商品订单号：2222222222</span>
+                        <span>任务编号：<?php echo $v['order_id'];?></span>
+                        <span>淘宝商品订单号：<?php echo $v['out_sorderid']?></span>
                     </p>
                     <p class="right">
                         <a href="/merchant_order_details?order_id=<?php echo $v['order_id'];?>">查看详情</a>
@@ -42,40 +44,43 @@
                 </div>
                 <div class="detalis">
                     <ul>
-                        <li><img src="images/merchant/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li><img src="images/merchant/order_<?php echo $v['order_id'];?>.png" alt=""></li>
                         <li>
-                            <p class="clothes_name"><?php echo $v['product_name'];?></p>
+                            <p class="clothes_name"><?php echo $v['product_name'];?>
                             <p class="two"><span>店铺：</span><?php echo $v['shopname'];?></p>
-                            <p><span>来源：</span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></p>
+                                <p><span>来源：</span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></p>
                         </li>
                         <li>
                             <p><span>试客：</span><?php echo $v['shikename'];?></p>
                         </li>
+
                         <?php if($v['status'] == 1):?>
                         <li>
                             <p>待发货</p>
                         </li>
                         <li>
                             <p class="status" id="delivery" onclick="show_deliver_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认发货"/></p>
-                            <p><span>还剩48小时00分00秒</span></p>
+                            <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                         </li>
                         <?php endif;?>
+
                         <?php if($v['status'] == 2):?>
                         <li>
-                            <p>待审核评价</p>
+                            <p>待审核</p>
                         </li>
                         <li>
-                            <p class="status" id="audit" onclick="show_audit_modal(<?php echo $v['order_id'];?>)"><input type="button" value="审核通过"/></p>
-                            <p><span>还剩48小时00分00秒</span></p>
+                            <p class="status" id="audit" onclick="show_audit_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认审核"/></p>
+                            <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                         </li>
                         <?php endif;?>
+
                         <?php if($v['status'] == 3):?>
                         <li>
                             <p>待确认评价</p>
                         </li>
                         <li>
-                            <p class="status" id="confirm_pass" onclick="show_pass_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认通过"/></p>
-                            <p><span>还剩48小时00分00秒</span></p>
+                            <p class="status" id="pass" onclick="show_pass_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认评价"/></p>
+                            <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                         </li>
                         <?php endif;?>
                         <?php if($v['status'] == 4):?>
@@ -88,6 +93,7 @@
                                 <span>联系客服QQ:</span>
                                 <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
+                                <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
                         <?php endif;?>
                         <?php if($v['status'] == 5):?>
@@ -95,11 +101,12 @@
                             <p>待复制评价</p>
                         </li>
                         <li>
-                            <p class="status" >待试客复制发布评价评价</p>
+                            <p class="status" >待试客复制发布评价</p>
                             <p>
-                                <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            <span>联系客服QQ:</span>
+                            <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
+                            <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
                         <?php endif;?>
                         <?php if($v['status'] == 6):?>
@@ -109,10 +116,11 @@
                         <li>
                             <p class="status" >试用待试客收货评价</p>
                             <p>
-                                <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            <span>联系客服QQ:</span>
+                            <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
-                        </li>                        
+                            <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
+                        </li>
                         <?php endif;?>
                         <?php if($v['status'] == 7):?>
                         <li>
@@ -120,6 +128,7 @@
                         </li>
                         <li>
                             <p class="status finish" >试用已结束</p>
+                            <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
                         <?php endif;?>
                         <?php if($v['status'] == 8):?>
@@ -129,11 +138,14 @@
                         <li>
                             <p class="status">试用已取消</p>
                             <p>
-                                <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            <span>联系客服QQ:</span>
+                            <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
+                            <!--  <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
                         <?php endif;?>
+                        <input type="hidden" id="order_list_id_<?php echo $order_list_count;?>" value="<?php echo $v['order_id'];?>">
+                        <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo strtotime($v['time']);?>">
                     </ul>
                 </div>
             </div>
@@ -212,8 +224,20 @@
 
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
+<script src="js/ydcountdown.js"></script>
 <script>
     $(function(){
+        var order_list_count = <?php echo count($order_list);?>;
+        for(var i=0;i<order_list_count;i++){
+            var timestamp = $("#order_list_time_"+i).val();
+            var now ="<?php echo time();?>";
+            var order_id = $("#order_list_id_"+i).val();
+            var obj = $("#lefttime_"+order_id);
+            leftseconds = parseInt(timestamp)+ 3600*48 - parseInt(now);
+            console.log(leftseconds);
+            //console.log(obj);
+            ydcountdown(leftseconds,obj);
+        }
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
         $('#left_nav').load("../common/left_nav.html");
