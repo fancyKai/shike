@@ -17,9 +17,9 @@
         <div class="funds_record left">
             <h1 class="title">资金记录</h1>
             <ul class="allRecord">
-                <li class="record" data-toggle="funds_detail"><a href="javascript:void(0);">资金明细</a><span>|</span></li>
-                <li class="record" data-toggle="recharge_record"><a href="javascript:void(0);">充值记录</a><span>|</span></li>
-                <li class="record" data-toggle="withdraw_record"><a href="javascript:void(0);">提现记录</a><span>|</span></li>
+                <li class="record" <?php if(!$money_type):?> data-toggle="funds_detail" <?php endif;?> ><a  href="/merchant_funds_record?money_type=0">资金明细</a><span>|</span></li>
+                <li class="record" <?php if($money_type == 1):?> data-toggle="recharge_record" <?php endif;?> ><a href="/merchant_funds_record?money_type=1">充值记录</a><span>|</span></li>
+                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a href="/merchant_funds_record?money_type=2">提现记录</a><span>|</span></li>
             </ul>
             <div>
             <!--资金明细-->
@@ -31,27 +31,20 @@
                     <td>结余</td>
                     <td>备注</td>
                 </tr>
+            <?php foreach($money_list as $v):?>
                 <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>&yen;500.00</td>
+                    <td><?php echo $v['time'];?></td>
+                <?php if($v['money_type'] == 1):?>
+                    <td>&yen;<?php echo $v['money'];?></td>
                     <td>&yen;0.00</td>
-                    <td>&yen;500.00</td>
-                    <td>押金充值</td>
-                </tr>
-                <tr>
-                    <td>2016.03.03 10:00:00</td>
+                <?php else:?>
                     <td>&yen;0.00</td>
-                    <td>&yen;100.00</td>
-                    <td>&yen;400.00</td>
-                    <td>试用支付冻结</td>
+                    <td>&yen;<?php echo $v['money'];?></td>
+                <?php endif;?>
+                    <td>&yen;<?php echo $v['money_remain'];?></td>
+                    <td><?php echo $v['remarks'];?></td>
                 </tr>
-                <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>&yen;500.00</td>
-                    <td>&yen;0.00</td>
-                    <td>&yen;300.00</td>
-                    <td>押金提现</td>
-                </tr>
+            <?php endforeach ?>
             </table>
             <!--充值记录-->
             <table class="recharge_record">
@@ -61,18 +54,14 @@
                     <td>金额</td>
                     <td>状态</td>
                 </tr>
+            <?php foreach($money_list as $v):?>              
                 <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>123456789</td>
-                    <td>&yen;500.00</td>
-                    <td>充值成功</td>
+                    <td><?php echo $v['time'];?></td>
+                    <td><?php echo $v['flowid'];?></td>
+                    <td>&yen;<?php echo $v['money'];?></td>
+                    <td><?php  echo ($v['status']==1 ? '充值成功':'充值失败');?></td>
                 </tr>
-                <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>123456789</td>
-                    <td>&yen;500.00</td>
-                    <td>充值失败</td>
-                </tr>
+            <?php endforeach ?>
             </table>
             <!--提现记录-->
             <table class="withdraw_record">
@@ -83,27 +72,15 @@
                     <td>实际到账金额</td>
                     <td>状态</td>
                 </tr>
+            <?php foreach($money_list as $v):?>
                 <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>12346789</td>
-                    <td>&yen;500.00</td>
-                    <td>&yen;495.00</td>
+                    <td><?php echo $v['time'];?></td>
+                    <td><?php echo $v['flowid'];?></td>
+                    <td>&yen;<?php echo $v['money'];?></td>
+                    <td>&yen;<?php echo ($v['money']-$v['processfee']);?></td>
                     <td>提现成功</td>
                 </tr>
-                <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>4567891233</td>
-                    <td>&yen;400.00</td>
-                    <td>&yen;395.00</td>
-                    <td>提现中</td>
-                </tr>
-                <tr>
-                    <td>2016.03.03 10:00:00</td>
-                    <td>45612345662</td>
-                    <td>&yen;300.00</td>
-                    <td>&yen;300.00</td>
-                    <td>押金提现</td>
-                </tr>
+            <?php endforeach ?>
             </table>
             </div>
         </div>

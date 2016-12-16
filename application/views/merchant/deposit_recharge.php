@@ -20,27 +20,27 @@
             <table>
                 <tr>
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                 </tr>
                 <tr class="bank">
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                     <td class="bank">
-                        <img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
                     </td>
                     <td class="bank">
                         <a href="javascript:void(0);">选择其他</a>
@@ -63,7 +63,7 @@
                 <p>3、禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账号的试用；</p>
                 <p>
                     4、如果充值金额没有及时到账，请联系客服。
-                    <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
+                    <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="">
                 </p>
             </div>
         </div>

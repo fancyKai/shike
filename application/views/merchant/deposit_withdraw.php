@@ -24,7 +24,7 @@
                 <div class="main_two">
                     <b>可用押金：</b>
                     <div class="left bankCard_one">
-                        <p class="one"><img src="../../images/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt=""></p>
+                        <p class="one"><img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt=""></p>
                         <p class="two"><span>储蓄卡</span></p>
                         <p class="three">**** **** **** 5017</p>
                     </div>
@@ -47,7 +47,7 @@
                     <input type="text"/>
                     <span class="error">提现密码错误</span>
                     <br/>
-                    <p class="one">忘记密码请联系客服：<img src="../../images/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p class="one">忘记密码请联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
                 </div>
             </div>
             <p class="confirm_btn">
@@ -60,7 +60,7 @@
                 <p>3、禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账号的试用；</p>
                 <p>
                     4、如果充值金额没有及时到账，请联系客服。
-                    <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
+                    <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="">
                 </p>
             </div>
         </div>
@@ -73,11 +73,11 @@
         <div class="modal_prompt">
             <span>提示</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="succeed_content">
-            <p><img src="../../images/sj_fbsy_tc_icon_right_default.png" alt=""></p>
+            <p><img src="images/merchant/sj_fbsy_tc_icon_right_default.png" alt=""></p>
             <p class="payment_succeed">提现成功！</p>
             <p>请在3-5个工作日后查询银行账户，如有问题请联系客服。</p>
         </div>
@@ -93,11 +93,11 @@
         <div class="modal_prompt">
             <span>提示</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="succeed_content">
-            <p><img src="../../images/sj_fbsy_tc_icon_no_default.png" alt=""></p>
+            <p><img src="images/merchant/sj_fbsy_tc_icon_no_default.png" alt=""></p>
             <p class="payment_succeed">支付失败！</p>
             <p style="height:20px;">可用押金金额不足</p>
         </div>
