@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <title>试用订单管理</title>
     <link rel="stylesheet" href="css/merchant/reset.css">
+    <!--<link rel="stylesheet" href="../../css/reset_content.css">-->
     <link rel="stylesheet" href="css/merchant/modal_alert.css">
     <link rel="stylesheet" href="css/merchant/order_details.css">
-    <link rel="stylesheet" href="css/merchant/personal_center.css">
-    <link rel="stylesheet" href="css/merchant/order_manage.css">
 </head>
 <body>
 <header id="header"></header>

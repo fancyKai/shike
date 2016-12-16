@@ -29,4 +29,11 @@ class merchant_activity_manage extends MY_Controller {
 		$this->out_data['con_page'] = 'merchant/activity_manage';
 		$this->load->view('merchant_default', $this->out_data);
 	}
+
+	public function cancle_activity(){
+		$order_id = $this->input->post('orderid');
+		$res = $this->db->update("sorder",array("status"=>'8'),array('order_id'=>$order_id));
+		echo json_encode($res);
+		// echo 1;
+	}
 }

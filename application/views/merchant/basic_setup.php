@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>基本设置</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/reset_content.css">
-    <link rel="stylesheet" href="../../css/basic_setup.css">
+    <link rel="stylesheet" href="css/merchant/reset.css">
+    <link rel="stylesheet" href="css/merchant/reset_content.css">
+    <link rel="stylesheet" href="css/merchant/basic_setup.css">
 </head>
 <body>
 <header id="header"></header>
@@ -19,38 +19,38 @@
             <div class="setup_content">
                 <ul>
                     <li>
-                        <img src="../../images/sj_zhxx_icon_right_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_icon_right_default.png" alt="">
                     </li>
                     <li><span>登录密码</span></li>
                     <li>互联网账号存在被盗号风险，建议您定期修改密码以保护账号安全。</li>
-                    <li><a href="0401_revamp_loginPw.html">修改</a></li>
+                    <li><a href="/merchant_modify_loginPw">修改</a></li>
                 </ul>
                 <ul>
                     <li>
-                        <img src="../../images/sj_zhxx_icon_no_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_icon_no_default.png" alt="">
                     </li>
                     <li><span>支付密码</span></li>
                     <li>设置密码后开启支付功能，保障虚拟资产安全。</li>
-                    <li><input onclick="location.href='0401_set_payPw.html'" type="button" value="立即设置"/></li>
+                    <li><input onclick="location.href='/merchant_set_payPw'" type="button" value="立即设置"/></li>
                 </ul>
                 <ul>
                     <li>
-                        <img src="../../images/sj_zhxx_icon_no_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_icon_no_default.png" alt="">
                     </li>
                     <li><span>提现密码</span></li>
                     <li>设置密码后开启提现功能，可将平台资产转出。</li>
-                    <li><input onclick="location.href='0401_set_withdrawdepositPw.html'" type="button" value="立即设置"/></li>
+                    <li><input onclick="location.href='/merchant_set_withdrawdepositPw'" type="button" value="立即设置"/></li>
                 </ul>
                 <ul>
                     <li>
-                        <img src="../../images/sj_zhxx_icon_right_default.png" alt="">
+                        <img src="images/merchant/sj_zhxx_icon_right_default.png" alt="">
                     </li>
                     <li><span>联系方式</span></li>
                     <li>
-                        <span>QQ:123456789</span><br/>
-                        <span>手机：1234567899</span>
+                        <span>QQ:<?php echo $sellerinfo['qq'];?></span><br/>
+                        <span>手机：<?php echo $sellerinfo['tel'];?></span>
                     </li>
-                    <li><a href="0401_revamp_QQ.html">修改</a><br/><a href="0401_revamp_phone.html">修改</a></li>
+                    <li><a href="/merchant_set_sellerqq">修改</a><br/><a href="/merchant_set_sellertel">修改</a></li>
                 </ul>
             </div>
         </div>

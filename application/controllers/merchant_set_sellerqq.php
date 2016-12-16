@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class merchant_basic_setup extends MY_Controller {
+class merchant_set_sellerqq extends MY_Controller {
 
 	function __construct()
 	{
@@ -12,9 +12,8 @@ class merchant_basic_setup extends MY_Controller {
 
         // $act_id = $this->input->get('act_id');
         // $this->out_data['act'] = $this->db->query("select * from activity where act_id=$act_id")->row_array();
-        $seller_id = 1;
-		$this->out_data['sellerinfo'] = $this->db->query("select * from seller where seller_id={$seller_id}")->row_array();
-		$this->out_data['con_page'] = 'merchant/basic_setup';
+
+		$this->out_data['con_page'] = 'merchant/set_sellerqq';
 		$this->load->view('merchant_default', $this->out_data);
 	}
 }
