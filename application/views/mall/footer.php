@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/mall/reset.css">
-    <link rel="stylesheet" href="../../css/mall/footer.css">
+    <link rel="stylesheet" href="<?=base_url("css/mall/reset.css")?>" >
+    <link rel="stylesheet" href="<?=base_url("css/mall/footer.css")?>">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="../../js/mall/html5shiv.min.js"></script>
-    <script src="../../js/mall/respond.min.js"></script>
     <![endif]-->
-    <script src="../../js/mall/selectivizr-min.js"></script>
+    <script src="<?= base_url("js/mall/html5shiv.min.js")?>"></script>
+    <script src="<?= base_url("js/mall/respond.min.js")?>"></script>
+    <script src="<?= base_url("js/mall/selectivizr-min.js")?>"></script>
 </head>
 <body>
 <!--页面底部-->
@@ -57,7 +57,7 @@
         </div>
         <p>
             <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005834" >
-                <img src="../../images/mall/record_icon.png"/>
+                <img src="<?=base_url("images/mall/record_icon.png")?>"/>
                 浙公网安备 33010602005834号</a>&nbsp; 浙ICP备 16023334号 &nbsp; 浙ICP备 16023334号-1</p>
         <p>Copyright&copy;2016 版权所有 YUNTUIGOU.COM</p>
     </div>
@@ -65,6 +65,5 @@
     <!--<img src="../images/footer.png " alt="">-->
     <!--</div>-->
 </footer>
-<script src="../../js/mall/jquery-1.10.2.js"></script>
 </body>
 </html>

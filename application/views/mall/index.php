@@ -17,16 +17,16 @@
         <!--左侧导航-->
         <div class="left_nav left">
             <ul>
-                <li class="left_nav_title"><a href="classify_page.html">女装</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">男装</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">美妆</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">鞋包配饰</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">居家生活</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">数码电器</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">母婴儿童</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">户外运动</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">食品酒水</a></li>
-                <li class="left_nav_title"><a href="javascript:void(0);">其他</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/1') ?>">女装</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/2') ?>">男装</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/3') ?>">美妆</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/4') ?>">鞋包配饰</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/5') ?>">居家生活</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/6') ?>">数码电器</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/7') ?>">母婴儿童</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/8') ?>">户外运动</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/9') ?>">食品酒水</a></li>
+                <li class="left_nav_title"><a href="<?=base_url('mall/homepage/classify/10') ?>">其他</a></li>
             </ul>
         </div>
         <!--中间轮播广告-->
@@ -108,7 +108,7 @@
                     $freight = ($v['freight'])?'':'包邮';
                     echo '
             <div class="products left">
-                <a href="details.html"><img src='.$v['picture_url'].' alt=""></a>
+                <a href="'.base_url('mall/homepage/productdetails/'.$v['act_id']).'"><img src='.$v['picture_url'].' alt=""></a>
                 <p class="product_introduction">'.$v['product_name'].'</p>
                 <p class="quantity">
                     <span>限量版'.$v['amount'].'</span><span>'.$freight.'</span>
@@ -119,121 +119,10 @@
             </div>';
                 }
             ;?>
-
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000222222</b>次</span>
-                </p>
-            </div>
         </div>
         <!--推荐试用-->
         <h1 class="section_title"><img src="../../images/mall/tuijian_bg_default.png" alt=""></h1>
         <div class="recommend_trial">
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000222222</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000222222</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000222222</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000222222</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000222222</b>次</span>
-                </p>
-            </div>
-            <div class="products left">
-                <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
-                <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
-                <p class="quantity">
-                    <span>限量版5000份</span><span>包邮</span>
-                </p>
-                <p class="price">
-                    <span>&yen;199.10</span><span>已申请<b>1000</b>次</span>
-                </p>
-            </div>
             <!--&lt;!&ndash;查看更多按钮&ndash;&gt;-->
             <!--<div class="see_more">-->
             <!--<input type="button"/>-->
@@ -254,8 +143,13 @@
 <script src="../../js/mall/jquery.twbsPagination.js"></script>
 <script>
     $(function(){
-        $('#header').load('../common/header.html');
-        $('#footer').load('../common/footer.html');
+        /*$('#header').load('../common/header.html');
+        $('#footer').load('../common/footer.html');*/
+        $('#header').load('../common/header.html',function(){
+            $('.search .right ul').find('a').removeClass('header_active');
+            $('.search .right ul').find('a').eq(0).addClass('header_active');
+            conversion(0)
+        });
 
         $('.shike_course').mouseover(function(){
             $(this).find('a').css("background-image","url(../../images/mall/nav_icon_ren_selected.png)");
@@ -281,10 +175,52 @@
             $(this).find('a').css("background-image","url(../../images/mall/nav_icon_diannao_default.png)");
             $(this).find('a').css('margin-top','10px')
         });
-        console.log('start');
+        //第1页
+        $.ajax({
+            //var base_url = 'localhost/shike/'
+            url: "<?=base_url('mall/homepage/getRecommend')?>",
+            method:'post',
+            data:{
+                page:1
+            },
+            success:function(result){
+                result = JSON.parse(result);
+                if(result.success==true){
+                    //console.log(result.data)base_url('mall/homepage/productdetails/'.$v['act_id']
+                    $('.classify_commodity').empty();
+                    var html = '';
+                    recommend_list = result.data.hottest_list;
+                    recommend_list.forEach(function(e){
+                        var freight = (e.freight != '0')?'<span style="height: 0px;"></span>':'<span>包邮</span>';
+                        html += '<div class="products left">'+
+                            '<a href="<?=base_url('mall/homepage/productdetails/')?>'+ e.act_id+ '"><img src="'+ e.picture_url + '" alt=""></a>'+
+                            '<p class="product_introduction">'+ e.product_name +'</p>'+
+                            '<p class="quantity">'+
+                            '<span>限量版'+ e.amount + '份</span>'+ freight+
+                            '</p>'+
+                            '<p class="price">'+
+                            '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                            '</p>'+
+                            '</div>';
+                        console.log(e)
+                    });
+                    $('.classify_commodity').append(html);
+                }
+                else{
+
+                }
+                //$('.xx').remove()
+            },
+            error:function(result){
+                alert('error')
+            }
+
+        })
+
         //        分页
         $('#pagination').twbsPagination({
-            totalPages: 35,//总页数
+            totalPages: <?php echo (integer)($recommend_count['count']/2) + 1; ?>,//总页数
+            //totalPages: 10,//总页数
             startPage:1,//开始的页码
             visiblePages: 7,//显示的页面的数字个数
             initiateStartPageClick:true,
@@ -293,11 +229,52 @@
             next:'下一页',
             last:'尾页',
 
-//        onPageClick: function (event, page) {
-//            $('#page-content').text('Page ' + page);
-//        }
+        onPageClick: function (event, page) {
+            //$('#page-content').text('Page ' + page);
+            $.ajax({
+                //var base_url = 'localhost/shike/'
+                url: "<?=base_url('mall/homepage/getRecommend')?>",
+                method:'post',
+                data:{
+                    page:page
+                },
+                success:function(result){
+                    result = JSON.parse(result);
+                    if(result.success==true){
+                        //console.log(result.data)
+                        $('.recommend_trial').empty();
+                        var html = '';
+                        recommend_list = result.data.recommend_list;
+                        recommend_list.forEach(function(e){
+                            var freight = (e.freight != '0')?'<span style="height: 0px;"></span>':'<span>包邮</span>';
+                            html += '<div class="products left">'+
+                                '<a href="<?=base_url('mall/homepage/productdetails/')?>'+ e.act_id+ '"><img src="'+ e.picture_url + '" alt=""></a>'+
+                                '<p class="product_introduction">'+ e.product_name +'</p>'+
+                                '<p class="quantity">'+
+                                '<span>限量版'+ e.amount + '份</span>'+ freight+
+                                '</p>'+
+                                '<p class="price">'+
+                                '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                            '</p>'+
+                            '</div>';
+                            console.log(e)
+                        });
+                        $('.recommend_trial').append(html);
+                    }
+                    else{
+
+                    }
+                    //$('.xx').remove()
+                },
+                error:function(result){
+                    alert('error')
+                }
+
+        })
+            console.log(page);
+        }
         });
-        console.log('111');
+
     })
 </script>
 </body>

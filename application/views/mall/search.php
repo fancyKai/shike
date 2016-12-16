@@ -2,37 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商城--最热试用</title>
-    <link rel="stylesheet" href="../../css/mall/reset.css">
-    <link rel="stylesheet" href="../../css/mall/search_page.css">
+    <title>商城--搜索页</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/search_page.css">
 </head>
 <body>
 <header id="header"></header>
 <section id="section">
-    <!--<div class="classify_title">-->
-    <!--<ul>-->
-    <!--<li>您的位置：</li>-->
-    <!--<li>首页</li>-->
-    <!--<li><img src="../../images/icon_arrow_default.png" alt=""></li>-->
-    <!--<li>女装</li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--分类导航-->
-    <div class="classify_nav">
+    <div class="search_title">
         <ul>
-            <li class="nav"><a class="classify_active" href="javascript:void(0);">女装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">男装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">鞋包配饰</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">居家生活</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">数码电器</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">母婴儿童</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">食品酒水</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">其他</a></li>
+            <li>您的位置：</li>
+            <li>首页</li>
+            <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+            <li>女装</li>
         </ul>
     </div>
-    <div class="classify_commodity">
+    <div class="search_commodity">
         <div class="products left">
-            <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
+            <a href="details.html"><img src="../../images/bg_sp_default.png" alt=""></a>
             <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
             <p class="quantity">
                 <span>限量版5000份</span><span>包邮</span>
@@ -42,7 +29,7 @@
             </p>
         </div>
         <div class="products left">
-            <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
+            <a href="details.html"><img src="../../images/bg_sp_default.png" alt=""></a>
             <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
             <p class="quantity">
                 <span>限量版5000份</span><span>包邮</span>
@@ -52,7 +39,7 @@
             </p>
         </div>
         <div class="products left">
-            <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
+            <a href="details.html"><img src="../../images/bg_sp_default.png" alt=""></a>
             <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
             <p class="quantity">
                 <span>限量版5000份</span><span>包邮</span>
@@ -62,7 +49,7 @@
             </p>
         </div>
         <div class="products left">
-            <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
+            <a href="details.html"><img src="../../images/bg_sp_default.png" alt=""></a>
             <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
             <p class="quantity">
                 <span>限量版5000份</span><span>包邮</span>
@@ -72,7 +59,7 @@
             </p>
         </div>
         <div class="products left">
-            <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
+            <a href="details.html"><img src="../../images/bg_sp_default.png" alt=""></a>
             <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
             <p class="quantity">
                 <span>限量版5000份</span><span>包邮</span>
@@ -82,7 +69,7 @@
             </p>
         </div>
         <div class="products left">
-            <a href="details.html"><img src="../images/mall/bg_sp_default.png" alt=""></a>
+            <a href="details.html"><img src="../../images/bg_sp_default.png" alt=""></a>
             <p class="product_introduction">秋冬季半高领针织衫蝴蝶结领毛衣韩版</p>
             <p class="quantity">
                 <span>限量版5000份</span><span>包邮</span>
@@ -140,16 +127,17 @@
 
 
 <footer id="footer"></footer>
-<script src="../../js/mall/jquery-1.10.2.js"></script>
+<script src="../../js/jquery-1.10.2.js"></script>
 <script>
     $(function(){
-        $('#header').load('../common/details_header.html');
-        $('#footer').load('../common/footer.html');
-        $('.nav').bind('click',function(){
-            $(this).find('a').addClass('classify_active');
-            $(this).siblings().find('a').removeClass('classify_active');
-        })
+        $('#header').load('../common/details_header.html',function(){
+            $('.search .right ul').find('a').removeClass('header_active');
+            $('.search .right ul').find('a').eq(0).addClass('header_active');
+            conversion(0);
+            $('.details_title').text('商品搜索')
 
+        });
+        $('#footer').load('../common/footer.html');
     })
 </script>
 </body>
