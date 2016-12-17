@@ -37,7 +37,7 @@
   display: inline-block;
   width: 150px;
   line-height: 24px;
-  background: url(../images/yuntuigou.png) right center no-repeat;
+  background: url(../../images/mall/yuntuigou.png) right center no-repeat;
 }
 #foot .footer .foot_box ul:not(:first-child) {
   border-left: 1px dashed #c8c8c8;

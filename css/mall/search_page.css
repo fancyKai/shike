@@ -127,9 +127,9 @@
   width: 150px;
   height: 50px;
   margin: 30px 0 50px 0;
-  background: url(../images/button_more_buttom_default.png) center no-repeat;
+  background: url(../../images/mall/button_more_buttom_default.png) center no-repeat;
 }
 #section .search_commodity .see_more input:hover,
 #section .classify_commodity .see_more input:hover {
-  background: url(../images/button_more_buttom_selected.png) center no-repeat;
+  background: url(../../images/mall/button_more_buttom_selected.png) center no-repeat;
 }
