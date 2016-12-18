@@ -18,6 +18,7 @@ class merchant_userapi extends MY_Controller {
 		$authcode = $this->input->post("authcode");
 		$passwd = $this->input->post("passwd");
 		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode",""));
 		if($authcode != $telcode){
 			$msg = "手机验证码错误";
 			$res = 0;
@@ -35,6 +36,7 @@ class merchant_userapi extends MY_Controller {
 	public function check_telcode(){
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode",""));
 		if($authcode != $telcode){
 			$msg = "手机验证码错误";
 			$res = 0;
@@ -51,6 +53,7 @@ class merchant_userapi extends MY_Controller {
 	public function check_telcode2(){
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode",""));
 		$phone = $this->input->post("phone");
 
 		if($authcode != $telcode){
@@ -65,6 +68,7 @@ class merchant_userapi extends MY_Controller {
 			$msg = "成功";
 			$res = 1;
 		}
+		$this->session->set_userdata(array("settel_permission"=>0));
 		$result = array("msg"=>$msg,"res"=>$res);
 		//$result = array('authcode'=>$authcode,'telcode'=>$telcode,'phone'=>$phone);
 		echo json_encode($result);

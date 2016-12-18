@@ -100,7 +100,7 @@
             <?php if($act['status'] == 1):?>
             <div class="order_status">
                 <p>订单状态：<span>待付款</span></p>
-                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <!--实际付款-->
             <div class="payment_box">
@@ -133,7 +133,7 @@
             <p class="total">已冻结押金：<span>105元</span></p>
             <div class="order_status">
                 <p>订单状态：<span>待发布</span></p>
-                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <?php endif;?>
             <!--状态为3 待开奖状态处理流程-->
@@ -141,7 +141,7 @@
             <p class="total">已冻结押金：<span>105元</span></p>
             <div class="order_status">
                 <p>订单状态：<span>待开奖</span></p>
-                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <?php endif;?>
             <!--状态为4 已开奖状态处理流程-->
@@ -149,7 +149,7 @@
             <p class="total">已冻结押金：<span>105元</span></p>
             <div class="order_status">
                 <p>订单状态：<span>已开奖</span></p>
-                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <div class="winning_shike">
                 <p class="left">中奖试客：</p>
@@ -178,7 +178,7 @@
             <?php if($act['status'] == 5):?>
             <div class="order_status">
                 <p>订单状态：<span>已取消</span></p>
-                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <?php endif;?>
 

@@ -9,11 +9,24 @@ class merchant_bankcard_manage extends MY_Controller {
 
 	public function index()
 	{
+        $seller_id = "1";
+        $bankcard = $this->db->query("select * from bankbind where user_id=$seller_id and type='0'")->row_array();
+        if(!$bankcard){
+            $this->out_data['con_page'] = 'merchant/bankcard_manage';
+		    $this->load->view('merchant_default', $this->out_data);
+        }else{
+        	$this->out_data['bankcard'] = $bankcard;
+            $this->out_data['con_page'] = 'merchant/bound_bankCard';
+		    $this->load->view('merchant_default', $this->out_data);
+        }
+		
+	}
 
-        // $act_id = $this->input->get('act_id');
-        // $this->out_data['act'] = $this->db->query("select * from activity where act_id=$act_id")->row_array();
-
-		$this->out_data['con_page'] = 'merchant/bankcard_manage';
-		$this->load->view('merchant_default', $this->out_data);
+	public function delete_bankcard()
+	{
+		$id = $this->input->post('bankcard_id');
+		$this->db->delete('bankbind', array('id' => $id));
+		$result['status'] = true;
+		echo json_encode($result);
 	}
 }

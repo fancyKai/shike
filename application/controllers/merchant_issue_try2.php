@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+header("Content-type: text/html; charset=utf-8");
 class merchant_issue_try2 extends MY_Controller {
 
 	function __construct()
@@ -13,6 +13,12 @@ class merchant_issue_try2 extends MY_Controller {
         // $user_id = $this->session->userdata('user_id');
 		$user_id=1;
 		$this->out_data['act_id'] = $this->input->get('act_id');
+		$activity_sellerid = $this->db->query('select seller_id from activity where act_id='.$this->out_data['act_id'])->row_array();
+		if($user_id != $activity_sellerid['seller_id']){
+			echo "不可允许的访问";
+			return;
+		}
+		
 		// $orderwhere = '';
 		// $order_status = $this->input->get('order_status');
 		// $this->out_data['order_status'] = $order_status;
@@ -51,9 +57,9 @@ class merchant_issue_try2 extends MY_Controller {
 		$thecolor = $this->input->post('thecolor');
 		$thesize = $this->input->post('thesize');
 		$unit_price = $this->input->post('unit_price');
-		$buy_num = $this->input->post('buy_num');
+		$buy_sum = $this->input->post('buy_sum');
 		$freight = $this->input->post('freight');
-		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"margin" => $unit_price,"buy_sum" => $buy_num,"freight" => $freight);
+		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"unit_price" => $unit_price,"buy_sum" => $buy_sum,"freight" => $freight);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
 

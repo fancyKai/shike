@@ -29,7 +29,7 @@
                         <div class="left shop">
                             <img class="shop_logo" src="images/merchant/sj_fbsy_bg_nike_default.png" alt="">
                             <p class="shop_name"><?php echo $v['shop_name'];?></p>
-                            <p class="shop_source">来源：<p class="shop_inner_source"><?php echo $v['platform_id'];?></p></p>
+                            <p class="shop_source">来源：<p class="shop_inner_source"><?php echo ($v['platform_id']==1?'淘宝':'天猫'); ?></p></p>
                         </div>
                     <?php endforeach?>
                 </div>

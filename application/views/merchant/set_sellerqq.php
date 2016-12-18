@@ -24,7 +24,7 @@
 
                 <p class="btn">
                     <input onclick="info_post()" type="button" value="确定"/>
-                    <input type="button" value="取消"/>
+                    <input type="button" value="取消" onclick="location.href='/merchant_basic_setup'"/>
                 </p>
             </form>
         </div>
@@ -41,6 +41,10 @@
 
      function check_qq(){
         var qq = $("#qq").val();
+        if(!qq){
+            $("#qq_errors").text("QQ号不得为空");
+            return;
+        }
         if(RegExp(/^[1-9][0-9]{4,9}$/).test(qq)){
             $("#qq_errors").text("");
         }else{
@@ -50,6 +54,11 @@
 
      function info_post(){
         var qq = $("#qq").val();
+        if(!qq){
+            $("#qq_errors").text("QQ号不得为空");
+            return;
+        }
+        $("#qq_errors").text("");
         $.ajax({
         url : admin.url+'merchant_userapi/set_qq',
         type : 'POST',

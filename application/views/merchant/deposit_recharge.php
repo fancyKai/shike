@@ -63,7 +63,7 @@
                 <p>3、禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账号的试用；</p>
                 <p>
                     4、如果充值金额没有及时到账，请联系客服。
-                    <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="">
+                    <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')">
                 </p>
             </div>
         </div>

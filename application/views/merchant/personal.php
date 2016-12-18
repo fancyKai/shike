@@ -26,14 +26,14 @@
                     </div>
                     <div class="left username">
                         <h1><?php echo $sellerinfo['account']?></h1>
-                        <p>会员等级：<span>试用会员</span> <b><?php echo substr($sellerinfo['end_time'],0,10);?>到期</b></p>
-                        <input type="button" value="购买正式会员"/>
+                        <p>会员等级：<span><?php  echo ($sellerinfo['level']==1 ? '试用会员':'正式会员');?></span> <b><?php echo substr($sellerinfo['end_time'],0,10);?>到期</b></p>
+                        <input type="button" value=<?php  echo ($sellerinfo['level']==1 ? '购买正式会员':'续费');?> onclick="window.open('/merchant_member_recharge')"/>
                     </div>
                 </div>
                 <!--试用任务-->
                 <div class="left try_task">
                     <div class="try_monery">
-                        <input type="button" value="发布试用任务"/>
+                        <input type="button" value="发布试用任务" onclick="window.open('/merchant_issue_try')"/>
                         可用押金：<span><?php echo $sellerinfo['avail_deposit']?></span>元
                         <a href="#">充值押金</a>
                         冻结押金：<span><?php echo $sellerinfo['freeze_deposit']?></span>元
@@ -78,7 +78,7 @@
                     </div>
                     <div class="detalis">
                         <ul>
-                            <li><img src="images/merchant/order_<?php echo $v['order_id'];?>.png" alt=""></li>
+                            <li><img src="images/merchant/order/order_<?php echo $v['order_id'];?>.png" alt=""></li>
                             <li>
                                 <p class="clothes_name"><?php echo $v['product_name'];?>
                                 <p class="two"><span>店铺：</span><?php echo $v['shopname'];?></p>
@@ -125,7 +125,7 @@
                                 <p class="status">试用待领取</p>
                                 <p>
                                 <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                                 </p>
                                 <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
@@ -138,7 +138,7 @@
                                 <p class="status" >待试客复制发布评价</p>
                                 <p>
                                 <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                                 </p>
                                 <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
@@ -151,7 +151,7 @@
                                 <p class="status" >试用待试客收货评价</p>
                                 <p>
                                 <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                                 </p>
                                 <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>
@@ -173,7 +173,7 @@
                                 <p class="status">试用已取消</p>
                                 <p>
                                 <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                                 </p>
                                <!--  <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                             </li>

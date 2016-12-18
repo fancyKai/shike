@@ -74,7 +74,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动正在审核中</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 3):?>
@@ -83,7 +83,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动待开奖</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 4):?>
@@ -92,7 +92,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动已开奖</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 5):?>
@@ -101,7 +101,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动已取消</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                         </ul>

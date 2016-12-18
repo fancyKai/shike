@@ -91,7 +91,7 @@
                             <p class="status">试用待领取</p>
                             <p>
                                 <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
                                 <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
@@ -104,7 +104,7 @@
                             <p class="status" >待试客复制发布评价</p>
                             <p>
                             <span>联系客服QQ:</span>
-                            <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
                             <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
@@ -117,7 +117,7 @@
                             <p class="status" >试用待试客收货评价</p>
                             <p>
                             <span>联系客服QQ:</span>
-                            <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
                             <!-- <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>
@@ -139,7 +139,7 @@
                             <p class="status">试用已取消</p>
                             <p>
                             <span>联系客服QQ:</span>
-                            <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
                             </p>
                             <!--  <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p> -->
                         </li>

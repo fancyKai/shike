@@ -69,7 +69,7 @@
                 <!--订单状态-->
                 <div class="order_status">
                     <p>订单状态：<span>超时已取消</span></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
             <!--状态为4 待领取状态处理流程-->
             <?php elseif($order['status'] == 4):?>
@@ -79,7 +79,7 @@
                 <!--订单状态-->
                 <div class="order_status">
                     <p>订单状态：<span>待领取</span></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
             <!--除状态8和状态4外均有申请信息的详细信息-->
             <?php else:?>
@@ -119,7 +119,7 @@
                         <div class="serviceChat">
                             <div class="left collect">
                                 <div class="picture">
-                                    <img src="images/merchant/sj_ddgl_bg_ltjt1_default.png" alt="">
+                                    <img src="images/merchant/sj_ddgl_bg_ltjt1_default.png" alt="" >
                                 </div>
                             </div>
                             <div class="left collect">
@@ -210,7 +210,7 @@
             <?php if($order['status'] == 1):?>
                 <div class="order_status">
                     <p>订单状态：<span>待发货</span></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
                 <!--确认发货按钮-->
                 <div class="btn">
@@ -220,7 +220,7 @@
                 <!--订单状态-->
                 <div class="order_status">
                     <p>订单状态：<span>待审核评价</span></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
                 <!--审核通过按钮-->
                 <div class="btn">
@@ -230,7 +230,7 @@
                 <!--订单状态-->
                 <div class="order_status">
                     <p>订单状态：<span>待确认评价</span></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
                 <!--确认评价按钮-->
                 <div class="btn">
@@ -241,7 +241,7 @@
                 <div class="order_status">
                     <p>订单状态：<span>待复制评价</span></p>
                     <p>运单号：<b>123456789</b></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
             <?php elseif($order['status'] == 6):?>
                 <!--订单状态-->
@@ -249,13 +249,13 @@
                     <p>订单状态：<span>待收货</span></p>
                     <p>物流公司：<b>申通快递</b></p>
                     <p>运单号：<b>123456789</b></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
             <?php elseif($order['status'] == 8):?>
                 <!--订单状态-->
                 <div class="order_status">
                     <p>订单状态：<span>已完成</span></p>
-                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
                 </div>
             <?php endif;?>
         </div>

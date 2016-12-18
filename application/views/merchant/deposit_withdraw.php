@@ -20,19 +20,26 @@
             <h2>填写提现金额</h2>
             <!--填写金额先关的信息-->
             <div class="fillIn_money">
-                <div class="main_one"><b>可用押金：</b><span>&yen;0.00</span></div>
+                <div class="main_one"><b>可用押金：</b><span>&yen;<?php echo $seller['avail_deposit'];?></span></div>
                 <div class="main_two">
                     <b>可用押金：</b>
+                    <?php if(!$bankcard):?>
+                    <div class="left bankCard_two">
+                        <p><img onclick="location.href='/merchant_add_bankCard'" src="images/merchant/sj_zjgl_icon_bdyhk_default.png" alt=""></p>
+                        <p>请先绑定银行卡</p>
+                    </div>
+                    <?php else:?>
                     <div class="left bankCard_one">
                         <p class="one"><img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt=""></p>
                         <p class="two"><span>储蓄卡</span></p>
-                        <p class="three">**** **** **** 5017</p>
+                        <p class="three">**** **** **** <?php echo substr($bankcard['banknum'], -4);?></p>
                     </div>
+                    <?php endif;?>
                 </div>
                 <div class="main_three">
                     <b>提现金额：</b>
-                    <input type="text" />
-                    <span class="error">提现金额不能为空</span>
+                    <input id="tixian" type="text" onblur="get_money()" />
+                    <span class="error" id="tixianerror"></span>
                     <br/>
                     <p class="one">单次最少提现500元，提现操作平台将收取1%的手续费</p>
                     <p class="two">预计2个工作日内（国家法定节假日和双休日顺延）平台完成提现操作。<br/>
@@ -40,18 +47,18 @@
                 </div>
                 <div class="main_four">
                     <b>实际到账金额：</b>
-                    <span>&yen;0.00</span>
+                    <span id="daozhang"></span>
                 </div>
                 <div class="main_five">
                     <b>提现密码：</b>
-                    <input type="text"/>
-                    <span class="error">提现密码错误</span>
+                    <input type="text" id="tixian_pwd"/>
+                    <span class="error" id="pwderror"></span>
                     <br/>
                     <p class="one">忘记密码请联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
                 </div>
             </div>
             <p class="confirm_btn">
-                <input id="confirm_withdraw" type="button" value="确认提现"/>
+                <input id="confirm_withdraw" type="button" value="确认提现" onclick="post_tixian()" />
             </p>
             <div class="warm_prompt">
                 <h1>温馨提示：</h1>
@@ -107,13 +114,13 @@
     </div>
     <div class="mask_layer"></div>
 </div>
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/modal_scrollbar.js"></script>
+<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/modal_scrollbar.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
 //        模态框的高度(500：表示头部和尾部高度的和)；
         $('.mask_layer').height(document.body.offsetHeight+500);
 
@@ -133,6 +140,34 @@
             enableScroll();
         });
     })
+    function get_money(){
+        var tixian = $("#tixian").val();
+        if(tixian < 500){
+            $("#tixianerror").text("单次最少提现500元");
+            $("#daozhang").text("");
+            return;
+        }
+        var money = tixian*0.99;
+        if(tixian){
+            $("#daozhang").text("￥"+money);
+            $("#tixianerror").text("");
+            return;
+        }
+        return;
+    }
+    function post_tixian(){
+        var tixian = $("#tixian").val();
+        var tixian_pwd = $("#tixian_pwd").val();
+        if(!tixian){
+            $("#tixianerror").text("提现金额不能为空");
+            return;
+        }
+        if(!tixian_pwd){
+            $("#pwderror").text("提现密码不能为空");
+            return;
+        }
+        return;
+    }
 </script>
 </body>
 </html>
