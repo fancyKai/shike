@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+header("Content-type:text/html;charset=utf-8");
 class merchant_store extends MY_Controller {
 
 	function __construct()
@@ -16,6 +16,8 @@ class merchant_store extends MY_Controller {
 
         $this->out_data['shops'] = $this->db->query("select * from shop where seller_id='1'")->result_array();
 		$this->out_data['con_page'] = 'merchant/store';
+    $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+    $this->out_data['qq'] = $this->out_data['qq']['qq'];
 		$this->load->view('merchant_default', $this->out_data);
 	}
 
@@ -41,6 +43,17 @@ class merchant_store extends MY_Controller {
     	$seller_id = "1";
     	$platform_id = "1";
     	$logo_id = "2";
+      $path = "images/merchant/shop/".$seller_id;
+      if (is_dir($path)){  
+
+      }else{
+         mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
+      }
+      $tmp_file = $_FILES['shop_logo']['tmp_name'];
+      $filename = $_FILES['shop_logo']['name'];
+      $logo_link = "images/merchant/shop/".$seller_id."/".$filename;
+      $res = move_uploaded_file($tmp_file,$logo_link);
+      //var_dump($res);die();
     	$shop_link = $this->input->post('shop_link');
         $shop_name = $this->input->post('shop_name');
         $wangwang  = $this->input->post('wangwang');
@@ -58,9 +71,11 @@ class merchant_store extends MY_Controller {
                       'chargeqq' => $chargeqq,
                       'chargewx' => $chargewx,
                       'chargetel' => $chargetel,
-                      'bind_time' => $time
+                      'bind_time' => $time,
+                      'logo_link' => $logo_link
                       );
         $this->db->insert('shop', $info);
+        header("Location: /merchant_store");
         exit();
     }
 

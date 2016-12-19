@@ -36,28 +36,28 @@
                         </tr>
                         <tr>
                             <td>商品押金</td>
-                            <td><span><?php echo ($activity['margin']*$activity['buy_sum']);?>元</span></td>
+                            <td><span><?php echo $activity['unit_price']*$activity['buy_sum']+$activity['freight'];?>元</span></td>
                             <td><span>5单</span></td>
                             <td>
                                 <p><span>商品押金=商品单价*免单数量</span></p>
                                 <p>试用完成后，平台直接将押金返给试客</p>
                             </td>
-                            <td><b><?php echo ($activity['margin']*$activity['buy_sum']*5);?>元</b></td>
+                            <td><b><?php echo ($activity['unit_price']*$activity['buy_sum']+$activity['freight'])*5;?>元</b></td>
                         </tr>
                         <tr>
                             <td>试用担保金</td>
-                            <td><span><?php echo ($activity['margin']*$activity['buy_sum']);?>元</span></td>
+                            <td><span><?php echo $activity['unit_price']*$activity['buy_sum']+$activity['freight'];?>元</span></td>
                             <td><span>5单</span></td>
                             <td>
                                 <p><span>试用担保金=商品押金*5%</span></p>
                                 <p>试用完成后，平台会自动将试用担保金返回到您的账户可用押金中。</p>
                             </td>
-                            <td><b><?php echo ($activity['margin']*$activity['buy_sum']*5*0.05);?>元</b></td>
+                            <td><b><?php echo ($activity['unit_price']*$activity['buy_sum']+$activity['freight'])*5*0.05;?>元</b></td>
                         </tr>
                     </table>
-                    <p class="total">订单合计：<span><?php echo ($activity['margin']*$activity['buy_sum']*5*1.05);?>元</span></p>
+                    <p class="total">订单合计：<span><?php echo ($activity['unit_price']*$activity['buy_sum']+$activity['freight'])*5*1.05;?>元</span></p>
                     <h3>进行支付</h3>
-                    <p class="deposit">使用押金支付：可用押金：<span>&yen; <?php echo ($sellerinfo['avail_deposit']<$activity['margin']*$activity['buy_sum']*5*1.05)?$sellerinfo['avail_deposit']:$activity['margin']*$activity['buy_sum']*5*1.05 ;?> </span></p>
+                    <p class="deposit">使用押金支付：可用押金：<span>&yen; <?php echo $sellerinfo['avail_deposit'];?> </span></p>
                     <p>可用押金不足，请先充值押金，然后在试用活动-待付款活动中进行支付</p>
                     <div class="payment_code">
                         <p>请输入支付密码：</p>

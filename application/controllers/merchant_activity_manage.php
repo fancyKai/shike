@@ -26,7 +26,16 @@ class merchant_activity_manage extends MY_Controller {
         $this->out_data['sum_2_activity_list'] = $this->db->query("select count(*) as count from activity where status=2 and seller_id=$seller_id")->row_array();
         $this->out_data['sum_3_activity_list'] = $this->db->query("select count(*) as count from activity where status=3 and seller_id=$seller_id")->row_array();
         $this->out_data['sum_4_activity_list'] = $this->db->query("select count(*) as count from activity where status=4 and seller_id=$seller_id")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 		$this->out_data['con_page'] = 'merchant/activity_manage';
 		$this->load->view('merchant_default', $this->out_data);
+	}
+
+	public function cancle_activity(){
+		$order_id = $this->input->post('orderid');
+		$res = $this->db->update("sorder",array("status"=>'8'),array('order_id'=>$order_id));
+		echo json_encode($res);
+		// echo 1;
 	}
 }

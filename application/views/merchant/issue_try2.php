@@ -41,9 +41,9 @@
                         <p>平台会根据您填写的商品链接抓取对应淘宝商品的宝贝描述，显示在试用详情页。</p>
                         <label for="commodity_classify">商品的分类：</label>
                         <select id="commodity_classify">
-                            <option value ="女装" <?php if($activity['product_classify'] == '女装') echo "selected='selected'"?>>女装</option>
-                            <option value ="男装" <?php if($activity['product_classify'] == '男装') echo "selected='selected'"?>>男装</option>
-                            <option value="美妆" <?php if($activity['product_classify'] == '美妆') echo "selected='selected'"?>>美妆</option>
+                            <option value ="1" <?php if($activity['product_classify'] == '1') echo "selected='selected'"?>>女装</option>
+                            <option value ="2" <?php if($activity['product_classify'] == '2') echo "selected='selected'"?>>男装</option>
+                            <option value="3" <?php if($activity['product_classify'] == '3') echo "selected='selected'"?>>美妆</option>
                         </select>
                         <br/>
                         <p>此分类为<a href="javascript:void(0);">平台的分类</a></p>
@@ -63,11 +63,11 @@
                                 鞋子服装类商品，不可限制产品的尺码。</a>
                         </p>
                         <label for="unit_price">单品售价：</label>
-                        <input class="norms" id="unit_price" type="text" placeholder="元" value="<?php echo $activity['margin'];?>" onblur="check_unit_price()">
-                        <label for="buy_num">每单拍：</label>
-                        <input class="norms" id="buy_num" type="text" placeholder="件" value="<?php echo $activity['buy_sum'];?>" onblur="check_unit_price()">
+                        <input class="norms" id="unit_price" type="text" placeholder="元" value="<?php echo $activity['unit_price'];?>" onblur="check_unit_price()">
+                        <label for="buy_sum">每单拍：</label>
+                        <input class="norms" id="buy_sum" type="text" placeholder="件" value="<?php echo $activity['buy_sum'];?>" onblur="check_unit_price()">
                         <span id="unit_price_error">单品售价不能为空</span>
-                        <p class="total_money">下单总金额：<span><?php echo ($activity['margin']*$activity['buy_sum']);?></span>元</p>
+                        <p class="total_money">下单总金额：<span id="xdzje"><?php echo ($activity['unit_price']*$activity['buy_sum']);?></span>元</p>
                         <label for="freight">商品运费：</label>
 
                         <a href="javascript:void(0);">
@@ -108,7 +108,7 @@
 <script>
     function next_step(){
         //var seller_id = <?php echo $seller_id ?>;
-        if($("#commodity_name").val() == '' || $("#shop_url").val() == '' || $("#commodity_picture").val() == '' || $("#unit_price").val() == '' || $("#buy_num").val() == ''){
+        if($("#commodity_name").val() == '' || $("#shop_url").val() == '' || $("#commodity_picture").val() == '' || $("#unit_price").val() == '' || $("#buy_sum").val() == ''){
             return;
         }
         var act_id = "<?php echo $act_id ?>";
@@ -119,14 +119,14 @@
         var thecolor = $("#thecolor").val();
         var thesize = $("#thesize").val();
         var unit_price = $("#unit_price").val();
-        var buy_num = $("#buy_num").val();
+        var buy_sum = $("#buy_sum").val();
         var freight = $("#freight").val();
         // alert(shop_name);
         // alert(platform_id);
         // alert(seller_id);
         $.ajax({
             url : admin.url+'merchant_issue_try2/update_fake_activity2',
-            data:{act_id:act_id,commodity_name:commodity_name,shop_url:shop_url,commodity_classify:commodity_classify,commodity_picture:commodity_picture,thecolor:thecolor,thesize:thesize,unit_price:unit_price,buy_num:buy_num,freight:freight},
+            data:{act_id:act_id,commodity_name:commodity_name,shop_url:shop_url,commodity_classify:commodity_classify,commodity_picture:commodity_picture,thecolor:thecolor,thesize:thesize,unit_price:unit_price,buy_sum:buy_sum,freight:freight},
             type : 'post',
             cache : false,
             success : function (data){
@@ -166,11 +166,12 @@
     }
 
     function check_unit_price(){
-         if($("#unit_price").val() == '' || $("#buy_num").val() == ''){
+         if($("#unit_price").val() == '' || $("#buy_sum").val() == ''){
             $("#unit_price_error").css("display","inline-block");
         }else{
             $("#unit_price_error").css("display","none");
         }
+        $("#xdzje").text($("#unit_price").val() * $("#buy_sum").val());
     }
 </script>
 </body>

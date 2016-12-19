@@ -13,6 +13,11 @@ class merchant_issue_try3 extends MY_Controller {
         // $user_id = $this->session->userdata('user_id');
 		$user_id=1;
 		$this->out_data['act_id'] = $this->input->get('act_id');
+		$activity_sellerid = $this->db->query('select seller_id from activity where act_id='.$this->out_data['act_id'])->row_array();
+		if($user_id != $activity_sellerid['seller_id']){
+			echo "不可允许的访问";
+			return;
+		}
 		// $orderwhere = '';
 		// $order_status = $this->input->get('order_status');
 		// $this->out_data['order_status'] = $order_status;

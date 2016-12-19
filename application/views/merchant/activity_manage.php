@@ -36,31 +36,9 @@
                             <span><?php echo substr($v['gene_time'],0,10);?></span>
                             <span>活动编号：<?php echo $v['act_id'];?></span>
                         </p>
-                        <?php if($v['status'] == 1):?>
                         <p class="right">
-                            <a href="/merchant_obligations_details?act_id=<?php echo $v['act_id'];?>">查看详情</a>
+                            <a href="/merchant_activity_details?act_id=<?php echo $v['act_id'];?>">查看详情</a>
                         </p>
-                        <?php endif;?>
-                        <?php if($v['status'] == 2):?>
-                        <p class="right">
-                            <a href="/merchant_tobebeannounced_details?act_id=<?php echo $v['act_id'];?>">查看详情</a>
-                        </p>
-                        <?php endif;?>
-                        <?php if($v['status'] == 3):?>
-                        <p class="right">
-                            <a href="/merchant_nolottery_details?act_id=<?php echo $v['act_id'];?>">查看详情</a>
-                        </p>
-                        <?php endif;?>
-                        <?php if($v['status'] == 4):?>
-                        <p class="right">
-                            <a href="/merchant_lottery_details?act_id=<?php echo $v['act_id'];?>">查看详情</a>
-                        </p>
-                        <?php endif;?>
-                        <?php if($v['status'] == 5):?>
-                        <p class="right">
-                            <a href="/merchant_canceled_details?act_id=<?php echo $v['act_id'];?>">查看详情</a>
-                        </p>
-                        <?php endif;?>
                     </div>
                     <div class="detalis">
                         <ul>
@@ -96,7 +74,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动正在审核中</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 3):?>
@@ -105,7 +83,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动待开奖</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 4):?>
@@ -114,7 +92,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动已开奖</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 5):?>
@@ -123,7 +101,7 @@
                             </li>
                             <li>
                                 <p class="status"><span>试用活动已取消</span></p>
-                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
                         </ul>
@@ -141,7 +119,7 @@
         <div class="modal_prompt">
             <span>提示</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="modal_content">
@@ -171,11 +149,11 @@
         <div class="modal_prompt">
             <span>提示</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="succeed_content">
-            <p><img src="../../images/sj_fbsy_tc_icon_right_default.png" alt=""></p>
+            <p><img src="images/merchant/sj_fbsy_tc_icon_right_default.png" alt=""></p>
             <p class="payment_succeed">支付成功！</p>
             <p>请等待客服审核任务审核通过后会上线发布。</p>
         </div>
