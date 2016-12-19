@@ -150,6 +150,7 @@
                 </div>
             </div>
             <?php endforeach ?>
+            <?php echo $pagin; ?>
         </div>
     </div>
 </section>

@@ -42,6 +42,7 @@
     <div id="page-wrapper">
         <?php include $con_page.'.php'; ?>
     </div>
+
 </div>
 
 

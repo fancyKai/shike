@@ -12,7 +12,8 @@ class merchant_deposit_recharge extends MY_Controller {
 
         // $act_id = $this->input->get('act_id');
         // $this->out_data['act'] = $this->db->query("select * from activity where act_id=$act_id")->row_array();
-
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 		$this->out_data['con_page'] = 'merchant/deposit_recharge';
 		$this->load->view('merchant_default', $this->out_data);
 	}

@@ -25,7 +25,7 @@
                     <b>可用押金：</b>
                     <?php if(!$bankcard):?>
                     <div class="left bankCard_two">
-                        <p><img onclick="location.href='/merchant_add_bankCard'" src="images/merchant/sj_zjgl_icon_bdyhk_default.png" alt=""></p>
+                        <p><img onclick="location.href='/merchant_add_bankCard'" src="images/merchant/sj_zjgl_icon_bdyhk_default.png" alt="" ></p>
                         <p>请先绑定银行卡</p>
                     </div>
                     <?php else:?>
@@ -54,7 +54,7 @@
                     <input type="text" id="tixian_pwd"/>
                     <span class="error" id="pwderror"></span>
                     <br/>
-                    <p class="one">忘记密码请联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></p>
+                    <p class="one">忘记密码请联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')" ></p>
                 </div>
             </div>
             <p class="confirm_btn">
@@ -67,7 +67,7 @@
                 <p>3、禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账号的试用；</p>
                 <p>
                     4、如果充值金额没有及时到账，请联系客服。
-                    <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="">
+                    <img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')" >
                 </p>
             </div>
         </div>
