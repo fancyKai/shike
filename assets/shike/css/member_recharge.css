@@ -1,0 +1,139 @@
+#section {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-bottom: 50px;
+}
+#section .rechange_details {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-bottom: 50px;
+}
+#section .rechange_details .location_title {
+  padding: 30px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .rechange_details .location_title ul {
+  overflow: hidden;
+}
+#section .rechange_details .location_title ul li {
+  float: left;
+  font-size: 14px;
+  padding-right: 10px;
+}
+#section .rechange_details .location_title ul li a:hover {
+  color: #f10180;
+}
+#section .rechange_details .member_rechange {
+  padding: 0 30px;
+}
+#section .rechange_details .member_rechange h1 {
+  padding: 30px 0 20px 0;
+  font-size: 16px;
+  color: #323232;
+}
+#section .rechange_details .member_rechange ul.select_duration {
+  overflow: hidden;
+  padding: 20px;
+}
+#section .rechange_details .member_rechange ul.select_duration li {
+  float: left;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  margin-right: 80px;
+}
+#section .rechange_details .member_rechange ul.select_duration li p {
+  text-align: center;
+}
+#section .rechange_details .member_rechange ul.select_duration li p:nth-of-type(1) {
+  height: 37px;
+  line-height: 37px;
+  background-color: #f5f5f5;
+  border-radius: 5px 5px 0 0;
+}
+#section .rechange_details .member_rechange ul.select_duration li p:nth-of-type(1) b {
+  font-size: 20px;
+  color: #323232;
+}
+#section .rechange_details .member_rechange ul.select_duration li p:nth-of-type(2) {
+  height: 63px;
+  line-height: 63px;
+}
+#section .rechange_details .member_rechange ul.select_duration li p:nth-of-type(2) span {
+  font-size: 26px;
+  color: #e61e28;
+}
+#section .rechange_details .member_rechange .need_pay {
+  width: 100%;
+  height: 100px;
+  background-color: #fbfcff;
+  padding: 20px 24px;
+}
+#section .rechange_details .member_rechange .need_pay p {
+  color: #323232;
+  font-size: 16px;
+}
+#section .rechange_details .member_rechange .need_pay p.one {
+  padding-bottom: 8px;
+}
+#section .rechange_details .member_rechange .need_pay p.one b {
+  color: #f10180;
+}
+#section .rechange_details .member_rechange .need_pay p.two span {
+  font-size: 24px;
+  color: #e61e28;
+  margin-left: 10px;
+}
+#section .rechange_details .member_rechange table {
+  margin-left: -10px;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+#section .rechange_details .member_rechange table td {
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #c8c8c8;
+  border-spacing: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+#section .rechange_details .member_rechange table td img {
+  width: 105px;
+  height: 22px;
+}
+#section .rechange_details .member_rechange table td a {
+  color: #005ea7;
+}
+#section .rechange_details .member_rechange .confirm_btn {
+  width: 100%;
+  padding: 20px 0 50px 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .rechange_details .member_rechange .confirm_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f10180;
+  color: #fff;
+}
+#section .rechange_details .member_rechange .warm_prompt {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+#section .rechange_details .member_rechange .warm_prompt h1 {
+  color: #323232;
+  font-size: 14px;
+  padding: 30px 0 10px 0;
+}
+#section .rechange_details .member_rechange .warm_prompt p {
+  padding-top: 10px;
+}
+#section .rechange_details .member_rechange .warm_prompt p img {
+  margin-top: -2px;
+}

@@ -1,0 +1,259 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@border_color:#f0f0f0;
+@title_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@deepborder-color:#c8c8c8;
+@span_color:#e61e28;
+@a_color:#005ea7;
+
+#section {
+  .section_content{
+    //初步评价
+    .evaluate_content{
+      padding:0 30px 50px 30px;
+      h1{
+        margin:30px 0 10px 0;
+        font-size:16px;
+        color:@deepfont_color;
+      }
+      h2{
+        font-size:14px;
+        color:@deepfont_color;
+      }
+      h3{
+        font-size:14px;
+        padding-top:20px;
+        b{
+          color:@deepfont_color;
+          font-weight:bold;
+        }
+        a{
+          color:@a_color;
+          margin-left:10px;
+        }
+      }
+      table{
+        table-layout:fixed;
+        width: 1140px;
+        margin:10px 0;
+        tr{
+          th, td {
+            border: 1px solid #f5f5f5;
+            height: 50px;
+            line-height: 50px;
+            width: 200px;
+            font-size: 14px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          th {
+            background-color: #f5f5f5;
+          }
+          th:nth-of-type(2), td:nth-of-type(2) {
+            width: 340px;
+            padding: 0 20px;
+          }
+        }
+      }
+      //商品信息
+      .good_information {
+        .details {
+          ul {
+            height: 115px;
+            padding: 10px 15px;
+            overflow: hidden;
+            li {
+              box-sizing: border-box;
+              float: left;
+              color: @deepfont_color;
+              height: 80px;
+              font-size:12px;
+            }
+            li:last-of-type{
+              padding:20px 10px;
+              width:400px;
+            }
+          }
+        }
+      }
+      //好评内容
+      .good_reputation{
+        overflow:hidden;
+        margin-top:30px;
+        p{
+          font-size:14px;
+        }
+        textarea{
+          box-sizing: border-box;
+          border:1px solid #969696;
+          width:600px;
+          height:200px;
+          padding:10px;
+          border-radius:5px;
+          margin-left:4px;
+          text-align:left;
+          font-size:14px;
+        }
+      }
+      //商品图片
+      .good_picture{
+        margin-top:30px;
+        a {
+          display:inline-block;
+          width:100px;
+          height:100px;
+          border-radius:5px;
+          cursor: pointer;
+          margin-right:19.5px;
+          border:1px solid #969696;
+          text-align:center;
+          img{
+            width:100px;
+            height:100px;
+          }
+        }
+        span{
+          font-size:14px;
+        }
+        p:first-of-type{
+          padding-top:30px;
+        }
+        p{
+          font-size:14px;
+          padding-top:15px;
+          padding-left:70px;
+        }
+      }
+
+      //截图示例
+      .screenshot{
+        display:none;
+        padding:20px 90px;
+        img{
+          width:750px;
+          height:200px;
+        }
+      }
+      //上传评价截图
+      .order_screenshot{
+        .uploading{
+          padding:20px 0 10px 0;
+          font-size:14px;
+          a{
+            display:inline-block;
+            width:80px;
+            height:30px;
+            line-height:30px;
+            border-radius:5px;
+            background-color:@deepred_color;
+            text-align:center;
+            color:#fff;
+            position: relative;
+            cursor: pointer;
+            margin:0 10px;
+            input{
+              position: absolute;
+              right: 0;
+              top: 0;
+              opacity: 0;
+              filter: alpha(opacity=0);
+              cursor: pointer
+            }
+          }
+          span{
+            font-size:12px;
+            color:#969696;
+          }
+        }
+        p{
+          span{
+            font-size:12px;
+            color:#969696;
+          }
+        }
+      }
+      .last{
+        padding-top:40px;
+        p{
+          font-size:14px;
+          padding-top:10px;
+        }
+      }
+      p.step_btn{
+        padding-left:70px;
+      }
+    }
+  }
+}
+
+
+//弹框
+.confirm_submit_modal {
+  display:none;
+  .confirm_delivery {
+    margin-top: 40px;
+    label {
+      font-size: 14px;
+    }
+    input {
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      border: 1px solid #969696;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    p {
+      height: 30px;
+      line-height: 30px;
+      text-align: left;
+      padding-left: 152px;
+      span {
+        color: #e61e28;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .modal_submit {
+    padding-top: 10px;
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
+    }
+  }
+}
+ //弹框只有一行文字时的样式
+.confirm_submit_modal {
+  //display:none;
+  .confirm_audit {
+    padding: 67px 0;
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

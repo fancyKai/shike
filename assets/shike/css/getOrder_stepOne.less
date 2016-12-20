@@ -1,0 +1,73 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@border_color:#f0f0f0;
+@title_color:#f5f5f5;
+@bg_color:#fff;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@deepborder-color:#c8c8c8;
+@span_color:#e61e28;
+
+#section {
+  .section_content{
+
+    //步骤介绍
+    .step_introduce{
+      padding:50px 30px;
+      .step_picture{
+        padding-bottom:50px;
+        border-bottom:1px solid #f5f5f5;
+      }
+      .try_good{
+        h1{
+          font-size:16px;
+          padding:20px 0 18px 0;
+        }
+        >p{
+          padding-bottom:20px;
+          font-size:14px;
+          b{
+            font-weight:bold;
+            color:@deepfont_color;
+          }
+        }
+        .commodity{
+          .content{
+            width:254px;
+            border:1px solid #f5f5f5;
+            margin-bottom:10px;
+            img{
+              width:252px;
+              height:252px;
+            }
+            .good_introduce {
+              padding:10px;
+              p {
+                padding-bottom:10px;
+                span{
+                  color:@deepfont_color;
+                }
+              }
+              p.good_name{
+                span{
+                  display:inline-block;
+                  width:232px;
+                  white-space: nowrap;
+                  overflow:hidden;
+                  text-overflow: ellipsis;
+                }
+              }
+            }
+          }
+          >p{
+            padding-bottom:5px;
+            span{
+              color:@span_color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
