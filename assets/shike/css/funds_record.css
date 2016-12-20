@@ -1,0 +1,43 @@
+#section .section_main .funds_record .allRecord {
+  overflow: hidden;
+  height: 38px;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 0 20px;
+  margin-top: 30px;
+}
+#section .section_main .funds_record .allRecord li:first-of-type a {
+  color: #f10180;
+}
+#section .section_main .funds_record .allRecord li {
+  float: left;
+  line-height: 38px;
+}
+#section .section_main .funds_record .allRecord li a {
+  font-size: 14px;
+  color: #323232;
+}
+#section .section_main .funds_record .allRecord li span {
+  color: #c8c8c8;
+  margin: 0 20px;
+}
+#section .section_main .funds_record table {
+  width: 980px;
+}
+#section .section_main .funds_record table td {
+  border: 1px solid #f5f5f5;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 14px;
+  width: 228px;
+}
+#section .section_main .funds_record table.withdraw_record {
+  display: none;
+}
+#section .section_main .funds_record table.recharge_record {
+  display: none;
+}
+#section .section_main .funds_record table.recharge_record td {
+  width: 285px;
+}

@@ -1,0 +1,67 @@
+#section .section_main .basic_setup .revamp_content {
+  padding: 50px 0 30px 0;
+}
+#section .section_main .basic_setup .revamp_content label {
+  display: inline-block;
+  width: 420px;
+  text-align: right;
+  font-size: 14px;
+  color: #969696;
+}
+#section .section_main .basic_setup .revamp_content input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+}
+#section .section_main .basic_setup .revamp_content input#authCode {
+  width: 110px;
+}
+#section .section_main .basic_setup .revamp_content input[type='button'] {
+  width: 80px;
+  margin-left: 6px;
+  color: #646464;
+}
+#section .section_main .basic_setup .revamp_content p {
+  height: 30px;
+  padding-top: 3px;
+}
+#section .section_main .basic_setup .revamp_content p span {
+  font-size: 12px;
+  color: #e61e28;
+  padding-left: 420px;
+}
+#section .section_main .basic_setup .revamp_content p.btn {
+  padding-left: 417px;
+  padding-top: 20px;
+}
+#section .section_main .basic_setup .revamp_content p.btn input {
+  width: 80px;
+  margin-right: 32px;
+  color: #f10180;
+  border: 1px solid #f10180;
+  background-color: #fff;
+}
+#section .section_main .basic_setup .revamp_content p.btn input:first-of-type {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .basic_setup .revamp_succeed {
+  padding-top: 50px;
+}
+#section .section_main .basic_setup .revamp_succeed p {
+  text-align: center;
+}
+#section .section_main .basic_setup .revamp_succeed p:nth-of-type(2) {
+  color: #7abd54;
+  font-size: 16px;
+  padding: 18px;
+}
+#section .section_main .basic_setup .revamp_succeed p:nth-of-type(3) {
+  color: #969696;
+  font-size: 14px;
+}
+#section .section_main .basic_setup .revamp_succeed p:nth-of-type(3) a {
+  color: #005ea7;
+}
