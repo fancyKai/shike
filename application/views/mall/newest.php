@@ -80,7 +80,7 @@
                             '<span>限量版'+ e.amount + '份</span>'+ freight+
                             '</p>'+
                             '<p class="price">'+
-                            '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                         console.log(e)
@@ -100,7 +100,7 @@
 
         //        分页
         $('#pagination').twbsPagination({
-            totalPages: <?php echo (integer)($newest_count['count']/2) + 1; ?>,//总页数
+            totalPages: <?php echo !($newest_count['count']%2)?($newest_count['count']/2):(integer)($newest_count['count']/2) + 1; ?>,//总页数
             //totalPages: 10,//总页数
             startPage:1,//开始的页码
             visiblePages: 7,//显示的页面的数字个数
@@ -135,7 +135,7 @@
                                     '<span>限量版'+ e.amount + '份</span>'+ freight+
                                     '</p>'+
                                     '<p class="price">'+
-                                    '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                                    '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
                                     '</p>'+
                                     '</div>';
                                 console.log(e)

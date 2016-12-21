@@ -14,38 +14,38 @@
     <div class="change_password left">
         <div class="new_password">
             <span>用&nbsp;户&nbsp;名</span>
-            <input type="password" class="user_name" placeholder="您的账户名和登录名" />
+            <input id="username" type="password" class="user_name" placeholder="您的账户名和登录名" />
         </div>
         <!--错误提示-->
-        <p class="user_name error"><span>用户名不能为空</span></p>
+        <p class="user_name error"><span class="username_error"></span></p>
         <div class="phone">
             <span>手机号码</span>
-            <input type="text" class="phone2" placeholder="建议使用常用手机" />
+            <input type="text" id="phone" class="phone2" placeholder="建议使用常用手机" />
         </div>
         <!--错误提示-->
-        <p class="error"><span>手机号码不能为空</span></p>
+        <p class="error"><span class="phone_error"></span></p>
         <div class="affirm_password">
             <span>登录密码</span>
-            <input type="password" class="password" placeholder="建议使用至少两种字符组合" />
+            <input type="password" id="loginPwd" class="password" placeholder="建议使用至少两种字符组合" />
         </div>
         <!--错误提示-->
-        <p class="error"><span></span></p>
+        <p class="error"><span class="loginPwd_error"></span></p>
         <div class="affirm_password">
             <span>确认密码</span>
-            <input type="password" class="re_password" placeholder="请再次输入密码" />
+            <input id="confirmPwd" type="password" class="re_password" placeholder="请再次输入密码" />
         </div>
         <!--错误提示-->
-        <p class="error"><span></span></p>
+        <p class="error"><span class="confirmPwd_error"></span></p>
         <div class="new_password">
             <span>Q&nbsp;Q&nbsp;号</span>
-            <input type="password" class="user_qq" placeholder="建议使用常用的QQ号" />
+            <input id="qq" type="password" class="user_qq" placeholder="建议使用常用的QQ号" />
         </div>
         <!--错误提示-->
-        <p class="error"><span></span></p>
+        <p class="error"><span class="qq_error"></span></p>
         <div class="auth_code">
             <span>验&nbsp;证&nbsp;码</span>
             <input type="text" class="verification_code" placeholder="请输入手机验证码" />
-            <span class="gain">获取验证码</span>
+            <span class="gain"><input id="testGetCode" type="text" value="获取验证码"/></span>
         </div>
         <!--错误提示-->
         <p class="error"><span></span></p>
@@ -61,7 +61,7 @@
     <div class="account_related right">
         <div class="has_account">
             <h1>你还可以：</h1>
-            <input onclick="location.href='<?=base_url('mall/register/shike_register')?>'" type="button" value="注册试客"/>
+            <input onclick="location.href='<?=base_url('mall/register/merchant_register')?>'" type="button" value="注册商家"/>
         </div>
         <div class="no_account">
             <h1>已有账号？</h1>
@@ -71,6 +71,7 @@
 </section>
 <footer id="footer"></footer>
 <script src="<?=base_url('js/mall/jquery-1.10.2.js')?>"></script>
+<script src="<?=base_url("js/mall/input_verify.js")?>"></script>
 <script>
     $(function(){
         /*$('#header').load('../common/login_header.html',function(){

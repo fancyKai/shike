@@ -16,7 +16,7 @@
                 <ul>
                     <li ><a href="../register/login.html">登录</a></li>
                     <li><a href="../register/business_registration.html">商家注册</a></li>
-                    <li><a href="javascript:void(0);">注册试客</a></li>
+                    <li><a href="../register/shike_registration.html">注册试客</a></li>
                     <li><a href="javascript:void(0);">帮助中心</a></li>
                 </ul>
             </div>
@@ -28,9 +28,9 @@
             </div>
             <div class="right">
                 <ul class="nav left">
-                    <li class="nav_title_index"><a class="header_active" href="../register/index.html">首页</a></li>
-                    <li class="nav_title"><a href="../register/newest_try.html">最新试用</a></li>
-                    <li class="nav_title"><a href="../register/hottest_try.html">最热试用</a></li>
+                    <li class="nav_title_index title"><a href="../register/index.html">首页</a></li>
+                    <li class="nav_title_new title"><a href="../register/newest_try.html">最新试用</a></li>
+                    <li class="nav_title_hot title"><a href="../register/hottest_try.html">最热试用</a></li>
                 </ul>
                 <div class="search_box left">
                         <input type="text" placeholder="搜索" >
@@ -40,14 +40,16 @@
     </div>
 <script src="../../js/jquery-1.10.2.js "></script>
 <script>
-   $(function(){
-        $('.nav_title').mouseover(function(){
-            $('.nav_title_index').find('a').removeClass('header_active')
-        });
-       $('.nav').mouseout(function(){
-           $('.nav_title_index').find('a').addClass('header_active');
+   function conversion(i){
+
+       $('.nav').mouseover(function(){
+           $('.search .right ul').find('a').removeClass('header_active');
        });
-   })
+       $('.nav').mouseout(function(){
+           $('.search .right ul').find('a').removeClass('header_active');
+           $('.search .right ul').find('a').eq(i).addClass('header_active');
+       });
+   }
 </script>
 </body>
 </html>

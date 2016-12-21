@@ -72,7 +72,7 @@
 }
 #section .section_content .commodity_details .commodity_content .serve .freight span {
   display: inline-block;
-  background-color: #2fbb98;
+  background-color: #36bc9e;
   height: 20px;
   width: 80px;
   border-radius: 10px;
@@ -175,7 +175,7 @@
 }
 #section .section_content .commodity_try .others_try .products a img {
   width: 220px;
-  height: 300px;
+  height: 220px;
 }
 #section .section_content .commodity_try .others_try .products .product_introduction {
   width: 220px;
@@ -202,7 +202,7 @@
   background-color: #a766e6;
 }
 #section .section_content .commodity_try .others_try .products .quantity span:last-of-type {
-  background-color: #63dabe;
+  background-color: #36bc9e;
   margin-left: 10px;
 }
 #section .section_content .commodity_try .others_try .products .price {

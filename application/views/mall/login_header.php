@@ -22,7 +22,7 @@
     <!--Logo和搜索框-->
     <div class="search">
         <div class="">
-            <img class="logo" onclick="location.href='../register/index.html'" src="<?=base_url('images/mall/xqy_logo_default.png')?>" alt="">
+            <img class="logo" onclick="location.href='<?=base_url('mall/homepage/index')?>'" src="<?=base_url('images/mall/xqy_logo_default.png')?>" alt="">
             <span class="details_title">欢迎登录</span>
         </div>
     </div>

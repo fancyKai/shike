@@ -1,0 +1,54 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@title_color:#f5f5f5;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+.leftNav_active{
+  color:@deepred_color !important;
+  text-decoration:underline !important;
+}
+.left_nav{
+  width:150px;
+  //height:555px;
+  background-color:#fff;
+  padding-left:40px;
+  .title:first-of-type{
+    padding-top:18px;
+  }
+  .title:last-of-type{
+    padding-bottom:26px;
+  }
+  .title{
+    padding-top:23px;
+    >a{
+      color:@deepfont_color ;
+      font-size:16px;
+      &:hover{
+        color:@deepred_color ;
+        text-decoration:underline ;
+      }
+    }
+    ul{
+      li{
+        padding-top:11px;
+        a{
+          font-size:14px;
+          &:hover{
+            color:@deepred_color ;
+            text-decoration:underline ;
+          }
+        }
+      }
+    }
+  }
+  .try_manage,.account_information,.fund_manage{
+    >a {
+      cursor: default;
+      &:hover{
+        color:#323232;
+        text-decoration:none;
+      }
+    }
+  }
+}

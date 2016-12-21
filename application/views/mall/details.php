@@ -75,7 +75,7 @@
                             <span>限量版' . $v['amount'] . '</span><span>' . $freight . '</span>
                         </p>
                         <p class="price">
-                            <span>&yen;' . $v['margin'] . '</span><span>已申请<b>' . $v['apply_amount'] . '</b>次</span>
+                            <span>&yen;' . $v['unit_price'] . '</span><span>已申请<b>' . $v['apply_amount'] . '</b>次</span>
                         </p>
                     </div>';
                     }
@@ -90,7 +90,7 @@
                         <span>限量版' . $v['amount'] . '</span><span>' . $freight . '</span>
                     </p>
                     <p class="price">
-                        <span>&yen;' . $v['margin'] . '</span><span>已申请<b>' . $v['apply_amount'] . '</b>次</span>
+                        <span>&yen;' . $v['unit_price'] . '</span><span>已申请<b>' . $v['apply_amount'] . '</b>次</span>
                     </p>
                 </div>';
                     }

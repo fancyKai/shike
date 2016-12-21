@@ -1,0 +1,17 @@
+.content p.process {
+  text-align: center;
+  padding: 50px 0;
+}
+.content .about_shike {
+  padding-right: 100px;
+}
+.content .about_shike h2 {
+  padding: 25px 0 10px 0;
+  font-size: 16px;
+  color: #323232;
+}
+.content .about_shike p {
+  padding-bottom: 5px;
+  padding-left: 25px;
+  font-size: 14px;
+}
