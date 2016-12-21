@@ -64,15 +64,15 @@
         <div class="modal_prompt">
             <span>提示</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/shike/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="succeed_content">
-            <p><img src="../../images/sj_fbsy_tc_icon_right_default.png" alt=""></p>
+            <p><img src="images/shike/sj_fbsy_tc_icon_right_default.png" alt=""></p>
             <p class="payment_succeed">绑定成功！</p>
         </div>
         <div class="modal_submit">
-            <input class="confirm" onclick="location.href='02_bound_bankCard.html'"  type="button" value="确定"/>
+            <input class="confirm" onclick="location.href='/shike_bankcard_manage'"  type="button" value="确定"/>
         </div>
     </div>
     <div class="mask_layer"></div>
@@ -100,11 +100,11 @@
 <script src="../../js/modal_scrollbar.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html",function(){
-            $('.account_information ul>li').find('a').eq(1).addClass('left_nav_active');
-        });
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html",function(){
+        //     $('.account_information ul>li').find('a').eq(1).addClass('left_nav_active');
+        // });
 
         $('.mask_layer').height(document.body.offsetHeight+500);
 //        添加成功弹框
@@ -150,7 +150,7 @@
             return;
         }
         $.ajax({
-            url : admin.url+'merchant_add_bankCard/post_add_bankcard',
+            url : admin.url+'shike_add_bankCard/post_add_bankcard',
             type : "POST",
             datatype : "json",
             cache : false,

@@ -39,7 +39,7 @@
                             <li>
                                 <p class="clothes_name">商品名称：<span><?php echo $v['product_name'];?></span></p>
                                 <p>店铺名称：<span><?php echo $v['shopname'];?></span></p>
-                                <p>商品来源：<span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></span></p>
+                                <p>商品来源：<span><?php echo ($v['platformid']==1 ? '淘宝':'天猫');?></span></p>
                                 <p>商品件数：<span><?php echo $v['amount_perorder'];?>件</span>&nbsp; &nbsp; &nbsp; &nbsp;价格：<b>&yen;<?php echo $v['price'];?></b></p>
                             </li>
                         <?php if($v['apply_status'] == 1):?>

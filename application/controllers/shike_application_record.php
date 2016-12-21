@@ -20,7 +20,7 @@ class shike_application_record extends MY_Controller {
 		if(!$order_status){
 			$base_url = "/shike_application_record/?";
 		}else{
-			$orderwhere .= " and apply_status=".$order_status;
+			$orderwhere .= " and apply_status=3 or apply_status=4";
 			$base_url = "/shike_application_record/?order_status=".$order_status;
 		}
 
@@ -28,7 +28,7 @@ class shike_application_record extends MY_Controller {
 		$count = $count['count'];
 		$this->out_data['apply_list'] = $this->db->query("select * from apply".$orderwhere." limit {$start},{$limit}")->result_array();
         $this->out_data['sum_apply_list'] = $this->db->query("select count(*) as count from apply where user_id=$user_id")->row_array();
-        $this->out_data['sum_win_apply_list'] = $this->db->query("select count(*) as count from apply where status=3 or status=4 and user_id=$user_id")->row_array();
+        $this->out_data['sum_win_apply_list'] = $this->db->query("select count(*) as count from apply where apply_status=3 or apply_status=4 and user_id=$user_id")->row_array();
 
         $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];

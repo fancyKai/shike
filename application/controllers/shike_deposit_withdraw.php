@@ -17,7 +17,7 @@ class shike_deposit_withdraw extends MY_Controller {
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
         $this->out_data['bankcard'] = $bankcard;
         $this->out_data['user'] = $user;
-		$this->out_data['con_page'] = 'shike/message_center';
+		$this->out_data['con_page'] = 'shike/deposit_withdraw';
 		$this->load->view('shike_default', $this->out_data);
 	}
 }

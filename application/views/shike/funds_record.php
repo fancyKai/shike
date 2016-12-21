@@ -18,7 +18,7 @@
             <h1 class="title">资金记录</h1>
             <ul class="allRecord">
                 <li class="record" <?php if(!$money_type):?> data-toggle="funds_detail" <?php endif;?> ><a href="/shike_funds_record?money_type=0">资金明细</a><span>|</span></li>
-                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a href="/merchant_funds_record?money_type=2">提现记录</a></li>
+                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a href="/shike_funds_record?money_type=2">提现记录</a></li>
             </ul>
             <div>
             <!--资金明细-->

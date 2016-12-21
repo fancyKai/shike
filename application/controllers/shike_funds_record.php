@@ -14,7 +14,7 @@ class shike_funds_record extends MY_Controller {
 		$money_type = $this->input->get('money_type');
 		$this->out_data['money_type'] = $money_type;
 		if(!$money_type){
-			
+			$orderwhere .= " where seller_id=$user_id and user_type='1'";
 		}else{
 			$orderwhere .= " where seller_id=$user_id and user_type='1' and money_type=".$money_type;
 		}
