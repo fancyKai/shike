@@ -22,31 +22,77 @@
                 <!--所有订单的状态种类-->
                 <div class="order_status">
                     <ul>
-                        <li class="order"><a class="personal_active" href="javascript:void(0);">所有中奖试用（<span>12</span>）</a><b>|</b></li>
-                        <li class="order"><a href="javascript:void(0);">待领取下单（<span>6</span>）</a><b>|</b></li>
-                        <li class="order"><a href="javascript:void(0);">待收货评价（<span>6</span>）</a><b>|</b></li>
+                        <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=0">所有中奖试用（<span><?php echo $sum_order_list['count'];?></span>）</a><b>|</b></li>
+                        <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=4">待领取下单（<span><?php echo $sum_4_order_list['count'];?></span>）</a><b>|</b></li>
+                        <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=6">待收货评价（<span><?php echo $sum_6_order_list['count'];?></span>）</a><b>|</b></li>
                     </ul>
                 </div>
                 <!--商品发货状态-->
+            <?php $order_list_count=-1;?>
+            <?php foreach($order_list as $v):?>
+                <?php $order_list_count++;?>
                 <div class="delivery_status">
                     <div class="title">
                         <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
+                            <span>申请时间：<?php echo substr($v['time'],0,10);?></span>
+                            <span>任务编号：<?php echo $v['order_id'];?></span>
+                            <span>淘宝商品订单号：<?php echo $v['out_sorderid']?></span>
                         </p>
                         <p class="right">
-                            <a href="0201_waitGet_details.html">查看详情</a>
+                            <a href="/shike_try_winningManage_details?order_id=<?php echo $v['order_id'];?>">查看详情</a>
                         </p>
                     </div>
                     <div class="detalis">
                         <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li><img src="images/merchant/order_<?php echo $v['order_id'];?>.png" alt=""></li>
                             <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
+                                <p class="clothes_name"><span><?php echo $v['product_name'];?></span></p>
+                                <p class="two">店铺：<span><?php echo $v['shopname'];?></span></p>
+                                <p>来源：<span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></span></p>
                             </li>
+                        <?php if($v['status'] == 1):?>
+                            <li>
+                                <p>待发货</p>
+                            </li>
+                            <li>
+                                <p class="status">试用待商家发货</p>
+                                <p>
+                                    <span>联系客服QQ:</span>
+                                    <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes">
+                                        <img src="images/shike/sj_grzx_icon_qq_default.png" alt="">
+                                    </a>
+                                </p>
+                            </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 2):?>
+                            <li>
+                                <p>待审核评价</p>
+                            </li>
+                            <li>
+                                <p class="status">试用待商家审核评价</p>
+                                <p>
+                                    <span>联系客服QQ:</span>
+                                    <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes">
+                                        <img src="images/shike/sj_grzx_icon_qq_default.png" alt="">
+                                    </a>
+                                </p>
+                            </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 3):?>
+                            <li>
+                                <p>待确认评价</p>
+                            </li>
+                            <li>
+                                <p class="status">试用待商家确认评价</p>
+                                <p>
+                                    <span>联系客服QQ:</span>
+                                    <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes">
+                                        <img src="images/shike/sj_grzx_icon_qq_default.png" alt="">
+                                    </a>
+                                </p>
+                            </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 4):?>
                             <li>
                                 <p>待领取下单</p>
                             </li>
@@ -57,214 +103,32 @@
                                 <p><span>还剩48小时00分00秒</span></p>
                                 <p><a  id="place_order" href="javascript:void(0);">查看下单领取规则</a></p>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0202_wait_deliverGoods.html">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
-                            <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
-                            </li>
-                            <li>
-                                <p>待发货</p>
-                            </li>
-                            <li>
-                                <p class="status">试用待商家发货</p>
-                                <p>
-                                    <span>联系客服QQ:</span>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
-                                    </a>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0203_wait_receiving_detail.html">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
-                            <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
-                            </li>
-                            <li>
-                                <p>待收货评价</p>
-                            </li>
-                            <li>
-                                <p class="btn"><input onclick="location.href='preliminary_evaluation.html'" type="button" value="初步评价"/></p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0204_wait_audit_detail.html">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
-                            <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
-                            </li>
-                            <li>
-                                <p>待审核评价</p>
-                            </li>
-                            <li>
-                                <p class="status">试用待商家审核评价</p>
-                                <p>
-                                    <span>联系客服QQ:</span>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
-                                    </a>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0205_wait_cloneEvaluate_detail.html">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
-                            <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
-                            </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 5):?>
                             <li>
                                 <p>待复制评价</p>
                             </li>
                             <li>
                                 <p onclick="location.href='taobao_evaluation.html'"  class="btn" id="audit"><input type="button" value="淘宝评价"/></p>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0206_wait_confirmEvaluate_detail.html">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 6):?>
                             <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
+                                <p>待收货评价</p>
                             </li>
                             <li>
-                                <p>待确认评价</p>
+                                <p class="btn"><input onclick="location.href='preliminary_evaluation.html'" type="button" value="初步评价"/></p>
                             </li>
-                            <li>
-                                <p class="status">试用待商家确认评价</p>
-                                <p>
-                                    <span>联系客服QQ:</span>
-                                    <a href="javascript:void(0);">
-                                        <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
-                                    </a>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0207_finish_detail.html ">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
-                            <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
-                            </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 7):?>
                             <li>
                                 <p>已完成</p>
                             </li>
                             <li>
                                 <p class="try_finish">试用已完成</p>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="delivery_status">
-                    <div class="title">
-                        <p class="left">
-                            <span>申请时间：2016.11.18</span>
-                            <span>任务编号：123460000</span>
-                            <span>淘宝商品订单号：2222222222</span>
-                        </p>
-                        <p class="right">
-                            <a href="0208_canceled_details.html">查看详情</a>
-                        </p>
-                    </div>
-                    <div class="detalis">
-                        <ul>
-                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
-                            <li>
-                                <p class="clothes_name"><span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp</span></p>
-                                <p class="two">店铺：<span>夏季尼官方旗舰店</span></p>
-                                <p>来源：<span>淘宝</span></p>
-                            </li>
+                        <?php endif;?>
+                        <?php if($v['status'] == 8):?>
                             <li>
                                 <p>已取消</p>
                             </li>
@@ -272,15 +136,17 @@
                                 <p class="status">试用已取消</p>
                                 <p>
                                 <span>联系客服QQ:</span>
-                                <a href="javascript:void(0);">
-                                    <img src="../../images/sj_grzx_icon_qq_default.png" alt="">
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes">
+                                    <img src="images/shike/sj_grzx_icon_qq_default.png" alt="">
                                 </a>
                                 </p>
                             </li>
+                        <?php endif;?>
                         </ul>
                     </div>
                 </div>
-
+            <?php endforeach ?>
+            <?php echo $pagin; ?>
             </div>
         </div>
     </div>
@@ -306,15 +172,15 @@
     <div class="mask_layer"></div>
 </div>
 
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/modal_scrollbar.js"></script>
+<script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/modal_scrollbar.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html",function(){
-            $('.try_manage>ul>li').find('a').eq(1).addClass('left_nav_active');
-        });
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html",function(){
+        //     $('.try_manage>ul>li').find('a').eq(1).addClass('left_nav_active');
+        // });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');
