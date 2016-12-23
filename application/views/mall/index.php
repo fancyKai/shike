@@ -105,13 +105,13 @@
                 foreach($newest_list as $k=>$v)
                 {
                     //运费
-                    $freight = ($v['freight'])?'':'包邮';
+                    $freight = ($v['freight'])?'':'<span style="background-color:#36bc9e">包邮</span>';
                     echo '
             <div class="products left">
                 <a href="'.base_url('mall/homepage/productdetails/'.$v['act_id']).'"><img src="'.$v['picture_url'].'" alt=""></a>
                 <p class="product_introduction">'.$v['product_name'].'</p>
                 <p class="quantity">
-                    <span>限量版'.$v['amount'].'</span><span>'.$freight.'</span>
+                    <span style="background-color:#a766e6" >限量版'.$v['amount'].'</span>'.$freight.'
                 </p>
                 <p class="price">
                     <span>&yen;'.$v['unit_price'].'</span><span>已申请<b>'.$v['apply_amount'].'</b>次</span>

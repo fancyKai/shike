@@ -17,7 +17,7 @@
                 <li ><a href="../register/login.html">登录</a></li>
                 <li><a href="<?=base_url('mall/register/merchant_register')?>">商家注册</a></li>
                 <li><a href="<?=base_url('mall/register/shike_register')?>">注册试客</a></li>
-                <li><a href="javascript:void(0);">帮助中心</a></li>
+                <li><a href="<?=base_url('mall/help_center/help_center')?>">帮助中心</a></li>
             </ul>
         </div>
     </div>
@@ -42,11 +42,11 @@
 <script>
     function conversion(i){
 
-        $('.nav').mouseover(function(){
+        $('.search .nav').mouseover(function(){
             $('.search .right ul').find('a').removeClass('header_active');
         });
 
-        $('.nav').mouseout(function(){
+        $('.search .nav').mouseout(function(){
             $('.search .right ul').find('a').removeClass('header_active');
             $('.search .right ul').find('a').eq(i).addClass('header_active');
         });

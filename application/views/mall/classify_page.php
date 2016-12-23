@@ -15,20 +15,51 @@
         <li>您的位置：</li>
         <li>首页</li>
         <li><img src="<?=base_url("images/mall/icon_arrow_default.png")?>" alt=""></li>
-        <li>女装</li>
+        <?php
+            switch($classify)
+            {
+                case 1:
+                    $class = '女装';
+                    break;
+                case 2:
+                    $class = '男装';
+                    break;
+                case 3:
+                    $class = '鞋包配饰';
+                    break;
+                case 4:
+                    $class = '居家生活';
+                    break;
+                case 5:
+                    $class = '数码电器';
+                    break;
+                case 6:
+                    $class = '母婴儿童';
+                    break;
+                case 7:
+                    $class = '食品酒水';
+                    break;
+                case 8:
+                    $class = '其他';
+                    break;
+                default:
+                    break;
+            }
+        ?>
+        <li><?php echo $class;?></li>
     </ul>
     </div>
     <!--分类导航-->
     <div class="classify_nav">
         <ul>
-            <li class="nav"><a class="classify_active" href="javascript:void(0);">女装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">男装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">鞋包配饰</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">居家生活</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">数码电器</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">母婴儿童</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">食品酒水</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">其他</a></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/1') ?>">女装</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/2') ?>">男装</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/3') ?>">鞋包配饰</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/4') ?>">居家生活</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/5') ?>">数码电器</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/6') ?>">母婴儿童</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/7') ?>">食品酒水</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/8') ?>">其他</a></li>
         </ul>
     </div>
     <div class="data" data-classify=<?php echo $classify;?> ></div>
@@ -46,8 +77,12 @@
 <script src="<?=base_url("js/mall/jquery.twbsPagination.js")?>"></script>
 <script>
     $(function(){
+        var index = <?php echo $classify;?>;
         $('.search .right ul').find('a').removeClass('header_active');
         $('.search .right ul').find('a').eq(0).addClass('header_active');
+
+        //$('.classify_nav .nav').find('a').removeClass('classify_active');
+        $('.classify_nav .nav').find('a').eq(index - 1).addClass('classify_active');
         conversion(0);
         $('.details_title').text('商品分类')
         //$('#footer').load('../common/footer.html');
@@ -71,7 +106,7 @@
                     //console.log(result.data)base_url('mall/homepage/productdetails/'.$v['act_id']
                     $('.classify_commodity').empty();
                     var html = '';
-                    recommend_list = result.data.hottest_list;
+                    recommend_list = result.data.classify_list;
                     recommend_list.forEach(function(e){
                         var freight = (e.freight != '0')?'<span style="height: 0px;"></span>':'<span>包邮</span>';
                         html += '<div class="products left">'+

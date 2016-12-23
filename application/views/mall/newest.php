@@ -21,14 +21,14 @@
     <!--分类导航-->
     <div class="classify_nav">
         <ul>
-            <li class="nav"><a class="classify_active" href="javascript:void(0);">女装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">男装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">鞋包配饰</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">居家生活</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">数码电器</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">母婴儿童</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">食品酒水</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">其他</a></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/1') ?>">女装</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/2') ?>">男装</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/3') ?>">鞋包配饰</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/4') ?>">居家生活</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/5') ?>">数码电器</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/6') ?>">母婴儿童</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/7') ?>">食品酒水</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/8') ?>">其他</a></li>
         </ul>
     </div>
     <div class="classify_commodity">
@@ -70,7 +70,7 @@
                     //console.log(result.data)base_url('mall/homepage/productdetails/'.$v['act_id']
                     $('.classify_commodity').empty();
                     var html = '';
-                    recommend_list = result.data.hottest_list;
+                    recommend_list = result.data.newest_list;
                     recommend_list.forEach(function(e){
                         var freight = (e.freight != '0')?'<span style="height: 0px;"></span>':'<span>包邮</span>';
                         html += '<div class="products left">'+
