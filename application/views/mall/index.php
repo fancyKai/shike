@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>商城--首页</title>
-    <link rel="stylesheet" href="../../css/mall/reset.css">
-    <link rel="stylesheet" href="../../css/mall/index.css">
-    <link rel="stylesheet" href="../../css/mall/carousel.css ">
-    <link rel="stylesheet" href="../../css/mall/bookmark_page.css">
+    <link rel="stylesheet" href="<?=base_url("css/mall/reset.css")?>">
+    <link rel="stylesheet" href="<?=base_url("css/mall/index.css")?>">
+    <link rel="stylesheet" href="<?=base_url("css/mall/carousel.css")?>">
+    <link rel="stylesheet" href="<?=base_url("css/mall/bookmark_page.css")?>">
 </head>
 <body>
 <!--页面的头部-->
@@ -42,7 +42,7 @@
                 <!--图片-->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="../../images/mall/hb.png" alt="">
+                        <img src="<?=base_url("images/mall/hb.png")?>" alt="">
                     </div>
 
                 </div>
@@ -77,10 +77,10 @@
         <div class="right_login left">
             <!--商城登录-->
             <div class="store_login">
-                <img src="../../images/mall/nav_icon_touxiang_default.png" alt="">
+                <img src="<?=base_url("images/mall/nav_icon_touxiang_default.png")?>" alt="">
                 <p>欢迎来到云推购</p>
                 <input onclick="location.href='login.html'" class="login_btn" type="button" value="登录"/>
-                <p class="register"><a href="#">注册试客</a><a href="#">注册商家</a></p>
+                <p class="register"><a href="<?=base_url('mall/register/shike_register')?>">注册试客</a><a href="<?=base_url('mall/register/merchant_register')?>">注册商家</a></p>
                 <div class="project_pitching">
                     <ul>
                         <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
@@ -91,7 +91,7 @@
             </div>
             <!--商品狂欢-->
             <div class="commodity_sale">
-                <img src="../../images/mall/nav_bg_jp_default.png" alt="">
+                <img src="<?=base_url("images/mall/nav_bg_jp_default.png")?>" alt="">
             </div>
         </div>
     </div>
@@ -99,22 +99,22 @@
 <section id="section">
     <div class="section_content">
         <!--最新试用-->
-        <h1 class="section_title"><img src="../../images/mall/zuixin_bg_default.png" alt=""></h1>
+        <h1 class="section_title"><img src="<?=base_url("images/mall/zuixin_bg_default.png")?>" alt=""></h1>
         <div class="latest_trial">
             <?php
                 foreach($newest_list as $k=>$v)
                 {
                     //运费
-                    $freight = ($v['freight'])?'':'包邮';
+                    $freight = ($v['freight'])?'':'<span style="background-color:#36bc9e">包邮</span>';
                     echo '
             <div class="products left">
-                <a href="'.base_url('mall/homepage/productdetails/'.$v['act_id']).'"><img src='.$v['picture_url'].' alt=""></a>
+                <a href="'.base_url('mall/homepage/productdetails/'.$v['act_id']).'"><img src="'.$v['picture_url'].'" alt=""></a>
                 <p class="product_introduction">'.$v['product_name'].'</p>
                 <p class="quantity">
-                    <span>限量版'.$v['amount'].'</span><span>'.$freight.'</span>
+                    <span style="background-color:#a766e6" >限量版'.$v['amount'].'</span>'.$freight.'
                 </p>
                 <p class="price">
-                    <span>&yen;'.$v['margin'].'</span><span>已申请<b>'.$v['apply_amount'].'</b>次</span>
+                    <span>&yen;'.$v['unit_price'].'</span><span>已申请<b>'.$v['apply_amount'].'</b>次</span>
                 </p>
             </div>';
                 }
@@ -137,10 +137,10 @@
 </section>
 <!--页面的尾部-->
 <footer id="footer"></footer>
-<script src="../../js/mall/jquery-1.10.2.js "></script>
-<script src="../../js/mall/bootstrap-transition.js"></script>
-<script src="../../js/mall/bootstrap-carousel.js"></script>
-<script src="../../js/mall/jquery.twbsPagination.js"></script>
+<script src="<?=base_url("js/mall/jquery-1.10.2.js")?>"></script>
+<script src="<?=base_url("js/mall/bootstrap-transition.js")?>"></script>
+<script src="<?=base_url("js/mall/bootstrap-carousel.js")?>"></script>
+<script src="<?=base_url("js/mall/jquery.twbsPagination.js")?>"></script>
 <script>
     $(function(){
         /*$('#header').load('../common/header.html');
@@ -189,7 +189,7 @@
                     //console.log(result.data)base_url('mall/homepage/productdetails/'.$v['act_id']
                     $('.classify_commodity').empty();
                     var html = '';
-                    recommend_list = result.data.hottest_list;
+                    recommend_list = result.data.recommend_list;
                     recommend_list.forEach(function(e){
                         var freight = (e.freight != '0')?'<span style="height: 0px;"></span>':'<span>包邮</span>';
                         html += '<div class="products left">'+
@@ -199,7 +199,7 @@
                             '<span>限量版'+ e.amount + '份</span>'+ freight+
                             '</p>'+
                             '<p class="price">'+
-                            '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                         console.log(e)
@@ -219,7 +219,7 @@
 
         //        分页
         $('#pagination').twbsPagination({
-            totalPages: <?php echo (integer)($recommend_count['count']/2) + 1; ?>,//总页数
+            totalPages: <?php echo !($recommend_count['count']%2)?($recommend_count['count']/2):(integer)($recommend_count['count']/2) + 1; ?>,//总页数
             //totalPages: 10,//总页数
             startPage:1,//开始的页码
             visiblePages: 7,//显示的页面的数字个数
@@ -254,7 +254,7 @@
                                 '<span>限量版'+ e.amount + '份</span>'+ freight+
                                 '</p>'+
                                 '<p class="price">'+
-                                '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                                '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                             console.log(e)

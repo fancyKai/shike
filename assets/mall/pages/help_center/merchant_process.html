@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家流程</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/shike_center.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧店铺管理-->
+        <div class="content left">
+            <h1 class="title">商家流程</h1>
+            <p class="process"><img src="../../images/shangjia.png" alt=""></p>
+            <div class="about_shike">
+                <h2>一、注册会员</h2>
+                <p>1、登录试客巴首页http：//www.shike8888.com/，选择“注册商家”；</p>
+                <p>2、根据提示填写相关信息，填写完毕后点击“立即注册”；</p>
+                <p>3、进入商家个人中心，点击“购买正式会员”，选择开通时长和支付方式，点击“确认付款”。</p>
+                <h2>二、绑定店铺</h2>
+                <p>1、进入商家个人中心，在左侧导航栏中选择“店铺管理”；</p>
+                <p>2、点击“绑定新店铺”，填写相关信息，点击“确认绑定”。</p>
+                <h2>三、发布任务</h2>
+                <p>1、进入商家个人中心，点击“发布试用任务”；</p>
+                <p>2、选择店铺和平台；</p>
+                <p>3、填写商品信息</p>
+                <p>4、设置商品搜索；</p>
+                <p>5、设置试用份数；</p>
+                <p>6、订单确认支付。</p>
+                <h2>四、物流发货</h2>
+                <p>商家给下单领取的试客，进行物流发货。</p>
+                <h2>五、返还试客本金</h2>
+                <p>1、试客收到任务商品后，会对任务商品进行评价，并将评价截图回填至琳琅试用；</p>
+                <p>2、商家审核试客评价后，平台将自动返还试客的试用本金到试客账户。</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script src="../../js/modal_scrollbar.js"></script>
+<script>
+    $(function(){
+        $('#header').load('../common/merchant_header.html',function(){
+            $('.details_title').text('帮助中心');
+        });
+        $('#footer').load('../common/footer_other.html');
+        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+            $('.account_information ul').find('a').eq(3).addClass('leftNav_active');
+        });
+
+    })
+</script>
+
+</body>
+</html>

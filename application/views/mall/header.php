@@ -15,16 +15,16 @@
         <div class="top_main">
             <ul>
                 <li ><a href="../register/login.html">登录</a></li>
-                <li><a href="../register/business_registration.html">商家注册</a></li>
-                <li><a href="javascript:void(0);">注册试客</a></li>
-                <li><a href="javascript:void(0);">帮助中心</a></li>
+                <li><a href="<?=base_url('mall/register/merchant_register')?>">商家注册</a></li>
+                <li><a href="<?=base_url('mall/register/shike_register')?>">注册试客</a></li>
+                <li><a href="<?=base_url('mall/help_center/help_center')?>">帮助中心</a></li>
             </ul>
         </div>
     </div>
     <!--Logo和搜索框-->
     <div class="search">
         <div class="left">
-            <img class="logo" onclick="location.href='../register/index.html'" src="<?=base_url("images/mall/logo_default.png")?>" alt="">
+            <img class="logo" onclick="location.href='<?php echo base_url().'mall/homepage/index'; ?>'" src="<?=base_url("images/mall/logo_default.png")?>" alt="">
         </div>
         <div class="right">
             <ul class="nav left">
@@ -42,13 +42,32 @@
 <script>
     function conversion(i){
 
-        $('.nav').mouseover(function(){
+        $('.search .nav').mouseover(function(){
             $('.search .right ul').find('a').removeClass('header_active');
         });
-        $('.nav').mouseout(function(){
+
+        $('.search .nav').mouseout(function(){
             $('.search .right ul').find('a').removeClass('header_active');
             $('.search .right ul').find('a').eq(i).addClass('header_active');
         });
+
+        $('.search_box input').on('click',function(){
+            return false;
+        })
+
+        $('.search_box').on('click',function(){
+            console.log($('.search_box input').val());
+            var search = $('.search_box input').val();
+            if(search === '')
+            {
+
+            }else
+            {
+                var url = "<?=base_url('mall/homepage/search/')?>";
+                url = url + search;
+                location.href = url;
+            }
+        })
     }
 </script>
 </body>

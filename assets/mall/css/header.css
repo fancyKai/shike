@@ -2,6 +2,13 @@
   background: url(../images/nva_top_button_dafault.png) 2px 2px no-repeat;
   color: #fff!important ;
 }
+.active {
+  background: url(../images/nva_top_button_dafault.png) 2px 2px no-repeat;
+  color: #fff!important ;
+}
+.merchant_active {
+  color: #f10180;
+}
 .header .top {
   width: 100%;
   height: 36px;
@@ -37,6 +44,7 @@
   padding-left: 20px;
   margin-left: 20px;
   border-left: 1px solid #c8c8c8;
+  letter-spacing: 5px;
 }
 .header .search .right {
   overflow: hidden;
@@ -78,12 +86,12 @@
 .header .line {
   width: 100%;
   height: 10px;
-  background: -webkit-linear-gradient(#f1f1f1, #fff);
+  background: -webkit-linear-gradient(#eaeaea, #fff);
   /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(#f1f1f1, #fff);
+  background: -o-linear-gradient(#eaeaea, #fff);
   /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(#f1f1f1, #fff);
+  background: -moz-linear-gradient(#eaeaea, #fff);
   /* Firefox 3.6 - 15 */
-  background: linear-gradient(#f1f1f1, #fff);
+  background: linear-gradient(#eaeaea, #fff);
   /* 标准的语法（必须放在最后） */
 }

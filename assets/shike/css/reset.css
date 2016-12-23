@@ -35,7 +35,7 @@ input[type='button']{
     cursor:pointer;
     text-align:center;
 }
-input{
+input[type='text']{
     padding-left:10px;
     /*padding-right:10px;*/
 }
@@ -53,15 +53,15 @@ ul {
 q:before, q:after {
     content: '';
 }
+b{
+    font-weight:normal;
+}
 a {
     color:#646464;
     text-decoration: none;
 }
 a:hover{
     text-decoration: none;
-}
-b{
-    font-weight:normal;
 }
 /*浮动相关*/
 .left   {float:left;}

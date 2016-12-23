@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/carousel.css ">
+    <link rel="stylesheet" href="../../css/bookmark_page.css">
 </head>
 <body>
 <!--页面的头部-->
@@ -58,16 +59,16 @@
                 <ul>
                     <!--试客教程-->
                     <li class="shike_course">
-                        <a href="#">
+                        <a href="../help_center/shike_process.html">
                         </a>
                     </li>
                     <!--商家教程教程-->
                     <li class="merchant_course">
-                        <a href="#"></a>
+                        <a href="../help_center/merchant_process.html"></a>
                     </li>
                     <!--中奖秘笈-->
                     <li class="winning_tips">
-                        <a href="#"></a>
+                        <a href="winning_miji.html"></a>
                     </li>
                 </ul>
             </div>
@@ -79,7 +80,7 @@
                 <img src="../../images/nav_icon_touxiang_default.png" alt="">
                 <p>欢迎来到云推购</p>
                 <input onclick="location.href='login.html'" class="login_btn" type="button" value="登录"/>
-                <p class="register"><a href="#">注册试客</a><a href="#">注册商家</a></p>
+                <p class="register"><a href="shike_registration.html">注册试客</a><a href="business_registration.html">注册商家</a></p>
                 <div class="project_pitching">
                     <ul>
                         <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
@@ -304,10 +305,10 @@
                     <span>&yen;199.10</span><span>已申请<b>1000</b>次</span>
                 </p>
             </div>
-            <!--查看更多按钮-->
-            <div class="see_more">
-                <input type="button"/>
-            </div>
+        </div>
+        <!--分页-->
+        <div style="text-align:center;">
+        <ul id="pagination" class="pagination-sm pagination"></ul>
         </div>
     </div>
 </section>
@@ -316,9 +317,14 @@
 <script src="../../js/jquery-1.10.2.js "></script>
 <script src="../../js/bootstrap-transition.js"></script>
 <script src="../../js/bootstrap-carousel.js"></script>
+<script src="../../js/jquery.twbsPagination.js"></script>
 <script>
     $(function(){
-        $('#header').load('../common/header.html');
+        $('#header').load('../common/header.html',function(){
+            $('.search .right ul').find('a').removeClass('header_active');
+            $('.search .right ul').find('a').eq(0).addClass('header_active');
+            conversion(0)
+        });
         $('#footer').load('../common/footer.html');
 
         $('.shike_course').mouseover(function(){
@@ -345,6 +351,23 @@
             $(this).find('a').css("background-image","url(../../images/nav_icon_diannao_default.png)");
             $(this).find('a').css('margin-top','10px')
         })
+
+
+//        分页
+        $('#pagination').twbsPagination({
+            totalPages: 35,//总页数
+            startPage:1,//开始的页码
+            visiblePages: 7,//显示的页面的数字个数
+            initiateStartPageClick:true,
+            first:'首页',
+            prev:'上一页',
+            next:'下一页',
+            last:'尾页',
+
+//        onPageClick: function (event, page) {
+//            $('#page-content').text('Page ' + page);
+//        }
+        });
     })
 </script>
 </body>

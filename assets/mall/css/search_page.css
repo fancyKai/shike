@@ -58,7 +58,7 @@
 #section .search_commodity .products a img,
 #section .classify_commodity .products a img {
   width: 220px;
-  height: 300px;
+  height: 220px;
 }
 #section .search_commodity .products .product_introduction,
 #section .classify_commodity .products .product_introduction {
@@ -90,7 +90,7 @@
 }
 #section .search_commodity .products .quantity span:last-of-type,
 #section .classify_commodity .products .quantity span:last-of-type {
-  background-color: #63dabe;
+  background-color: #36bc9e;
   margin-left: 10px;
 }
 #section .search_commodity .products .price,

@@ -1,3 +1,8 @@
+.left_nav_active{
+  color:#f10180!important;
+  text-decoration:underline;
+}
+
 #section{
   width:100%;
   background-color:#f5f5f5;
@@ -6,17 +11,19 @@
     width:1200px;
     margin:0 auto;
     overflow:hidden;
-    .content{
+    .content,.content_main,.basic_setup,.bound_bankCard,.add_bankCard,.member_manage,.deposit_withdraw,.funds_record,.message_notification{
       width:1040px;
       margin-left:10px;
+      min-height:481px;
+    }
+    .content_main,.basic_setup,.bound_bankCard,.add_bankCard,.member_manage,.deposit_withdraw,.funds_record,.message_notification{
       padding:30px;
       background-color:#fff;
-      min-height:394px;
-      h1.title{
-        color:#323232;
-        font-size:20px;
-        padding-bottom:8px;
-        border-bottom:1px solid #f5f5f5;
+      h1.title {
+        color: #323232;
+        font-size: 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #f5f5f5;
       }
     }
   }

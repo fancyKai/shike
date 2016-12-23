@@ -21,14 +21,14 @@
     <!--分类导航-->
     <div class="classify_nav">
         <ul>
-            <li class="nav"><a class="classify_active" href="javascript:void(0);">女装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">男装</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">鞋包配饰</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">居家生活</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">数码电器</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">母婴儿童</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">食品酒水</a><span>/</span></li>
-            <li class="nav"><a href="javascript:void(0);">其他</a></li>
+            <<li class="nav"><a href="<?=base_url('mall/homepage/classify/1') ?>">女装</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/2') ?>">男装</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/3') ?>">鞋包配饰</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/4') ?>">居家生活</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/5') ?>">数码电器</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/6') ?>">母婴儿童</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/7') ?>">食品酒水</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/8') ?>">其他</a></li>
         </ul>
     </div>
     <div class="classify_commodity">
@@ -80,7 +80,7 @@
                             '<span>限量版'+ e.amount + '份</span>'+ freight+
                             '</p>'+
                             '<p class="price">'+
-                            '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                         console.log(e)
@@ -100,7 +100,7 @@
 
         //        分页
         $('#pagination').twbsPagination({
-            totalPages: <?php echo (integer)($hottest_count['count']/2) + 1; ?>,//总页数
+            totalPages: <?php echo !($hottest_count['count']%2)?($hottest_count['count']/2):(integer)($hottest_count['count']/2) + 1; ?>,//总页数
             //totalPages: 10,//总页数
             startPage:1,//开始的页码
             visiblePages: 7,//显示的页面的数字个数
@@ -135,7 +135,7 @@
                                     '<span>限量版'+ e.amount + '份</span>'+ freight+
                                     '</p>'+
                                     '<p class="price">'+
-                                    '<span>&yen;'+ e.margin +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                                    '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
                                     '</p>'+
                                     '</div>';
                                 console.log(e)

@@ -72,7 +72,7 @@
 }
 #section .section_content .commodity_details .commodity_content .serve .freight span {
   display: inline-block;
-  background-color: #2fbb98;
+  background-color: #36bc9e;
   height: 20px;
   width: 80px;
   border-radius: 10px;
@@ -131,7 +131,7 @@
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background: url(../images/xqy_icon_line_default.png) center no-repeat;
+  background: url(../../images/mall/xqy_icon_line_default.png) center no-repeat;
 }
 #section .section_content .commodity_details .activity > p {
   color: #323232;
@@ -144,9 +144,11 @@
   line-height: 50px;
   border: 1px solid #f0f0f0;
   border-bottom: none;
+  overflow: hidden;
 }
 #section .section_content .use_flow .has_apply span {
   display: inline-block;
+  float: left;
   width: 150px;
   text-align: center;
   color: #323232;
@@ -156,6 +158,41 @@
 #section .section_content .use_flow .has_apply span b {
   font-weight: normal;
   color: #f10180;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel {
+  width: 1048px;
+  height: 50px;
+  line-height: 50px;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox #List1,
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox #List2 {
+  float: left;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox {
+  box-sizing: border-box;
+  width: 1048px;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+  background-color: transparent ;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox .Cont {
+  box-sizing: border-box;
+  width: 1048px;
+  background-color: transparent;
+  margin: 0 auto;
+  overflow: hidden;
+  float: left;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox .Cont .pic {
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  text-align: center;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox .ScrCont {
+  width: 10000000px;
 }
 #section .section_content .commodity_try {
   overflow: hidden;
@@ -175,7 +212,7 @@
 }
 #section .section_content .commodity_try .others_try .products a img {
   width: 220px;
-  height: 300px;
+  height: 220px;
 }
 #section .section_content .commodity_try .others_try .products .product_introduction {
   width: 220px;
@@ -202,7 +239,7 @@
   background-color: #a766e6;
 }
 #section .section_content .commodity_try .others_try .products .quantity span:last-of-type {
-  background-color: #63dabe;
+  background-color: #36bc9e;
   margin-left: 10px;
 }
 #section .section_content .commodity_try .others_try .products .price {

@@ -164,7 +164,7 @@
 #section .section_content .latest_trial .products a img,
 #section .section_content .recommend_trial .products a img {
   width: 220px;
-  height: 300px;
+  height: 220px;
 }
 #section .section_content .latest_trial .products .product_introduction,
 #section .section_content .recommend_trial .products .product_introduction {
@@ -196,7 +196,7 @@
 }
 #section .section_content .latest_trial .products .quantity span:last-of-type,
 #section .section_content .recommend_trial .products .quantity span:last-of-type {
-  background-color: #63dabe;
+  background-color: #36bc9e;
   margin-left: 10px;
 }
 #section .section_content .latest_trial .products .price,

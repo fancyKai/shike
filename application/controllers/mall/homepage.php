@@ -113,15 +113,30 @@ class homepage extends MY_Controller
         echo json_encode($data);
     }
 
-    //搜索
+    //搜索页
+    public function search($search)
+    {
+        $search = urldecode($search);
+        $page = 1;
+        $limit = 2;
+        $start = ($page - 1) * $limit;
+        $this->out_data['search_list'] = $this->db->query("select * from activity where status = 3 and product_name like '%$search%' order by gene_time DESC limit $start , $limit")->result_array();
+        $this->out_data['search_count'] = $this->db->query("select count(*) as count from activity where status = 3 and product_name like '%$search%' ")->row_array();
+        $this->out_data['search'] = $search;
+        $this->load->view('mall/header');
+        $this->load->view('mall/search',$this->out_data);
+        $this->load->view('mall/footer');
+    }
+
+    //分页刷新搜索
     public function searchList()
     {
         $search = $this->input->post('search');
         $page = $this->input->post('page');
-        $limit = 100;
+        $limit = 2;
         $start = ($page - 1) * $limit;
-        $this->out_data['search_list'] = $this->db->query("select * from activity where status = 3 and product_name like $search order by gene_time DESC limit $start , $limit")->result_array();
-        $this->out_data['search_count'] = $this->db->query("select count(*) as count from activity where status = 3 and product_name like $search")->row_array();
+        $this->out_data['search_list'] = $this->db->query("select * from activity where status = 3 and product_name like '%$search%' order by gene_time DESC limit $start , $limit")->result_array();
+        $this->out_data['search_count'] = $this->db->query("select count(*) as count from activity where status = 3 and product_name like '%$search%'")->row_array();
         $data = array(
             'success'=>true,
             'code'=>0,
@@ -134,24 +149,27 @@ class homepage extends MY_Controller
     public function productDetails($act_id)
     {
         //$act_id = $this->input->post('data');
-        $need = 'picture_url, product_name, margin, freight, amount, amount_perorder, apply_amount, color, size, gene_time, product_detailds';
+        $need = 'picture_url, product_name, unit_price, freight, amount, buy_sum, apply_amount, color, size, gene_time, product_detailds';
         $this->out_data['product_details'] = $this->db->query("select $need from activity where act_id = $act_id")->row_array();
-        $need2 = 'act_id, picture_url,product_name, margin, amount, apply_amount, freight';
-        $this->out_data['seller_else'] = $this->db->query("select $need2 from activity where status = 3 order by gene_time DESC limit 2")->result_array();
+        //申请人数
+        $applyed_num = $this->db->query("select count(1) as count from apply where act_id = $act_id")->row_array();
+        $this->out_data['product_details']['applyed_num'] = $applyed_num['count'];
+        $need2 = 'act_id, picture_url,product_name, unit_price, amount, apply_amount, freight';
+        $this->out_data['seller_else'] = $this->db->query("select $need2 from activity where status = 3 and act_id != $act_id order by gene_time DESC limit 2")->result_array();
         $this->out_data['apply_else'] = $this->db->query("
-        select a1.act_id, a1.product_name,a1.picture_url, a1.margin, a1.amount, a1.apply_amount, a1.freight
+        select a1.act_id, a1.product_name,a1.picture_url, a1.unit_price, a1.amount, a1.apply_amount, a1.freight
         from apply as a2
-        join activity as a1 on a2.good_id =  a1.act_id
-        where a2.good_id = $act_id
+        join activity as a1 on a2.act_id =  a1.act_id
+        where a2.act_id = $act_id and a2.act_id != $act_id
         order by a1.gene_time DESC
         limit 2
         ")->result_array();
         //已申请试用用户
         $this->out_data['apply_user'] = $this->db->query("
-        select u.phone
+        select u.user_name
         from apply as a
         join user as u on a.user_id = u.user_id
-        where a.good_id = $act_id
+        where a.act_id = $act_id
         order by a.apply_time DESC
         ")->result_array();
         /*echo json_encode($this->out_data);
