@@ -32,11 +32,12 @@
                 </tr>
             <?php endforeach ?>
             </table>
+            <?php echo $pagin; ?>
         </div>
     </div>
 </section>
 <footer id="footer"></footer>
-<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/shike/jquery-1.10.2.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");

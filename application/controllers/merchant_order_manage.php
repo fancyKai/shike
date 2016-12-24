@@ -20,7 +20,7 @@ class merchant_order_manage extends MY_Controller {
 		if(!$order_status){
 			$base_url = "/merchant_order_manage/?";
 		}else{
-			$orderwhere .= " where seller_id=$seller_id and status=".$order_status;
+			$orderwhere .= " and status=".$order_status;
 			$base_url = "/merchant_order_manage/?order_status=".$order_status;
 		}
 

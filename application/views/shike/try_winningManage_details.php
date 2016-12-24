@@ -134,7 +134,7 @@
                     <div class="taobao_order">
                         <p><span>订单号：12345678978943</span><span>实际付款金额：&yen;123.00</span></p>
                         <div>
-                            <img src="../../images/sj_ddgl_bg_tbdd_default.png" alt="">
+                            <img src="images/shike/sj_ddgl_bg_tbdd_default.png" alt="">
                         </div>
                     </div>
                 </div>

@@ -31,13 +31,13 @@
                     <?php endif;?>
                 </tr>
                 <?php endforeach ?>
-
+            <?php echo $pagin; ?>
             </table>
         </div>
     </div>
 </section>
 <!-- <footer id="footer"></footer> -->
-<script src="../../js/jquery-1.10.2.js"></script>
+<script src="js/shike/jquery-1.10.2.js"></script>
 <script>
     // $(function(){
     //     $('#header').load("../common/merchant_header.html");

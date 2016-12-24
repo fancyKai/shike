@@ -14,7 +14,6 @@ class shike_try_winningManage_details extends MY_Controller {
 
         $this->out_data['order'] = $this->db->query("select * from sorder where order_id=$order_id")->row_array();
         $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
-        $act_id = $this->out_data['order']['act_id']
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 		
 		$this->out_data['con_page'] = 'shike/try_winningManage_details';
