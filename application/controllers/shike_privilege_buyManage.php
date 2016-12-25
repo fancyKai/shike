@@ -12,6 +12,10 @@ class shike_privilege_buyManage extends MY_Controller {
 
 		$user_id = "1";
 
+		$date = date('Y-m-d H:i:s',time());
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(apply_time))>172800) and status != 2 ";
+		$res = $this->db->update("discount",array("status"=>3),$where);
+
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;
@@ -39,4 +43,12 @@ class shike_privilege_buyManage extends MY_Controller {
 		$this->out_data['con_page'] = 'shike/privilege_buyManage';
 		$this->load->view('shike_default', $this->out_data);
 	}
+
+	public function cancle_discount(){
+		$discount_id = $this->input->post('discount_id');
+		$res = $this->db->update("apply",array("status"=>'3'),array('discount_id'=>$discount_id));
+		echo json_encode($res);
+		// echo 1;
+	}
+
 }

@@ -5,14 +5,13 @@ class merchant_personal extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_merchant_login();
 	}
 
 	public function index()
 	{
 
-        // $user_id = $this->session->userdata('user_id');
-		$seller_id=1;
-
+        $seller_id = $this->session->userdata('seller_id');
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;
@@ -25,31 +24,22 @@ class merchant_personal extends MY_Controller {
 			$orderwhere .= " and status=".$order_status;
 			$base_url = "/merchant_personal/?order_status=".$order_status;
 		}
-		// echo $orderwhere;
-		// die();
-        // $users = $this->db->query("select * from user where user_id='1'")->row_array();
-        // echo $users['user_id'];
-
-  //       $this->out_data['user'] = $this->db->query("select * from user where user_id='1'")->row_array();
 		$date = date('Y-m-d h:i:s',time());
 		$where = "UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(time))>172800";
 		$res = $this->db->update("sorder",array("status"=>8),$where);
 		$this->out_data['sellerinfo'] = $this->db->query("select * from seller where seller_id ={$seller_id}")->row_array();
-		$this->out_data['order_list'] = $this->db->query("select * from sorder".$orderwhere." limit {$start},{$limit}")->result_array();
+		$this->out_data['order_list'] = $this->db->query("select * from sorder".$orderwhere." order by time desc limit {$start},{$limit}")->result_array();
 		$count = $this->db->query("select count(*) as count from sorder".$orderwhere)->row_array();
 		$count = $count['count'];
 
-		//var_dump($this->out_data['order_list']);die();
 		$this->out_data['sum_order_list'] = $this->db->query("select count(*) as count from sorder")->row_array();
 		$this->out_data['sum_1_order_list'] = $this->db->query("select count(*) as count from sorder where status=1")->row_array();
 		$this->out_data['sum_2_order_list'] = $this->db->query("select count(*) as count from sorder where status=2")->row_array();
 		$this->out_data['sum_3_order_list'] = $this->db->query("select count(*) as count from sorder where status=3")->row_array();
 		$this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
-		//$base_url = "/merchant_personal/?";
 		$this->out_data['pagin'] = parent::get_pagin($base_url, $count, $limit, 3,  true);
 		$this->out_data['con_page'] = 'merchant/personal';
-		//var_dump($this->out_data);die();
 		$this->load->view('merchant_default', $this->out_data);
 	}
 

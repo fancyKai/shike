@@ -24,19 +24,19 @@
                         <img src="images/merchant/sj_grzx_icon_touxiang_default.png" alt="">
                     </div>
                     <div class="left username">
-                        <h1>无所谓A <span>请先 <a href="../03_account_information/01_basic_setup.html">绑定淘宝账号</a></span></h1>
-                        <p>会员等级：<span>普通会员</span> <b>2016.12.12会员到期</b></p>
-                        <input onclick="location.href='../03_account_information/03_member_recharge.html'" type="button" value="开通VIP会员"/>
+                        <h1><?php echo $user['user_name'];?> <?php if(!$user['taobao_status']):?> <span>请先  <a href="/shike_basic_setup">绑定淘宝账号</a></span><?php endif;?></h1>
+                        <p>会员等级：<span><?php  echo ($user['level']==1 ? '普通会员':'开通VIP会员');?></span><?php if($user['level'] != 1):?><b><?php echo substr($user['vip_endtime'],0,10);?>会员到期</b><?php endif;?></p>
+                        <input onclick="location.href='/shike_member_recharge'" type="button" value=<?php  echo ($user['level']==1 ? '开通VIP会员':'续费');?>>
                     </div>
                 </div>
                 <!--可提现本金-->
                 <div class="left capital_sum">
                     <p>
-                        可提现本金：<span>890.00</span>元
-                        <input onclick="location.href='../04_funds_manage/01_deposit_withdraw.html'" type="button" value="立即提现"/>
+                        可提现本金：<span><?php echo $user['money_use'];?></span>元
+                        <input onclick="location.href='/shike_deposit_withdraw'" type="button" value="立即提现"/>
                     </p>
                     <p>
-                        待平台返还本金：<span>1589.00</span>元（<b>6</b>）笔
+                        待平台返还本金：<span><?php echo $user['money_return'];?></span>元（<b><?php echo $user['return_num'];?></b>）笔
                     </p>
                 </div>
             </div>
@@ -174,9 +174,10 @@
                         </ul>
                     </div>
                 </div>
+                <?php if($order_list_count >= 4):?>
+                    <?php break;?>
+                <?php endif;?>
             <?php endforeach ?>
-            <?php echo $pagin; ?>
-
                 <!--查看更多按钮-->
                 <div class="see_more">
                     <input onclick="location.href='/shike_try_winningManage'" type="button"/>
@@ -210,11 +211,11 @@
 <script src="../../js/modal_scrollbar.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html",function(){
-            $('.personal_center').find('a').addClass('left_nav_active');
-        });
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html",function(){
+        $('.personal_center').find('a').addClass('left_nav_active');
+        // });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');

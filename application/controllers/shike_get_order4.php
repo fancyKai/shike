@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class shike_get_order2 extends MY_Controller {
+class shike_get_order4 extends MY_Controller {
 
 	function __construct()
 	{
@@ -40,66 +40,29 @@ class shike_get_order2 extends MY_Controller {
 		$this->out_data['user_id'] = $user_id;
 		//$this->out_data['shoplist'] = $this->db->query("select * from shop where seller_id=".$user_id)->result_array();
 		//var_dump($this->out_data);die();
-		$this->out_data['con_page'] = 'shike/get_order2';
+		$this->out_data['con_page'] = 'shike/get_order4';
 		//var_dump($this->out_data);die();
 		$this->load->view('shike_default', $this->out_data);
 	}
 
-	public function submit_order2(){
+	public function submit_order4(){
 		$user_id = "1";
 		$order_id = $this->input->post('order_id');
-		$path = "images/shike/product/".$user_id;
+		$path = "images/shike/chatlog/".$user_id;
 		if(is_dir($path)){  
 
       	}else{
          	mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
       	}
-      	$tmp_file = $_FILES['product_saveimg']['tmp_name'];
-      	$filename = $_FILES['product_saveimg']['name'];
-     	$product_saveimg = "images/shike/product/".$user_id."/".$filename;
-      	$res = move_uploaded_file($tmp_file,$product_saveimg);
+      	$tmp_file = $_FILES['chatlog']['tmp_name'];
+      	$filename = $_FILES['chatlog']['name'];
+     	$chatlog = "images/shike/chatlog/".$user_id."/".$filename;
+      	$res = move_uploaded_file($tmp_file,$chatlog);
 
-      	$path = "images/shike/shop/".$user_id;
-		if(is_dir($path)){  
-
-      	}else{
-         	mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
-      	}
-      	$tmp_file = $_FILES['shop_saveimg']['tmp_name'];
-      	$filename = $_FILES['shop_saveimg']['name'];
-     	$shop_saveimg = "images/shike/shop/".$user_id."/".$filename;
-      	$res = move_uploaded_file($tmp_file,$shop_saveimg);
       	$info = array(
-      		'product_saveimg'=>$product_saveimg,
-      		'shop_saveimg'=>$shop_saveimg);
+      		'chatlog_img'=>$chatlog);
       	$this->db->update("sorder",$info,array("order_id"=>$order_id));
-      	header("Location: /shike_get_order3?order_id={$order_id}");
+      	header("Location: /shike_get_order5?order_id={$order_id}");
         exit();
-	}
-
-	public function insert_fake_activity(){
-		$seller_id = $this->input->post('seller_id');
-		$shop_name = $this->input->post('shop_name');
-		$platform_id = $this->input->post('platform_id');
-		$info = array("seller_id" => $seller_id,"shopname"=>$shop_name,"platformid"=>$platform_id,"isreal"=>0);
-		$this->db->insert("activity",$info);
-		$res = $this->db->insert_id('act_id');
-		echo json_encode($res);
-
-	}
-	public function update_confirm_ship(){
-		$wuliu = $this->input->post('wuliu');
-		$yundan = $this->input->post('yundan');
-		$order_id = $this->input->post('order_id');
-		$info = array("wuliu"=>$wuliu,"yundan"=>$yundan,'status'=>2);
-		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
-		echo json_encode($res);
-	}
-
-	public function update_shenhe(){
-		$order_id = $this->input->post('order_id');
-		$info = array('status'=>3);
-		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
-		echo json_encode($res);
 	}
 }

@@ -24,33 +24,12 @@ class sendcloud extends MY_Controller {
 		$res = curl_exec($ch);
 		curl_close($ch);
 		$this->session->set_userdata(array("telcode"=>$code));
-		// if(function_exists('file_get_contents'))
-		// {
-		// 	$file_contents = file_get_contents($url);
-		// }
+		$time = date('Y-m-d H:i:s',time());
+        $info = array('telephone' => $tel, 
+        	          'authcode' => $code,
+        	          'time' => $time);
+		$this->db->insert('telcode', $info);
 		echo $res;
-		// $tel = $this->input->post('tel');
-  //       $code = "123456";
-  //       $res = array("code"=>$code,"result"=>"true");
-  //       $this->session->set_userdata(array("telcode"=>$code));
-  //       echo json_encode($res);
-
-// if(function_exists('file_get_contents'))
-// {
-// $file_contents = file_get_contents($url);
-// }
-// else
-// {
-// $ch = curl_init();
-// $timeout = 5;
-// curl_setopt ($ch, CURLOPT_URL, $url);
-// curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-// $file_contents = curl_exec($ch);
-// curl_close($ch);
-// }
-// return $file_contents;
-// }
 	}
 
 /*-----------------------------------------以下为私有方法---------------------------------------------------*/

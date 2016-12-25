@@ -26,20 +26,38 @@
                     <li><a href="/merchant_modify_loginPw">修改</a></li>
                 </ul>
                 <ul>
+                <?php if(!$sellerinfo['paypw']):?>
                     <li>
                         <img src="images/merchant/sj_zhxx_icon_no_default.png" alt="">
                     </li>
                     <li><span>支付密码</span></li>
                     <li>设置密码后开启支付功能，保障虚拟资产安全。</li>
                     <li><input onclick="location.href='/merchant_set_payPw'" type="button" value="立即设置"/></li>
+                <?php else:?>
+                    <li>
+                        <img src="images/merchant/sj_zhxx_icon_right_default.png" alt="">
+                    </li>
+                    <li><span>支付密码</span></li>
+                    <li>设置密码后开启支付功能，保障虚拟资产安全。</li>
+                    <li><input onclick="location.href='/merchant_set_payPw'" type="button" value="修改"/></li>
+                <?php endif;?>
                 </ul>
                 <ul>
+                <?php if(!$sellerinfo['withdrawpw']):?>
                     <li>
                         <img src="images/merchant/sj_zhxx_icon_no_default.png" alt="">
                     </li>
                     <li><span>提现密码</span></li>
                     <li>设置密码后开启提现功能，可将平台资产转出。</li>
                     <li><input onclick="location.href='/merchant_set_withdrawdepositPw'" type="button" value="立即设置"/></li>
+                <?php else:?>
+                    <li>
+                        <img src="images/merchant/sj_zhxx_icon_right_default.png" alt="">
+                    </li>
+                    <li><span>提现密码</span></li>
+                    <li>设置密码后开启提现功能，可将平台资产转出。</li>
+                    <li><input onclick="location.href='/merchant_set_withdrawdepositPw'" type="button" value="修改"/></li>
+                <?php endif;?>
                 </ul>
                 <ul>
                     <li>

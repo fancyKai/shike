@@ -5,6 +5,7 @@ class shike_message_details extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_shike_login();
 	}
 
 	public function index()

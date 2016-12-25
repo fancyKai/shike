@@ -31,19 +31,19 @@
                     <?php endif;?>
                 </tr>
                 <?php endforeach ?>
-            <?php echo $pagin; ?>
             </table>
+            <?php echo $pagin; ?>
         </div>
     </div>
 </section>
 <!-- <footer id="footer"></footer> -->
-<script src="js/shike/jquery-1.10.2.js"></script>
+<script src="../../js/jquery-1.10.2.js"></script>
 <script>
-    // $(function(){
-    //     $('#header').load("../common/merchant_header.html");
-    //     $('#footer').load("../common/footer.html");
-    //     $('#left_nav').load("../common/left_nav.html");
-    // })
+    $(function(){
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
+    })
 </script>
 </body>
 </html>

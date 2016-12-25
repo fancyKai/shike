@@ -5,6 +5,7 @@ class merchant_loginPw_modify_succeed extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_merchant_login();
 	}
 
 	public function index()

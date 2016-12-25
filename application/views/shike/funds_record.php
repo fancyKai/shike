@@ -17,11 +17,13 @@
         <div class="funds_record left">
             <h1 class="title">资金记录</h1>
             <ul class="allRecord">
-                <li class="record" <?php if(!$money_type):?> data-toggle="funds_detail" <?php endif;?> ><a href="/shike_funds_record?money_type=0">资金明细</a><span>|</span></li>
-                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a href="/shike_funds_record?money_type=2">提现记录</a></li>
+                <li class="record" <?php if(!$money_type):?>  data-toggle="funds_detail" <?php endif;?> ><a <?php if(!$money_type):?> style="color:#f10180"<?php endif;?> href="/shike_funds_record?money_type=0">资金明细</a><span>|</span></li>
+
+                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a <?php if($money_type == 2):?> style="color:#f10180"<?php endif;?> href="/shike_funds_record?money_type=2">提现记录</a></li>
             </ul>
             <div>
             <!--资金明细-->
+            <?php if(!$money_type):?>
             <table class="funds_detail">
                 <tr>
                     <td>时间</td>
@@ -45,7 +47,9 @@
                 </tr>
             <?php endforeach ?>
             </table>
+            <?php endif;?>
             <!--提现记录-->
+            <?php if($money_type == 2):?>
             <table class="withdraw_record">
                 <tr>
                     <td>提现申请时间</td>
@@ -64,6 +68,7 @@
                 </tr>
             <?php endforeach ?>
             </table>
+            <?php endif;?>
             </div>
         </div>
     </div>
@@ -77,23 +82,19 @@
         // $('#left_nav').load("../common/left_nav.html",function(){
         //     $('.fund_manage ul>li').find('a').eq(1).addClass('left_nav_active');
         // });
-        $('.record').bind('click',function(){
-            $(this).find('a').css('color','#f10180');
-            $(this).siblings().find('a').css('color','#323232')
-        });
+        // $('.record').bind('click',function(){
+        //     $(this).find('a').css('color','#f10180');
+        //     $(this).siblings().find('a').css('color','#323232')
+        // });
 
-        $('[data-toggle="funds_detail"]').bind('click',function(){
-            $('.funds_detail').css('display','block');
-            $('.funds_detail').siblings().css('display','none');
-        });
-        $('[data-toggle="recharge_record"]').bind('click',function(){
-            $('.recharge_record').css('display','block');
-            $('.recharge_record').siblings().css('display','none');
-        });
-        $('[data-toggle="withdraw_record"]').bind('click',function(){
-            $('.withdraw_record').css('display','block');
-            $('.withdraw_record').siblings().css('display','none');
-        })
+        // $('[data-toggle="funds_detail"]').bind('click',function(){
+        //     $('.funds_detail').css('display','block');
+        //     $('.funds_detail').siblings().css('display','none');
+        // });
+        // $('[data-toggle="withdraw_record"]').bind('click',function(){
+        //     $('.withdraw_record').css('display','block');
+        //     $('.withdraw_record').siblings().css('display','none');
+        // })
     })
 </script>
 </body>

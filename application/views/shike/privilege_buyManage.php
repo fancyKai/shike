@@ -26,7 +26,9 @@
                     </ul>
                 </div>
                 <!--商品发货状态-->
+                <?php $discount_list_count=-1;?>
             <?php foreach($discount_list as $v):?>
+            <?php $discount_list_count++;?>
                 <div class="delivery_status">
                     <div class="title">
                         <p class="left">
@@ -50,7 +52,7 @@
                                 <p>恭喜您中了优惠购买商品的资格</p>
                                 <p>快去领取优惠券购买吧！</p>
                                 <p><input type="button" value="领券购买"/></p>
-                                <p><span>还剩48小时00分00秒</span></p>
+                                 <p><span id="lefttime_<?php echo $v['discount_id'];?>"></span></p>
                             </li>
                         <?php elseif($v['status'] == 2):?>
                             <li>
@@ -77,6 +79,8 @@
                                 </p>
                             </li>
                         <?php endif;?>
+                         <input type="hidden" id="discount_list_id_<?php echo $discount_list_count;?>" value="<?php echo $v['discount_id'];?>">
+                        <input type="hidden" id="discount_list_time_<?php echo $discount_list_count;?>" value="<?php echo strtotime($v['apply_time']);?>">
                         </ul>
                     </div>
                 </div>
@@ -90,12 +94,74 @@
 <script src="js/shike/jquery-1.10.2.js"></script>
 <script>
     $(function(){
+
+         var discount_list_count = <?php echo count($discount_list);?>;
+        for(var i=0;i<discount_list_count;i++){
+            var timestamp = $("#discount_list_time_"+i).val();
+            var now ="<?php echo time();?>";
+            var order_id = $("#discount_list_id_"+i).val();
+            var obj = $("#lefttime_"+order_id);
+            leftseconds = parseInt(timestamp)+ 3600*48 - parseInt(now);
+            console.log(leftseconds);
+            //console.log(obj);
+            ydcountdown(leftseconds,obj);
+        }
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
         //     $('.try_manage>ul>li').find('a').eq(2).addClass('left_nav_active');
         // });
     })
+
+
+</script>
+<script>
+    function ydcountdown(s,obj){
+    // console.log(s);
+    //console.log(obj);
+    var remain_seconds = s;
+    remain_seconds = remain_seconds%(3600*24);
+    var hour = parseInt(remain_seconds/3600);
+    hour = (hour<10?'0'+hour:hour);
+    var minutes = parseInt(remain_seconds%3600/60);
+    minutes = (minutes<10?'0'+minutes:minutes);
+    var seconds = parseInt(remain_seconds%60);
+    seconds = (seconds<10)?'0'+seconds:seconds;
+    if(s<0){
+        return;
+    }
+    // console.log(s);
+    // console.log(obj);
+    var timestring = '还剩'+hour+'小时'+minutes+'分'+seconds+'秒';
+    var objid = obj.attr('id');
+    if(!objid){
+        return;
+    }
+    obj.text(timestring);
+    //console.log(objid);
+    //console.log(typeof objid);
+    var discount_id = objid.substring(9);
+    //console.log(objid.substring(9));
+    if(s == 0){
+        $.ajax({
+        url : admin.url+'shike_privilege_buyManage/cancle_discount',
+        type : 'POST',
+        dataType: "json",
+        cache : false,
+        timeout : 20000,
+        data : {discount_id:discount_id},
+        success : function (result){
+            // console.log(result);
+            window.location.reload();
+        },
+        error : function (XMLHttpRequest, textStatus){
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+        }
+    })
+    }
+    setTimeout("ydcountdown("+(s-1)+",$(\"#"+objid+"\"))","1000");
+}
 </script>
 </body>
 </html>

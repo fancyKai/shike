@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class shike_get_order2 extends MY_Controller {
+class shike_get_order3 extends MY_Controller {
 
 	function __construct()
 	{
@@ -40,41 +40,20 @@ class shike_get_order2 extends MY_Controller {
 		$this->out_data['user_id'] = $user_id;
 		//$this->out_data['shoplist'] = $this->db->query("select * from shop where seller_id=".$user_id)->result_array();
 		//var_dump($this->out_data);die();
-		$this->out_data['con_page'] = 'shike/get_order2';
+		$this->out_data['con_page'] = 'shike/get_order3';
 		//var_dump($this->out_data);die();
 		$this->load->view('shike_default', $this->out_data);
 	}
 
-	public function submit_order2(){
-		$user_id = "1";
+	public function submit_order3(){
+		$product_url1 = $this->input->post('product_url1');
+		$product_url2 = $this->input->post('product_url2');
+		$product_url3 = $this->input->post('product_url3');
+		$product_url4 = $this->input->post('product_url4');
 		$order_id = $this->input->post('order_id');
-		$path = "images/shike/product/".$user_id;
-		if(is_dir($path)){  
-
-      	}else{
-         	mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
-      	}
-      	$tmp_file = $_FILES['product_saveimg']['tmp_name'];
-      	$filename = $_FILES['product_saveimg']['name'];
-     	$product_saveimg = "images/shike/product/".$user_id."/".$filename;
-      	$res = move_uploaded_file($tmp_file,$product_saveimg);
-
-      	$path = "images/shike/shop/".$user_id;
-		if(is_dir($path)){  
-
-      	}else{
-         	mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
-      	}
-      	$tmp_file = $_FILES['shop_saveimg']['tmp_name'];
-      	$filename = $_FILES['shop_saveimg']['name'];
-     	$shop_saveimg = "images/shike/shop/".$user_id."/".$filename;
-      	$res = move_uploaded_file($tmp_file,$shop_saveimg);
-      	$info = array(
-      		'product_saveimg'=>$product_saveimg,
-      		'shop_saveimg'=>$shop_saveimg);
-      	$this->db->update("sorder",$info,array("order_id"=>$order_id));
-      	header("Location: /shike_get_order3?order_id={$order_id}");
-        exit();
+		$info = array("product_url1" => $product_url1,"product_url2" => $product_url2,"product_url3" => $product_url3,"product_url4" => $product_url4);
+		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
+		echo json_encode($res);
 	}
 
 	public function insert_fake_activity(){

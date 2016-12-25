@@ -26,20 +26,43 @@
                     <li><a href="/shike_modify_loginPw">修改</a></li>
                 </ul>
                 <ul>
+                <?php if(!$userinfo['taobao_status']):?>
                     <li>
                         <img src="images/shike/sj_zhxx_icon_no_default.png" alt="">
                     </li>
                     <li><span>绑定淘宝</span></li>
-                    <li>淘宝账号绑定后不能修该。</li>
+                    <li>淘宝账号绑定后不能修改。</li>
                     <li><input onclick="location.href='/shike_bound_taobao'" type="button" value="立即绑定"/></li>
+                <?php elseif($userinfo['taobao_status'] == 1):?>
+                    <li>
+                        <img src="images/shike/sj_zhxx_icon_no_default.png" alt="">
+                    </li>
+                    <li><span>审核中</span></li>
+                    <li>淘宝账号绑定后不能修改。</li>
+                <?php elseif($userinfo['taobao_status'] == 2):?>
+                    <li>
+                        <img src="images/shike/sj_zhxx_icon_right_default.png" alt="">
+                    </li>
+                    <li><span>已绑定</span></li>
+                    <li>淘宝账号绑定后不能修改。</li>
+                <?php endif;?>
                 </ul>
                 <ul>
+                <?php if(!$userinfo['tx_password']):?>
                     <li>
                         <img src="images/shike/sj_zhxx_icon_no_default.png" alt="">
                     </li>
                     <li><span>提现密码</span></li>
                     <li>设置密码后开启提现功能，可将平台资产转出。</li>
                     <li><input onclick="location.href='/shike_set_withdrawdepositPw'" type="button" value="立即设置"/></li>
+                <?php else:?>
+                    <li>
+                        <img src="images/shike/sj_zhxx_icon_right_default.png" alt="">
+                    </li>
+                    <li><span>提现密码</span></li>
+                    <li>设置密码后开启提现功能，可将平台资产转出。</li>
+                    <li><input onclick="location.href='/shike_set_withdrawdepositPw'" type="button" value="修改"/></li>
+                <?php endif;?>
                 </ul>
                 <ul>
                     <li>
@@ -50,7 +73,7 @@
                         <span>QQ:<?php echo $userinfo['user_qq'];?></span><br/>
                         <span>手机：<?php echo $userinfo['phone'];?></span>
                     </li>
-                    <li><a href="/shike_set_sellerqq">修改</a><br/><a href="/shike_set_sellertel">修改</a></li>
+                    <li><a href="/shike_set_userqq">修改</a><br/><a href="/shike_set_usertel">修改</a></li>
                 </ul>
             </div>
         </div>
@@ -60,9 +83,9 @@
 <script src="js/shike/jquery-1.10.2.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
     })
 </script>
 </body>

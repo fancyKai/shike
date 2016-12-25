@@ -27,6 +27,7 @@
                 <img src="images/shike/sk_zjgl_lqxd_bg_jdt2_default.png" alt="">
             </div>
             <!--试用商品-->
+            <form enctype="multipart/form-data" method="post" action="/shike_get_order2/submit_order2" onsubmit="return check_form()">
             <div class="try_good">
                 <h1>2.收藏宝贝和店铺</h1>
                 <!--第一步-->
@@ -50,10 +51,10 @@
                     <p class="uploading">
                         点击“收藏宝贝”，收藏宝贝后截图并上传
                         <a href="javascript:void(0);">
-                            <input type="file">
+                            <input type="file" id="product_saveimg" name="product_saveimg" onchange="product_saveimg_change()">
                             上传文件
                         </a>
-                        <span>宝贝.png</span>
+                        <span id="product_saveimg_value">未选择文件</span>
                     </p>
                     <p><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
                 </div>
@@ -78,18 +79,21 @@
                     <p class="uploading">
                         点击“收藏店铺”，收藏店铺后截图并上传
                         <a href="javascript:void(0);">
-                            <input type="file">
+                            <input type="file" id="shop_saveimg" name="shop_saveimg" onchange="shop_saveimg_change()">
                             上传文件
                         </a>
-                        <span>店铺.png</span>
+                        <span id="shop_saveimg_value">未选择文件</span>
                     </p>
                     <p><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
                 </div>
             </div>
+            <input type="hidden" name="order_id" value="<?php echo $orderinfo['order_id']?>">
+            <input type="button" onclick="test()" value="test">
             <p class="step_btn">
-                <input  onclick="location.href='getOrders_stepOne.html'" type="button" value="上一步">
-                <input  onclick="location.href='getOrders_stepThree.html'" class="next_step" type="button" value="下一步">
+                <input  onclick="location.href='shike_get_order?order_id=<?php echo $orderinfo['order_id']?>'" type="button" value="上一步">
+                <input  class="next_step" type="submit" value="下一步">
             </p>
+            </form>
         </div>
     </div>
 </section>
@@ -107,6 +111,28 @@
             $('.first_step .example_images').slideToggle();
         })
     })
+
+    function product_saveimg_change(){
+        $("#product_saveimg_value").text($("#product_saveimg").val());
+    }
+
+    function shop_saveimg_change(){
+        $("#shop_saveimg_value").text($("#shop_saveimg").val());
+    }
+
+     function check_form(){
+        if($("#product_saveimg").val()=='' || $("#shop_saveimg").val()==''){
+            return false;
+        }
+        return true;
+    }
+    function test(){
+        if($("#product_saveimg").val()=='' || $("#shop_saveimg").val()==''){
+            alert(2);
+            return;
+        }
+       alert(1);
+    }
 </script>
 </body>
 </html>

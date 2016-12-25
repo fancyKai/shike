@@ -26,7 +26,7 @@
                     </div>
                     <div class="left username">
                         <h1><?php echo $sellerinfo['account']?></h1>
-                        <p>会员等级：<span><?php  echo ($sellerinfo['level']==1 ? '试用会员':'正式会员');?></span> <b><?php echo substr($sellerinfo['end_time'],0,10);?>到期</b></p>
+                        <p>会员等级：<span><?php  echo ($sellerinfo['level']==1 ? '试用会员':'正式会员');?></span><?php if($sellerinfo['level'] != 1):?><b><?php echo substr($sellerinfo['end_time'],0,10);?>到期</b><?php endif;?></p>
                         <input type="button" value=<?php  echo ($sellerinfo['level']==1 ? '购买正式会员':'续费');?> onclick="window.open('/merchant_member_recharge')"/>
                     </div>
                 </div>
@@ -184,7 +184,6 @@
                     </div>
                 </div>
                 <?php endforeach ?>
-                <?php echo $pagin; ?>
                 <div class="see_more">
                     <input onclick="location.href='/merchant_order_manage'" type="button"/>
                 </div>

@@ -13,6 +13,10 @@ class merchant_activity_manage extends MY_Controller {
 		// $this->out_data['seller_id'] = $user_id;
 		$seller_id = "1";
 
+		$date = date('Y-m-d H:i:s',time());
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(gene_time))>172800) and status != 4 ";
+		$res = $this->db->update("activity",array("status"=>5),$where);
+
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;
@@ -46,8 +50,8 @@ class merchant_activity_manage extends MY_Controller {
 	}
 
 	public function cancle_activity(){
-		$order_id = $this->input->post('orderid');
-		$res = $this->db->update("sorder",array("status"=>'8'),array('order_id'=>$order_id));
+		$act_id = $this->input->post('actid');
+		$res = $this->db->update("activity",array("status"=>'5'),array('act_id'=>$act_id));
 		echo json_encode($res);
 		// echo 1;
 	}

@@ -5,12 +5,12 @@ class shike_message_center extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_shike_login();
 	}
 
 	public function index()
 	{
-		$user_id = "1";
-
+		$user_id = $this->session->userdata('user_id');
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 20;
 		$start = ($page - 1)*$limit;

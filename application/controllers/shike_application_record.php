@@ -11,6 +11,10 @@ class shike_application_record extends MY_Controller {
 	{
 		$user_id = "1";
 
+		$date = date('Y-m-d H:i:s',time());
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(apply_time))>172800) and apply_status != 3 and apply_status !=4 ";
+		$res = $this->db->update("apply",array("apply_status"=>2),$where);
+
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;
@@ -36,5 +40,11 @@ class shike_application_record extends MY_Controller {
 		$this->out_data['pagin'] = parent::get_pagin($base_url, $count, $limit, 3,  true);
 		$this->out_data['con_page'] = 'shike/application_record';
 		$this->load->view('shike_default', $this->out_data);
+	}
+	public function cancle_apply(){
+		$apply_id = $this->input->post('apply_id');
+		$res = $this->db->update("apply",array("apply_status"=>'2'),array('apply_id'=>$apply_id));
+		echo json_encode($res);
+		// echo 1;
 	}
 }

@@ -11,6 +11,11 @@ class shike_try_winningManage extends MY_Controller {
 	{
 
 		$user_id = "1";
+		
+		$date = date('Y-m-d H:i:s',time());
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(time))>172800) and status != 7 ";
+		$res = $this->db->update("sorder",array("status"=>8),$where);
+
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;

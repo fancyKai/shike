@@ -6,6 +6,7 @@ class shike_userapi extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_shike_login();
         $this->load->library('session');
 		//$this->load->library('user_agent');
 	}
@@ -15,6 +16,7 @@ class shike_userapi extends MY_Controller {
 		
 	}
 	public function get_session(){
+		$user_id = $this->session->userdata('user_id');
 		$authcode = $this->input->post("authcode");
 		$passwd = $this->input->post("passwd");
 		$telcode = $this->session->userdata("telcode");
@@ -23,8 +25,8 @@ class shike_userapi extends MY_Controller {
 			$msg = "手机验证码错误";
 			$res = 0;
 		}else{
-			$info = array("password"=>$passwd);
-			$ress = $this->db->update("user",$info,array("user_id"=>1));
+			$info = array("password"=>md5($passwd));
+			$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
 			$msg = "成功";
 			$res = 1;
 		}
@@ -34,6 +36,7 @@ class shike_userapi extends MY_Controller {
 	}
 
 	public function check_telcode(){
+		$user_id = $this->session->userdata('user_id');
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
 		$this->session->set_userdata(array("telcode",""));
@@ -41,7 +44,7 @@ class shike_userapi extends MY_Controller {
 			$msg = "手机验证码错误";
 			$res = 0;
 		}else{
-			$this->session->set_userdata(array("settel_permission"=>1));
+			$this->session->set_userdata(array("settel_permission"=>$user_id));
 			$msg = "成功";
 			$res = 1;
 		}
@@ -51,6 +54,7 @@ class shike_userapi extends MY_Controller {
 	}
 
 	public function check_telcode2(){
+		$user_id = $this->session->userdata('user_id');
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
 		$this->session->set_userdata(array("telcode",""));
@@ -64,35 +68,38 @@ class shike_userapi extends MY_Controller {
 			$res = 0;
 		}else{
 			$info = array("phone"=>$phone);
-			$ress = $this->db->update("user",$info,array("user_id"=>1));
+			$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
 			$msg = "成功";
 			$res = 1;
 		}
 		$this->session->set_userdata(array("settel_permission"=>0));
 		$result = array("msg"=>$msg,"res"=>$res);
-		//$result = array('authcode'=>$authcode,'telcode'=>$telcode,'phone'=>$phone);
 		echo json_encode($result);
 
 	}
 
 	public function bound_taobao(){
+		$user_id = $this->session->userdata('user_id');
 		$taobao = $this->input->post("taobao");
-		$info = array("taobao_id"=>$taobao);
-		$ress = $this->db->update("user",$info,array("user_id"=>1));
+		$info = array("taobao_id"=>$taobao,
+			          "taobao_status"=>1);
+		$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
 		echo json_encode($ress);
 	}
 
 	public function set_withdrawPw(){
+		$user_id = $this->session->userdata('user_id');
 		$passwd = $this->input->post("passwd");
-		$info = array("withdrawpw"=>$passwd);
-		$ress = $this->db->update("user",$info,array("user_id"=>1));
+		$info = array("tx_password"=>md5($passwd));
+		$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
 		echo json_encode($ress);
 	}
 
 	public function set_qq(){
+		$user_id = $this->session->userdata('user_id');
 		$qq = $this->input->post("qq");
 		$info = array("user_qq"=>$qq);
-		$ress = $this->db->update("user",$info,array("user_id"=>1));
+		$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
 		echo json_encode($ress);
 	}
 /*-----------------------------------------以下为私有方法---------------------------------------------------*/
