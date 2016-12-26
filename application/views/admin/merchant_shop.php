@@ -5,85 +5,65 @@
 <title>无标题文档</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/merchant/store_manage.css">
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
-<script type="text/javascript" src="js/select-ui.min.js"></script>
-<script type="text/javascript" src="editor/kindeditor.js"></script>
-
-<script type="text/javascript">
-    KE.show({
-        id : 'content7',
-        cssPath : './index.css'
-    });
-  </script>
-  
-<script type="text/javascript">
-$(document).ready(function(e) {
-
-	$(".select3").uedSelect({
-		width : 152
-	});
-});
-</script>
-
-
 </head>
-
-
 <body>
-
-	<div class="place">
-    <span>位置：</span>
-    <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">订单列表</a></li>
-    </ul>
-    </div>
+<section id="section">
+    <div class="section_main">
+    <aside class="left" id="left_nav" style="margin-left:-91px;"></aside>
+	   <div class="place">
+            <span>位置：</span>
+            <ul class="placeul">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">订单列表</a></li>
+            </ul>
+        </div>
     
-    <div class="rightinfo">
+        <div class="rightinfo">
     
-	<ul class="seachform">
-		<li><label>商品名</label><input name="" type="text" class="scinput" /></li>
-		<li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
+	    <ul class="seachform">
+		  <li><label>商品名</label><input name="" type="text" class="scinput" /></li>
+		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
 		
-    </ul>
+        </ul>
     
-	<div class="formtitle1"><span>商家基本信息</span></div>
-    <table class="tablelist">
-    	<thead>
-    	<tr>
-        <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>店铺ID<i class="sort"><img src="images/px.gif" /></i></th>
-        <th>绑定时间</th>
-        <th>商家账号</th>
-        <th>店铺名称</th>
-        <th>店铺链接</th>
-        <th>平台</th>
-        <th>店铺logo</th>
-        <th>旺旺</th>
-        <th>负责人QQ</th>
-        <th>负责人微信</th>
-        <th>负责人手机</th>
-		<th>操作</th>
-        </tr>
-        </thead>
+	    <div class="formtitle1"><span>商家基本信息</span></div>
+        <table class="tablelist">
+    	    <thead>
+    	    <tr>
+                <th><input name="" type="checkbox" value="" checked="checked"/></th>
+                <th>店铺ID</th>
+                <th>绑定时间</th>
+                <th>商家账号</th>
+                <th>店铺名称</th>
+                <th>店铺链接</th>
+                <th>平台</th>
+                <th>店铺logo</th>
+                <th>旺旺</th>
+                <th>负责人QQ</th>
+                <th>负责人微信</th>
+                <th>负责人手机</th>
+        		<th>操作</th>
+            </tr>
+            </thead>
         <tbody>
         <?php foreach($shops as $v):?>
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td><?php echo $v['shop_id'];?></td>
-        <td><?php echo $v['bind_time'];?></td>
-        <td><?php echo $v['seller_id'];?></td>
-        <td><?php echo $v['shop_name'];?></td>
-        <td><?php echo $v['shop_link'];?></td>
-        <td><?php echo ($v['platform']==1 ? '淘宝':'天猫');?></td>
-		<td><?php echo $v['logo_link'];?></td>
-        <td><?php echo $v['wangwang'];?></td>
-        <td><?php echo $v['chargeqq'];?></td>
-        <td><?php echo $v['chargewx'];?></td>
-        <td><?php echo $v['chargetel'];?></td>
-        <td><a href="#" class="tablelink">编辑</a></td>
-        </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td><?php echo $v['shop_id'];?></td>
+                <td><?php echo $v['bind_time'];?></td>
+                <td><?php echo $v['seller_id'];?></td>
+                <td><?php echo $v['shop_name'];?></td>
+                <td><?php echo $v['shop_link'];?></td>
+                <td><?php echo ($v['platform_id']==1 ? '淘宝':'天猫');?></td>
+        		<td><?php echo $v['logo_link'];?></td>
+                <td><?php echo $v['wangwang'];?></td>
+                <td><?php echo $v['chargeqq'];?></td>
+                <td><?php echo $v['chargewx'];?></td>
+                <td><?php echo $v['chargetel'];?></td>
+                <td><a href="" class="tablelink">编辑</a></td>
+            </tr>
         <?php endforeach ?>
         </tbody>
     </table>
@@ -105,12 +85,16 @@ $(document).ready(function(e) {
         <input name="" type="button"  class="cancel" value="取消" />
         </div>
     
-    </div>   
+            </div> 
+        </div>   
     </div>
-    
-    <script type="text/javascript">
+</section>
+<script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
+    function change_shop(){
+        $('.modify_modal').css('display','block');
+    }
+</script>
 
 </body>
 

@@ -11,7 +11,7 @@
 <section id="section">
     <div class="section_main">
     <aside class="left" id="left_nav" style="margin-left:-91px;"></aside>
-	    <div class="place">
+        <div class="place">
         <span>位置：</span>
         <ul class="placeul">
             <li><a href="#">首页</a></li>
@@ -21,38 +21,36 @@
     
     <div class="rightinfo">
     
-	    <ul class="seachform">
-		  <li><label>商品名</label><input name="" type="text" class="scinput" /></li>
-		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
-	    </ul>
+        <ul class="seachform">
+          <li><label>商品名</label><input name="" type="text" class="scinput" /></li>
+          <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
+        </ul>
     
-	<div class="formtitle1"><span>商家基本信息</span></div>
+    <div class="formtitle1"><span>会员充值记录</span></div>
     <table class="tablelist">
-    	<thead>
-    	<tr>
+        <thead>
+        <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>商家ID</th>
-        <th>注册时间</th>
-        <th>商家账号</th>
-        <th>手机号</th>
-        <th>QQ号</th>
-        <th>会员类型</th>
+        <th>时间</th>
+        <th>试客账号</th>
+        <th>开通时长</th>
         <th>会员到期时间</th>
-		<th>操作</th>
+        <th>充值金额</th>
+        <th>充值类型</th>
+        <th>状态</th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach($sellers as $v):?>
+        <?php foreach($orders as $v):?>
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
+        <td><?php echo $v['charge_time'];?></td>
         <td><?php echo $v['seller_id'];?></td>
-        <td><?php echo $v['reg_time'];?></td>
-        <td><?php echo $v['account'];?></td>
-        <td><?php echo $v['tel'];?></td>
-        <td><?php echo $v['qq'];?></td>
-        <td><?php echo ($v['level']==1 ? '试用会员':'正式会员');?></td>
-		<td><?php echo $v['end_time'];?></td>
-        <td><a href="#" class="tablelink">编辑</a></td>
+        <td><?php echo $v['open_duration'];?></td>
+        <td><?php echo $v['end_time'];?></td>
+        <td><?php echo $v['money'];?></td>
+        <td><?php echo ($v['charge_type']==1 ? '购买正式会员':'续费');?></td>
+        <td><?php echo ($v['status']==1 ? '充值成功':'充值失败');?></td>
         </tr>
         <?php endforeach ?>
         </tbody>
@@ -60,7 +58,7 @@
     <?php echo $pagin; ?>
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
+        <div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
         <span><img src="images/ticon.png" /></span>
@@ -80,8 +78,8 @@
     </div>
 </section>
     <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
+    $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
 
 </body>
 

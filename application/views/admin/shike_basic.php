@@ -26,32 +26,52 @@
 		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
 	    </ul>
     
-	<div class="formtitle1"><span>商家基本信息</span></div>
+	<div class="formtitle1"><span>试客基本信息</span></div>
     <table class="tablelist">
     	<thead>
     	<tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>商家ID</th>
+        <th>试客ID</th>
         <th>注册时间</th>
-        <th>商家账号</th>
+        <th>试客账号</th>
         <th>手机号</th>
         <th>QQ号</th>
+        <th>淘宝账号</th>
+        <th>淘宝账号状态</th>
+        <th>淘宝账号审核</th>
         <th>会员类型</th>
         <th>会员到期时间</th>
 		<th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach($sellers as $v):?>
+        <?php foreach($users as $v):?>
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td><?php echo $v['seller_id'];?></td>
+        <td><?php echo $v['user_id'];?></td>
         <td><?php echo $v['reg_time'];?></td>
-        <td><?php echo $v['account'];?></td>
-        <td><?php echo $v['tel'];?></td>
-        <td><?php echo $v['qq'];?></td>
+        <td><?php echo $v['user_name'];?></td>
+        <td><?php echo $v['phone'];?></td>
+        <td><?php echo $v['user_qq'];?></td>
+        <td><?php echo $v['taobao_id'];?></td>
+        <td><?php 
+        if(!$v['taobao_status']){
+            echo "未绑定";
+        }elseif($v['taobao_status'] == 1){
+            echo "待审核";
+        }else{
+            echo "已审核";
+        }?>
+        </td>
+        <td>
+        <?php if($v['taobao_status'] == 1):?>
+            <a href="#" class="tablelink">审核</a>
+        <?php else:?>
+            --
+        <?php endif;?>
+        </td>
         <td><?php echo ($v['level']==1 ? '试用会员':'正式会员');?></td>
-		<td><?php echo $v['end_time'];?></td>
+		<td><?php echo $v['vip_endtime'];?></td>
         <td><a href="#" class="tablelink">编辑</a></td>
         </tr>
         <?php endforeach ?>
