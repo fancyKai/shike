@@ -29,7 +29,9 @@
                     </ul>
                 </div>
                 <!--商品发货状态-->
+                <?php $activity_list_count=-1;?>
                 <?php foreach($activity_list as $v):?>
+                <?php $activity_list_count++;?>
                 <div class="delivery_status">
                     <div class="title">
                         <p class="left">
@@ -42,7 +44,7 @@
                     </div>
                     <div class="detalis">
                         <ul>
-                            <li><img src="images/merchant/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li><img style="width:120px;height:80px" src="<?php echo $v['picture_url'];?>" alt=""></li>
                             <li>
                                 <p>商品名称：<span><?php echo $v['product_name'];?></span></p>
                                 <p>店铺名称：<span><?php echo $v['shopname'];?></span></p>
@@ -65,7 +67,7 @@
                                         <input id="pay_now" type="button" value="立即付款"/>
                                     </span>
                                 </p>
-                                <p>还剩48小时00分00秒</p>
+                                <p><span id="lefttime_<?php echo $v['act_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 2):?>
@@ -75,6 +77,7 @@
                             <li>
                                 <p class="status"><span>试用活动正在审核中</span></p>
                                 <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p><span id="lefttime_<?php echo $v['act_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 3):?>
@@ -84,6 +87,7 @@
                             <li>
                                 <p class="status"><span>试用活动待开奖</span></p>
                                 <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                                <p><span id="lefttime_<?php echo $v['act_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 4):?>
@@ -104,10 +108,13 @@
                                 <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
+                            <input type="hidden" id="activity_list_id_<?php echo $activity_list_count;?>" value="<?php echo $v['act_id'];?>">
+                            <input type="hidden" id="activity_list_time_<?php echo $activity_list_count;?>" value="<?php echo strtotime($v['gene_time']);?>">
                         </ul>
                     </div>
                 </div>
                 <?php endforeach ?>
+                <?php echo $pagin; ?>
             </div>
         </div>
     </div>
@@ -184,10 +191,22 @@
     <div class="mask_layer"></div>
 </div>
 
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/modal_scrollbar.js"></script>
+<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/modal_scrollbar.js"></script>
 <script>
     $(function(){
+        var activity_list_count = <?php echo count($activity_list);?>;
+        for(var i=0;i<activity_list_count;i++){
+            var timestamp = $("#activity_list_time_"+i).val();
+            var now ="<?php echo time();?>";
+            var order_id = $("#activity_list_id_"+i).val();
+            var obj = $("#lefttime_"+order_id);
+            leftseconds = parseInt(timestamp)+ 3600*48 - parseInt(now);
+            console.log(leftseconds);
+            //console.log(obj);
+            ydcountdown(leftseconds,obj);
+        }
+
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
         $('#left_nav').load("../common/left_nav.html");
@@ -221,6 +240,54 @@
             enableScroll();
         });
     })
+</script>
+<script>
+    function ydcountdown(s,obj){
+    // console.log(s);
+    //console.log(obj);
+    var remain_seconds = s;
+    remain_seconds = remain_seconds%(3600*24);
+    var hour = parseInt(remain_seconds/3600);
+    hour = (hour<10?'0'+hour:hour);
+    var minutes = parseInt(remain_seconds%3600/60);
+    minutes = (minutes<10?'0'+minutes:minutes);
+    var seconds = parseInt(remain_seconds%60);
+    seconds = (seconds<10)?'0'+seconds:seconds;
+    if(s<0){
+        return;
+    }
+    // console.log(s);
+    // console.log(obj);
+    var timestring = '还剩'+hour+'小时'+minutes+'分'+seconds+'秒';
+    var objid = obj.attr('id');
+    if(!objid){
+        return;
+    }
+    obj.text(timestring);
+    //console.log(objid);
+    //console.log(typeof objid);
+    var act_id = objid.substring(9);
+    //console.log(objid.substring(9));
+    if(s == 0){
+        $.ajax({
+        url : admin.url+'merchant_activity_manage/cancle_activity',
+        type : 'POST',
+        dataType: "json",
+        cache : false,
+        timeout : 20000,
+        data : {actid:act_id},
+        success : function (result){
+            // console.log(result);
+            window.location.reload();
+        },
+        error : function (XMLHttpRequest, textStatus){
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+        }
+    })
+    }
+    setTimeout("ydcountdown("+(s-1)+",$(\"#"+objid+"\"))","1000");
+}
 </script>
 </body>
 </html>

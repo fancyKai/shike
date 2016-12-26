@@ -10,9 +10,25 @@ class MY_Controller extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		self::check_login();
+		//self::check_login();
 		$this->out_data['site_url'] = $this->get_site_url();
 		$this->out_data['current_function'] = '';
+	}
+
+	public function check_merchant_login(){
+		$merchant_login = $this->session->userdata('merchant_login');
+		if(!$merchant_login)
+		{
+			header("Location: /merchant_login");
+		}
+	}
+
+	public function check_shike_login(){
+		$shike_login = $this->session->userdata('shike_login');
+		if(!$shike_login)
+		{
+			header("Location: /shike_login");
+		}
 	}
 
 	private function check_login()
@@ -20,7 +36,7 @@ class MY_Controller extends CI_Controller {
 		$admin_login = $this->session->userdata('admin_login');
 		if(!$admin_login)
 		{
-			//header("Location:".base_url()."login");
+			header("Location:".base_url()."login");
 		}
 	}
 

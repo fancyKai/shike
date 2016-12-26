@@ -124,7 +124,7 @@
         async : false,
         data : {tel:tel},
         success : function (result){
-            if(result.result == 'true'){
+            if(result == 1){
                 $("#yzm_send").text("验证码已发送，请稍后");
                 $(obj).unbind('click').removeAttr('onclick').click(function(){$("#yzm_send").text("验证码已发送，请稍后");}); 
             }

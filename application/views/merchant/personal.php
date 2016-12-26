@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/merchant/order_manage.css">
 </head>
 <body>
-<header id="header"></header>
+<!-- <header id="header"></header> -->
 <section id="section">
     <div class="section_main">
         <!--左侧导航-->
@@ -26,7 +26,7 @@
                     </div>
                     <div class="left username">
                         <h1><?php echo $sellerinfo['account']?></h1>
-                        <p>会员等级：<span><?php  echo ($sellerinfo['level']==1 ? '试用会员':'正式会员');?></span> <b><?php echo substr($sellerinfo['end_time'],0,10);?>到期</b></p>
+                        <p>会员等级：<span><?php  echo ($sellerinfo['level']==1 ? '试用会员':'正式会员');?></span><?php if($sellerinfo['level'] != 1):?><b><?php echo substr($sellerinfo['end_time'],0,10);?>到期</b><?php endif;?></p>
                         <input type="button" value=<?php  echo ($sellerinfo['level']==1 ? '购买正式会员':'续费');?> onclick="window.open('/merchant_member_recharge')"/>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="try_monery">
                         <input type="button" value="发布试用任务" onclick="window.open('/merchant_issue_try')"/>
                         可用押金：<span><?php echo $sellerinfo['avail_deposit']?></span>元
-                        <a href="#">充值押金</a>
+                        <a href="/merchant_deposit_recharge">充值押金</a>
                         冻结押金：<span><?php echo $sellerinfo['freeze_deposit']?></span>元
                     </div>
                     <p>
@@ -192,7 +192,7 @@
     </div>
 </section>
 <input type="hidden" id="hidden_orderid">
-<footer id="footer"></footer>
+<!-- <footer id="footer"></footer> -->
 <!--弹框--确认发货-->
 <div class="delivery_modal ">
     <div class="modal_box">
@@ -275,9 +275,9 @@
             //console.log(obj);
             ydcountdown(leftseconds,obj);
         }
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
 //        标题的点击事件   
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');

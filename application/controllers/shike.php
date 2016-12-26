@@ -10,7 +10,7 @@ class shike extends MY_Controller {
 	public function index()
 	{
 		// echo 2;die();
-		$this->out_data['con_page'] = 'home';
-		$this->load->view('default', $this->out_data);
+		$this->out_data['con_page'] = 'shike';
+		$this->load->view('shike_default', $this->out_data);
 	}
 }

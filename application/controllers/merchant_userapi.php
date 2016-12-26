@@ -15,6 +15,7 @@ class merchant_userapi extends MY_Controller {
 		
 	}
 	public function get_session(){
+		$seller_id = $this->session->userdata('seller_id');
 		$authcode = $this->input->post("authcode");
 		$passwd = $this->input->post("passwd");
 		$telcode = $this->session->userdata("telcode");
@@ -23,8 +24,8 @@ class merchant_userapi extends MY_Controller {
 			$msg = "手机验证码错误";
 			$res = 0;
 		}else{
-			$info = array("passwd"=>$passwd);
-			$ress = $this->db->update("seller",$info,array("seller_id"=>1));
+			$info = array("passwd"=>md5($passwd));
+			$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
 			$msg = "成功";
 			$res = 1;
 		}
@@ -51,6 +52,7 @@ class merchant_userapi extends MY_Controller {
 	}
 
 	public function check_telcode2(){
+		$seller_id = $this->session->userdata('seller_id');
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
 		$this->session->set_userdata(array("telcode",""));
@@ -64,7 +66,7 @@ class merchant_userapi extends MY_Controller {
 			$res = 0;
 		}else{
 			$info = array("tel"=>$phone);
-			$ress = $this->db->update("seller",$info,array("seller_id"=>1));
+			$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
 			$msg = "成功";
 			$res = 1;
 		}
@@ -76,23 +78,26 @@ class merchant_userapi extends MY_Controller {
 	}
 
 	public function set_payPw(){
+		$seller_id = $this->session->userdata('seller_id');
 		$passwd = $this->input->post("passwd");
-		$info = array("paypw"=>$passwd);
-		$ress = $this->db->update("seller",$info,array("seller_id"=>1));
+		$info = array("paypw"=>md5($passwd));
+		$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
 		echo json_encode($ress);
 	}
 
 	public function set_withdrawPw(){
+		$seller_id = $this->session->userdata('seller_id');
 		$passwd = $this->input->post("passwd");
-		$info = array("withdrawpw"=>$passwd);
-		$ress = $this->db->update("seller",$info,array("seller_id"=>1));
+		$info = array("withdrawpw"=>md5($passwd));
+		$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
 		echo json_encode($ress);
 	}
 
 	public function set_qq(){
+		$seller_id = $this->session->userdata('seller_id');
 		$qq = $this->input->post("qq");
 		$info = array("qq"=>$qq);
-		$ress = $this->db->update("seller",$info,array("seller_id"=>1));
+		$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
 		echo json_encode($ress);
 	}
 /*-----------------------------------------以下为私有方法---------------------------------------------------*/

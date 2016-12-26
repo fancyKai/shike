@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/merchant/message_notification.css">
 </head>
 <body>
-<header id="header"></header>
+<!-- <header id="header"></header> -->
 <section id="section">
     <div class="section_main">
         <!--左侧导航-->
@@ -31,18 +31,18 @@
                     <?php endif;?>
                 </tr>
                 <?php endforeach ?>
-
             </table>
+            <?php echo $pagin; ?>
         </div>
     </div>
 </section>
-<footer id="footer"></footer>
+<!-- <footer id="footer"></footer> -->
 <script src="../../js/jquery-1.10.2.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
     })
 </script>
 </body>

@@ -20,7 +20,7 @@
                 <p class="bound_num">
                     <input onclick="location.href='/merchant_add_bankCard'" type="button" value="添加银行卡"/>
                     最多可以绑定1张银行卡，绑定的银行卡仅限于提现。联系客服QQ：
-                    <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                    <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></a>
                 </p>
                 <div class="notBound_bankCard">
                     <img src="images/merchant/sj_zhxx_bg_wbdyhk_default.png" alt="">

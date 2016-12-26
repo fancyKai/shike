@@ -1,0 +1,107 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+//require_once 'log.php';
+class shike_userapi extends MY_Controller {
+
+	function __construct()
+	{
+		parent::__construct();
+		parent::check_shike_login();
+        $this->load->library('session');
+		//$this->load->library('user_agent');
+	}
+	
+	public function index()
+	{
+		
+	}
+	public function get_session(){
+		$user_id = $this->session->userdata('user_id');
+		$authcode = $this->input->post("authcode");
+		$passwd = $this->input->post("passwd");
+		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode",""));
+		if($authcode != $telcode){
+			$msg = "手机验证码错误";
+			$res = 0;
+		}else{
+			$info = array("password"=>md5($passwd));
+			$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
+			$msg = "成功";
+			$res = 1;
+		}
+		$result = array("msg"=>$msg,"res"=>$res);
+		echo json_encode($result);
+
+	}
+
+	public function check_telcode(){
+		$user_id = $this->session->userdata('user_id');
+		$authcode = $this->input->post("authcode");
+		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode",""));
+		if($authcode != $telcode){
+			$msg = "手机验证码错误";
+			$res = 0;
+		}else{
+			$this->session->set_userdata(array("settel_permission"=>$user_id));
+			$msg = "成功";
+			$res = 1;
+		}
+		$result = array("msg"=>$msg,"res"=>$res);
+		echo json_encode($result);
+
+	}
+
+	public function check_telcode2(){
+		$user_id = $this->session->userdata('user_id');
+		$authcode = $this->input->post("authcode");
+		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode",""));
+		$phone = $this->input->post("phone");
+
+		if($authcode != $telcode){
+			$msg = "手机验证码错误";
+			$res = 0;
+		}elseif(!$this->session->userdata("settel_permission")){
+			$msg = "未经允许的访问";
+			$res = 0;
+		}else{
+			$info = array("phone"=>$phone);
+			$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
+			$msg = "成功";
+			$res = 1;
+		}
+		$this->session->set_userdata(array("settel_permission"=>0));
+		$result = array("msg"=>$msg,"res"=>$res);
+		echo json_encode($result);
+
+	}
+
+	public function bound_taobao(){
+		$user_id = $this->session->userdata('user_id');
+		$taobao = $this->input->post("taobao");
+		$info = array("taobao_id"=>$taobao,
+			          "taobao_status"=>1);
+		$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
+		echo json_encode($ress);
+	}
+
+	public function set_withdrawPw(){
+		$user_id = $this->session->userdata('user_id');
+		$passwd = $this->input->post("passwd");
+		$info = array("tx_password"=>md5($passwd));
+		$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
+		echo json_encode($ress);
+	}
+
+	public function set_qq(){
+		$user_id = $this->session->userdata('user_id');
+		$qq = $this->input->post("qq");
+		$info = array("user_qq"=>$qq);
+		$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
+		echo json_encode($ress);
+	}
+/*-----------------------------------------以下为私有方法---------------------------------------------------*/
+
+}

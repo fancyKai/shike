@@ -17,11 +17,12 @@
         <div class="funds_record left">
             <h1 class="title">资金记录</h1>
             <ul class="allRecord">
-                <li class="record" <?php if(!$money_type):?> data-toggle="funds_detail" <?php endif;?> ><a  href="/merchant_funds_record?money_type=0">资金明细</a><span>|</span></li>
-                <li class="record" <?php if($money_type == 1):?> data-toggle="recharge_record" <?php endif;?> ><a href="/merchant_funds_record?money_type=1">充值记录</a><span>|</span></li>
-                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a href="/merchant_funds_record?money_type=2">提现记录</a><span>|</span></li>
+                <li class="record" <?php if(!$money_type):?> data-toggle="funds_detail"<?php endif;?> ><a  <?php if(!$money_type):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?money_type=0">资金明细</a><span>|</span></li>
+                <li class="record" <?php if($money_type == 1):?> data-toggle="recharge_record"<?php endif;?> ><a <?php if($money_type == 1):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?money_type=1">充值记录</a><span>|</span></li>
+                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record"<?php endif;?> ><a <?php if($money_type == 2):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?money_type=2">提现记录</a><span>|</span></li>
             </ul>
             <div>
+            <?php if(!$money_type):?>
             <!--资金明细-->
             <table class="funds_detail">
                 <tr>
@@ -46,6 +47,8 @@
                 </tr>
             <?php endforeach ?>
             </table>
+            <?php endif;?>
+            <?php if($money_type == 1):?>
             <!--充值记录-->
             <table class="recharge_record">
                 <tr>
@@ -63,6 +66,8 @@
                 </tr>
             <?php endforeach ?>
             </table>
+            <?php endif;?>
+             <?php if($money_type == 2):?>
             <!--提现记录-->
             <table class="withdraw_record">
                 <tr>
@@ -82,6 +87,7 @@
                 </tr>
             <?php endforeach ?>
             </table>
+            <?php endif;?>
             </div>
         </div>
     </div>
@@ -93,23 +99,23 @@
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
         $('#left_nav').load("../common/left_nav.html");
-        $('.record').bind('click',function(){
-            $(this).find('a').css('color','#f10180');
-            $(this).siblings().find('a').css('color','#323232')
-        });
+        // $('.record').bind('click',function(){
+        //     $(this).find('a').css('color','#f10180');
+        //     $(this).siblings().find('a').css('color','#323232')
+        // });
 
-        $('[data-toggle="funds_detail"]').bind('click',function(){
-            $('.funds_detail').css('display','block');
-            $('.funds_detail').siblings().css('display','none');
-        });
-        $('[data-toggle="recharge_record"]').bind('click',function(){
-            $('.recharge_record').css('display','block');
-            $('.recharge_record').siblings().css('display','none');
-        });
-        $('[data-toggle="withdraw_record"]').bind('click',function(){
-            $('.withdraw_record').css('display','block');
-            $('.withdraw_record').siblings().css('display','none');
-        })
+        // $('[data-toggle="funds_detail"]').bind('click',function(){
+        //     $('.funds_detail').css('display','block');
+        //     $('.funds_detail').siblings().css('display','none');
+        // });
+        // $('[data-toggle="recharge_record"]').bind('click',function(){
+        //     $('.recharge_record').css('display','block');
+        //     $('.recharge_record').siblings().css('display','none');
+        // });
+        // $('[data-toggle="withdraw_record"]').bind('click',function(){
+        //     $('.withdraw_record').css('display','block');
+        //     $('.withdraw_record').siblings().css('display','none');
+        // })
     })
 </script>
 </body>

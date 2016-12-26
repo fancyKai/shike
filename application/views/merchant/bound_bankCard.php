@@ -20,7 +20,7 @@
             <div class="bankCard_kind">
                 <p class="bound_num">
                     最多可以绑定1张银行卡，绑定的银行卡仅限于提现。联系客服QQ：
-                    <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a>
+                    <a href="javascript:void(0);"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></a>
                 </p>
                 <div class="bankCard">
                     <p class="one">
