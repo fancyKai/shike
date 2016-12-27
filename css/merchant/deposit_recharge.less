@@ -1,0 +1,115 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+@a_color:#005ea7;
+#section{
+  .section_main{
+    .deposit_recharge{
+      h2{
+        color:@deepfont_color;
+        font-size:16px;
+      }
+      h2.select_bank{
+        padding-top:30px;
+      }
+      table{
+        margin-left:-10px;
+        border-collapse:separate;
+        border-spacing:30px;
+        td{
+          width:180px;
+          height:40px;
+          line-height:40px;
+          border:1px solid #c8c8c8;
+          border-spacing:15px;
+          text-align:center;
+          cursor:pointer;
+          img{
+            width:105px;
+            height:22px;
+          }
+          a{
+            color:@a_color;
+          }
+
+        }
+      }
+      //充值金额
+      .recharge_amount{
+        p{
+          font-size:14px;
+          padding-top:30px;
+          padding-left:20px;
+          span{
+            color:@span_color;
+            font-size:20px;
+          }
+        }
+        p.recharge_amount{
+          padding-top:30px;
+          input{
+            width:200px;
+            height:28px;
+            line-height:28px;
+            border:1px solid #969696;
+            border-radius:5px;
+          }
+          b{
+            font-size:12px;
+            color:#969696;
+            margin-left:10px;
+          }
+        }
+        p.error{
+          padding-left:90px;
+          height:30px;
+          padding-top:3px;
+          span{
+            color:@span_color;
+            font-size:12px;
+          }
+        }
+      }
+      .confirm_btn{
+        width:100%;
+        padding:30px 0 50px 20px;
+        border-bottom:1px solid #f5f5f5;
+        input{
+          width:150px;
+          height:40px;
+          line-height:40px;
+          border:1px solid @deepred_color;
+          border-radius:5px;
+          background-color:#fff;
+          color:@deepred_color;
+          font-size:16px;
+          &:hover{
+            background-color:@deepred_color;
+            color:#fff;
+          }
+
+        }
+      }
+      //温馨提示
+      .warm_prompt{
+        padding-left:20px;
+        padding-bottom:20px;
+        h1{
+          color:#323232;
+          font-size:14px;
+          padding:30px 0 10px 0;
+        }
+        p{
+          padding-top:10px;
+          img{
+            margin-top:-2px;
+            cursor:pointer;
+          }
+        }
+      }
+    }
+  }
+}

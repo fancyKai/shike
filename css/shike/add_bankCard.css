@@ -1,0 +1,110 @@
+#section .section_main .add_bankCard .account_information {
+  padding: 30px 0;
+}
+#section .section_main .add_bankCard .account_information label {
+  display: inline-block;
+  width: 420px;
+  text-align: right;
+  font-size: 14px;
+  color: #969696;
+}
+#section .section_main .add_bankCard .account_information input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+}
+#section .section_main .add_bankCard .account_information p {
+  height: 30px;
+  padding-top: 3px;
+}
+#section .section_main .add_bankCard .account_information p span {
+  font-size: 12px;
+  color: #e61e28;
+  padding-left: 420px;
+}
+#section .section_main .add_bankCard .account_information p.btn {
+  padding-left: 422px;
+}
+#section .section_main .add_bankCard .account_information p.btn input {
+  width: 80px;
+  margin-right: 38px;
+  color: #f10180;
+  border: 1px solid #f10180;
+  background-color: #fff;
+}
+#section .section_main .add_bankCard .account_information p.btn input:first-of-type {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .add_bankCard .warm_prompt {
+  padding-top: 4px;
+}
+#section .section_main .add_bankCard .warm_prompt span {
+  color: #e61e28;
+}
+.add_modal,
+.addFailure_modal {
+  display: none;
+}
+.add_modal .modal_content,
+.addFailure_modal .modal_content {
+  text-align: center;
+}
+.add_modal .modal_content p,
+.addFailure_modal .modal_content p {
+  font-size: 16px;
+  padding-top: 50px;
+}
+.add_modal .modal_content table,
+.addFailure_modal .modal_content table {
+  margin: 20px 0 25px 130px;
+  width: 187px;
+}
+.add_modal .modal_content table td,
+.addFailure_modal .modal_content table td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+}
+.add_modal .modal_content table td input,
+.addFailure_modal .modal_content table td input {
+  width: 30px;
+  height: 30px;
+}
+.add_modal .modal_content table td input:focus,
+.addFailure_modal .modal_content table td input:focus {
+  border: 1px solid #a6cef1;
+}
+.add_modal .succeed_content,
+.addFailure_modal .succeed_content {
+  padding-top: 24px;
+}
+.add_modal .succeed_content p.payment_succeed,
+.addFailure_modal .succeed_content p.payment_succeed {
+  color: #323232;
+  font-size: 16px;
+  padding: 15px 0 10px 0;
+}
+.add_modal .succeed_content p,
+.addFailure_modal .succeed_content p {
+  font-size: 14px;
+}
+.add_modal .modal_submit,
+.addFailure_modal .modal_submit {
+  padding-top: 15px;
+}
+.add_modal .modal_submit input,
+.addFailure_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.add_modal .modal_submit input:nth-of-type(2),
+.addFailure_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}

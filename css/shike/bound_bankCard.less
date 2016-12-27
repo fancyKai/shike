@@ -1,0 +1,120 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+@a_color:#005ea7;
+#section{
+  .section_main{
+    .bound_bankCard{
+      .bankCard_kind{
+        .bound_num {
+          padding: 28px 0;
+          img {
+            margin-top: -2px;
+          }
+          input{
+            width:100px;
+            height:30px;
+            line-height:30px;
+            border-radius:5px;
+            background-color:@deepred_color;
+            color:#fff;
+          }
+        }
+        .bankCard{
+          width:236px;
+          height:136px;
+          border:1px solid @a_color;
+          border-radius:5px;
+          padding:20px;
+          p.one{
+            .bank_logo{
+              width:105px;
+              height:22px;
+            }
+            a{
+              color:@a_color;
+              margin-left:60px;
+            }
+          }
+          p.two{
+            padding:10px 0 24px 0;
+            span{
+              display:inline-block;
+              width:50px;
+              height:24px;
+              line-height:24px;
+              border-radius:4px;
+              background-color:@a_color;
+              color:#fff;
+              text-align:center;
+            }
+          }
+          p.three{
+            color:#323232;
+            font-size:16px;
+          }
+        }
+        //未绑定银行卡
+        .notBound_bankCard{
+          padding:60px 375px;
+        }
+      }
+    }
+  }
+}
+
+//弹框
+.delete_modal {
+  display:none;
+  .confirm_delivery {
+    margin-top: 40px;
+    label {
+      font-size: 14px;
+    }
+    input {
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      border: 1px solid #969696;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    p {
+      height: 30px;
+      line-height: 30px;
+      text-align: left;
+      padding-left: 152px;
+      span {
+        color: #e61e28;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .modal_submit {
+    padding-top: 10px;
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
+    }
+  }
+}
+
+.delete_modal {
+  display:none;
+  .confirm_audit {
+    padding: 67px 0;
+    font-size: 16px;
+  }
+}

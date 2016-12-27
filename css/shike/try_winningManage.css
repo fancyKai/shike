@@ -1,0 +1,185 @@
+.personal_active {
+  color: #f10180 !important;
+}
+.left_nav_active {
+  color: #f10180 !important;
+  text-decoration: underline;
+}
+#section .section_main .content_main .task_specification {
+  background-color: #fff;
+}
+#section .section_main .content_main .task_specification .order_status {
+  margin: 30px 0 20px 0;
+}
+#section .section_main .content_main .task_specification .order_status ul {
+  overflow: hidden;
+  height: 38px;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+#section .section_main .content_main .task_specification .order_status ul li {
+  float: left;
+  font-size: 14px;
+  padding-left: 18px;
+  line-height: 38px;
+}
+#section .section_main .content_main .task_specification .order_status ul li > a span {
+  color: #f10180;
+}
+#section .section_main .content_main .task_specification .order_status ul li > a:hover {
+  color: #f10180;
+}
+#section .section_main .content_main .task_specification .order_status ul li > b {
+  font-weight: normal;
+  color: #969696;
+  margin-left: 16px;
+}
+#section .section_main .content_main .task_specification .delivery_status {
+  margin-bottom: 35px;
+}
+#section .section_main .content_main .task_specification .delivery_status .title {
+  overflow: hidden;
+  padding: 10px;
+}
+#section .section_main .content_main .task_specification .delivery_status .title p {
+  font-size: 14px;
+  height: 16px;
+}
+#section .section_main .content_main .task_specification .delivery_status .title p a {
+  color: #005ea7;
+}
+#section .section_main .content_main .task_specification .delivery_status .title p:first-of-type {
+  background: url(../images/line.png) left no-repeat;
+  padding-left: 25px;
+}
+#section .section_main .content_main .task_specification .delivery_status .title p:first-of-type span {
+  margin-right: 40px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul {
+  height: 118px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 18px;
+  overflow: hidden;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li {
+  float: left;
+  color: #323232;
+  font-size: 14px;
+  height: 80px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:first-of-type img {
+  width: 80px;
+  height: 80px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(2) {
+  padding: 0 65px 0 28px;
+  border-right: 1px solid #f5f5f5;
+  color: #969696;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(2) p span {
+  color: #323232;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(2) p.two {
+  padding: 12px 0;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(2) p.clothes_name {
+  width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(3) {
+  border-right: 1px solid #f5f5f5;
+  text-align: center;
+  width: 245px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(3) p {
+  height: 80px;
+  line-height: 80px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) {
+  text-align: center;
+  width: 245px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) .status {
+  padding: 15px 0 10px 0;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) > p input {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #f10180;
+  font-size: 14px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) > p span {
+  color: #969696;
+  font-size: 12px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) > p a {
+  color: #005ea7;
+  font-size: 12px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) > p img {
+  margin-left: 5px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) p.try_finish {
+  padding-top: 30px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) p.btn {
+  padding-top: 25px;
+}
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) p.place_order {
+  padding: 8px 0 5px 0;
+}
+#section .section_main .content_main .task_specification .see_more {
+  text-align: center;
+}
+#section .section_main .content_main .task_specification .see_more input {
+  width: 150px;
+  height: 50px;
+  margin: 0 0 20px 0;
+  background: url(../images/button_more_buttom_default.png) center no-repeat;
+}
+#section .section_main .content_main .task_specification .see_more input:hover {
+  background: url(../images/button_more_buttom_selected.png) center no-repeat;
+}
+.place_order_modal {
+  display: none;
+}
+.place_order_modal .modal_box {
+  width: 750px;
+  margin-left: -375px;
+  margin-top: -195px;
+}
+.place_order_modal .modal_box .modal_content h1 {
+  text-align: center;
+  color: #f10180;
+  font-size: 24px;
+  padding: 28px 0;
+}
+.place_order_modal .modal_box .modal_content p {
+  padding-left: 95px;
+  padding-bottom: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+.place_order_modal .modal_box .modal_content p span {
+  display: inline-block;
+  color: #e61e28;
+  margin: 5px 0;
+}
+.place_order_modal .modal_submit {
+  padding-top: 20px;
+}
+.place_order_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}

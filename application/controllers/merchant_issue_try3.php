@@ -40,24 +40,29 @@ class merchant_issue_try3 extends MY_Controller {
 		// $this->out_data['sum_3_order_list'] = $this->db->query("select count(*) as count from sorder where status=3")->row_array();
 		$this->out_data['seller_id'] = $user_id;
 		$this->out_data['shoplist'] = $this->db->query("select * from shop where seller_id=".$user_id)->result_array();
+		$this->out_data['activity'] = $this->db->query("select * from activity where act_id=".$this->out_data['act_id'])->row_array();
 		//var_dump($this->out_data);die();
 		$this->out_data['con_page'] = 'merchant/issue_try3';
 		//var_dump($this->out_data);die();
 		$this->load->view('merchant_default', $this->out_data);
 	}
 
-	public function update_fake_activity2(){
+	public function update_fake_activity3(){
 		$act_id = $this->input->post('act_id');
-		$commodity_name = $this->input->post('commodity_name');
-		$shop_url = $this->input->post('shop_url');
-		$commodity_classify = $this->input->post('commodity_classify');
-		$commodity_picture = $this->input->post('commodity_picture');
-		$thecolor = $this->input->post('thecolor');
-		$thesize = $this->input->post('thesize');
-		$unit_price = $this->input->post('unit_price');
-		$buy_num = $this->input->post('buy_num');
-		$freight = $this->input->post('freight');
-		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"margin" => $unit_price,"buy_sum" => $buy_num,"freight" => $freight);
+		$platformid = $this->input->post('platformid');
+		$t_picture_url = $this->input->post('t_picture_url');
+		$t_key_words = $this->input->post('t_key_words');
+		$t_classify1 = $this->input->post('t_classify1');
+		$t_classify2 = $this->input->post('t_classify2');
+		$t_classify3 = $this->input->post('t_classify3');
+		$t_classify4 = $this->input->post('t_classify4');
+		$t_classify5 = $this->input->post('t_classify5');
+		$t_lower_price = $this->input->post('t_lower_price');
+		$t_higher_price = $this->input->post('t_higher_price');
+		$t_delivery_place = $this->input->post('t_delivery_place');
+		$t_sort = $this->input->post('t_sort');
+		$info = array("platformid" => $platformid,"t_picture_url" => $t_picture_url,"t_key_words" => $t_key_words,"t_classify1" => $t_classify1,"t_classify2" => $t_classify2,"t_classify3" => $t_classify3,
+			"t_classify4" => $t_classify4,"t_classify5" => $t_classify5,"t_lower_price" => $t_lower_price,"t_higher_price" => $t_higher_price,"t_delivery_place" => $t_delivery_place);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
 

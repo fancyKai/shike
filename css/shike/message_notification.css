@@ -1,0 +1,21 @@
+#section .section_main .message_notification table {
+  margin-top: 30px;
+  width: 980px;
+}
+#section .section_main .message_notification table tr {
+  height: 50px;
+}
+#section .section_main .message_notification table tr td {
+  font-size: 14px;
+  color: #323232;
+  text-align: center;
+}
+#section .section_main .message_notification table tr td a {
+  color: #005ea7;
+}
+#section .section_main .message_notification table tr td:not(:nth-of-type(2)) {
+  padding: 0 100px;
+}
+#section .section_main .message_notification table tr:nth-child(odd) {
+  background-color: #f5f5f5;
+}

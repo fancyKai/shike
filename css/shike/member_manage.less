@@ -1,0 +1,59 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@bg_color:#f5f5f5;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@span_color:#e61e28;
+@a_color:#005ea7;
+#section{
+  .section_main{
+    .member_manage{
+      h2{
+        color:@deepfont_color;
+        font-size:16px;
+        padding:30px 0 10px 0;
+      }
+      table{
+        width:980px;
+        th,td{
+          border:1px solid #f5f5f5;
+          line-height:50px;
+          height:50px;
+          font-size:14px;
+          text-align:center;
+          color:@deepfont_color
+        }
+        th{
+          color:#646464;
+          background-color:#f5f5f5;
+        }
+      }
+      //会员状态
+      table.member_state{
+        th,td{
+          width:323px;
+          a{
+            color:@a_color;
+          }
+        }
+      }
+      //充值记录
+      table.recharge_record{
+        th,td {
+          width: 195px;
+        }
+        th:first-of-type,td:first-of-type{
+          width:200px;
+        }
+      }
+      //会员介绍
+      .member_introduce{
+        padding-top:10px;
+        p{
+          font-size:14px;
+          padding-bottom:20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,401 @@
+#section {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-bottom: 50px;
+}
+#section .order_details {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-bottom: 50px;
+}
+#section .order_details .location_title {
+  padding: 30px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .order_details .location_title ul {
+  overflow: hidden;
+}
+#section .order_details .location_title ul li {
+  float: left;
+  font-size: 14px;
+  padding-right: 10px;
+}
+#section .order_details .location_title ul li a:hover {
+  color: #f10180;
+}
+#section .order_details .commodity_information {
+  padding: 0 30px;
+  /**********************************/
+  /******************************/
+}
+#section .order_details .commodity_information h1 {
+  padding-top: 30px;
+  font-size: 16px;
+  color: #323232;
+  padding-bottom: 20px;
+}
+#section .order_details .commodity_information .collapse_active {
+  background: url(../images/sj_ddgl_icon_sq_default.png) right center no-repeat !important;
+}
+#section .order_details .commodity_information .collapse,
+#section .order_details .commodity_information .collapse_evaluate {
+  text-align: right;
+  margin-top: -44px;
+  margin-bottom: 15px;
+  line-height: 30px;
+  height: 30px;
+  background: url(../images/sj_ddgl_icon_zk_default.png) right center no-repeat;
+}
+#section .order_details .commodity_information .title {
+  overflow: hidden;
+  padding: 10px;
+}
+#section .order_details .commodity_information .title p {
+  font-size: 14px;
+  height: 16px;
+}
+#section .order_details .commodity_information .title p a {
+  color: #005ea7;
+}
+#section .order_details .commodity_information .title p:first-of-type {
+  background: url(../images/line.png) left no-repeat;
+  padding-left: 25px;
+}
+#section .order_details .commodity_information .title p:first-of-type span {
+  margin-right: 40px;
+}
+#section .order_details .commodity_information .details ul {
+  height: 115px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 15px 0;
+  overflow: hidden;
+}
+#section .order_details .commodity_information .details ul li {
+  box-sizing: border-box;
+  float: left;
+  color: #323232;
+  height: 80px;
+  width: 300px;
+}
+#section .order_details .commodity_information .details ul li p {
+  width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  color: #969696;
+  line-height: 20px;
+}
+#section .order_details .commodity_information .details ul li p span {
+  color: #323232;
+}
+#section .order_details .commodity_information .details ul li p span b {
+  color: #f10180;
+}
+#section .order_details .commodity_information .details ul li p a {
+  color: #005ea7;
+}
+#section .order_details .commodity_information .details ul li:nth-of-type(1) {
+  width: 120px;
+  padding: 0 20px;
+}
+#section .order_details .commodity_information .details ul li:nth-of-type(2) {
+  border-right: 1px solid #f5f5f5;
+  padding-left: 30px;
+}
+#section .order_details .commodity_information .details ul li:nth-of-type(3) {
+  padding-left: 50px;
+}
+#section .order_details .commodity_information .placeOrder_rule p {
+  padding-bottom: 5px;
+}
+#section .order_details .commodity_information .placeOrder_rule p b {
+  color: #323232;
+}
+#section .order_details .commodity_information .placeOrder_rule p span {
+  display: inline-block;
+  margin-top: 10px;
+  color: #e61e28;
+}
+#section .order_details .commodity_information .application_information .content,
+#section .order_details .commodity_information .evaluate_information .content {
+  border: 1px solid #f5f5f5;
+  margin-bottom: 20px;
+}
+#section .order_details .commodity_information .application_information .content p.application_title,
+#section .order_details .commodity_information .evaluate_information .content p.application_title {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #f5f5f5;
+  font-size: 14px;
+  color: #323232;
+}
+#section .order_details .commodity_information .application_information .content .screenshot,
+#section .order_details .commodity_information .evaluate_information .content .screenshot {
+  overflow: hidden;
+}
+#section .order_details .commodity_information .application_information .content .screenshot .collect,
+#section .order_details .commodity_information .evaluate_information .content .screenshot .collect {
+  width: 569px;
+  text-align: center;
+  padding-bottom: 20px;
+  height: 286px;
+}
+#section .order_details .commodity_information .application_information .content .screenshot .collect > p,
+#section .order_details .commodity_information .evaluate_information .content .screenshot .collect > p {
+  text-align: left;
+  padding: 20px 0 5px 85px;
+  font-size: 14px;
+}
+#section .order_details .commodity_information .application_information .content .screenshot .collect .picture,
+#section .order_details .commodity_information .evaluate_information .content .screenshot .collect .picture {
+  width: 402px;
+  height: 222px;
+  border: 1px solid #f5f5f5;
+  margin-left: 84px;
+}
+#section .order_details .commodity_information .application_information .content .screenshot .collect .picture img,
+#section .order_details .commodity_information .evaluate_information .content .screenshot .collect .picture img {
+  width: 400px;
+  height: 220px;
+}
+#section .order_details .commodity_information .application_information .content .screenshot .collect:nth-of-type(2),
+#section .order_details .commodity_information .evaluate_information .content .screenshot .collect:nth-of-type(2) {
+  border-left: 1px solid #f5f5f5;
+}
+#section .order_details .commodity_information .application_information .content .serviceChat,
+#section .order_details .commodity_information .evaluate_information .content .serviceChat {
+  overflow: hidden;
+}
+#section .order_details .commodity_information .application_information .content .serviceChat .collect,
+#section .order_details .commodity_information .evaluate_information .content .serviceChat .collect {
+  width: 569px;
+  text-align: center;
+  padding-bottom: 20px;
+  height: 290px;
+}
+#section .order_details .commodity_information .application_information .content .serviceChat .collect .picture,
+#section .order_details .commodity_information .evaluate_information .content .serviceChat .collect .picture {
+  width: 352px;
+  height: 252px;
+  border: 1px solid #f5f5f5;
+  margin-left: 108.5px;
+  margin-top: 20px;
+}
+#section .order_details .commodity_information .application_information .content .serviceChat .collect .picture img,
+#section .order_details .commodity_information .evaluate_information .content .serviceChat .collect .picture img {
+  width: 350px;
+  height: 250px;
+}
+#section .order_details .commodity_information .application_information .content .serviceChat .collect:nth-of-type(2),
+#section .order_details .commodity_information .evaluate_information .content .serviceChat .collect:nth-of-type(2) {
+  border-left: 1px solid #f5f5f5;
+}
+#section .order_details .commodity_information .application_information .content .browse_shop,
+#section .order_details .commodity_information .evaluate_information .content .browse_shop {
+  padding-top: 20px;
+}
+#section .order_details .commodity_information .application_information .content .browse_shop p.baby_url,
+#section .order_details .commodity_information .evaluate_information .content .browse_shop p.baby_url {
+  box-sizing: border-box;
+  margin: 0 80px 18px 80px;
+  width: 980px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+#section .order_details .commodity_information .application_information .content .taobao_order,
+#section .order_details .commodity_information .evaluate_information .content .taobao_order {
+  text-align: center;
+  padding-bottom: 20px;
+}
+#section .order_details .commodity_information .application_information .content .taobao_order > p,
+#section .order_details .commodity_information .evaluate_information .content .taobao_order > p {
+  text-align: left;
+  padding: 20px 0 5px 100px;
+  font-size: 14px;
+}
+#section .order_details .commodity_information .application_information .content .evaluate_content,
+#section .order_details .commodity_information .evaluate_information .content .evaluate_content {
+  padding: 20px 80px;
+}
+#section .order_details .commodity_information .application_information .content .evaluate_content p,
+#section .order_details .commodity_information .evaluate_information .content .evaluate_content p {
+  width: 1038px;
+  line-height: 18px;
+  font-size: 14px;
+}
+#section .order_details .commodity_information .application_information .content .show_picture,
+#section .order_details .commodity_information .evaluate_information .content .show_picture {
+  padding: 20px 80px 0 80px;
+}
+#section .order_details .commodity_information .application_information .content .show_picture ul,
+#section .order_details .commodity_information .evaluate_information .content .show_picture ul {
+  overflow: hidden;
+}
+#section .order_details .commodity_information .application_information .content .show_picture ul li,
+#section .order_details .commodity_information .evaluate_information .content .show_picture ul li {
+  float: left;
+  margin-left: 39px;
+  margin-bottom: 20px;
+}
+#section .order_details .commodity_information .application_information .content .show_picture ul li img,
+#section .order_details .commodity_information .evaluate_information .content .show_picture ul li img {
+  width: 300px;
+  height: 300px;
+}
+#section .order_details .commodity_information .application_information .content .show_picture ul li:nth-of-type(3n+1),
+#section .order_details .commodity_information .evaluate_information .content .show_picture ul li:nth-of-type(3n+1) {
+  margin-left: 0;
+}
+#section .order_details .commodity_information .application_information .content .taobao_evaluate,
+#section .order_details .commodity_information .evaluate_information .content .taobao_evaluate {
+  text-align: center;
+  padding: 20px 0;
+}
+#section .order_details .commodity_information .application_information .content .taobao_evaluate img,
+#section .order_details .commodity_information .evaluate_information .content .taobao_evaluate img {
+  width: 972px;
+  height: 300px;
+}
+#section .order_details .commodity_information .application_information .no_information,
+#section .order_details .commodity_information .evaluate_information .no_information {
+  margin-bottom: -20px;
+  padding-top: 35px;
+  font-size: 14px;
+}
+#section .order_details .commodity_information .quidco {
+  padding-top: 10px;
+}
+#section .order_details .commodity_information .quidco_information {
+  padding-top: 20px;
+}
+#section .order_details .commodity_information .quidco_information table th,
+#section .order_details .commodity_information .quidco_information table td {
+  border: 1px solid #f5f5f5;
+  width: 227px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+#section .order_details .commodity_information .quidco_information table th {
+  background-color: #f5f5f5;
+}
+#section .order_details .commodity_information .quidco_information table td {
+  color: #323232;
+}
+#section .order_details .commodity_information .order_status {
+  width: 100%;
+  padding: 20px 50px 20px 0;
+  background-color: #fbfcff;
+  margin-top: 60px;
+}
+#section .order_details .commodity_information .order_status p {
+  text-align: right;
+  padding-bottom: 10px;
+}
+#section .order_details .commodity_information .order_status p b {
+  color: #323232;
+}
+#section .order_details .commodity_information .order_status p:first-of-type {
+  font-size: 16px;
+  color: #323232;
+}
+#section .order_details .commodity_information .order_status p:first-of-type span {
+  font-size: 20px;
+  color: #e61e28;
+}
+#section .order_details .commodity_information .order_status p:last-of-type {
+  font-size: 12px;
+  padding-bottom: 0;
+}
+#section .order_details .commodity_information .order_status p:last-of-type img {
+  margin-top: -2px;
+}
+#section .order_details .commodity_information .btn {
+  text-align: right;
+  padding-top: 50px;
+}
+#section .order_details .commodity_information .btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #f10180;
+  margin-right: 50px;
+}
+.delivery_modal,
+.audit_modal,
+.pass_modal {
+  display: none;
+}
+.delivery_modal .confirm_delivery,
+.audit_modal .confirm_delivery,
+.pass_modal .confirm_delivery {
+  margin-top: 40px;
+}
+.delivery_modal .confirm_delivery label,
+.audit_modal .confirm_delivery label,
+.pass_modal .confirm_delivery label {
+  font-size: 14px;
+}
+.delivery_modal .confirm_delivery input,
+.audit_modal .confirm_delivery input,
+.pass_modal .confirm_delivery input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.delivery_modal .confirm_delivery p,
+.audit_modal .confirm_delivery p,
+.pass_modal .confirm_delivery p {
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 152px;
+}
+.delivery_modal .confirm_delivery p span,
+.audit_modal .confirm_delivery p span,
+.pass_modal .confirm_delivery p span {
+  color: #e61e28;
+  font-size: 14px;
+}
+.delivery_modal .modal_submit,
+.audit_modal .modal_submit,
+.pass_modal .modal_submit {
+  padding-top: 9px;
+}
+.delivery_modal .modal_submit input,
+.audit_modal .modal_submit input,
+.pass_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.delivery_modal .modal_submit input:nth-of-type(2),
+.audit_modal .modal_submit input:nth-of-type(2),
+.pass_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}
+.audit_modal,
+.pass_modal {
+  display: none;
+}
+.audit_modal .confirm_audit,
+.pass_modal .confirm_audit {
+  padding: 67px 0;
+  font-size: 16px;
+}

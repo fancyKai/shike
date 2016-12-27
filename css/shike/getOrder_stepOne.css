@@ -1,0 +1,50 @@
+#section .section_content .step_introduce {
+  padding: 50px 30px;
+}
+#section .section_content .step_introduce .step_picture {
+  padding-bottom: 50px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_content .step_introduce .try_good h1 {
+  font-size: 16px;
+  padding: 20px 0 18px 0;
+}
+#section .section_content .step_introduce .try_good > p {
+  padding-bottom: 20px;
+  font-size: 14px;
+}
+#section .section_content .step_introduce .try_good > p b {
+  font-weight: bold;
+  color: #323232;
+}
+#section .section_content .step_introduce .try_good .commodity .content {
+  width: 254px;
+  border: 1px solid #f5f5f5;
+  margin-bottom: 10px;
+}
+#section .section_content .step_introduce .try_good .commodity .content img {
+  width: 252px;
+  height: 252px;
+}
+#section .section_content .step_introduce .try_good .commodity .content .good_introduce {
+  padding: 10px;
+}
+#section .section_content .step_introduce .try_good .commodity .content .good_introduce p {
+  padding-bottom: 10px;
+}
+#section .section_content .step_introduce .try_good .commodity .content .good_introduce p span {
+  color: #323232;
+}
+#section .section_content .step_introduce .try_good .commodity .content .good_introduce p.good_name span {
+  display: inline-block;
+  width: 232px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_content .step_introduce .try_good .commodity > p {
+  padding-bottom: 5px;
+}
+#section .section_content .step_introduce .try_good .commodity > p span {
+  color: #e61e28;
+}

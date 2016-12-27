@@ -14,7 +14,6 @@
     <div class="section_main">
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
-        
         <!--右侧活动中心-->
         <div class="content left">
             <div class="activity_manage">

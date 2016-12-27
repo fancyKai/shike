@@ -1,0 +1,198 @@
+#section .section_main .deposit_withdraw h2 {
+  color: #323232;
+  font-size: 16px;
+  padding: 30px 0;
+}
+#section .section_main .deposit_withdraw .fillIn_money > div {
+  width: 1040px;
+}
+#section .section_main .deposit_withdraw .fillIn_money > div > b {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  font-size: 14px;
+}
+#section .section_main .deposit_withdraw .fillIn_money > div > span {
+  color: #e61e28;
+  font-size: 20px;
+}
+#section .section_main .deposit_withdraw .fillIn_money > div > input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+#section .section_main .deposit_withdraw .fillIn_money > div span.error {
+  font-size: 12px;
+  margin-left: 5px;
+}
+#section .section_main .deposit_withdraw .fillIn_money > div > p {
+  padding-left: 100px;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two {
+  margin-top: 35px;
+  overflow: hidden;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two b {
+  float: left;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_one {
+  width: 236px;
+  height: 136px;
+  border: 1px solid #005ea7;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 50px;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_one p.one .bank_logo {
+  width: 105px;
+  height: 22px;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_one p.two {
+  padding: 12px 0 20px 0;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_one p.two span {
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 4px;
+  background-color: #005ea7;
+  color: #fff;
+  text-align: center;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_one p.three {
+  color: #323232;
+  font-size: 16px;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_two {
+  width: 236px;
+  height: 136px;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  padding: 20px;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_two > p {
+  text-align: center;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_two .bankCard_two > p img {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_three p.one,
+#section .section_main .deposit_withdraw .fillIn_money .main_five p.one {
+  color: #969696;
+  padding: 8px 0 25px 100px;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_three p.one img,
+#section .section_main .deposit_withdraw .fillIn_money .main_five p.one img {
+  margin-top: -2px;
+  cursor: pointer;
+}
+#section .section_main .deposit_withdraw .fillIn_money div.main_three p.two,
+#section .section_main .deposit_withdraw .fillIn_money .main_five p.two {
+  line-height: 28px;
+  font-size: 14px;
+  padding-bottom: 25px;
+}
+#section .section_main .deposit_withdraw .confirm_btn {
+  width: 100%;
+  padding: 25px 0 50px 100px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_main .deposit_withdraw .confirm_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #f10180;
+  font-size: 16px;
+}
+#section .section_main .deposit_withdraw .confirm_btn input:hover {
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .deposit_withdraw .warm_prompt {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+#section .section_main .deposit_withdraw .warm_prompt h1 {
+  color: #323232;
+  font-size: 14px;
+  padding: 30px 0 10px 0;
+}
+#section .section_main .deposit_withdraw .warm_prompt p {
+  padding-top: 10px;
+}
+#section .section_main .deposit_withdraw .warm_prompt p img {
+  margin-top: -2px;
+  cursor: pointer;
+}
+.withdraw_modal,
+.withdrawFailure_modal {
+  display: none;
+}
+.withdraw_modal .modal_content,
+.withdrawFailure_modal .modal_content {
+  text-align: center;
+}
+.withdraw_modal .modal_content p,
+.withdrawFailure_modal .modal_content p {
+  font-size: 16px;
+  padding-top: 50px;
+}
+.withdraw_modal .modal_content table,
+.withdrawFailure_modal .modal_content table {
+  margin: 20px 0 25px 130px;
+  width: 187px;
+}
+.withdraw_modal .modal_content table td,
+.withdrawFailure_modal .modal_content table td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+}
+.withdraw_modal .modal_content table td input,
+.withdrawFailure_modal .modal_content table td input {
+  width: 30px;
+  height: 30px;
+}
+.withdraw_modal .modal_content table td input:focus,
+.withdrawFailure_modal .modal_content table td input:focus {
+  border: 1px solid #a6cef1;
+}
+.withdraw_modal .succeed_content,
+.withdrawFailure_modal .succeed_content {
+  padding-top: 24px;
+}
+.withdraw_modal .succeed_content p.payment_succeed,
+.withdrawFailure_modal .succeed_content p.payment_succeed {
+  color: #323232;
+  font-size: 16px;
+  padding: 15px 0 10px 0;
+}
+.withdraw_modal .succeed_content p,
+.withdrawFailure_modal .succeed_content p {
+  font-size: 14px;
+}
+.withdraw_modal .modal_submit,
+.withdrawFailure_modal .modal_submit {
+  padding-top: 15px;
+}
+.withdraw_modal .modal_submit input,
+.withdrawFailure_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.withdraw_modal .modal_submit input:nth-of-type(2),
+.withdrawFailure_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}
