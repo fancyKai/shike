@@ -23,11 +23,15 @@ class sendcloud extends MY_Controller {
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 		$res = curl_exec($ch);
 		curl_close($ch);
+		$status = ($res == 1)?1:$res;
+		$send_ip = $this->input->ip_address();
 		$this->session->set_userdata(array("telcode"=>$code));
 		$time = date('Y-m-d H:i:s',time());
         $info = array('telephone' => $tel, 
         	          'authcode' => $code,
-        	          'time' => $time);
+        	          'time' => $time,
+				      'status'=>$status,
+				      'send_ip'=>$send_ip);
 		$this->db->insert('telcode', $info);
 		echo $res;
 	}

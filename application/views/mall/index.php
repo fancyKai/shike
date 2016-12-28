@@ -83,9 +83,9 @@
                 <p class="register"><a href="<?=base_url('mall/register/shike_register')?>">注册试客</a><a href="<?=base_url('mall/register/merchant_register')?>">注册商家</a></p>
                 <div class="project_pitching">
                     <ul>
-                        <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
-                        <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
-                        <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
+                        <li><a href="<?=base_url('mall/homepage/affiche_details')?>">双11部分试用商品预售处理方案</a></li>
+                        <li><a href="<?=base_url('mall/homepage/affiche_details')?>">双11部分试用商品预售处理方案</a></li>
+                        <li><a href="<?=base_url('mall/homepage/affiche_details')?>">双11部分试用商品预售处理方案</a></li>
                     </ul>
                 </div>
             </div>

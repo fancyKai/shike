@@ -14,9 +14,19 @@
     <div class="top">
         <div class="top_main">
             <ul>
-                <li ><a href="../register/login.html">登录</a></li>
-                <li><a href="<?=base_url('mall/register/merchant_register')?>">商家注册</a></li>
-                <li><a href="<?=base_url('mall/register/shike_register')?>">注册试客</a></li>
+                <?php
+                    //echo json_encode($_SESSION);
+                    if($_SESSION['user_id'])
+                    {
+                        echo '<li><a class="merchant_active" href="'.base_url('mall/register/merchant_register').'">'.$_SESSION['user_name'].'</a></li>';
+                        echo '<li><a href="'.base_url('mall/register/merchant_register').'">登出</a></li>';
+                    }else
+                    {
+                        echo '<li><a href="../register/login.html">登录</a></li>';
+                        echo '<li><a href="'.base_url('mall/register/merchant_register').'">商家注册</a></li>';
+                        echo '<li><a href="'.base_url('mall/register/shike_register').'">注册试客</a></li>';
+                    }
+                ?>
                 <li><a href="<?=base_url('mall/help_center/help_center')?>">帮助中心</a></li>
             </ul>
         </div>
