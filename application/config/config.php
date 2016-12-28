@@ -16,7 +16,8 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://www.shike.com';
+//$config['base_url'] = 'http://www.shike.com';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
