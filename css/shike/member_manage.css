@@ -1,0 +1,44 @@
+#section .section_main .member_manage h2 {
+  color: #323232;
+  font-size: 16px;
+  padding: 30px 0 10px 0;
+}
+#section .section_main .member_manage table {
+  width: 980px;
+}
+#section .section_main .member_manage table th,
+#section .section_main .member_manage table td {
+  border: 1px solid #f5f5f5;
+  line-height: 50px;
+  height: 50px;
+  font-size: 14px;
+  text-align: center;
+  color: #323232;
+}
+#section .section_main .member_manage table th {
+  color: #646464;
+  background-color: #f5f5f5;
+}
+#section .section_main .member_manage table.member_state th,
+#section .section_main .member_manage table.member_state td {
+  width: 323px;
+}
+#section .section_main .member_manage table.member_state th a,
+#section .section_main .member_manage table.member_state td a {
+  color: #005ea7;
+}
+#section .section_main .member_manage table.recharge_record th,
+#section .section_main .member_manage table.recharge_record td {
+  width: 195px;
+}
+#section .section_main .member_manage table.recharge_record th:first-of-type,
+#section .section_main .member_manage table.recharge_record td:first-of-type {
+  width: 200px;
+}
+#section .section_main .member_manage .member_introduce {
+  padding-top: 10px;
+}
+#section .section_main .member_manage .member_introduce p {
+  font-size: 14px;
+  padding-bottom: 20px;
+}

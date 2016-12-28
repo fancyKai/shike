@@ -39,22 +39,22 @@
                         <p>请填写
                             <a href="">“商品主图”</a>
                             ，以便试客快速找到任务商品：
-                            <input class="picture_url" type="text" placeholder="请输入商品主图URL"/>
-                            <span>请输入商品主图URL</span>
+                            <input class="picture_url" type="text" placeholder="请输入商品主图URL" id="taobao_picture_url" onblur="check_taobao_picture_url()" value="<?php echo $activity['t_picture_url']?>"/>
+                            <span id="taobao_picture_url_error">请输入商品主图URL</span>
                         </p>
                         <h4>搜索关键词：</h4>
                         <p>
                             请试客在www.taobao.com首页的搜索框内输入关键词：
-                            <input type="text"/>进行商品搜索（请尽量选择大词和长尾词）
-                            <span>商品搜索关键词不能为空</span>
+                            <input type="text" id="taobao_key_words" onblur="check_taobao_key_words()" value="<?php echo $activity['t_key_words']?>"/>进行商品搜索（请尽量选择大词和长尾词）
+                            <span id="taobao_key_words_error">商品搜索关键词不能为空</span>
                         </p>
                         <p class="search_commodity">
                             在搜索的列表页面，通过以下分类找到商品：
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
+                            <input type="text" id="taobao_classify1" value="<?php echo $activity['t_classify1']?>"/>
+                            <input type="text" id="taobao_classify2" value="<?php echo $activity['t_classify2']?>"/>
+                            <input type="text" id="taobao_classify3" value="<?php echo $activity['t_classify3']?>"/>
+                            <input type="text" id="taobao_classify4" value="<?php echo $activity['t_classify4']?>"/>
+                            <input type="text" id="taobao_classify5" value="<?php echo $activity['t_classify5']?>"/>
                         </p>
                         <p class="such_as">例如：香奈儿、短裙、修身、连衣裙</p>
                         <!--折扣与服务-->
@@ -75,18 +75,18 @@
                                 <span class="checkbox">新品</span>
                             </p>
                             <p>排列方式：
-                                <select name="">
-                                    <option value="">综合排序</option>
-                                    <option value="">销量从高到低</option>
-                                    <option value="">信用从高到低</option>
+                                <select name="" id="taobao_sort" autocomplete="off">
+                                    <option <?php if($activity['t_sort'] == 1):?> selected="selected" <?php endif;?> value="1">综合排序</option>
+                                    <option <?php if($activity['t_sort'] == 2):?> selected="selected" <?php endif;?> value="2">销量从高到低</option>
+                                    <option <?php if($activity['t_sort'] == 3):?> selected="selected" <?php endif;?> value="3">信用从高到低</option>
                                 </select>
                             </p>
                         </div>
                         <h3>可选搜索信息</h3>
                         <p>试客可用列表筛选中“价格筛选”、“发货地”缩小范围（选填）。</p>
                         <p class="last">价格：
-                            <input type="text"/> - <input type="text"/>
-                            发货地：<input type="text"/>
+                            <input type="text" id="taobao_lower_price" value="<?php echo $activity['t_lower_price']?>"/> - <input type="text" id="taobao_higher_price" value="<?php echo $activity['t_higher_price']?>"/>
+                            发货地：<input type="text" id="taobao_delivery_place" value="<?php echo $activity['t_delivery_place']?>"/>
                         </p>
                     </div>
                     <!--通过天猫搜索-->
@@ -98,46 +98,54 @@
                         <p>请填写
                             <a href="">“商品主图”</a>
                             ，以便试客快速找到任务商品：
-                            <input class="picture_url" type="text" placeholder="请输入商品主图URL"/>
-                            <span>请输入商品主图URL</span>
+                            <input class="picture_url" type="text" placeholder="请输入商品主图URL" id="tmall_picture_url" value="<?php echo $activity['t_picture_url']?>"/>
+                            <span id="tmall_picture_url_error">请输入商品主图URL</span>
                         </p>
                         <h4>搜索关键词：</h4>
                         <p>
                             请试客在www.tmall.com首页的搜索框内输入关键词：
-                            <input type="text"/>进行商品搜索（请尽量选择大词和长尾词）
-                            <span>商品搜索关键词不能为空</span>
+                            <input type="text" id="tmall_key_words" value="<?php echo $activity['t_key_words']?>"/>进行商品搜索（请尽量选择大词和长尾词）
+                            <span id="tmall_key_words_error">商品搜索关键词不能为空</span>
                         </p>
                         <p class="search_commodity">
                             在搜索的列表页面，通过以下分类找到商品：
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="text"/>
+                            <input type="text" id="tmall_classify1" value="<?php echo $activity['t_classify1']?>"/>
+                            <input type="text" id="tmall_classify2" value="<?php echo $activity['t_classify2']?>"/>
+                            <input type="text" id="tmall_classify3" value="<?php echo $activity['t_classify3']?>"/>
+                            <input type="text" id="tmall_classify4" value="<?php echo $activity['t_classify4']?>"/>
+                            <input type="text" id="tmall_classify5" value="<?php echo $activity['t_classify5']?>"/>
                         </p>
                         <p class="such_as">例如：香奈儿、短裙、修身、连衣裙</p>
                         <!--折扣与服务-->
                         <div class="serve">
                             <p>折扣和服务：
-                                <span class="checkbox">新到商品</span>
                                 <span class="checkbox">包邮</span>
-                                <span class="checkbox">折扣</span>
-                                <span class="checkbox">搭配减价</span>
-                                <span class="checkbox">满就减</span>
+                                <span class="checkbox">赠送退货运费险</span>
                                 <span class="checkbox">货到付款</span>
+                                <span class="checkbox">海外商品</span>
+                                <span class="checkbox">二手</span>
+                                <span class="checkbox">天猫</span>
+                            </p>
+                            <p>
+                                <span class="checkbox">正品保障</span>
+                                <span class="checkbox">24小时内发货</span>
+                                <span class="checkbox">7天退换货</span>
+                                <span class="checkbox">旺旺在线</span>
+                                <span class="checkbox">新品</span>
                             </p>
                             <p>排列方式：
-                                <select name="" id="">
-                                    <option value="">综合排序</option>
-                                    <option value="">销量从高到低</option>
-                                    <option value="">信用从高到低</option>
+                                <select name="" id="tmall_sort">
+                                    <option <?php if($activity['t_sort'] == 1):?> selected="selected" <?php endif;?> value="1">综合排序</option>
+                                    <option <?php if($activity['t_sort'] == 2):?> selected="selected" <?php endif;?> value="2">销量从高到低</option>
+                                    <option <?php if($activity['t_sort'] == 3):?> selected="selected" <?php endif;?> value="3">信用从高到低</option>
                                 </select>
                             </p>
                         </div>
                         <h3>可选搜索信息</h3>
                         <p>试客可用列表筛选中“价格筛选”、“发货地”缩小范围（选填）。</p>
                         <p class="last">价格：
-                            <input type="text"/> - <input type="text"/>
+                            <input type="text" id="tmall_lower_price" value="<?php echo $activity['t_lower_price']?>"/> - <input type="text" id="tmall_higher_price" value="<?php echo $activity['t_higher_price']?>"/>
+                            发货地：<input type="text" id="tmall_delivery_place" value="<?php echo $activity['t_delivery_place']?>"/>
                         </p>
                     </div>
                 </div>
@@ -150,8 +158,9 @@
         </div>
     </div>
 </section>
+<input type="hidden" id="the_platform" value="taobao">
 <footer id="footer"></footer>
-<script src="../../js/jquery-1.10.2.js"></script>
+<script src="js/shike/jquery-1.10.2.js"></script>
 <script>
     $(function(){
         $('#header').load("../common/merchant_header.html");
@@ -164,49 +173,101 @@
         });
         $('.by_taobao').click(function(){
             $('.tmall_content').slideUp();
-            $('.taobao_content'). slideDown()
+            $('.taobao_content').slideDown();
+            $("#the_platform").val("taobao");
         });
         $('.by_tmall').click(function(){
             $('.taobao_content').slideUp();
-            $('.tmall_content'). slideDown()
+            $('.tmall_content').slideDown();
+            $("#the_platform").val("tmall");
         });
         $('.checkbox').click(function(){
             $(this).toggleClass('search_active');
         });
     })
 </script>
+ <script>
+    function check_taobao_picture_url(){
+        if($("#taobao_picture_url").val()==''){
+            $("#taobao_picture_url_error").text("请输入商品主图URL");
+        }else{
+            $("#taobao_picture_url_error").text("");
+        }
+    }
+    function check_taobao_key_words(){
+        if($("#taobao_key_words").val()==''){
+            $("#taobao_key_words_error").text("商品搜索关键词不能为空");
+        }else{
+            $("#taobao_key_words_error").text("");
+        }
+    }
+    function check_tmall_picture_url(){
+        if($("#tmall_picture_url").val()==''){
+            $("#tmall_picture_url_error").text("请输入商品主图URL");
+        }else{
+            $("#tmall_picture_url_error").text("");
+        }
+    }
+    function check_tmall_key_words(){
+        if($("#tmall_key_words").val()==''){
+            $("#tmall_key_words_error").text("商品搜索关键词不能为空");
+        }else{
+            $("#tmall_key_words_error").text("");
+        }
+    }
+</script>
 <script>
     function next_step(){
         //var seller_id = <?php echo $seller_id ?>;
+         if(($("#taobao_picture_url").val() == '' || $("#taobao_key_words").val() == '' )&&($("#tmall_picture_url").val() == '' || $("#tmall_key_words").val() == '' )){
+            return;
+        }
         var act_id = "<?php echo $act_id ?>";
-         location.href=admin.url+"merchant_issue_try4?act_id="+act_id;
-        // var commodity_name = $("#commodity_name").val();
-        // var shop_url = $("#shop_url").val();
-        // var commodity_classify = $("#commodity_classify").val();
-        // var commodity_picture = $("#commodity_picture").val();
-        // var thecolor = $("#thecolor").val();
-        // var thesize = $("#thesize").val();
-        // var unit_price = $("#unit_price").val();
-        // var buy_num = $("#buy_num").val();
-        // var freight = $("#freight").val();
-        // alert(shop_name);
-        // alert(platform_id);
-        // alert(seller_id);
-        // $.ajax({
-        //     url : admin.url+'merchant_issue_try2/update_fake_activity2',
-        //     data:{act_id:act_id,commodity_name:commodity_name,shop_url:shop_url,commodity_classify:commodity_classify,commodity_picture:commodity_picture,thecolor:thecolor,thesize:thesize,unit_price:unit_price,buy_num:buy_num,freight:freight},
-        //     type : 'post',
-        //     cache : false,
-        //     success : function (data){
-        //        console.log(data);
-        //        location.href=admin.url+"merchant_issue_try3?act_id="+act_id;
-        //     },
-        //     error : function (XMLHttpRequest, textStatus){
-        //         console.log("insert_fake_activity false");
-        //         console.log(XMLHttpRequest);
-        //         console.log(textStatus);
-        //     }
-        // })
+        var the_platform = $("#the_platform").val();
+        if(the_platform == 'taobao'){
+            var platformid = 1;
+            var t_picture_url = $("#taobao_picture_url").val();
+            var t_key_words = $("#taobao_key_words").val();
+            var t_classify1 = $("#taobao_classify1").val();
+            var t_classify2 = $("#taobao_classify2").val();
+            var t_classify3 = $("#taobao_classify3").val();
+            var t_classify4 = $("#taobao_classify4").val();
+            var t_classify5 = $("#taobao_classify5").val();
+            var t_lower_price = $("#taobao_lower_price").val();
+            var t_higher_price = $("#taobao_higher_price").val();
+            var t_delivery_place = $("#taobao_delivery_place").val();
+            var t_sort = $("#taobao_sort").val();
+        }else{
+            var platformid = 2;
+            var t_picture_url = $("#tmall_picture_url").val();
+            var t_key_words = $("#tmall_key_words").val();
+            var t_classify1 = $("#tmall_classify1").val();
+            var t_classify2 = $("#tmall_classify2").val();
+            var t_classify3 = $("#tmall_classify3").val();
+            var t_classify4 = $("#tmall_classify4").val();
+            var t_classify5 = $("#tmall_classify5").val();
+            var t_lower_price = $("#tmall_lower_price").val();
+            var t_higher_price = $("#tmall_higher_price").val();
+            var t_delivery_place = $("#tmall_delivery_place").val();
+            var t_sort = $("#tmall_sort").val();
+        }
+        $.ajax({
+            url : admin.url+'merchant_issue_try3/update_fake_activity3',
+            data:{act_id:act_id,platformid:platformid,t_picture_url:t_picture_url,t_key_words:t_key_words,t_classify1:t_classify1,t_classify2:t_classify2,t_classify3:t_classify3,t_classify4:t_classify4,t_classify5:t_classify5,t_lower_price:t_lower_price,t_higher_price:t_higher_price,t_delivery_place:t_delivery_place,t_sort:t_sort},
+            type : 'post',
+            cache : false,
+            success : function (data){
+               console.log(data);
+               location.href=admin.url+"merchant_issue_try4?act_id="+act_id;
+            },
+            error : function (XMLHttpRequest, textStatus){
+                console.log("insert_fake_activity false");
+                console.log(XMLHttpRequest);
+                console.log(textStatus);
+            }
+        })
+        location.href=admin.url+"merchant_issue_try4?act_id="+act_id;
+        
     }
 </script>
 </body>

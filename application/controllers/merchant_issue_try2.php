@@ -59,7 +59,8 @@ class merchant_issue_try2 extends MY_Controller {
 		$unit_price = $this->input->post('unit_price');
 		$buy_sum = $this->input->post('buy_sum');
 		$freight = $this->input->post('freight');
-		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"unit_price" => $unit_price,"buy_sum" => $buy_sum,"freight" => $freight);
+        $data = $this->get_act_detail($shop_url);
+		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"unit_price" => $unit_price,"buy_sum" => $buy_sum,"freight" => $freight,"product_details" =>$data);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
 
@@ -79,4 +80,19 @@ class merchant_issue_try2 extends MY_Controller {
 		$res = $this->db->update("sorder",$info,array("order_id"=>$order_id));
 		echo json_encode($res);
 	}
+    public function get_act_detail($url){
+        $shop_url = str_replace("&","$$",$url);
+        $main_url = "http://120.27.143.236:8012/goodsInfo/getItemDescByItemUrl?itemUrl=";
+        $full_url = $main_url."".$shop_url;
+        $ch = curl_init();
+        $timeout = 5;
+        curl_setopt ($ch, CURLOPT_URL, $full_url);
+        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        $res = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($res)->data;
+        return $data;
+    }
+
 }

@@ -1,0 +1,202 @@
+.personal_active {
+  color: #f10180 !important;
+}
+#section .section_main .store_content {
+  background-color: #fff;
+  padding: 30px;
+}
+#section .section_main .store_content .order_status {
+  padding-top: 10px;
+}
+#section .section_main .store_content .order_status ul {
+  overflow: hidden;
+  height: 38px;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin: 18px 0;
+}
+#section .section_main .store_content .order_status ul li {
+  float: left;
+  font-size: 14px;
+  padding-left: 18px;
+  line-height: 38px;
+}
+#section .section_main .store_content .order_status ul li > a span {
+  color: #f10180;
+}
+#section .section_main .store_content .order_status ul li > a:hover {
+  color: #f10180;
+}
+#section .section_main .store_content .order_status ul li > b {
+  font-weight: normal;
+  color: #969696;
+  margin-left: 16px;
+}
+#section .section_main .store_content .delivery_status {
+  margin-bottom: 35px;
+}
+#section .section_main .store_content .delivery_status .title {
+  overflow: hidden;
+  padding: 10px;
+}
+#section .section_main .store_content .delivery_status .title p {
+  font-size: 14px;
+  height: 16px;
+}
+#section .section_main .store_content .delivery_status .title p a {
+  color: #005ea7;
+}
+#section .section_main .store_content .delivery_status .title p:first-of-type {
+  background: url(../images/line.png) left no-repeat;
+  padding-left: 25px;
+}
+#section .section_main .store_content .delivery_status .title p:first-of-type span {
+  margin-right: 40px;
+}
+#section .section_main .store_content .delivery_status .detalis ul {
+  height: 118px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 18px;
+  overflow: hidden;
+}
+#section .section_main .store_content .delivery_status .detalis ul li {
+  float: left;
+  color: #323232;
+  font-size: 14px;
+  height: 80px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:first-of-type img {
+  width: 80px;
+  height: 80px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(2) {
+  padding: 0 40px 0 28px;
+  border-right: 1px solid #f5f5f5;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(2) p span {
+  color: #969696;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(2) p.two {
+  padding: 12px 0;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(2) p.clothes_name {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(3),
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(4) {
+  border-right: 1px solid #f5f5f5;
+  padding: 0 48px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(3) p,
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(4) p {
+  height: 80px;
+  line-height: 80px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(3) p span,
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(4) p span {
+  color: #969696;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(4) {
+  width: 139px;
+  padding: 0;
+  text-align: center;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(5) {
+  text-align: center;
+  width: 200px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(5) .status {
+  padding: 15px 0 10px 0;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(5) .finish {
+  padding-top: 30px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(5) > p input {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #f10180;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #f10180;
+  font-size: 14px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(5) > p span {
+  color: #969696;
+  font-size: 12px;
+}
+#section .section_main .store_content .delivery_status .detalis ul li:nth-of-type(5) > p a {
+  margin-left: 10px;
+}
+.delivery_modal,
+.audit_modal,
+.pass_modal {
+  display: none;
+}
+.delivery_modal .confirm_delivery,
+.audit_modal .confirm_delivery,
+.pass_modal .confirm_delivery {
+  margin-top: 40px;
+}
+.delivery_modal .confirm_delivery label,
+.audit_modal .confirm_delivery label,
+.pass_modal .confirm_delivery label {
+  font-size: 14px;
+}
+.delivery_modal .confirm_delivery input,
+.audit_modal .confirm_delivery input,
+.pass_modal .confirm_delivery input {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.delivery_modal .confirm_delivery p,
+.audit_modal .confirm_delivery p,
+.pass_modal .confirm_delivery p {
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding-left: 152px;
+}
+.delivery_modal .confirm_delivery p span,
+.audit_modal .confirm_delivery p span,
+.pass_modal .confirm_delivery p span {
+  color: #e61e28;
+  font-size: 14px;
+}
+.delivery_modal .modal_submit,
+.audit_modal .modal_submit,
+.pass_modal .modal_submit {
+  padding-top: 9px;
+}
+.delivery_modal .modal_submit input,
+.audit_modal .modal_submit input,
+.pass_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.delivery_modal .modal_submit input:nth-of-type(2),
+.audit_modal .modal_submit input:nth-of-type(2),
+.pass_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
+}
+.audit_modal,
+.pass_modal {
+  display: none;
+}
+.audit_modal .confirm_audit,
+.pass_modal .confirm_audit {
+  padding: 67px 0;
+  font-size: 16px;
+}

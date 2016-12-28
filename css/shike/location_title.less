@@ -1,0 +1,58 @@
+@font_color:#646464;
+@deepfont_color:#323232;
+@border_color:#f0f0f0;
+@title_color:#f5f5f5;
+@bg_color:#fff;
+@red_color:#ffb7bb;
+@deepred_color:#f10180;
+@deepborder-color:#c8c8c8;
+@span_color:#e61e28;
+#section {
+  width:100%;
+  padding-bottom:50px;
+  background-color:#f5f5f5;
+  .section_content{
+    width: 1200px;
+    margin: 0 auto;
+    background-color:#fff;
+    //页面的头部---所在位置
+    .location_title{
+      padding: 30px;
+      border-bottom: 1px solid #f5f5f5;
+      ul{
+        overflow:hidden;
+        li{
+          float: left;
+          font-size: 14px;
+          padding-right: 10px;
+        }
+      }
+    }
+
+
+    //页面底部---按钮
+    .step_btn{
+        input{
+          width: 150px;
+          height:40px;
+          line-height:40px;
+          border-radius:5px;
+          font-size:16px;
+          margin-top:50px;
+          border:1px solid @deepred_color;
+          padding-left:0;
+        }
+      input:nth-of-type(2){
+        margin-left:25px;
+      }
+        input{
+          background-color:#fff;
+          color:@deepred_color;
+        }
+        input.next_step {
+          background-color:@deepred_color;
+          color:#fff;
+        }
+      }
+  }
+}

@@ -1,0 +1,124 @@
+#section {
+  width: 100%;
+  padding: 0 0 50px 0;
+}
+#section .transition_line {
+  width: 100%;
+  height: 10px;
+  background: -webkit-linear-gradient(#f0f0f0, #fff);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#f0f0f0, #fff);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#f0f0f0, #fff);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#f0f0f0, #fff);
+  /* 标准的语法（必须放在最后） */
+}
+#section .section_content {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+#section .section_content .prompt {
+  width: 1200px;
+  height: 80px;
+  background-color: #f5f5f5;
+  padding: 15px 0;
+}
+#section .section_content .prompt p {
+  padding-left: 30px;
+  font-size: 14px;
+  line-height: 24px;
+}
+#section .section_content .common_problem {
+  padding: 30px;
+  padding-bottom: 0;
+}
+#section .section_content .common_problem h1 {
+  color: #323232;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_content .common_problem .shike_content,
+#section .section_content .common_problem .merchant_content {
+  width: 1140px;
+  height: 170px;
+  padding-left: 40px;
+  margin-top: 20px;
+}
+#section .section_content .common_problem .shike_content ul.about_details,
+#section .section_content .common_problem .merchant_content ul.about_details {
+  overflow: hidden;
+  border: 1px solid #f5f5f5;
+  box-sizing: border-box;
+  width: 1100px;
+  height: 170px;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li,
+#section .section_content .common_problem .merchant_content ul.about_details > li {
+  box-sizing: border-box;
+  float: left;
+  width: 274.5px;
+  border-right: 1px solid #f5f5f5;
+  height: 170px;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li p,
+#section .section_content .common_problem .merchant_content ul.about_details > li p {
+  height: 30px;
+  line-height: 30px;
+  background-color: #f5f5f5;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #323232;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li p a,
+#section .section_content .common_problem .merchant_content ul.about_details > li p a {
+  color: #005ea7;
+  margin-left: 175px;
+  font-size: 12px;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li ul,
+#section .section_content .common_problem .merchant_content ul.about_details > li ul {
+  padding: 20px 0 20px 10px;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li ul > li,
+#section .section_content .common_problem .merchant_content ul.about_details > li ul > li {
+  padding-bottom: 3px;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li ul > li a,
+#section .section_content .common_problem .merchant_content ul.about_details > li ul > li a {
+  color: #969696;
+}
+#section .section_content .common_problem .shike_content ul.about_details > li:last-of-type,
+#section .section_content .common_problem .merchant_content ul.about_details > li:last-of-type {
+  border-right: none;
+}
+#section .section_content .common_problem .shike_content {
+  background: url(../images/bzzz_bg_shike_default.png) left center no-repeat;
+}
+#section .section_content .common_problem .merchant_content {
+  background: url(../images/bzzz_bg_shangjia_default.png) left center no-repeat;
+  margin-bottom: 50px;
+}
+#section .section_content .common_problem .contact_us {
+  width: 1140px;
+  height: 260px;
+  border: 1px solid #f5f5f5;
+  border-top: none;
+  overflow: hidden;
+  padding: 0 90px;
+}
+#section .section_content .common_problem .contact_us .contact_way {
+  width: 459px;
+  padding-top: 50px;
+}
+#section .section_content .common_problem .contact_us .contact_way p {
+  text-align: center;
+  padding-bottom: 15px;
+  font-size: 14px;
+}
+#section .section_content .common_problem .contact_us .contact_way p span {
+  font-size: 16px;
+  color: #323232;
+}
