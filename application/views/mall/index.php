@@ -83,9 +83,9 @@
                 <p class="register"><a href="<?=base_url('mall/register/shike_register')?>">注册试客</a><a href="<?=base_url('mall/register/merchant_register')?>">注册商家</a></p>
                 <div class="project_pitching">
                     <ul>
-                        <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
-                        <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
-                        <li><a href="affiche_details.html">双11部分试用商品预售处理方案</a></li>
+                        <li><a href="<?=base_url('mall/homepage/affiche_details')?>">双11部分试用商品预售处理方案</a></li>
+                        <li><a href="<?=base_url('mall/homepage/affiche_details')?>">双11部分试用商品预售处理方案</a></li>
+                        <li><a href="<?=base_url('mall/homepage/affiche_details')?>">双11部分试用商品预售处理方案</a></li>
                     </ul>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     <span style="background-color:#a766e6" >限量版'.$v['amount'].'</span>'.$freight.'
                 </p>
                 <p class="price">
-                    <span>&yen;'.$v['unit_price'].'</span><span>已申请<b>'.$v['apply_amount'].'</b>次</span>
+                    <span>&yen;'.$v['unit_price'].'</span><span>已申请<b>'.$v['applyed_num'].'</b>次</span>
                 </p>
             </div>';
                 }
@@ -199,7 +199,7 @@
                             '<span>限量版'+ e.amount + '份</span>'+ freight+
                             '</p>'+
                             '<p class="price">'+
-                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.applyed_num+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                         console.log(e)
@@ -254,7 +254,7 @@
                                 '<span>限量版'+ e.amount + '份</span>'+ freight+
                                 '</p>'+
                                 '<p class="price">'+
-                                '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_amount+'</b>次</span>'+
+                                '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.applyed_num+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                             console.log(e)

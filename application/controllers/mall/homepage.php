@@ -149,7 +149,7 @@ class homepage extends MY_Controller
     public function productDetails($act_id)
     {
         //$act_id = $this->input->post('data');
-        $need = 'picture_url, product_name, unit_price, freight, amount, buy_sum, apply_amount, color, size, gene_time, product_detailds';
+        $need = 'picture_url, product_name, unit_price, freight, amount, buy_sum, apply_amount, color, size, gene_time, product_details,applyed_num';
         $this->out_data['product_details'] = $this->db->query("select $need from activity where act_id = $act_id")->row_array();
         //申请人数
         $applyed_num = $this->db->query("select count(1) as count from apply where act_id = $act_id")->row_array();
@@ -176,6 +176,14 @@ class homepage extends MY_Controller
         exit;*/
         $this->load->view('mall/header');
         $this->load->view('mall/details',$this->out_data);
+        $this->load->view('mall/footer');
+    }
+
+    //公告
+    public function affiche_details()
+    {
+        $this->load->view('mall/header');
+        $this->load->view('mall/affiche_details',$this->out_data);
         $this->load->view('mall/footer');
     }
 }

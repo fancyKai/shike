@@ -106,7 +106,7 @@
                             <span style="background-color:#a766e6">限量版' . $v['amount'] . '</span>' . $freight . '
                         </p>
                         <p class="price">
-                            <span>&yen;' . $v['unit_price'] . '</span><span>已申请<b>' . $v['apply_amount'] . '</b>次</span>
+                            <span>&yen;' . $v['unit_price'] . '</span><span>已申请<b>' . $v['applyed_num'] . '</b>次</span>
                         </p>
                     </div>';
                     }
@@ -121,7 +121,7 @@
                         <span style="background-color:#a766e6">限量版' . $v['amount'] . '</span>' . $freight . '
                     </p>
                     <p class="price">
-                        <span>&yen;' . $v['unit_price'] . '</span><span>已申请<b>' . $v['apply_amount'] . '</b>次</span>
+                        <span>&yen;' . $v['unit_price'] . '</span><span>已申请<b>' . $v['applyed_num'] . '</b>次</span>
                     </p>
                 </div>';
                     }
@@ -132,8 +132,10 @@
             <div class="try_details left">
                 <h1>试用详情</h1>
                 <div class="details_picture">
-                    <img src="../../images/xqy_bg_xq1_default.png" alt="">
-                    <img src="../../images/xqy_bg_xq2_default.png" alt="">
+                    <?php
+                        echo $product_details['product_details'];
+                    ?>
+                    ?>
                 </div>
             </div>
         </div>

@@ -56,4 +56,10 @@ class help_center extends MY_Controller
     {
         $this->load->view('help_center/shike_process');
     }
+
+    //服务协议
+    public function service_agreement()
+    {
+        $this->load->view('help_center/service_agreement');
+    }
 }
