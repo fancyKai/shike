@@ -7,7 +7,42 @@
 <link href="css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 </head>
+
+<style>
+    .edit_merchant_block div{height:55px;}
+</style>
+
 <body>
+
+    <div class="edit_merchant_block" style="position:absolute;width:800px;height:300px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
+        <div style="overflow:hidden">
+            <div style="width:300px;float:left"><p id="edit_merchant_id" style="font-size:30px;width:270px;margin:auto">发送对象</p></div>
+            <!-- <div style="width:350px;float:left"> -->
+                <select style="font-size:30px;width:470px;margin:auto;border:1px solid"><option value ="volvo">Volvo</option><option value ="saab">Saab</option>
+                </select>
+                
+            <!-- </div> -->
+        </div>
+        <div style="overflow:hidden">
+            <div style="width:300px;float:left"><p id="edit_account" style="font-size:30px;width:250px;margin:auto">账号:</p></div>
+            <div style="width:120px;float:left"><p style="font-size:30px;width:120px;margin:auto">手机号:</p></div>
+            <div style="width:370px;float:left"><input id="edit_merchant_phone" type="text" style="height:40px;border:1px solid;width:100%"></div>
+        </div>
+        <div style="overflow:hidden">
+            <div style="width:120px;float:left"><p style="font-size:30px;width:90px;margin:auto">QQ号:</p></div>
+            <div style="width:370px;float:left"><input id="edit_merchant_qq" type="text" style="height:40px;border:1px solid;width:100%"></div>
+        </div>
+        <div style="overflow:hidden">
+            <div style="width:300px;float:left"><p id="edit_merchant_type" style="font-size:30px;width:270px;margin:auto">会员类型:</p></div>
+            <div style="width:490px;float:left"><p id="edit_end_time" style="font-size:30px;width:470px;margin:auto">会员到期时间:</p></div>
+        </div>
+         <div style="overflow:hidden">
+            <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:30px;margin-left:95px" value="保存" onclick="set_seller_info()"></div>
+            <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:30px;margin-left:95px" value="取消" onclick="cancle_seller_info()"></div>
+        </div>
+    </div>
+
+
 <section id="section">
     <div class="section_main">
     <aside class="left" id="left_nav" style="margin-left:-91px;"></aside>
@@ -21,9 +56,8 @@
     
     <div class="rightinfo">
     
-	    <ul class="seachform">
-		  <li><label>商品名</label><input name="" type="text" class="scinput" /></li>
-		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
+	    <ul>
+		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="创建消息" onclick="create_table()"/></li>
 	    </ul>
     
 	<div class="formtitle1"><span>消息管理</span></div>
@@ -73,8 +107,13 @@
 </section>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
+	
+    function create_table(){
+        $(".edit_merchant_block").css("display","block");
+    }
 
+
+</script>
 </body>
 
 </html>

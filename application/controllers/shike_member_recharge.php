@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class shike_member_recharge extends MY_Controller {
+class Shike_member_recharge extends MY_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_shike_login();
 	}
 
 	public function index()

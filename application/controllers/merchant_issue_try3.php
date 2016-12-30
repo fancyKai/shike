@@ -1,17 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class merchant_issue_try3 extends MY_Controller {
+class Merchant_issue_try3 extends MY_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_merchant_login();
 	}
 
 	public function index()
 	{
 
         // $user_id = $this->session->userdata('user_id');
-		$user_id=1;
+		$user_id=$this->session->userdata('seller_id');
 		$this->out_data['act_id'] = $this->input->get('act_id');
 		$activity_sellerid = $this->db->query('select seller_id from activity where act_id='.$this->out_data['act_id'])->row_array();
 		if($user_id != $activity_sellerid['seller_id']){

@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class merchant_activity_details extends MY_Controller {
+class Merchant_activity_details extends MY_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_merchant_login();
 	}
 
 	public function index()

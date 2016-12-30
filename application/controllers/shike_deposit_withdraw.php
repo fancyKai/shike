@@ -1,16 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class shike_deposit_withdraw extends MY_Controller {
+class Shike_deposit_withdraw extends MY_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_shike_login();
 	}
 
 	public function index()
 	{
 
-		$user_id = "1";
+		$user_id = $this->session->userdata('user_id');
         $bankcard = $this->db->query("select * from bankbind where user_id=$user_id and type='1'")->row_array();
         $user = $this->db->query("select * from user where user_id=$user_id")->row_array();
         $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
