@@ -153,7 +153,8 @@ class register extends MY_Controller
             'tel'=>$phone,
             'qq'=>$user_qq,
             'passwd'=>$password,
-            'reg_time'=>$reg_time
+            'reg_time'=>$reg_time,
+            'level'=>1
         );
         $this->db->insert('seller',$temp);
         $user_id = $this->db->insert_id();

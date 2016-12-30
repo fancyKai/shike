@@ -16,7 +16,7 @@
             <ul>
                 <?php
                     //echo json_encode($_SESSION);
-                    if($_SESSION['user_id'])
+                    if(isset($_SESSION['user_id']))
                     {
                         echo '<li><a class="merchant_active" href="'.base_url('mall/register/merchant_register').'">'.$_SESSION['user_name'].'</a></li>';
                         echo '<li><a href="'.base_url('mall/register/merchant_register').'">登出</a></li>';
