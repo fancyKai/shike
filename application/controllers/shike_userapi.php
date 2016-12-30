@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 //require_once 'log.php';
-class shike_userapi extends MY_Controller {
+class Shike_userapi extends MY_Controller {
 
 	function __construct()
 	{

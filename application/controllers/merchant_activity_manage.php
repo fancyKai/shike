@@ -1,17 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class merchant_activity_manage extends MY_Controller {
+class Merchant_activity_manage extends MY_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_merchant_login();
 	}
 
 	public function index()
 	{
 
 		// $this->out_data['seller_id'] = $user_id;
-		$seller_id = "1";
+		$seller_id = $this->session->userdata('seller_id');
 
 		$date = date('Y-m-d H:i:s',time());
 		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(gene_time))>172800) and status != 4 ";

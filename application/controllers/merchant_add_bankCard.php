@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class merchant_add_bankCard extends MY_Controller {
+class Merchant_add_bankCard extends MY_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_merchant_login();
 	}
 
 	public function index()
@@ -18,7 +19,7 @@ class merchant_add_bankCard extends MY_Controller {
 	}
 	public function post_add_bankcard()
 	{
-		$seller_id = "1";
+		$seller_id = $this->session->userdata('seller_id');;
 		$name = $this->input->post('name');
 		$phone = $this->input->post('phone');
 		$banktype = $this->input->post('banktype');
