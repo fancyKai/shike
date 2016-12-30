@@ -37,8 +37,8 @@
                 </div>
                 <!--规格-->
                 <p class="standard">指定规格：<b><?php echo $product_details['color'];?>  <?php echo $product_details['size'];?></b></p>
-                <p class="number">购买数量：<b><?php echo $product_details['buy_sum'];?>件</b></p>
-                <input onclick="location.href='../apply_try/applyTry_one.html'" class="application_button" type="button" value="免费申请">
+                <p class="number">购买数量：<b><?php echo $product_details['amount_perorder'];?>件</b></p>
+                <input onclick="apply_product()" class="application_button" type="button" value="免费申请">
             </div>
             <div class="activity left">
                 <div class="activity_time">
@@ -160,6 +160,34 @@
             document.getElementById("second").innerHTML=obj.second;
         });
     })
+
+    function apply_product() {
+        var act_id = "<?php echo $product_details['act_id'];?>";
+        $.ajax({
+            url:"<?=base_url('mall/ApplyTry/isApply')?>",
+            method: 'post',
+            data:{
+                act_id:act_id
+            },
+            success:function(result){
+                result = JSON.parse(result);
+                if(result.success==true){
+                    location.href ='<?=base_url('mall/applyTry/applyTry_one').'/'.$product_details['act_id']?>'
+                }
+                else{
+                    code = result.code;
+                    if(code == 1)
+                    {
+                        alert('您已经申请过该产品')
+                    }
+                }
+            },
+            error:function(){
+                //alert('error');
+                console.log('error');
+            }
+        })
+    }
 </script>
 </body>
 </html>
