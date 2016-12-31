@@ -78,7 +78,7 @@ class register extends MY_Controller
             exit ;
         }
         //验证验证码
-        /*$code_info = $this->db->query("select * from telcode where telephone = '{$phone}' and status = 1 order by time DESC limit 1")->row_array();
+        $code_info = $this->db->query("select * from telcode where telephone = '{$phone}' and status = 1 order by time DESC limit 1")->row_array();
         if($verification_code != $code_info['authcode'])
         {
             $data = array(
@@ -89,7 +89,7 @@ class register extends MY_Controller
             echo json_encode($data);
             exit ;
         }
-        $this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");*/
+        $this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");
         $password = md5($password);
         $reg_time = date('Y-m-d H:i:s',time());
         $temp = array(
@@ -102,7 +102,7 @@ class register extends MY_Controller
         $this->db->insert('user',$temp);
         $user_id = $this->db->insert_id();
         $this->session->set_userdata('user_name', $user_name);
-        $this->session->set_userdata('user_id', $user_id);
+        $this->session->set_userdata('seller_id', $user_id);
         //TODO 登录
         $data = array(
             'success'=>true,
@@ -134,7 +134,7 @@ class register extends MY_Controller
             exit ;
         }
         // 验证验证码
-        /*$code_info = $this->db->query("select * from telcode where telephone = '{$phone}' and status = 1 order by time DESC limit 1")->row_array();
+        $code_info = $this->db->query("select * from telcode where telephone = '{$phone}' and status = 1 order by time DESC limit 1")->row_array();
         if($verification_code != $code_info['authcode'])
         {
             $data = array(
@@ -145,7 +145,7 @@ class register extends MY_Controller
             echo json_encode($data);
             exit ;
         }
-        $this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");*/
+        $this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");
         $password = md5($password);
         $reg_time = date('Y-m-d H:i:s',time());
         $temp = array(
