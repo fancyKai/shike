@@ -60,19 +60,19 @@
                         <!--折扣与服务-->
                         <div class="serve">
                             <p>折扣和服务：
-                                <span class="checkbox">包邮</span>
-                                <span class="checkbox">赠送退货运费险</span>
-                                <span class="checkbox">货到付款</span>
-                                <span class="checkbox">海外商品</span>
-                                <span class="checkbox">二手</span>
-                                <span class="checkbox">天猫</span>
+                                <span id="dis_ser1" class="checkbox">包邮</span>
+                                <span id="dis_ser2" class="checkbox">赠送退货运费险</span>
+                                <span id="dis_ser3" class="checkbox">货到付款</span>
+                                <span id="dis_ser4" class="checkbox">海外商品</span>
+                                <span id="dis_ser5" class="checkbox">二手</span>
+                                <span id="dis_ser6" class="checkbox">天猫</span>
                             </p>
                             <p>
-                                <span class="checkbox">正品保障</span>
-                                <span class="checkbox">24小时内发货</span>
-                                <span class="checkbox">7天退换货</span>
-                                <span class="checkbox">旺旺在线</span>
-                                <span class="checkbox">新品</span>
+                                <span id="dis_ser7" class="checkbox">正品保障</span>
+                                <span id="dis_ser8" class="checkbox">24小时内发货</span>
+                                <span id="dis_ser9" class="checkbox">7天退换货</span>
+                                <span id="dis_ser10" class="checkbox">旺旺在线</span>
+                                <span id="dis_ser11" class="checkbox">新品</span>
                             </p>
                             <p>排列方式：
                                 <select name="" id="taobao_sort" autocomplete="off">
@@ -89,6 +89,7 @@
                             发货地：<input type="text" id="taobao_delivery_place" value="<?php echo $activity['t_delivery_place']?>"/>
                         </p>
                     </div>
+                    <?php if($activity['platformid']==2):?>
                     <!--通过天猫搜索-->
                     <div class="by_tmall" data-toggle="search">
                         通过天猫自然搜索
@@ -119,19 +120,19 @@
                         <!--折扣与服务-->
                         <div class="serve">
                             <p>折扣和服务：
-                                <span class="checkbox">包邮</span>
-                                <span class="checkbox">赠送退货运费险</span>
-                                <span class="checkbox">货到付款</span>
-                                <span class="checkbox">海外商品</span>
-                                <span class="checkbox">二手</span>
-                                <span class="checkbox">天猫</span>
+                                <span id="dis_ser1" class="checkbox">包邮</span>
+                                <span id="dis_ser2" class="checkbox">赠送退货运费险</span>
+                                <span id="dis_ser3" class="checkbox">货到付款</span>
+                                <span id="dis_ser4" class="checkbox">海外商品</span>
+                                <span id="dis_ser5" class="checkbox">二手</span>
+                                <span id="dis_ser6" class="checkbox">天猫</span>
                             </p>
                             <p>
-                                <span class="checkbox">正品保障</span>
-                                <span class="checkbox">24小时内发货</span>
-                                <span class="checkbox">7天退换货</span>
-                                <span class="checkbox">旺旺在线</span>
-                                <span class="checkbox">新品</span>
+                                <span id="dis_ser7" class="checkbox">正品保障</span>
+                                <span id="dis_ser8" class="checkbox">24小时内发货</span>
+                                <span id="dis_ser9" class="checkbox">7天退换货</span>
+                                <span id="dis_ser10" class="checkbox">旺旺在线</span>
+                                <span id="dis_ser11" class="checkbox">新品</span>
                             </p>
                             <p>排列方式：
                                 <select name="" id="tmall_sort">
@@ -148,6 +149,7 @@
                             发货地：<input type="text" id="tmall_delivery_place" value="<?php echo $activity['t_delivery_place']?>"/>
                         </p>
                     </div>
+                    <?php endif;?>
                 </div>
 
                 <div class="nextStep_btn">
@@ -163,9 +165,9 @@
 <script src="js/shike/jquery-1.10.2.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
 
         $('[data-toggle="search"]').bind('click',function(){
             $(this).addClass('search_active');
@@ -237,6 +239,17 @@
             var t_higher_price = $("#taobao_higher_price").val();
             var t_delivery_place = $("#taobao_delivery_place").val();
             var t_sort = $("#taobao_sort").val();
+            var dis_ser1 = $("#dis_ser1").is(':checked');
+            var dis_ser2 = $("#dis_ser2").is(':checked');
+            var dis_ser3 = $("#dis_ser3").is(':checked');
+            var dis_ser4 = $("#dis_ser4").is(':checked');
+            var dis_ser5 = $("#dis_ser5").is(':checked');
+            var dis_ser6 = $("#dis_ser6").is(':checked');
+            var dis_ser7 = $("#dis_ser7").is(':checked');
+            var dis_ser8 = $("#dis_ser8").is(':checked');
+            var dis_ser9 = $("#dis_ser9").is(':checked');
+            var dis_ser10 = $("#dis_ser10").is(':checked');
+            var dis_ser11 = $("#dis_ser11").is(':checked');
         }else{
             var platformid = 2;
             var t_picture_url = $("#tmall_picture_url").val();
@@ -250,10 +263,24 @@
             var t_higher_price = $("#tmall_higher_price").val();
             var t_delivery_place = $("#tmall_delivery_place").val();
             var t_sort = $("#tmall_sort").val();
+            var dis_ser1 = $("#dis_ser1").is(':checked');
+            var dis_ser2 = $("#dis_ser2").is(':checked');
+            var dis_ser3 = $("#dis_ser3").is(':checked');
+            var dis_ser4 = $("#dis_ser4").is(':checked');
+            var dis_ser5 = $("#dis_ser5").is(':checked');
+            var dis_ser6 = $("#dis_ser6").is(':checked');
+            var dis_ser7 = $("#dis_ser7").is(':checked');
+            var dis_ser8 = $("#dis_ser8").is(':checked');
+            var dis_ser9 = $("#dis_ser9").is(':checked');
+            var dis_ser10 = $("#dis_ser10").is(':checked');
+            var dis_ser11 = $("#dis_ser11").is(':checked');
         }
         $.ajax({
             url : admin.url+'merchant_issue_try3/update_fake_activity3',
-            data:{act_id:act_id,platformid:platformid,t_picture_url:t_picture_url,t_key_words:t_key_words,t_classify1:t_classify1,t_classify2:t_classify2,t_classify3:t_classify3,t_classify4:t_classify4,t_classify5:t_classify5,t_lower_price:t_lower_price,t_higher_price:t_higher_price,t_delivery_place:t_delivery_place,t_sort:t_sort},
+            data:{act_id:act_id,platformid:platformid,t_picture_url:t_picture_url,t_key_words:t_key_words,t_classify1:t_classify1,t_classify2:t_classify2,t_classify3:t_classify3,t_classify4:t_classify4,t_classify5:t_classify5,t_lower_price:t_lower_price,t_higher_price:t_higher_price,t_delivery_place:t_delivery_place,t_sort:t_sort,
+                dis_ser1:dis_ser1,dis_ser2:dis_ser2,dis_ser3:dis_ser3,dis_ser4:dis_ser4,
+                dis_ser5:dis_ser5,dis_ser6:dis_ser6,dis_ser7:dis_ser7,dis_ser8:dis_ser8,
+                dis_ser9:dis_ser9,dis_ser10:dis_ser10,dis_ser11:dis_ser11},
             type : 'post',
             cache : false,
             success : function (data){

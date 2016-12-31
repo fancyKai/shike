@@ -11,7 +11,6 @@ class Merchant_activity_manage extends MY_Controller {
 	public function index()
 	{
 
-		// $this->out_data['seller_id'] = $user_id;
 		$seller_id = $this->session->userdata('seller_id');
 
 		$date = date('Y-m-d H:i:s',time());
@@ -55,5 +54,27 @@ class Merchant_activity_manage extends MY_Controller {
 		$res = $this->db->update("activity",array("status"=>'5'),array('act_id'=>$act_id));
 		echo json_encode($res);
 		// echo 1;
+	}
+
+	public function check_pay(){
+		$pwd = $this->input->post('pwd');
+		$act_id = $this->input->post('act_id');
+		$seller_id=$this->session->userdata('seller_id');
+		$seller_info=$this->db->query("select * from seller where seller_id={$seller_id}")->row_array();
+		if ($seller_info["paypw"] != md5($pwd)){
+            $res = 0;
+            echo json_encode($res);
+		}else{
+		    $avail = $seller_info["avail_deposit"];
+		    $act = $this->db->query("select * from activity where act_id={$act_id}")->row_array();
+		    $need_pay = $act["total_money"];
+		    $freeze_deposit = $seller_info["freeze_deposit"];
+            $info = array('avail_deposit' => $avail-$need_pay,
+            	          'freeze_deposit' => $freeze_deposit+$need_pay);
+		    $this->db->update("seller",$info,array("seller_id"=>$seller_id));
+            $this->db->update("activity",array('status' => 2),array("act_id"=>$act_id));
+		    $res = 1;
+		    echo json_encode($res);
+	    }
 	}
 }

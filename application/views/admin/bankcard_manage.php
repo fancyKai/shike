@@ -49,7 +49,6 @@
         <td><?php echo $v['banktype'];?></td>
         <td><?php echo $v['branchbank'];?></td>
         <td><?php echo $v['name'];?></td>
-        <td><a href="#" class="tablelink">编辑</a></td>
         </tr>
         <?php endforeach ?>
         </tbody>
@@ -85,7 +84,6 @@
         <td><?php echo $v['banktype'];?></td>
         <td><?php echo $v['branchbank'];?></td>
         <td><?php echo $v['name'];?></td>
-        <td><a href="#" class="tablelink">编辑</a></td>
         </tr>
         <?php endforeach ?>
         </tbody>
