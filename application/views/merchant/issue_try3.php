@@ -60,19 +60,20 @@
                         <!--折扣与服务-->
                         <div class="serve">
                             <p>折扣和服务：
-                                <span id="dis_ser1" class="checkbox">包邮</span>
-                                <span id="dis_ser2" class="checkbox">赠送退货运费险</span>
-                                <span id="dis_ser3" class="checkbox">货到付款</span>
-                                <span id="dis_ser4" class="checkbox">海外商品</span>
-                                <span id="dis_ser5" class="checkbox">二手</span>
-                                <span id="dis_ser6" class="checkbox">天猫</span>
+                                <span id="dis_ser1" class="checkbox <?php if($activity['dis_ser1']) echo 'search_active';?>">包邮</span>
+                                <span id="dis_ser2" class="checkbox <?php if($activity['dis_ser2']) echo 'search_active';?>">赠送退货运费险</span>
+                                <span id="dis_ser3" class="checkbox <?php if($activity['dis_ser3']) echo 'search_active';?>">货到付款</span>
+                                <span id="dis_ser4" class="checkbox <?php if($activity['dis_ser4']) echo 'search_active';?>">海外商品</span>
+                                <span id="dis_ser5" class="checkbox <?php if($activity['dis_ser5']) echo 'search_active';?>">二手</span>
+                                <span id="dis_ser6" class="checkbox <?php if($activity['dis_ser6']) echo 'search_active';?>">天猫</span>
                             </p>
                             <p>
-                                <span id="dis_ser7" class="checkbox">正品保障</span>
-                                <span id="dis_ser8" class="checkbox">24小时内发货</span>
-                                <span id="dis_ser9" class="checkbox">7天退换货</span>
-                                <span id="dis_ser10" class="checkbox">旺旺在线</span>
-                                <span id="dis_ser11" class="checkbox">新品</span>
+                                <span id="dis_ser7" class="checkbox <?php if($activity['dis_ser7']) echo 'search_active';?>">正品保障</span>
+                                <span id="dis_ser8" class="checkbox <?php if($activity['dis_ser8']) echo 'search_active';?>">24小时内发货</span>
+                                <span id="dis_ser9" class="checkbox <?php if($activity['dis_ser9']) echo 'search_active';?>">7天退换货</span>
+                                <span id="dis_ser10" class="checkbox <?php if($activity['dis_ser10']) echo 'search_active';?>">旺旺在线</span>
+                                <span id="dis_ser11" class="checkbox <?php if($activity['dis_ser11']) echo 'search_active';?>">新品</span>
+                                <!-- <input type="button" onclick="my()" value="11"> -->
                             </p>
                             <p>排列方式：
                                 <select name="" id="taobao_sort" autocomplete="off">
@@ -120,19 +121,20 @@
                         <!--折扣与服务-->
                         <div class="serve">
                             <p>折扣和服务：
-                                <span id="dis_ser1" class="checkbox">包邮</span>
-                                <span id="dis_ser2" class="checkbox">赠送退货运费险</span>
-                                <span id="dis_ser3" class="checkbox">货到付款</span>
-                                <span id="dis_ser4" class="checkbox">海外商品</span>
-                                <span id="dis_ser5" class="checkbox">二手</span>
-                                <span id="dis_ser6" class="checkbox">天猫</span>
+                                <span id="dis_ser1" class="checkbox <?php if($activity['dis_ser1']) echo 'search_active';?>">包邮</span>
+                                <span id="dis_ser2" class="checkbox <?php if($activity['dis_ser2']) echo 'search_active';?>">赠送退货运费险</span>
+                                <span id="dis_ser3" class="checkbox <?php if($activity['dis_ser3']) echo 'search_active';?>">货到付款</span>
+                                <span id="dis_ser4" class="checkbox <?php if($activity['dis_ser4']) echo 'search_active';?>">海外商品</span>
+                                <span id="dis_ser5" class="checkbox <?php if($activity['dis_ser5']) echo 'search_active';?>">二手</span>
+                                <span id="dis_ser6" class="checkbox <?php if($activity['dis_ser6']) echo 'search_active';?>">天猫</span>
                             </p>
                             <p>
-                                <span id="dis_ser7" class="checkbox">正品保障</span>
-                                <span id="dis_ser8" class="checkbox">24小时内发货</span>
-                                <span id="dis_ser9" class="checkbox">7天退换货</span>
-                                <span id="dis_ser10" class="checkbox">旺旺在线</span>
-                                <span id="dis_ser11" class="checkbox">新品</span>
+                                <span id="dis_ser7" class="checkbox <?php if($activity['dis_ser7']) echo 'search_active';?>">正品保障</span>
+                                <span id="dis_ser8" class="checkbox <?php if($activity['dis_ser8']) echo 'search_active';?>">24小时内发货</span>
+                                <span id="dis_ser9" class="checkbox <?php if($activity['dis_ser9']) echo 'search_active';?>">7天退换货</span>
+                                <span id="dis_ser10" class="checkbox <?php if($activity['dis_ser10']) echo 'search_active';?>">旺旺在线</span>
+                                <span id="dis_ser11" class="checkbox <?php if($activity['dis_ser11']) echo 'search_active';?>">新品</span>
+                                <!-- <input type="button" onclick="my()" value="11"> -->
                             </p>
                             <p>排列方式：
                                 <select name="" id="tmall_sort">
@@ -239,17 +241,17 @@
             var t_higher_price = $("#taobao_higher_price").val();
             var t_delivery_place = $("#taobao_delivery_place").val();
             var t_sort = $("#taobao_sort").val();
-            var dis_ser1 = $("#dis_ser1").is(':checked');
-            var dis_ser2 = $("#dis_ser2").is(':checked');
-            var dis_ser3 = $("#dis_ser3").is(':checked');
-            var dis_ser4 = $("#dis_ser4").is(':checked');
-            var dis_ser5 = $("#dis_ser5").is(':checked');
-            var dis_ser6 = $("#dis_ser6").is(':checked');
-            var dis_ser7 = $("#dis_ser7").is(':checked');
-            var dis_ser8 = $("#dis_ser8").is(':checked');
-            var dis_ser9 = $("#dis_ser9").is(':checked');
-            var dis_ser10 = $("#dis_ser10").is(':checked');
-            var dis_ser11 = $("#dis_ser11").is(':checked');
+            var dis_ser1 = $("#dis_ser1").hasClass('search_active');
+            var dis_ser2 = $("#dis_ser2").hasClass('search_active');
+            var dis_ser3 = $("#dis_ser3").hasClass('search_active');
+            var dis_ser4 = $("#dis_ser4").hasClass('search_active');
+            var dis_ser5 = $("#dis_ser5").hasClass('search_active');
+            var dis_ser6 = $("#dis_ser6").hasClass('search_active');
+            var dis_ser7 = $("#dis_ser7").hasClass('search_active');
+            var dis_ser8 = $("#dis_ser8").hasClass('search_active');
+            var dis_ser9 = $("#dis_ser9").hasClass('search_active');
+            var dis_ser10 = $("#dis_ser10").hasClass('search_active');
+            var dis_ser11 = $("#dis_ser11").hasClass('search_active');
         }else{
             var platformid = 2;
             var t_picture_url = $("#tmall_picture_url").val();
@@ -263,17 +265,17 @@
             var t_higher_price = $("#tmall_higher_price").val();
             var t_delivery_place = $("#tmall_delivery_place").val();
             var t_sort = $("#tmall_sort").val();
-            var dis_ser1 = $("#dis_ser1").is(':checked');
-            var dis_ser2 = $("#dis_ser2").is(':checked');
-            var dis_ser3 = $("#dis_ser3").is(':checked');
-            var dis_ser4 = $("#dis_ser4").is(':checked');
-            var dis_ser5 = $("#dis_ser5").is(':checked');
-            var dis_ser6 = $("#dis_ser6").is(':checked');
-            var dis_ser7 = $("#dis_ser7").is(':checked');
-            var dis_ser8 = $("#dis_ser8").is(':checked');
-            var dis_ser9 = $("#dis_ser9").is(':checked');
-            var dis_ser10 = $("#dis_ser10").is(':checked');
-            var dis_ser11 = $("#dis_ser11").is(':checked');
+            var dis_ser1 = $("#dis_ser1").hasClass('search_active');
+            var dis_ser2 = $("#dis_ser2").hasClass('search_active');
+            var dis_ser3 = $("#dis_ser3").hasClass('search_active');
+            var dis_ser4 = $("#dis_ser4").hasClass('search_active');
+            var dis_ser5 = $("#dis_ser5").hasClass('search_active');
+            var dis_ser6 = $("#dis_ser6").hasClass('search_active');
+            var dis_ser7 = $("#dis_ser7").hasClass('search_active');
+            var dis_ser8 = $("#dis_ser8").hasClass('search_active');
+            var dis_ser9 = $("#dis_ser9").hasClass('search_active');
+            var dis_ser10 = $("#dis_ser10").hasClass('search_active');
+            var dis_ser11 = $("#dis_ser11").hasClass('search_active');
         }
         $.ajax({
             url : admin.url+'merchant_issue_try3/update_fake_activity3',
@@ -293,7 +295,7 @@
                 console.log(textStatus);
             }
         })
-        location.href=admin.url+"merchant_issue_try4?act_id="+act_id;
+        //location.href=admin.url+"merchant_issue_try4?act_id="+act_id;
         
     }
 </script>

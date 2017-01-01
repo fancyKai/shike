@@ -32,7 +32,7 @@
         <div class="member_rechange">
             <h1>请选择开通时长</h1>
             <ul class="select_duration">
-                <li class="select" onclick="change_recharge_items(1)" >
+                <li class="select" onclick="change_recharge_items(1)">
                     <p>会员时长：<b>1年</b></p>
                     <p><span>&yen;4000.00</span></p>
                 </li>

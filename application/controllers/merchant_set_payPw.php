@@ -11,6 +11,9 @@ class Merchant_set_payPw extends MY_Controller {
 	public function index()
 	{
 
+        // $act_id = $this->input->get('act_id');
+        // $this->out_data['act'] = $this->db->query("select * from activity where act_id=$act_id")->row_array();
+
 		$this->out_data['con_page'] = 'merchant/set_payPw';
 		$this->load->view('merchant_default', $this->out_data);
 	}

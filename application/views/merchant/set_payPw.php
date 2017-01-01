@@ -15,7 +15,6 @@
         <aside class="left" id="left_nav"></aside>
         <!--设置支付密码-->
         <div class="basic_setup left">
-            
             <h1 class="title">设置支付密码</h1>
             <form class="revamp_content">
                 <label for="mewPw">新密码：</label>

@@ -26,7 +26,7 @@
                 <div class="detalis">
                     <?php foreach($shops as $v): ?>
                     <ul>
-                        <li><img class="shop_logo" src="<?php echo $v['logo_link']; ?>" alt=""></li>
+                        <li><img src="<?php echo $v['logo_link']; ?>" alt=""></li>
                         <li>
                             <p class="clothes_name"><?php echo $v['shop_id']; ?>
                             <p class="two"><span>店铺：</span><?php echo $v['shop_name']; ?></p>

@@ -42,20 +42,28 @@ class Merchant_issue_try3 extends MY_Controller {
 		$t_higher_price = $this->input->post('t_higher_price');
 		$t_delivery_place = $this->input->post('t_delivery_place');
 		$t_sort = $this->input->post('t_sort');
-		$dis_ser1 = $this->input->post('dis_ser1');
-		$dis_ser2 = $this->input->post('dis_ser2');
-		$dis_ser3 = $this->input->post('dis_ser3');
-		$dis_ser4 = $this->input->post('dis_ser4');
-		$dis_ser5 = $this->input->post('dis_ser5');
-		$dis_ser6 = $this->input->post('dis_ser6');
-		$dis_ser7 = $this->input->post('dis_ser7');
-		$dis_ser8 = $this->input->post('dis_ser8');
-		$dis_ser9 = $this->input->post('dis_ser9');
-		$dis_ser10 = $this->input->post('dis_ser10');
-		$dis_ser11 = $this->input->post('dis_ser11');
+		$dis_ser1 = ($this->input->post('dis_ser1')=='true') ? 1:0;
+		$dis_ser2 = ($this->input->post('dis_ser2')=='true') ? 1:0;
+		$dis_ser3 = ($this->input->post('dis_ser3')=='true') ? 1:0;
+		$dis_ser4 = ($this->input->post('dis_ser4')=='true') ? 1:0;
+		$dis_ser5 = ($this->input->post('dis_ser5')=='true') ? 1:0;
+		$dis_ser6 = ($this->input->post('dis_ser6')=='true') ? 1:0;
+		$dis_ser7 = ($this->input->post('dis_ser7')=='true') ? 1:0;
+		$dis_ser8 = ($this->input->post('dis_ser8')=='true') ? 1:0;
+		$dis_ser9 = ($this->input->post('dis_ser9')=='true') ? 1:0;
+		$dis_ser10 = ($this->input->post('dis_ser10')=='true') ? 1:0;
+		$dis_ser11 = ($this->input->post('dis_ser11')=='true') ? 1:0;
+		// $dis_ser1 = $this->input->post('dis_ser1');
+		// if($dis_ser1=='true'){
+		// 	$dis_ser1=1;
+		// }else{
+		// 	$dis_ser1=0;
+		// }
+		//echo json_encode($dis_ser1);return;
 		$info = array("ser_platformid" => $platformid,"t_picture_url" => $t_picture_url,"t_key_words" => $t_key_words,"t_classify1" => $t_classify1,"t_classify2" => $t_classify2,"t_classify3" => $t_classify3,"t_classify4" => $t_classify4,"t_classify5" => $t_classify5,"t_lower_price" => $t_lower_price,"t_higher_price" => $t_higher_price,"t_delivery_place" => $t_delivery_place,"t_sort"=>$t_sort,"dis_ser1"=>$dis_ser1,"dis_ser2"=>$dis_ser2,"dis_ser3"=>$dis_ser3,"dis_ser4"=>$dis_ser4,"dis_ser5"=>$dis_ser5,"dis_ser6"=>$dis_ser6,"dis_ser7"=>$dis_ser7,"dis_ser8"=>$dis_ser8,"dis_ser9"=>$dis_ser9,"dis_ser10"=>$dis_ser10,"dis_ser11"=>$dis_ser11);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
+		//echo json_encode($info);
 
 	}
 	public function update_confirm_ship(){
