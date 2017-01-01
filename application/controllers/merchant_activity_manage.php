@@ -20,7 +20,7 @@ class Merchant_activity_manage extends MY_Controller {
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;
-		$orderwhere = " where seller_id=$seller_id ";
+		$orderwhere = " where seller_id=$seller_id and isreal=1";
 		$order_status = $this->input->get('order_status');
 		$this->out_data['order_status'] = $order_status;
 		if(!$order_status){
@@ -34,11 +34,11 @@ class Merchant_activity_manage extends MY_Controller {
 		$count = $count['count'];
 
 		$this->out_data['activity_list'] = $this->db->query("select * from activity".$orderwhere." limit {$start},{$limit}")->result_array();
-        $this->out_data['sum_activity_list'] = $this->db->query("select count(*) as count from activity where seller_id=$seller_id")->row_array();
-        $this->out_data['sum_1_activity_list'] = $this->db->query("select count(*) as count from activity where status=1 and seller_id=$seller_id")->row_array();
-        $this->out_data['sum_2_activity_list'] = $this->db->query("select count(*) as count from activity where status=2 and seller_id=$seller_id")->row_array();
-        $this->out_data['sum_3_activity_list'] = $this->db->query("select count(*) as count from activity where status=3 and seller_id=$seller_id")->row_array();
-        $this->out_data['sum_4_activity_list'] = $this->db->query("select count(*) as count from activity where status=4 and seller_id=$seller_id")->row_array();
+        $this->out_data['sum_activity_list'] = $this->db->query("select count(*) as count from activity where seller_id=$seller_id and isreal=1")->row_array();
+        $this->out_data['sum_1_activity_list'] = $this->db->query("select count(*) as count from activity where status=1 and seller_id=$seller_id and isreal=1")->row_array();
+        $this->out_data['sum_2_activity_list'] = $this->db->query("select count(*) as count from activity where status=2 and seller_id=$seller_id and isreal=1")->row_array();
+        $this->out_data['sum_3_activity_list'] = $this->db->query("select count(*) as count from activity where status=3 and seller_id=$seller_id and isreal=1")->row_array();
+        $this->out_data['sum_4_activity_list'] = $this->db->query("select count(*) as count from activity where status=4 and seller_id=$seller_id and isreal=1")->row_array();
         $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 
