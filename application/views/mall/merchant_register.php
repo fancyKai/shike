@@ -87,7 +87,7 @@
         //$('#footer').load('../common/footer.html');
     })
 
-    /*function get_phone_code(obj)
+    function get_phone_code(obj)
     {
         var phone = $('.phone2').val();
         var phone_error = $(".phone_error").text();
@@ -108,7 +108,7 @@
                 }
             }
         })
-    }*/
+    }
 
     function verify_phone(){
         var tel = $("#phone").val();
