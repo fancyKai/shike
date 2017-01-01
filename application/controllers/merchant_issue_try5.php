@@ -50,4 +50,10 @@ class Merchant_issue_try5 extends MY_Controller {
 		    echo json_encode($res);
 	    }
 	}
+
+	public function cancel_act(){
+		$act_id = $this->input->post('act_id');
+		$res = $this->db->update("activity",array('status' => 5),array("act_id"=>$act_id));
+		echo json_encode($res);
+	}
 }

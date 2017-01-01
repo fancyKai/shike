@@ -73,7 +73,7 @@
                             </li>
                             <li>
                                 <p>商品押金：<span><?php echo $v['deposit'];?>元</span></p>
-                                <p>试用担保金：<span><?php echo $v['margin'];?>元</span></p>
+                                <p>试用担保金：<span><?php echo $v['guarantee'];?>元</span></p>
                                 <p>商品运费：<span><?php echo $v['freight'];?>元</span></p>
                                 <p>订单合计：<span><?php echo $v['total_money'];?>元</span></p>
                             </li>                            

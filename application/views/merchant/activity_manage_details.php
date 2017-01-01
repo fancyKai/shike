@@ -38,7 +38,7 @@
                     </div>
             <div class="details">
                 <ul>
-                            <li><img src="style="width: 80px;height: 80x" src="<?php echo $act['picture_url'];?>" alt=""></li>
+                            <li><img style='width: 80px;height: 80x' src="<?php echo $act['picture_url'];?>" alt=""></li>
                             <li>
                                 <p>商品名称：<span><?php echo $act['product_name'];?></span></p>
                                 <p>商品分类：<span><?php echo $act['product_classify'];?></span></p>
@@ -150,7 +150,7 @@
             </div>
             </div>
             <div class="nextStep_btn">
-                <input id="cancel_order" type="button" value="取消订单"/>
+                <input id="cancel_order" type="button" value="取消订单" />
                 <input id="confirm_payment" type="button" value="确认付款" onclick="check_pay()"/>
             </div>
             <?php endif;?>
@@ -182,23 +182,14 @@
                 <div class="left">
                    <table>
                        <tr>
-                           <td>yin***yin、</td>
-                           <td>yin***yin、</td>
-                           <td>yin***yin、</td>
-                           <td>yin***yin、</td>
-                           <td>yin***yin</td>
-                       </tr>
-                       <tr>
-                           <td>yin***yin、</td>
-                           <td>yin***yin、</td>
-                           <td>yin***yin、</td>
-                           <td>yin***yin、</td>
-                           <td>yin***yin</td>
+                           <?php foreach ($win_shikes as $v): ?>    
+                           <td><?php echo $v['shikename'];?>、</td>
+                           <?php endforeach ?>
                        </tr>
                    </table>
                 </div>
             </div>
-            <p class="try_task">请到<a href="javascript:void(0);">试用任务</a>中进行查看试客下单领取信息。</p>
+            <p class="try_task">请到<a href="/merchant_order_manage">试用任务</a>中进行查看试客下单领取信息。</p>
             <?php endif;?>
             <!--状态为5 已取消状态处理流程-->
             <?php if($act['status'] == 5):?>
@@ -218,7 +209,7 @@
         <div class="modal_prompt">
             <span>提示</span>
             <a class="close" href="javascript:void(0);">
-                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+                <img src="images/merchant/sj_grzx_tc_off_default.png" alt="">
             </a>
         </div>
         <div class="modal_content">
@@ -226,7 +217,7 @@
            <p class="confirm_cancel">确认取消订单？</p>
         </div>
         <div class="modal_submit">
-            <input type="button" value="确定"/>
+            <input type="button" value="确定" onclick="cancel_act()"/>
             <input class="cancel" type="button" value="取消"/>
         </div>
     </div>
@@ -274,13 +265,13 @@
     <div class="mask_layer"></div>
 </div>
 
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/modal_scrollbar.js"></script>
+<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/modal_scrollbar.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');
@@ -357,6 +348,24 @@
     }
     function end_act(){
         location.href=admin.url+"merchant_activity_manage";
+    }
+    function cancel_act(){
+        var act_id = "<?php echo $act['act_id'] ?>";
+        $.ajax({
+            url : admin.url+'merchant_issue_try5/cancel_act',
+            data:{act_id:act_id},
+            type : 'post',
+            cache : false,
+            success : function (result){
+                location.href=admin.url+"merchant_activity_manage";
+            },
+            error : function (XMLHttpRequest, textStatus){
+                console.log("insert_fake_activity false");
+                console.log(XMLHttpRequest);
+                console.log(textStatus);
+            }
+        })
+
     }
 </script>
 </body>

@@ -15,6 +15,7 @@
         <aside class="left" id="left_nav"></aside>
         <!--设置支付密码-->
         <div class="basic_setup left">
+            
             <h1 class="title">设置支付密码</h1>
             <form class="revamp_content">
                 <label for="mewPw">新密码：</label>
@@ -39,9 +40,9 @@
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html");
     })
 
     function info_post(){
