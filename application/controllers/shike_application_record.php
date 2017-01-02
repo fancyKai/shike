@@ -26,7 +26,7 @@ class Shike_application_record extends MY_Controller {
 		if(!$order_status){
 			$base_url = "/shike_application_record/?";
 		}else{
-			$orderwhere .= " and apply_status=3 or apply_status=4";
+			$orderwhere = " where apply_status=3 or apply_status=4 and user_id=$user_id";
 			$base_url = "/shike_application_record/?order_status=".$order_status;
 		}
 
