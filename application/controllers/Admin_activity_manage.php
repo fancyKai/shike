@@ -41,16 +41,16 @@ class admin_activity_manage extends MY_Controller {
 	}
 	public function search(){
 		$search = $this->input->get("search");
-		$where = " where account like '%{$search}%' or tel like '%{$search}%' ";
+		$where = " where act_id like '%{$search}%' ";
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
 		$start = ($page - 1)*$limit;
-		$count = $this->db->query("select count(*) as count from seller".$where)->row_array();
+		$count = $this->db->query("select count(*) as count from activity".$where)->row_array();
 		$count = $count['count'];
-		$the_url = "/admin_merchant_basic/?search=".$search;
-		$this->out_data['sellers'] = $this->db->query("select * from seller ".$where." limit {$start},{$limit}")->result_array();
+		$the_url = "/admin_activity_manage/?search=".$search;
+		$this->out_data['activity'] = $this->db->query("select * from activity ".$where." limit {$start},{$limit}")->result_array();
 		$this->out_data['pagin'] = parent::get_pagin($the_url, $count, $limit, 3,  true);
-		$this->out_data['con_page'] = 'admin/merchant_basic';
+		$this->out_data['con_page'] = 'admin/activity_manage';
 		$this->load->view('admin_default', $this->out_data);
 	}
 	public function get_activity_info(){

@@ -28,12 +28,23 @@ $(document).ready(function(e) {
 
 
 </head>
+<script>
+    // $(document).click(function(){
+    //     $(".edit_activity_block").hide();
+    //     $(".edit_shike_info_block").hide();
 
+    // });
+    // $(".edit_activity_block").click(function(event){
+    // event.stopPropagation();});
+    // $(".edit_shike_info_block").click(function(event){
+    // event.stopPropagation();});
+</script>
 <style>
     .edit_merchant_block div{height:55px;}
 </style>
 <body>
-    <div class="edit_activity_block" style="position:absolute;width:800px;height:300px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
+    <div class="edit_activity_block" style="position:absolute;width:800px;height:800px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
+        <img src="images/close.jpg" style="width:30px;height:30px;position:absolute;top:0;right:0;cursor:pointer" onclick="hide_edit_activity_block()">
         <div style="overflow:hidden">
             <div style="width:300px;float:left"><p id="edit_act_id" style="font-size:24px;width:270px;margin:auto">活动订单号:</p></div>
             <div style="width:490px;float:left"><p id="edit_gene_time" style="font-size:24px;width:470px;margin:auto">生成时间:</p></div>
@@ -142,6 +153,7 @@ $(document).ready(function(e) {
     </div>
 
     <div class="edit_shike_info_block" style="position:absolute;width:280px;height:400px;border:1px solid;background:white;z-index:101;top:500px;right:200px;display:none">
+        <img src="images/close.jpg" style="width:30px;height:30px;position:absolute;top:0;right:0;cursor:pointer" onclick="hide_edit_shike_info_block()">
         <div style="overflow:hidden;width:220px;margin:20px auto 0">
             <input style="float:left;border:1px solid;width:100px" type="text" id="shike_search">
             <input type="hidden" id="hidden_act_id">
@@ -158,6 +170,9 @@ $(document).ready(function(e) {
     <script>
         function hide_edit_activity_block(){
             $(".edit_activity_block").css("display","none");
+        }
+        function hide_edit_shike_info_block(){
+            $(".edit_shike_info_block").css("display","none");
         }
         function edit_activity(count){
             var act_id = $("#tag_"+count).val();

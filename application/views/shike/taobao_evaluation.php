@@ -95,10 +95,10 @@
                 <p class="uploading">
                     点击“收藏店铺”，收藏店铺后截图并上传
                     <a href="javascript:void(0);">
-                        <input type="file" id="comment_img" name="comment_img">
+                        <input type="file" id="comment_img" name="comment_img" onchange="change_span()">
                         上传文件
                     </a>
-                    <!-- <span>店铺.png</span> -->
+                    <span id="upload_file_span"></span>
                 </p>
                 <p><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
             </div>
@@ -114,6 +114,11 @@
         </div>
     </div>
 </section>
+<script>
+    function change_span(){
+        $("#upload_file_span").text($("#comment_img").val());
+    }
+</script>
 <div id="footer"></div>
 <!--确定已付款弹框-->
 <div class="confirm_submit_modal">
@@ -162,6 +167,7 @@
 
      function submit_form1(){
         if($("#comment_img").val()==''){
+            alert("请上传图片");
             return;
         }
         $('#form1').submit();
