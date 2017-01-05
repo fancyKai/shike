@@ -11,7 +11,9 @@ class Login extends MY_Controller {
 	{
 		$this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
+		$this->load->view('mall/login_header');
 		$this->load->view('login',$this->out_data);
+		$this->load->view('mall/footer');
 	}
 
 	function check_login()

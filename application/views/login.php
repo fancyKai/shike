@@ -15,9 +15,9 @@
             <div class="password_login">
                 <h1 class="left">密码登录</h1>
                 <p class="right">
-                    <a href="../register/shike_registration.html">注册试客</a>
+                    <a href="<?=base_url('mall/register/shike_register')?>">注册试客</a>
                     <span>/</span>
-                    <a href="../register/business_registration.html">注册商家</a>
+                    <a href="<?=base_url('mall/register/merchant_register')?>">注册商家</a>
                 </p>
             </div>
             <ul>
@@ -29,7 +29,7 @@
                 <input type="button" value="登录" onclick="login()" />
             </p>
             <div class="forget_password">
-                <a href="forget_password.html">忘记密码</a>
+                <a href="/forget_password">忘记密码</a>
                 <span>/</span>
                 <span>联系客服：</span>
                 <img src="images/shike/login_button_QQ_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')">

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends MY_Controller {
+class Forget_password extends MY_Controller {
 
 	function __construct()
 	{
@@ -12,7 +12,7 @@ class Login extends MY_Controller {
 		$this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 		$this->load->view('mall/login_header');
-		$this->load->view('login',$this->out_data);
+		$this->load->view('forget_password',$this->out_data);
 		$this->load->view('mall/footer');
 	}
 
