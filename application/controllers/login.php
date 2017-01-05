@@ -31,12 +31,14 @@ class Login extends MY_Controller {
             $query = $query_merchant->row_array();
             $result = array_merge($result, $query);
             $this->session->set_userdata('seller_id', $result['seller_id']);
+            $this->session->set_userdata('user_name', $result['user_name']);
 			$this->session->set_userdata('merchant_login', true);
         }
         elseif($query_shike->num_rows() > 0){
             $query = $query_shike->row_array();
             $result = array_merge($result, $query);
             $this->session->set_userdata('user_id', $result['user_id']);
+            $this->session->set_userdata('user_name', $result['user_name']);
 			$this->session->set_userdata('shike_login', true);
         }
         else{

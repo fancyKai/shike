@@ -92,7 +92,6 @@
             </a>
         </div>
         <div class="modal_content">
-            确认审核
             <p>最多只能绑定3家店铺</p>
             <p>如需更换店铺，请联系客服QQ：54545487</p>
         </div>

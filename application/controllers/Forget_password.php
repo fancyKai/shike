@@ -51,4 +51,54 @@ class Forget_password extends MY_Controller {
 		$this->session->sess_destroy();
 		header("Location: /login");
 	}
+
+	function reset_pwd()
+	{
+		$phone = $this->input->post('tel');
+		$password = $this->input->post('password');
+		$verification_code = $this->input->post('verification_code');
+		//判断手机号是否注册
+		$res = $this->db->query("select * from user where phone = $phone")->row_array();
+		$res2 = $this->db->query("select * from seller where tel = $phone")->row_array();
+		if(!count($res) && !count($res2))
+		{
+			$data = array(
+					'success'=>false,
+					'code'=>1,//手机未注册
+					'data'=>$this->out_data
+			);
+			echo json_encode($data);
+			exit ;
+		}
+		//验证验证码
+		$code_info = $this->db->query("select * from telcode where telephone = '{$phone}' and status = 1 order by time DESC limit 1")->row_array();
+		if($verification_code != $code_info['authcode'])
+		{
+			$data = array(
+					'success'=>false,
+					'code'=>2,//验证码不正确
+					'data'=>$this->out_data
+			);
+			echo json_encode($data);
+			exit ;
+		}
+		$this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");
+		$password = md5($password);
+		if(count($res))
+		{
+			//试客
+			$this->db->query("update user set password = '$password' where phone = '$phone'");
+		}else
+		{
+			//商家
+			$this->db->query("update seller set passwd = '$password' where tel = '$phone'");
+		}
+		$data = array(
+				'success'=>true,
+				'code'=>0,
+				'data'=>$this->out_data
+		);
+		echo json_encode($data);
+	}
+
 }

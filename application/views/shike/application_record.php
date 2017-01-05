@@ -110,7 +110,7 @@
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.try_manage>ul>li').find('a').eq(0).addClass('left_nav_active');
+            $('.try_manage>ul>li').find('a').eq(0).addClass('left_nav_active');
         // });
     })
 </script>
