@@ -33,6 +33,9 @@
   font-size: 14px;
   height: 80px;
 }
+#section .section_main .store_content .shops_details .detalis ul li:first-of-type {
+  width: 80px;
+}
 #section .section_main .store_content .shops_details .detalis ul li:first-of-type img {
   width: 80px;
   height: 80px;
@@ -170,7 +173,7 @@
 }
 .bindingShops_modal .shop_information input[type="file"] {
   border: none;
-  width: 200px;
+  width: 80px;
   height: 28px;
   line-height: 28px;
   padding-left: 10px;
@@ -199,7 +202,7 @@
 .bindingShops_modal .shop_information a.file {
   display: inline-block;
   position: relative;
-  width: 200px;
+  width: 80px;
   height: 28px;
   line-height: 28px;
   border: 1px solid #969696;
@@ -211,7 +214,7 @@
   position: absolute;
   right: 0px;
   top: 0;
-  /*opacity: 0;*/
+  opacity: 0;
 }
 .bindingShops_modal .shop_information b.not_select {
   width: 100px;

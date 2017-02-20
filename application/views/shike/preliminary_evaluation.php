@@ -14,11 +14,13 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="/shike_personal">个人中心</a></li>
+                <li><a href="<?=base_url('')?>">首页</a></li>
+                <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
+                <li><a href="/shike_personal">试客中心</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
                 <li><a href="/shike_try_winningManage">试用管理</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
-                <li>领取下单</li>
+                <li>初步评价</li>
             </ul>
         </div>
             <!--初步评价-->
@@ -37,21 +39,25 @@
                         <li><img style="width:120px;height:80px" src="<?php echo $order['product_img'];?>" alt=""></li>
                     <li>
                         <p>商品名称：<span><?php echo $order['product_name'];?></span></p>
-                        <p>商品分类：<span><?php if($order['product_classify']==1){
+                        <p>商品分类：<span><?php if($order['product_classify']==1) {
                                     echo "女装";
                                 }elseif ($order['product_classify']==2) {
                                     echo "男装";
                                 }elseif ($order['product_classify']==3) {
-                                    echo "鞋包配饰";
+                                    echo "美妆";
                                 }elseif ($order['product_classify']==4) {
-                                    echo "居家生活";
+                                    echo "鞋包配饰";
                                 }elseif ($order['product_classify']==5) {
-                                    echo "数码电器";
+                                    echo "居家生活";
                                 }elseif ($order['product_classify']==6) {
-                                    echo "母婴儿童";
+                                    echo "数码电器";
                                 }elseif ($order['product_classify']==7) {
-                                    echo "食品酒水";
+                                    echo "母婴儿童";
                                 }elseif ($order['product_classify']==8) {
+                                    echo "户外运动";
+                                }elseif ($order['product_classify']==9) {
+                                    echo "食品酒水";
+                                }elseif ($order['product_classify']==10) {
                                     echo "其他";
                                 }
                                 ?></span></p>
@@ -88,24 +94,24 @@
             <div class="good_picture">
                 <label for="good_picture">商品图片：</label>
                 <a href="javascript:void(0);">
-                    <input id="shaidan1_img" name="shaidan1_img" type="file">
-                    <img src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
+                    <input id="shaidan1_img" name="shaidan1_img" type="file" onchange="img1_rv()">
+                    <img id="img1_show" style="height:54px;width:54px" src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
                 </a>
                 <a href="javascript:void(0);">
-                    <input type="file" id="shaidan2_img" name="shaidan2_img">
-                    <img src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
+                    <input type="file" id="shaidan2_img" name="shaidan2_img" onchange="img2_rv()">
+                    <img id="img2_show" style="height:54px;width:54px" src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
                 </a>
                 <a href="javascript:void(0);">
-                    <input type="file" id="shaidan3_img" name="shaidan3_img">
-                    <img src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
+                    <input type="file" id="shaidan3_img" name="shaidan3_img" onchange="img3_rv()">
+                    <img id="img3_show" style="height:54px;width:54px" src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
                 </a>
                 <a href="javascript:void(0);">
-                    <input type="file" id="shaidan4_img" name="shaidan4_img">
-                    <img src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
+                    <input type="file" id="shaidan4_img" name="shaidan4_img" onchange="img4_rv()">
+                    <img id="img4_show" style="height:54px;width:54px" src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
                 </a>
                 <a href="javascript:void(0);">
-                    <input type="file" id="shaidan5_img" name="shaidan5_img">
-                    <img src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
+                    <input type="file" id="shaidan5_img" name="shaidan5_img" onchange="img5_rv()">
+                    <img id="img5_show" style="height:54px;width:54px" src="images/shike/sk_zjgl_lqxd_icon_jiahao_default.png" alt="">
                 </a>
                 <span id="pictureerror"></span>
                 <p>初步评价之后，商家将在48小时内审核评价，请耐心等待。</p>
@@ -185,6 +191,161 @@
             return;
         }
         $('#form1').submit();
+    }
+
+    function img1_rv(){
+        // var img = $("#shaidan1_img").val();
+        // $("#img1_show").attr('src',img);
+        var data = new FormData();
+        // console.log($("#shaidan1_img")[0].files);
+        // var data = $("#shaidan1_img")[0].files;
+       $.each($('#shaidan1_img')[0].files, function(i, file) {
+            console.log(file);
+            data.append('upload_img', file);
+        });
+        data.append("order_id","<?php echo $order['order_id'];?>");
+        $.ajax({
+            url:'shike_preliminary_evaluation/upload_shaidan',
+            type:'POST',
+            data:data,
+            cache: false,
+            dataType: "json",
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            success:function(result){
+                console.log(result);
+                $("#img1_show").attr("src",result);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+        });
+    }
+
+    function img2_rv(){
+        // var img = $("#shaidan1_img").val();
+        // $("#img1_show").attr('src',img);
+        var data = new FormData();
+        // console.log($("#shaidan1_img")[0].files);
+        // var data = $("#shaidan1_img")[0].files;
+       $.each($('#shaidan2_img')[0].files, function(i, file) {
+            console.log(file);
+            data.append('upload_img', file);
+        });
+        data.append("order_id","<?php echo $order['order_id'];?>");
+        $.ajax({
+            url:'shike_preliminary_evaluation/upload_shaidan',
+            type:'POST',
+            data:data,
+            cache: false,
+            dataType: "json",
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            success:function(result){
+                console.log(result);
+                $("#img2_show").attr("src",result);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+        });
+    }
+
+    function img3_rv(){
+        // var img = $("#shaidan1_img").val();
+        // $("#img1_show").attr('src',img);
+        var data = new FormData();
+        // console.log($("#shaidan1_img")[0].files);
+        // var data = $("#shaidan1_img")[0].files;
+       $.each($('#shaidan3_img')[0].files, function(i, file) {
+            console.log(file);
+            data.append('upload_img', file);
+        });
+        data.append("order_id","<?php echo $order['order_id'];?>");
+        $.ajax({
+            url:'shike_preliminary_evaluation/upload_shaidan',
+            type:'POST',
+            data:data,
+            cache: false,
+            dataType: "json",
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            success:function(result){
+                console.log(result);
+                $("#img3_show").attr("src",result);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+        });
+    }
+
+    function img4_rv(){
+        // var img = $("#shaidan1_img").val();
+        // $("#img1_show").attr('src',img);
+        var data = new FormData();
+        // console.log($("#shaidan1_img")[0].files);
+        // var data = $("#shaidan1_img")[0].files;
+       $.each($('#shaidan4_img')[0].files, function(i, file) {
+            console.log(file);
+            data.append('upload_img', file);
+        });
+        data.append("order_id","<?php echo $order['order_id'];?>");
+        $.ajax({
+            url:'shike_preliminary_evaluation/upload_shaidan',
+            type:'POST',
+            data:data,
+            cache: false,
+            dataType: "json",
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            success:function(result){
+                console.log(result);
+                $("#img4_show").attr("src",result);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+        });
+    }
+
+    function img5_rv(){
+        // var img = $("#shaidan1_img").val();
+        // $("#img1_show").attr('src',img);
+        var data = new FormData();
+        // console.log($("#shaidan1_img")[0].files);
+        // var data = $("#shaidan1_img")[0].files;
+       $.each($('#shaidan5_img')[0].files, function(i, file) {
+            console.log(file);
+            data.append('upload_img', file);
+        });
+        data.append("order_id","<?php echo $order['order_id'];?>");
+        $.ajax({
+            url:'shike_preliminary_evaluation/upload_shaidan',
+            type:'POST',
+            data:data,
+            cache: false,
+            dataType: "json",
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            success:function(result){
+                console.log(result);
+                $("#img5_show").attr("src",result);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+        });
     }
 </script>
 </body>

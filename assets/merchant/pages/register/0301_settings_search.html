@@ -45,8 +45,13 @@
                         <h4>搜索关键词：</h4>
                         <p>
                             请试客在www.taobao.com首页的搜索框内输入关键词：
-                            <input type="text"/>进行商品搜索（请尽量选择大词和长尾词）
+                            <input type="text" placeholder="女装" />进行商品搜索（请尽量选择大词和长尾词）
                             <span>商品搜索关键词不能为空</span>
+                        </p>
+                        <p>
+                            输入备用关键词：
+                            <input type="text">
+                            （备用关键词请设置的容易搜索到试用商品，试客将在主关键词搜不到试用商品时换另一个关键词进行搜索）
                         </p>
                         <p class="search_commodity">
                             在搜索的列表页面，通过以下分类找到商品：
@@ -156,7 +161,9 @@
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.try_manage ul>li').find('a').eq(0).addClass('leftNav_active')
+        });
 
         $('[data-toggle="search"]').bind('click',function(){
             $(this).addClass('search_active');

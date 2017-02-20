@@ -15,7 +15,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧试用中奖管理-->
-        <div class="content_main left">
+        <div id="my_main" class="content_main left">
             <h1 class="title">试用中奖管理</h1>
             <!--任务说明--进展-->
             <div class="task_specification">
@@ -23,8 +23,9 @@
                 <div class="order_status">
                     <ul>
                         <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=0">所有中奖试用（<span><?php echo $sum_order_list['count'];?></span>）</a><b>|</b></li>
-                        <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=4">待领取下单（<span><?php echo $sum_4_order_list['count'];?></span>）</a><b>|</b></li>
-                        <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=6">待收货评价（<span><?php echo $sum_6_order_list['count'];?></span>）</a><b>|</b></li>
+                        <li class="order"><a <?php if($order_status==4):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=4">待领取下单（<span><?php echo $sum_4_order_list['count'];?></span>）</a><b>|</b></li>
+                        <li class="order"><a <?php if($order_status==6):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=6">待收货评价（<span><?php echo $sum_6_order_list['count'];?></span>）</a><b>|</b></li>
+                        <li class="order"><a <?php if($order_status==5):?> class="personal_active" <?php endif;?> href="/shike_try_winningManage?order_status=5">待复制评价（<span><?php echo $sum_5_order_list['count'];?></span>）</a></li>
                     </ul>
                 </div>
                 <!--商品发货状态-->
@@ -33,10 +34,11 @@
                 <?php $order_list_count++;?>
                 <div class="delivery_status">
                     <div class="title">
+                    
                         <p class="left">
-                            <span>申请时间：<?php echo substr($v['time'],0,10);?></span>
+                            <span>中奖时间：<?php echo substr($v['time'],0,10);?></span>
                             <span>任务编号：<?php echo $v['order_id'];?></span>
-                            <span>淘宝商品订单号：<?php echo $v['out_sorderid']?></span>
+                            <span>淘宝商品订单号：<?php echo $v['outer_orderid']?></span>
                         </p>
                         <p class="right">
                             <a href="/shike_try_winningManage_details?order_id=<?php echo $v['order_id'];?>">查看详情</a>
@@ -101,7 +103,7 @@
                                     <input onclick="location.href='/shike_get_order?order_id=<?php echo $v['order_id'];?>'" type="button" value="领取下单"/>
                                 </p>
                                  <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
-                                <p><a  id="place_order" href="javascript:void(0);">查看下单领取规则</a></p>
+                                <p><a  id="place_order" href="javascript:void(0);" onclick="get_order_detail(<?php echo $v['order_id'];?>)">查看下单领取规则</a></p>
                             </li>
                         <?php endif;?>
                         <?php if($v['status'] == 5):?>
@@ -143,7 +145,8 @@
                             </li>
                         <?php endif;?>
                          <input type="hidden" id="order_list_id_<?php echo $order_list_count;?>" value="<?php echo $v['order_id'];?>">
-                        <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo strtotime($v['time']);?>">
+                         <?php $time = max(strtotime($v['time']),strtotime($v['time_2']),strtotime($v['time_3'])); ?>
+                        <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo $time;?>">
                         </ul>
                     </div>
                 </div>
@@ -160,8 +163,8 @@
         <div class="modal_content">
             <h1>下单领取规则：</h1>
             <p>1、请在中奖后的48小时内完成下单领取，超时系统将取消中奖资格；</p>
-            <p>2、请核对下单淘宝账号为平台绑定淘宝账号：asd，禁止用其他淘宝账号下单；</p>
-            <p>3、此次使用商品指定规格为：每单拍1件  红色  大号 请勿拍错；</p>
+            <p>2、请核对下单淘宝账号为平台绑定淘宝账号：<span><?php echo $user['taobao_id'];?></span>，禁止用其他淘宝账号下单；</p>
+            <p>3、此次使用商品指定规格为：每单拍<span id="order_buy_sum"></span>件  <span id="order_color"></span>  <span id="order_size"></span> 请勿拍错；</p>
             <p>4、旺旺聊天时禁止提及试用、免费送等敏感字眼；</p>
             <p>5、下单禁止使用淘宝客、返利网、花呗、信用卡、代付等返利方式下单；</p>
             <p>6、未收到商品前，禁止提前确认收货好评。</p>
@@ -176,6 +179,7 @@
 
 <script src="js/shike/jquery-1.10.2.js"></script>
 <script src="js/shike/modal_scrollbar.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
          var order_list_count = <?php echo count($order_list);?>;
@@ -192,7 +196,7 @@
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.try_manage>ul>li').find('a').eq(1).addClass('left_nav_active');
+            $('.try_manage>ul>li').find('a').eq(1).addClass('left_nav_active');
         // });
 //        标题的点击事件
         $('.order').bind('click',function(){
@@ -219,7 +223,7 @@
     // console.log(s);
     //console.log(obj);
     var remain_seconds = s;
-    remain_seconds = remain_seconds%(3600*24);
+   // remain_seconds = remain_seconds%(3600*24);
     var hour = parseInt(remain_seconds/3600);
     hour = (hour<10?'0'+hour:hour);
     var minutes = parseInt(remain_seconds%3600/60);
@@ -241,26 +245,35 @@
     //console.log(typeof objid);
     var order_id = objid.substring(9);
     //console.log(objid.substring(9));
-    if(s == 0){
-        $.ajax({
-        url : admin.url+'shike_personal/cancle_order',
-        type : 'POST',
-        dataType: "json",
-        cache : false,
-        timeout : 20000,
-        data : {orderid:order_id},
-        success : function (result){
-            // console.log(result);
-            window.location.reload();
-        },
-        error : function (XMLHttpRequest, textStatus){
-            console.log(XMLHttpRequest);
-            console.log(textStatus);
-        }
-    })
+   if(s == 0){
+        //console.log(1);
+        setTimeout("window.location.reload()",1000);
+        return;
     }
     setTimeout("ydcountdown("+(s-1)+",$(\"#"+objid+"\"))","1000");
 }
+
+    function get_order_detail(o){
+        var id = o;
+        $.ajax({
+        url : admin.url+'shike_try_winningManage/get_order_detail',
+        type : 'POST',
+        cache : false,
+        dataType:'json',
+        data : {id:id},
+        success : function (result){
+            console.log(result);
+            $("#order_buy_sum").text(result["buy_sum"]);
+            $("#order_color").text(result["color"]);
+            $("#order_size").text(result["size"]);
+        },
+        error : function(XMLHttpRequest, textStatus){
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus);
+        }
+
+        })
+    }
 </script>
 </body>
 </html>

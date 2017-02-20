@@ -52,6 +52,15 @@
           white-space: nowrap;
           overflow:hidden;
           text-overflow:ellipsis;
+          >b{
+            font-weight:bold !important;
+            display:inline-block;
+            float:left;
+          }
+          >img{
+            margin-top:3px;
+            margin-left:10px;
+          }
         }
         .serve{
           width:550px;
@@ -124,7 +133,7 @@
         }
         .apply_step{
           padding-top:23px;
-          margin:20px 0;
+          margin:15px 0;
           border-top:1px dashed @border_color;
           border-bottom:1px dashed @border_color;
           h1{
@@ -133,8 +142,8 @@
             padding-bottom:3px;
           }
           ul{
+            margin:15px 0;
             li{
-              margin:20px 0;
               span{
                 display:inline-block;
                 width:30px;
@@ -144,10 +153,20 @@
                 background:url(../images/xqy_icon_line_default.png) center no-repeat;
               }
             }
+            li:nth-of-type(2){
+              margin:15px 0;
+            }
           }
         }
-        >p{
-          color:@deepfont_color;
+        table{
+          width: 218px;
+          margin-left: -10px;
+          td{
+            color:#969696;
+            font-size:12px;
+            text-align:center;
+            padding-top:10px;
+          }
         }
       }
     }
@@ -159,8 +178,10 @@
         line-height:50px;
         border:1px solid @border_color ;
         border-bottom:none;
+        overflow:hidden;
         span{
           display:inline-block;
+          float:left;
           width:150px;
           text-align:center;
           color:@deepfont_color;
@@ -169,6 +190,41 @@
           b{
             font-weight:normal;
             color:@deepred_color;
+          }
+        }
+        .tryAccount_carousel{
+          width:1048px;
+          height:50px;
+          line-height:50px;
+          .rollBox #List1,.rollBox #List2{
+            float:left;
+            min-width:1048px;
+          }
+          .rollBox{
+            box-sizing:border-box;
+            width: 1048px;
+            height:50px;
+            margin:0 auto;
+            position:relative;
+            background-color:transparent ;
+            .Cont{
+              box-sizing:border-box;
+              width: 1048px;
+              background-color:transparent;
+              margin:0 auto;
+              overflow:hidden;
+              float:left;
+              .pic{
+                padding:0 20px;
+                height:50px;
+                line-height:50px;
+                float:left;
+                text-align:center;
+              }
+            }
+            .ScrCont{
+              width:10000000px;
+            }
           }
         }
       }
@@ -187,7 +243,8 @@
         }
         .products {
           width:220px;
-          margin:20px 0 0 20px;
+          margin-left:20px;
+          margin-top:20px;
           a{
             img{
               width:220px;
@@ -201,7 +258,12 @@
             white-space:nowrap;
             font-size:14px;
             color:@deepfont_color ;
-            padding-top:8px;
+            //margin-top:8px;
+            //background:url(../images/bg_tb_default.png)right center no-repeat;
+            padding-right:26px;
+          }
+          img{
+            margin-top:1.5px !important ;
           }
           .quantity{
             margin:13px 0;
@@ -210,20 +272,29 @@
               height:20px;
               line-height:20px;
               border-radius:5px;
-              color:#fff;
               font-size:12px;
-              padding:0 5px;
+              padding:0 3px;
             }
             span:first-of-type{
-              background-color:#a766e6;
+              //background-color:#a766e6;
+              color:#a766e6;
+              border:1px solid #a766e6;
             }
-            span:last-of-type{
-              background-color:#36bc9e;
-              margin-left:10px;
+            span:nth-of-type(2){
+              //background-color:#36bc9e;
+              color:#36bc9e;
+              border:1px solid #36bc9e;
+              margin-left:5px;
+            }
+            span:nth-of-type(3){
+              display:inline-block;
+              float:right;
+              font-size:12px;
+              padding-right:0;
             }
           }
           .price{
-            padding-bottom:18px;
+            padding-bottom:10px;
             overflow:hidden;
             span:first-of-type {
               float:left;
@@ -232,12 +303,92 @@
             }
             span:last-of-type {
               float:right;
-              font-size:14px;
-              padding-top: 5px;
-              b{
-                font-weight:normal;
+              //padding-top: 5px;
+              input{
+                width:80px;
+                height:28px;
+                line-height:28px;
+                border-radius:5px;
+                color:#fff;
+                font-size:14px;
+                padding-left:0;
+                background-color:@deepred_color;
               }
             }
+          }
+          .progress_bar{
+            padding-bottom:16px;
+            height:34px;
+          }
+        }
+          .product_introduction{
+            width:220px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            font-size:14px;
+            color:@deepfont_color ;
+            //margin-top:8px;
+            //background:url(../images/bg_tb_default.png)right center no-repeat;
+            padding-right:26px;
+          }
+          img{
+            margin-top:1.5px !important ;
+          }
+          .quantity{
+            margin:13px 0;
+            span{
+              display:inline-block;
+              height:20px;
+              line-height:20px;
+              border-radius:5px;
+              font-size:12px;
+              padding:0 3px;
+            }
+            span:first-of-type{
+              //background-color:#a766e6;
+              color:#a766e6;
+              border:1px solid #a766e6;
+            }
+            span:nth-of-type(2){
+              //background-color:#36bc9e;
+              color:#36bc9e;
+              border:1px solid #36bc9e;
+              margin-left:5px;
+            }
+            span:nth-of-type(3){
+              display:inline-block;
+              float:right;
+              font-size:12px;
+              padding-right:0;
+            }
+          }
+          .price{
+            padding-bottom:10px;
+            overflow:hidden;
+            span:first-of-type {
+              float:left;
+              color:@deepred_color;
+              font-size:20px;
+            }
+            span:last-of-type {
+              float:right;
+              //padding-top: 5px;
+              input{
+                width:80px;
+                height:28px;
+                line-height:28px;
+                border-radius:5px;
+                color:#fff;
+                font-size:14px;
+                padding-left:0;
+                background-color:@deepred_color;
+              }
+            }
+          }
+          .progress_bar{
+            padding-bottom:16px;
+            height:34px;
           }
         }
       }
@@ -260,8 +411,18 @@
       }
     }
   }
-}
 
+//返回顶部
+.return_top {
+  overflow: hidden;
+  position: fixed;
+  z-index: 99;
+  bottom:20%;
+  right:10%;
+  img{
+    cursor:pointer;
+  }
+}
 
 
 

@@ -18,7 +18,11 @@
             <ul>
                 <li>你所在的位置：</li>
                 <li class="order">
-                    <a class="personal_active" href="/merchant_personal">个人中心</a>
+                    <a class="personal_active" href='<?=base_url('')?>'>首页</a>
+                </li>
+                <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
+                <li class="order">
+                    <a class="personal_active" href="/merchant_personal">商家中心</a>
                 </li>
                 <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
                 <li class="order">
@@ -39,36 +43,49 @@
                     </div>
             <div class="details">
                 <ul>
-                    <li><img style="width:120px;height:80px" src="<?php echo $order['product_img'];?>" alt=""></li>
+                    <li><img style="width:80px;height:80px" src="<?php echo $order['product_img'];?>" alt=""></li>
                     <li>
                         <p>商品名称：<span><?php echo $order['product_name'];?></span></p>
-                        <p>商品分类：<span><?php if($order['product_classify']==1){
+                        <p>商品规格：<span><?php echo $order['color'];?>.<?php echo $order['size'];?></span></p>
+                        <p>商品链接：<span><a href="<?php echo $order['product_link'];?>"><?php echo $order['product_link'];?></a></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>店铺名称：<span><?php echo $order['shopname'];?></span></p>
+                        <p>商品分类：<span><?php if($order['product_classify']==1) {
                                     echo "女装";
                                 }elseif ($order['product_classify']==2) {
                                     echo "男装";
                                 }elseif ($order['product_classify']==3) {
-                                    echo "鞋包配饰";
+                                    echo "美妆";
                                 }elseif ($order['product_classify']==4) {
-                                    echo "居家生活";
+                                    echo "鞋包配饰";
                                 }elseif ($order['product_classify']==5) {
-                                    echo "数码电器";
+                                    echo "居家生活";
                                 }elseif ($order['product_classify']==6) {
-                                    echo "母婴儿童";
+                                    echo "数码电器";
                                 }elseif ($order['product_classify']==7) {
-                                    echo "食品酒水";
+                                    echo "母婴儿童";
                                 }elseif ($order['product_classify']==8) {
+                                    echo "户外运动";
+                                }elseif ($order['product_classify']==9) {
+                                    echo "食品酒水";
+                                }elseif ($order['product_classify']==10) {
                                     echo "其他";
                                 }
-                                ?></span></p>
-                        <p>商品规格：<span><?php echo $order['color'];?>.<?php echo $order['size'];?></span></p>
-                    </li>
-                    <li>
-                        <p>店铺名称：<span><?php echo $order['shopname'];?></span></p>
+                                ?></span>
+                        </p>
                         <p>平台：<span><?php  echo ($order['platform_id']==1 ? '淘宝':'天猫');?></span></p>
-                        <p>单价：<span><b>&yen;<?php echo $order['unit_price'];?></b>每单拍<b><?php echo $order['buy_sum'];?></b>个</span></p>
                     </li>
                     <li>
-                        <p>试客：<span><?php echo $order['shikename'];?></span></p>
+                        <p>单件：<span><b style="margin-right:10px;">&yen;<?php echo $order['unit_price'];?></b>每单拍<b><?php echo $order['buy_sum'];?></b>个</span>
+                        </p>
+                        <p>试用总份数：<span><b><?php echo $order['amount'];?>份</b></span></p>
+                        <p>商品运费：<span><?php if ($order['freight']==0){echo "全国包邮";}else{echo $order['freight'].'元';}
+                            ?></span></p>
+                    </li>
+                    <li>
+                        <p>试客：<span><?php echo $order['user_name'];?></span></p>
                     </li>
                 </ul>
             </div>
@@ -120,10 +137,10 @@
                     <div class="content">
                         <p class="application_title">浏览店铺</p>
                         <div class="browse_shop">
-                            <p class="baby_url">宝贝链接1：<?php echo $order['product_url1'];?></p>
-                            <p class="baby_url">宝贝链接2：<?php echo $order['product_url2'];?></p>
-                            <p class="baby_url">宝贝链接3：<?php echo $order['product_url3'];?></p>
-                            <p class="baby_url">宝贝链接4：<?php echo $order['product_url4'];?></p>
+                            <p class="baby_url">宝贝链接1：<a href="<?php echo $order['product_url1'];?>"><?php echo $order['product_url1'];?></a></p>
+                            <p class="baby_url">宝贝链接2：<a href="<?php echo $order['product_url2'];?>"><?php echo $order['product_url2'];?></a></p>
+                            <p class="baby_url">宝贝链接3：<a href="<?php echo $order['product_url3'];?>"><?php echo $order['product_url3'];?></a></p>
+                            <p class="baby_url">宝贝链接4：<a href="<?php echo $order['product_url4'];?>"><?php echo $order['product_url4'];?></a></p>
                         </div>
                     </div>
                     <!--客服聊天-->
@@ -283,10 +300,10 @@
             <div class="confirm_delivery" action="">
                 <label for="logistics">物&nbsp; &nbsp;流</label>
                 <input id="logistics" type="text"/>
-                <p><span>物流不能为空</span></p>
+                <p><span id="logistics_error"></span></p>
                 <label for="waybill_number">运单号</label>
                 <input id="waybill_number" type="text"/>
-                <p><span></span></p>
+                <p><span id="waybill_number_error"></span></p>
             </div>
         </div>
         <div class="modal_submit">
@@ -338,6 +355,7 @@
 
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
+<script src="js/merchant/mask_layer.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
@@ -354,20 +372,20 @@
             $(this).toggleClass('collapse_active');
         });
 // //        确认发货
-//         $('#delivery').bind('click',function(){
-//             $('.delivery_modal').css('display','block');
-//             disableScroll();
-//         });
+         $('#delivery').bind('click',function(){
+          $('.delivery_modal').css('display','block');
+            disableScroll();
+         });
 // //        确认审核通过
-//         $('#audit').bind('click',function(){
-//             $('.audit_modal').css('display','block');
-//             disableScroll();
-//         });
+        $('#audit').bind('click',function(){
+             $('.audit_modal').css('display','block');
+             disableScroll();
+        });
 // //        确认通过
-//         $('#confirm_pass').bind('click',function(){
-//             $('.pass_modal').css('display','block');
-//             disableScroll();
-//         });
+        $('#confirm_pass').bind('click',function(){
+         $('.pass_modal').css('display','block');
+             disableScroll();
+         });
 
         $('.close,.cancel,.confirm').bind('click',function(){
             $('.delivery_modal,.audit_modal,.pass_modal').css('display','none');
@@ -380,6 +398,14 @@
         var wuliu = $("#logistics").val();
         var yundan = $("#waybill_number").val();
         var order_id = $("#hidden_orderid").val();
+        if(!wuliu){
+            $("#logistics_error").text("物流不能为空");
+            return;
+        }
+        if(!yundan){
+            $("#waybill_number_error").text("运单号不能为空");
+            return;
+        }
         $.ajax({
         url : admin.url+'merchant_personal/update_confirm_ship',
         data:{wuliu:wuliu,yundan:yundan,order_id:order_id},

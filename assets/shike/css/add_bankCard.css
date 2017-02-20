@@ -15,6 +15,16 @@
   border: 1px solid #969696;
   border-radius: 5px;
 }
+#section .section_main .add_bankCard .account_information #selectBank {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+}
+#section .section_main .add_bankCard .account_information #selectBank .option {
+  color: #f0f0f0;
+}
 #section .section_main .add_bankCard .account_information p {
   height: 30px;
   padding-top: 3px;

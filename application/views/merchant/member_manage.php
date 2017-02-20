@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--会员管理-->
-        <div class="member_manage left">
+        <div id="my_main" class="member_manage left">
             <h1 class="title">会员管理</h1>
             <h2>会员状态：</h2>
             <table class="member_state">
@@ -61,11 +61,14 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
-        // $('#left_nav').load("../common/left_nav.html");
+         //$('#left_nav').load("../common/left_nav.html",function(){
+          $('.account_information ul>li').find('a').eq(2).addClass('leftNav_active')
+          //});
     })
 </script>
 </body>

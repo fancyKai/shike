@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第二次未获奖--任务</title>
+    <link rel="stylesheet" href="../../css/location_title.css">
+    <link rel="stylesheet" href="../../css/getOrder_stepThree.css">
+    <link rel="stylesheet" href="../../css/getOrder_stepOne.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_content">
+        <div class="location_title">
+            <ul>
+                <li>您的位置：</li>
+                <li><a href="javascript:void(0)">首页</a></li>
+                <li><a href="../01_personal_center/personal_center.html">试客中心</a></li>
+                <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+                <li><a href="01_application_record.html">申请记录</a></li>
+                <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+                <li>第二次任务</li>
+            </ul>
+        </div>
+        <!--步骤介绍-->
+        <div class="step_introduce" style="padding-top:0;">
+            <div style="margin-bottom:20px;" class="try_good">
+                <h1>1.进入试用商品详情页</h1>
+                <p>请打开淘宝网登录账号：<b>mxyingying</b>，进入购物车找到以下商品，并点击进入宝贝详情页。</p>
+                <div class="commodity">
+                    <div class="content">
+                        <p><img src="../../images/picture.png" alt=""></p>
+                        <div class="good_introduce">
+                            <p class="good_name"><span>冬季学院风宽松连帽保暖中长款羽绒服加厚过膝面包服</span></p>
+                            <p>店铺：<span>海澜之家官方旗舰店</span></p>
+                            <p>规格：<span>红色 大号</span></p>
+                        </div>
+                    </div>
+                    <p>需拍下数量：<span>1</span>件 &nbsp; 金额<span>&yen;200.00</span></p>
+                </div>
+
+            </div>
+            <!--试用商品-->
+            <div class="try_good">
+                <h1>2.浏览店铺</h1>
+                <!--第一步-->
+                <div class="first_step">
+                    <h2>
+                        第一步：如图所示，进入店铺首页。
+                    </h2>
+                    <img src="../../images/sk_zjgl_lqxd_bg_jrdp_default.png" alt="">
+                    <!--示例图片-->
+                </div>
+                <!--第二步-->
+                <div class="second_step">
+                    <h2>
+                        第二步：进入店铺首页后，随机点开4个商品，浏览完整个宝贝详情，并将宝贝详情页地址粘贴到以下输入框中：
+                    </h2>
+                    <p><b>注意：4个宝贝页面地址不可重复，如果搜到的商品少于4个，可填写淘宝其他链接。</b></p>
+                    <form action="">
+                        <label for="babyOne">宝贝页地址1：</label>
+                        <input id="babyOne" type="text" placeholder="将浏览器的商品链接复制粘贴到此处">
+                        <span>商品链接不能为空</span>
+                        <br/>
+                        <label for="babyTwo">宝贝页地址2：</label>
+                        <input id="babyTwo" type="text" placeholder="将浏览器的商品链接复制粘贴到此处">
+                        <span>商品链接不能为空</span>
+                        <br/>
+                        <label for="babyThree">宝贝页地址3：</label>
+                        <input id="babyThree" type="text" placeholder="将浏览器的商品链接复制粘贴到此处">
+                        <span></span>
+                        <br/>
+                        <label for="babyFour">宝贝页地址4：</label>
+                        <input id="babyFour" type="text" placeholder="将浏览器的商品链接复制粘贴到此处">
+                        <span></span>
+                        <br/>
+                    </form>
+                    <!--示例图片-->
+                </div>
+            </div>
+            <p class="submit_btn">
+                <input type="button" value="提交任务">
+                <span>提交任务后就可以获得一次抽奖机会</span>
+            </p>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+
+        $('#second_step').bind('click',function(){
+            $('.second_step .example_images').slideToggle();
+        });
+        $('#first_step').bind('click',function(){
+            $('.first_step .example_images').slideToggle();
+        })
+    })
+</script>
+</body>
+</html>

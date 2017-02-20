@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--会员管理-->
-        <div class="member_manage left">
+        <div id="my_main" class="member_manage left">
             <h1 class="title">会员管理</h1>
             <h2>会员状态：</h2>
             <table class="member_state">
@@ -24,7 +24,7 @@
                     <th>操作</th>
                 </tr>
                 <tr>
-                    <td><?php  echo ($user['level']==1 ? '试用会员':'正式会员');?></td>
+                    <td><?php  echo ($user['level']==1 ? '普通会员':'VIP会员');?></td>
                     <?php if($user['level']==1):?>
                     <td>----</td>
                     <?php else:?>
@@ -62,12 +62,13 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.account_information ul>li').find('a').eq(2).addClass('left_nav_active');
+            $('.account_information ul>li').find('a').eq(2).addClass('left_nav_active');
         // });
     })
 </script>

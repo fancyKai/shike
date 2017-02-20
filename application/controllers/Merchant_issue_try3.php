@@ -53,6 +53,10 @@ class Merchant_issue_try3 extends MY_Controller {
 		$dis_ser9 = ($this->input->post('dis_ser9')=='true') ? 1:0;
 		$dis_ser10 = ($this->input->post('dis_ser10')=='true') ? 1:0;
 		$dis_ser11 = ($this->input->post('dis_ser11')=='true') ? 1:0;
+		$dis_ser12 = ($this->input->post('dis_ser12')=='true') ? 1:0;
+		$dis_ser13 = ($this->input->post('dis_ser13')=='true') ? 1:0;
+		$dis_ser14 = ($this->input->post('dis_ser14')=='true') ? 1:0;
+		$dis_ser15 = ($this->input->post('dis_ser15')=='true') ? 1:0;
 		// $dis_ser1 = $this->input->post('dis_ser1');
 		// if($dis_ser1=='true'){
 		// 	$dis_ser1=1;
@@ -60,7 +64,7 @@ class Merchant_issue_try3 extends MY_Controller {
 		// 	$dis_ser1=0;
 		// }
 		//echo json_encode($dis_ser1);return;
-		$info = array("ser_platformid" => $platformid,"t_picture_url" => $t_picture_url,"t_key_words" => $t_key_words,"t_classify1" => $t_classify1,"t_classify2" => $t_classify2,"t_classify3" => $t_classify3,"t_classify4" => $t_classify4,"t_classify5" => $t_classify5,"t_lower_price" => $t_lower_price,"t_higher_price" => $t_higher_price,"t_delivery_place" => $t_delivery_place,"t_sort"=>$t_sort,"dis_ser1"=>$dis_ser1,"dis_ser2"=>$dis_ser2,"dis_ser3"=>$dis_ser3,"dis_ser4"=>$dis_ser4,"dis_ser5"=>$dis_ser5,"dis_ser6"=>$dis_ser6,"dis_ser7"=>$dis_ser7,"dis_ser8"=>$dis_ser8,"dis_ser9"=>$dis_ser9,"dis_ser10"=>$dis_ser10,"dis_ser11"=>$dis_ser11);
+		$info = array("ser_platformid" => $platformid,"t_picture_url" => $t_picture_url,"t_key_words" => $t_key_words,"t_classify1" => $t_classify1,"t_classify2" => $t_classify2,"t_classify3" => $t_classify3,"t_classify4" => $t_classify4,"t_classify5" => $t_classify5,"t_lower_price" => $t_lower_price,"t_higher_price" => $t_higher_price,"t_delivery_place" => $t_delivery_place,"t_sort"=>$t_sort,"dis_ser1"=>$dis_ser1,"dis_ser2"=>$dis_ser2,"dis_ser3"=>$dis_ser3,"dis_ser4"=>$dis_ser4,"dis_ser5"=>$dis_ser5,"dis_ser6"=>$dis_ser6,"dis_ser7"=>$dis_ser7,"dis_ser8"=>$dis_ser8,"dis_ser9"=>$dis_ser9,"dis_ser10"=>$dis_ser10,"dis_ser11"=>$dis_ser11,"dis_ser12"=>$dis_ser12,"dis_ser13"=>$dis_ser13,"dis_ser14"=>$dis_ser14,"dis_ser15"=>$dis_ser15);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
 		//echo json_encode($info);

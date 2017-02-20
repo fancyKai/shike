@@ -46,6 +46,15 @@
           b{
             font-weight:bold;
           }
+          input{
+            width:100px;
+            height:30px;
+            line-height:30px;
+            margin-left:5px;
+            border-radius:5px;
+            background-color:@deepred_color;
+            color:#fff;
+          }
           span{
             color:#969696;
             font-size:12px;
@@ -94,9 +103,9 @@
             }
             input[type='button']{
               width:120px;
-              border:1px solid @deepred_color;
-              color:@deepred_color;
-              background-color:#fff;
+              border:1px solid #969696;
+              color:#646464;
+              background-color:#f0f0f0;
               margin-left:10px;
             }
           }
@@ -182,13 +191,22 @@
 
 
 //弹框
- .pass_modal{
+ .pass_modal,.modal{
   display:none;
    .confirm_audit {
      padding: 67px 0;
      font-size: 16px;
    }
-
+   .modal_content{
+     p{
+       color:#323232;
+       padding: 60px 0;
+       font-size: 16px;
+       b{
+         color:#005ea7;
+       }
+     }
+   }
   .modal_submit {
     padding-top: 9px;
     input {

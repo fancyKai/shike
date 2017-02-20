@@ -3,6 +3,29 @@
   font-size: 16px;
   padding: 30px 0 10px 0;
 }
+#section .section_main .member_manage .allRecord {
+  overflow: hidden;
+  height: 38px;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 0 20px;
+  margin-top: 30px;
+}
+#section .section_main .member_manage .allRecord li:first-of-type a {
+  color: #f10180;
+}
+#section .section_main .member_manage .allRecord li {
+  float: left;
+  line-height: 38px;
+}
+#section .section_main .member_manage .allRecord li a {
+  font-size: 14px;
+  color: #323232;
+}
+#section .section_main .member_manage .allRecord li span {
+  color: #c8c8c8;
+  margin: 0 20px;
+}
 #section .section_main .member_manage table {
   width: 980px;
 }

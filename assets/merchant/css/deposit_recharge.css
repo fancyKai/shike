@@ -26,6 +26,20 @@
 #section .section_main .deposit_recharge table td a {
   color: #005ea7;
 }
+#section .section_main .deposit_recharge .recharge_active {
+  background: url(../images/spot.png) left center no-repeat !important;
+}
+#section .section_main .deposit_recharge .recharge_type {
+  padding: 20px 0 30px 0;
+}
+#section .section_main .deposit_recharge .recharge_type span {
+  display: inline-block;
+  margin-left: 15px;
+  padding-left: 26px;
+  height: 16px;
+  font-size: 14px;
+  background: url(../images/sj_fbsy_icon_quan_default.png) left center no-repeat;
+}
 #section .section_main .deposit_recharge .recharge_amount p {
   font-size: 14px;
   padding-top: 30px;
@@ -70,11 +84,7 @@
   line-height: 40px;
   border: 1px solid #f10180;
   border-radius: 5px;
-  background-color: #fff;
-  color: #f10180;
   font-size: 16px;
-}
-#section .section_main .deposit_recharge .confirm_btn input:hover {
   background-color: #f10180;
   color: #fff;
 }
@@ -93,4 +103,30 @@
 #section .section_main .deposit_recharge .warm_prompt p img {
   margin-top: -2px;
   cursor: pointer;
+}
+.pay_modal {
+  display: none;
+}
+.pay_modal .modal_content {
+  text-align: center;
+}
+.pay_modal .modal_content p {
+  font-size: 14px;
+  color: #323232;
+  line-height: 32px;
+  margin: 43px 0;
+}
+.pay_modal .modal_submit {
+  padding-top: 15px;
+}
+.pay_modal .modal_submit input {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.pay_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
 }

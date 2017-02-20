@@ -19,7 +19,7 @@ class Merchant_userapi extends MY_Controller {
 		$authcode = $this->input->post("authcode");
 		$passwd = $this->input->post("passwd");
 		$telcode = $this->session->userdata("telcode");
-		$this->session->set_userdata(array("telcode",""));
+		$this->session->set_userdata(array("telcode"=>""));
 		if($authcode != $telcode){
 			$msg = "手机验证码错误";
 			$res = 0;
@@ -37,7 +37,7 @@ class Merchant_userapi extends MY_Controller {
 	public function check_telcode(){
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
-		$this->session->set_userdata(array("telcode",""));
+		$this->session->set_userdata(array("telcode"=>""));
 		if($authcode != $telcode){
 			$msg = "手机验证码错误";
 			$res = 0;
@@ -55,7 +55,7 @@ class Merchant_userapi extends MY_Controller {
 		$seller_id = $this->session->userdata('seller_id');
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
-		$this->session->set_userdata(array("telcode",""));
+		$this->session->set_userdata(array("telcode"=>""));
 		$phone = $this->input->post("phone");
 
 		if($authcode != $telcode){
@@ -109,6 +109,46 @@ class Merchant_userapi extends MY_Controller {
 		$result = array('act_count' => $act_count['count'], 
 			            'order_count' => $order_count['count'],
 			            'mess_count' => $mess_count['count']);
+		echo json_encode($result);
+
+	}
+
+	public function revamp_payPw(){
+		$seller_id = $this->session->userdata('seller_id');
+		$authcode = $this->input->post("authcode");
+		$passwd = $this->input->post("passwd");
+		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode"=>""));
+		if($authcode != $telcode){
+			$msg = "手机验证码错误";
+			$res = 0;
+		}else{
+			$info = array("paypw"=>md5($passwd));
+			$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
+			$msg = "成功";
+			$res = 1;
+		}
+		$result = array("msg"=>$msg,"res"=>$res);
+		echo json_encode($result);
+
+	}
+
+	public function revamp_withdrawPw(){
+		$seller_id = $this->session->userdata('seller_id');
+		$authcode = $this->input->post("authcode");
+		$passwd = $this->input->post("passwd");
+		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode"=>""));
+		if($authcode != $telcode){
+			$msg = "手机验证码错误";
+			$res = 0;
+		}else{
+			$info = array("withdrawpw"=>md5($passwd));
+			$ress = $this->db->update("seller",$info,array("seller_id"=>$seller_id));
+			$msg = "成功";
+			$res = 1;
+		}
+		$result = array("msg"=>$msg,"res"=>$res);
 		echo json_encode($result);
 
 	}

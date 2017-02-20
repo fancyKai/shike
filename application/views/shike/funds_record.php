@@ -14,10 +14,10 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--资金管理-->
-        <div class="funds_record left">
+        <div id="my_main" class="funds_record left">
             <h1 class="title">资金记录</h1>
             <ul class="allRecord">
-                <li class="record" <?php if(!$money_type):?>  data-toggle="funds_detail" <?php endif;?> ><a <?php if(!$money_type):?> style="color:#f10180"<?php endif;?> href="/shike_funds_record?money_type=0">资金明细</a><span>|</span></li>
+                <li class="record" <?php if(!$money_type):?>  data-toggle="funds_detail" <?php endif;?> ><a <?php if(!$money_type):?> style="color:#f10180"<?php endif;?> href="/shike_funds_record?money_type=0">本金明细</a><span>|</span></li>
 
                 <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record" <?php endif;?> ><a <?php if($money_type == 2):?> style="color:#f10180"<?php endif;?> href="/shike_funds_record?money_type=2">提现记录</a></li>
             </ul>
@@ -27,23 +27,38 @@
             <table class="funds_detail">
                 <tr>
                     <td>时间</td>
-                    <td>入款</td>
-                    <td>扣款</td>
+                    <td>返款</td>
+                    <td>提现</td>
                     <td>结余</td>
                     <td>备注</td>
+                    <td>状态</td>
                 </tr>
             <?php foreach($money_list as $v):?>
                 <tr>
                     <td><?php echo $v['time'];?></td>
                 <?php if($v['money_type'] == 1):?>
                     <td>&yen;<?php echo $v['money'];?></td>
-                    <td>&yen;0.00</td>
+                    <td></td>
                 <?php else:?>
-                    <td>&yen;0.00</td>
+                    <td></td>
                     <td>&yen;<?php echo $v['money'];?></td>
                 <?php endif;?>
                     <td>&yen;<?php echo $v['money_remain'];?></td>
-                    <td><?php echo $v['remarks'];?></td>
+
+                <?php if($v['remarks'] == 1):?>
+                    <td>试用返款</td>
+                <?php elseif($v['remarks'] == 2):?>
+                    <td>本金提现</td>
+                <?php endif;?>
+
+
+                <?php if($v['status'] == 1):?>
+                    <td>已返款</td>
+                <?php elseif($v['status'] == 2):?>
+                    <td>提现中</td>
+                <?php elseif($v['status'] == 3):?>
+                    <td>已提现</td>
+                <?php endif;?>
                 </tr>
             <?php endforeach ?>
             </table>
@@ -64,7 +79,11 @@
                     <td><?php echo $v['flowid'];?></td>
                     <td>&yen;<?php echo $v['money'];?></td>
                     <td>&yen;<?php echo ($v['money']-$v['processfee']);?></td>
-                    <td>提现成功</td>
+                <?php if($v['status'] == 2):?>
+                    <td>提现中</td>
+                <?php elseif($v['status'] == 3):?>
+                    <td>已提现</td>
+                <?php endif;?>
                 </tr>
             <?php endforeach ?>
             </table>
@@ -75,12 +94,13 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.fund_manage ul>li').find('a').eq(1).addClass('left_nav_active');
+            $('.fund_manage ul>li').find('a').eq(1).addClass('left_nav_active');
         // });
         // $('.record').bind('click',function(){
         //     $(this).find('a').css('color','#f10180');

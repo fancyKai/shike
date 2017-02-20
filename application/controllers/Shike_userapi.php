@@ -20,7 +20,7 @@ class Shike_userapi extends MY_Controller {
 		$authcode = $this->input->post("authcode");
 		$passwd = $this->input->post("passwd");
 		$telcode = $this->session->userdata("telcode");
-		$this->session->set_userdata(array("telcode",""));
+		$this->session->set_userdata(array("telcode"=>""));
 		if($authcode != $telcode){
 			$msg = "手机验证码错误";
 			$res = 0;
@@ -39,12 +39,12 @@ class Shike_userapi extends MY_Controller {
 		$user_id = $this->session->userdata('user_id');
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
-		$this->session->set_userdata(array("telcode",""));
+		$this->session->set_userdata(array("telcode"=>""));
 		if($authcode != $telcode){
 			$msg = "手机验证码错误";
 			$res = 0;
 		}else{
-			$this->session->set_userdata(array("settel_permission"=>$user_id));
+			$this->session->set_userdata(array("settel_permission"=>1));
 			$msg = "成功";
 			$res = 1;
 		}
@@ -57,7 +57,7 @@ class Shike_userapi extends MY_Controller {
 		$user_id = $this->session->userdata('user_id');
 		$authcode = $this->input->post("authcode");
 		$telcode = $this->session->userdata("telcode");
-		$this->session->set_userdata(array("telcode",""));
+		$this->session->set_userdata(array("telcode"=>""));
 		$phone = $this->input->post("phone");
 
 		if($authcode != $telcode){
@@ -77,7 +77,9 @@ class Shike_userapi extends MY_Controller {
 		echo json_encode($result);
 
 	}
-
+	public function test(){
+		var_dump($this->session->all_userdata());
+	}
 	public function bound_taobao(){
 		$user_id = $this->session->userdata('user_id');
 		$taobao = $this->input->post("taobao");
@@ -105,12 +107,41 @@ class Shike_userapi extends MY_Controller {
 
 	public function get_sideinfo(){
 		$user_id = $this->session->userdata('user_id');
+		$this->get_win();
 		$win_count = $this->db->query("select count(*) as count from sorder where user_id={$user_id}")->row_array();
 		$buy_count = $this->db->query("select count(*) as count from discount where user_id={$user_id}")->row_array();
 		$mess_count = $this->db->query("select count(*) as count from message where user_id={$user_id} and user_type='1' and status='0'")->row_array();
 		$result = array('win_count' => $win_count['count'], 
 			            'buy_count' => $buy_count['count'],
 			            'mess_count' => $mess_count['count']);
+		echo json_encode($result);
+
+	}
+
+	public function get_win(){
+        $date = date('Y-m-d H:i:s',time());
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(apply_time))>259200) and status = 1 and flag = 1";
+		$res = $this->db->update("discount",array("flag"=>0),$where);
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(apply_time))>259200) and status = 1 and flag = 1";
+		$res = $this->db->update("sorder",array("flag"=>0),$where);
+	}
+
+	public function revamp_withdrawPw(){
+		$user_id = $this->session->userdata('user_id');
+		$authcode = $this->input->post("authcode");
+		$passwd = $this->input->post("passwd");
+		$telcode = $this->session->userdata("telcode");
+		$this->session->set_userdata(array("telcode"=>""));
+		if($authcode != $telcode){
+			$msg = "手机验证码错误";
+			$res = 0;
+		}else{
+			$info = array("tx_password"=>md5($passwd));
+			$ress = $this->db->update("user",$info,array("user_id"=>$user_id));
+			$msg = "成功";
+			$res = 1;
+		}
+		$result = array("msg"=>$msg,"res"=>$res);
 		echo json_encode($result);
 
 	}

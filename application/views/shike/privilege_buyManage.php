@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧申请记录-->
-        <div class="content_main left">
+        <div id="my_main" class="content_main left">
            <h1 class="title">优惠购买管理</h1>
             <!--任务说明--进展-->
             <div class="application_record">
@@ -32,12 +32,12 @@
                 <div class="delivery_status">
                     <div class="title">
                         <p class="left">
-                            <span>申请时间：<?php echo substr($v['apply_time'],0,10);?></span>
+                            <span>中奖时间：<?php echo substr($v['time'],0,10);?></span>
                         </p>
                     </div>
                     <div class="detalis">
                         <ul>
-                            <li><img src="images/shike/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li><img src="<?php echo $v['product_img'];?>" alt=""></li>
                             <li>
                                 <p class="clothes_name">商品名称：<span><?php echo $v['product_name'];?></span></p>
                                 <p>店铺名称：<span><?php echo $v['shopname'];?></span></p>
@@ -51,7 +51,7 @@
                             <li>
                                 <p>恭喜您中了优惠购买商品的资格</p>
                                 <p>快去领取优惠券购买吧！</p>
-                                <p><input type="button" value="领券购买"/></p>
+                                <p><input type="button" value="领券购买" onclick="click_ok(<?php echo $v['discount_id'];?>)"/></p>
                                  <p><span id="lefttime_<?php echo $v['discount_id'];?>"></span></p>
                             </li>
                         <?php elseif($v['status'] == 2):?>
@@ -80,7 +80,7 @@
                             </li>
                         <?php endif;?>
                          <input type="hidden" id="discount_list_id_<?php echo $discount_list_count;?>" value="<?php echo $v['discount_id'];?>">
-                        <input type="hidden" id="discount_list_time_<?php echo $discount_list_count;?>" value="<?php echo strtotime($v['apply_time']);?>">
+                        <input type="hidden" id="discount_list_time_<?php echo $discount_list_count;?>" value="<?php echo strtotime($v['time']);?>">
                         </ul>
                     </div>
                 </div>
@@ -92,6 +92,7 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
 
@@ -109,7 +110,7 @@
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.try_manage>ul>li').find('a').eq(2).addClass('left_nav_active');
+            $('.try_manage>ul>li').find('a').eq(2).addClass('left_nav_active');
         // });
     })
 
@@ -120,7 +121,7 @@
     // console.log(s);
     //console.log(obj);
     var remain_seconds = s;
-    remain_seconds = remain_seconds%(3600*24);
+    // remain_seconds = remain_seconds%(3600*24);
     var hour = parseInt(remain_seconds/3600);
     hour = (hour<10?'0'+hour:hour);
     var minutes = parseInt(remain_seconds%3600/60);
@@ -143,8 +144,15 @@
     var discount_id = objid.substring(9);
     //console.log(objid.substring(9));
     if(s == 0){
+        setTimeout("window.location.reload()",1000);
+    }
+    setTimeout("ydcountdown("+(s-1)+",$(\"#"+objid+"\"))","1000");
+}
+    
+    function click_ok(o){
+        var discount_id = o;
         $.ajax({
-        url : admin.url+'shike_privilege_buyManage/cancle_discount',
+        url : admin.url+'shike_privilege_buyManage/click_ok',
         type : 'POST',
         dataType: "json",
         cache : false,
@@ -152,7 +160,7 @@
         data : {discount_id:discount_id},
         success : function (result){
             // console.log(result);
-            window.location.reload();
+            window.open(result.win_url);
         },
         error : function (XMLHttpRequest, textStatus){
             console.log(XMLHttpRequest);
@@ -160,8 +168,6 @@
         }
     })
     }
-    setTimeout("ydcountdown("+(s-1)+",$(\"#"+objid+"\"))","1000");
-}
 </script>
 </body>
 </html>

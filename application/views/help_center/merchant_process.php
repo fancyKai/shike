@@ -25,12 +25,15 @@
                 <h2>四、物流发货</h2>
                 <p>商家给下单领取的试客，进行物流发货。</p>
                 <h2>五、返还试客本金</h2>
-                <p>1、试客收到任务商品后，会对任务商品进行评价，并将评价截图回填至琳琅试用；</p>
+                <p>1、试客收到任务商品后，会对任务商品进行评价，并将评价截图回填至试客巴试用；</p>
                 <p>2、商家审核试客评价后，平台将自动返还试客的试用本金到试客账户。</p>
             </div>
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset_content.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/shike_center.css')?>">
 <footer id="footer"></footer>
 <script src="<?=base_url('/js/mall/jquery-1.10.2.js')?>"></script>
 <script src="<?=base_url('/js/mall/modal_scrollbar.js')?>"></script>
@@ -40,9 +43,9 @@
             $('.details_title').text('帮助中心');
         });
         $('#footer').load('../common/footer_other.html');
-        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+        //$('#left_nav').load("../common/helpCenter_leftNav.html",function(){
             $('.account_information ul').find('a').eq(3).addClass('leftNav_active');
-        });
+       // });
 
     })
 </script>

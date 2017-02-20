@@ -1,5 +1,5 @@
 .search_active {
-  background: url(../images/spot.png) left center no-repeat !important;
+  background: url(../../images/merchant/spot.png) left center no-repeat !important;
 }
 #section .section_main .store_content {
   padding-bottom: 20px;
@@ -15,7 +15,8 @@
 }
 #section .section_main .store_content .settings_search p a {
   display: inline-block;
-  border-bottom: 1px solid #646464;
+  cursor: text;
+  font-weight: bold;
   color: #646464;
 }
 #section .section_main .store_content .settings_search h2.title {
@@ -32,7 +33,7 @@
   font-size: 16px;
   color: #f10180;
   padding-bottom: 2px;
-  background: url(../images/sj_fbsy_icon_quan_default.png) left center no-repeat;
+  background: url(../../images/merchant/sj_fbsy_icon_quan_default.png) left center no-repeat;
 }
 #section .section_main .store_content .settings_search .search_content .taobao_content h3,
 #section .section_main .store_content .settings_search .search_content .tmall_content h3 {
@@ -62,7 +63,8 @@
 #section .section_main .store_content .settings_search .search_content .taobao_content p a,
 #section .section_main .store_content .settings_search .search_content .tmall_content p a {
   display: inline-block;
-  border-bottom: 1px solid #646464;
+  cursor: text;
+  font-weight: bold;
   color: #646464;
 }
 #section .section_main .store_content .settings_search .search_content .taobao_content p input,
@@ -92,7 +94,7 @@
 #section .section_main .store_content .settings_search .search_content .tmall_content div.serve p > span {
   display: inline-block;
   padding-left: 21px;
-  background: url(../images/sj_fbsy_icon_quan_default.png) left center no-repeat;
+  background: url(../../images/merchant/sj_fbsy_icon_quan_default.png) left center no-repeat;
   color: #646464;
   margin-left: 20px;
   cursor: pointer;
@@ -132,16 +134,15 @@
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  color: #f10180;
   font-size: 16px;
-  background-color: #fff;
+  padding-left: 0;
   border: 1px solid #f10180;
   margin: 50px 30px 30px 0;
-}
-#section .section_main .store_content .settings_search .nextStep_btn input:hover {
   background-color: #f10180;
   color: #fff;
 }
 #section .section_main .store_content .settings_search .nextStep_btn input:first-of-type {
-  margin-left: 100px;
+  margin-left: 18px;
+  background-color: #fff;
+  color: #f10180;
 }

@@ -14,7 +14,7 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="<?php echo base_url().'mall/homepage/index'; ?>">首页</a></li>
+                <li><a href="<?php echo base_url().''; ?>">首页</a></li>
                 <li><img src="<?=base_url('/images/mall/icon_arrow_default.png')?>" alt=""></li>
                 <li><a href="<?php echo base_url().'mall/homepage/productdetails/'.$act_id; ?>">商品详情</a></li>
                 <li><img src="<?=base_url('/images/mall/icon_arrow_default.png')?>" alt=""></li>
@@ -39,12 +39,12 @@
                             <p>规格：<span><?php echo $product_details['color'].' '.$product_details['size']; ?></span></p>
                         </div>
                     </div>
-                    <p>需拍下数量：<span><?php echo $product_details['amount_perorder']; ?></span>件 &nbsp; 金额<span>&yen;<?php echo $product_details['unit_price']; ?></span></p>
+                    <p>需拍下数量：<span><?php echo $product_details['buy_sum']; ?></span>件 &nbsp; 金额：<span>&yen;<?php echo $product_details['unit_price']; ?></span></p>
                     <h2>注意：</h2>
                     <p>1、请核实您购买的商品是否为<b><?php echo $product_details['unit_price']; ?></b>。</p>
                     <p>2、当前商品为<b>
                             <?php
-                                if($product_details['freight'])
+                                if((integer)$product_details['freight'])
                                 {
                                     echo '不包邮';
                                 }else
@@ -61,6 +61,24 @@
                 <input id="submit_apply" class="next_step" type="button" value="提交申请">
             </p>
         </div>
+    </div>
+
+    <div class="modal" style="display:none">
+        <div class="modal_box">
+            <div class="modal_prompt">
+                <span>提示</span>
+                <a class="close" href="javascript:void(0);">
+                    <img src="<?=base_url('/images/mall/sj_grzx_tc_off_default.png')?>" alt="">
+                </a>
+            </div>
+            <div class="modal_content">
+                <p>提示的内容</p>
+            </div>
+            <div class="modal_submit">
+                <input class="confirm" type="button" value="确定"/>
+            </div>
+        </div>
+        <div class="mask_layer"></div>
     </div>
 </section>
 <footer id="footer"></footer>
@@ -87,6 +105,7 @@
 </div>
 <script src="<?=base_url('/js/mall/jquery-1.10.2.js')?>"></script>
 <script src="<?=base_url('/js/mall/modal_scrollbar.js')?>"></script>
+<script src="<?=base_url("js/mall/mask_layer.js")?>"></script>
 <script>
     $(function(){
         /*$('#header').load('../common/details_header.html',function(){
@@ -123,14 +142,20 @@
             success:function(result){
                 result = JSON.parse(result);
                 if(result.success==true){
-                    alert('申请成功');
-                    location.href = '<?php echo base_url().'mall/homepage/productdetails/'.$act_id; ?>'
+                    $('.modal').myAlert('申请成功！想提高中奖率请多多申请宝贝！');
+                    $('.confirm').click(function(){location.href = '<?php echo base_url("shike_application_record"); ?>'})
+                    $('.close').click(function(){location.href = '<?php echo base_url("shike_application_record"); ?>'})
                 }
                 else{
                     code = result.code;
                     if(code == 1)
                     {
-                        alert('申请失败，请联系客服')
+                        //alert('申请失败，请联系客服')
+                        $('.modal').myAlert('申请失败，请联系客服');
+                    }else if(code == 2)
+                    {
+                        //alert('您已经申请过该商品')
+                        $('.modal').myAlert('您已经申请过该产品');
                     }
                 }
             },

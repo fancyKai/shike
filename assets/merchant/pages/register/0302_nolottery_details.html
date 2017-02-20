@@ -68,35 +68,86 @@
             <h1>订单信息：</h1>
             <table>
                 <tr>
-                    <th></th>
-                    <th>商品单价</th>
-                    <th>免单数量</th>
-                    <th>备注</th>
+                    <th>费用分类</th>
+                    <th>费用明细</th>
                     <th>合计</th>
                 </tr>
                 <tr>
                     <td>商品押金</td>
-                    <td><span>20元</span></td>
-                    <td><span>5单</span></td>
                     <td>
-                        <p><span>商品押金=商品单价*免单数量</span></p>
+                        <p><b>商品押金=商品单价*（免费试用商品数+积分兑换试用数)</b></p>
                         <p>试用完成后，平台直接将押金返给试客</p>
+                        <p><b>商品单价=</b><span>20元</span><b>免费试用商品数=</b><span>9单</span><b>积分兑换试用数=</b><span>3单</span></p>
                     </td>
-                    <td><b>100元</b></td>
+                    <td><span>240.00元</span></td>
                 </tr>
                 <tr>
                     <td>试用担保金</td>
-                    <td><span>20元</span></td>
-                    <td><span>5单</span></td>
                     <td>
-                        <p><span>试用担保金=商品押金*5%</span></p>
+                        <p><b>试用担保金=商品押金*</b><span>5%</span></p>
                         <p>试用完成后，平台会自动将试用担保金返回到您的账户可用押金中。</p>
                     </td>
-                    <td><b>5元</b></td>
+                    <td><span>12.00元</span></td>
                 </tr>
             </table>
-            <p class="total">订单合计：<span>105元</span></p>
-            <p class="total">已冻结押金：<span>105元</span></p>
+            <p class="total">订单合计：<span>10005元</span></p>
+            <p style="margin-bottom:40px;" class="total">已冻结押金：<span>10005元</span></p>
+            <table>
+                <tr>
+                    <th>费用分类</th>
+                    <th>费用明细</th>
+                    <th>合计</th>
+                </tr>
+                <tr>
+                    <td rowspan="2" >基础服务费</td>
+                    <td>
+                        <p><b>快速返款</b></p>
+                        <p>试客完成试用后，平台将直接使用商家押金操作返款给试客</p>
+                        <p>（商家无需耗费时间人力处理退款，省时省力）</p>
+                        <p>每单收取商品押金的<span>2%</span></p>
+                    </td>
+                    <td><span>4.80金币</span></td>
+                </tr>
+                <tr class="other">
+                    <td>
+                        <p><b>系统自动抽奖</b></p>
+                        <p>系统将自动为商家抽选出更适合商家商品品类的试客</p>
+                        <p>节约商家运营成本和时间，同时有利于试客中奖分布更广泛</p>
+                        <p>免费试用商品，每单收取<span>1金币</span></p>
+                    </td>
+                    <td><span>9.00金币</span></td>
+                </tr>
+                <tr>
+                    <td rowspan="5" >增值服务费</td>
+                    <td><p><b>提升店铺回访</b><span>50金币</span></p></td>
+                    <td><p><span>50金币</span></p></td>
+                </tr>
+                <tr class="other">
+                    <td>
+                        <p><b>设置好评关键词</b></p>
+                        <p>设置好评关键词单数：<span>8单</span></p>
+                        <p>每单收取 <span>1金币</span></p>
+                    </td>
+                    <td><span>12金币</span></td>
+                </tr>
+                <tr class="other">
+                    <td>
+                        <p><b>买家秀</b></p>
+                        <p>设置好评关键词单数：<span>8单</span></p>
+                        <p>每单收取 <span>10金币</span></p>
+                    </td>
+                    <td><span>120金币</span></td>
+                </tr>
+                <tr class="other">
+                    <td><p><b>追加评价</b><span>5金币</span></p></td>
+                    <td> <span>5金币</span></td>
+                </tr>
+                <tr class="other">
+                    <td><p><b>精准投放</b><span>5金币</span></p></td>
+                    <td> <span>10金币</span></td>
+                </tr>
+            </table>
+            <p class="total">订单合计：<span>105金币</span></p>
             <div class="order_status">
                 <p>订单状态：<span>待开奖</span></p>
                 <p>联系客服：<img src="../../images/sj_grzx_icon_qq_default.png" alt=""></p>
@@ -112,7 +163,6 @@
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
     })
 </script>
 </body>

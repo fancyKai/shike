@@ -23,12 +23,26 @@
           font-size:16px;
           padding:20px 0 18px 0;
         }
+        h2{
+          padding-bottom: 20px;
+          font-size: 14px;
+          color: #323232;
+        }
         >p{
           padding-bottom:20px;
           font-size:14px;
           b{
             font-weight:bold;
             color:@deepfont_color;
+          }
+          input{
+            width:100px;
+            height:30px;
+            line-height:30px;
+            margin-left:5px;
+            border-radius:5px;
+            background-color:@deepred_color;
+            color:#fff;
           }
         }
         .commodity{
@@ -67,7 +81,42 @@
           }
         }
       }
+      .submit_btn{
+        overflow:hidden;
+        height:40px;
+        margin-top:50px;
+        input{
+          width: 150px;
+          height:40px;
+          line-height:40px;
+          border-radius:5px;
+          font-size:16px;
+          border:1px solid @deepred_color;
+          padding-left:0;
+          background-color:@deepred_color;
+          color:#fff;
+          float:left;
+        }
+        span{
+          display:inline-block;
+          margin-left:10px;
+          margin-top:22px;
+          float:left;
+        }
+      }
     }
   }
 
+}
+//弹框样式
+.modal{
+  display:none;
+  .modal_content{
+    p{
+      color:#323232;
+      b{
+        color:#005ea7;
+      }
+    }
+  }
 }

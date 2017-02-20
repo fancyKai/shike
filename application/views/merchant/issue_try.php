@@ -15,7 +15,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧店铺管理-->
-        <div class="store_content left">
+        <div id="my_main" class="store_content left">
             <h1 class="title">发布试用</h1>
             <!--进度条-->
             <div class="progress_bar">
@@ -26,12 +26,15 @@
                 <h2 class="title">1.选择店铺、确定平台</h2>
                 <div class="shop_information">
                     <?php foreach($shoplist as $v):?>
-                        <div class="left shop">
+                        <div class="left shop shop_one">
                             <img style="width: 60px;height: 60px" src=<?php echo $v['logo_link'];?> alt="">
                             <p class="shop_name"><?php echo $v['shop_name'];?></p>
                             <p class="shop_source">来源：<p class="shop_inner_source"><?php echo ($v['platform_id']==1?'淘宝':'天猫'); ?></p></p>
                         </div>
                     <?php endforeach?>
+                    <?php if (sizeof($shoplist)==0):?>
+                        <p style="color:red">请先去店铺管理绑定店铺</p>
+                    <?php endif;?>
                 </div>
                 <div class="nextStep_btn">
                     <input class="one" type="button" value="下一步"/>
@@ -51,11 +54,14 @@
 <footer id="footer"></footer>
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
-        // $('#left_nav').load("../common/left_nav.html");
+         $('#left_nav').load("../common/left_nav.html",function(){
+             $('.try_manage ul>li').find('a').eq(0).addClass('leftNav_active')
+         });
 
         $('.shop').bind('click',function(){
             $(this).css('border','1px solid #e61e28');
@@ -67,6 +73,8 @@
             $("#shop_name").val(shop_name);
             $("#platform_id").val(platform_id);
         });
+
+        $('.shop:first-child').click();
     })
 </script>
 <script>
@@ -79,6 +87,12 @@
         }else{
             platform_id = 2;
         }
+        var count = <?php echo $count;?>;
+        if(count){
+            //进行弹框提示
+            $('.modal').myAlert('您是试用会员，一个月只能发布一款商品，本月已经发布过试用，请下个月再来申请发布或者充值办理正式会员')
+            return;
+        }
         $.ajax({
             url : admin.url+'merchant_issue_try/insert_fake_activity',
             data:{seller_id:seller_id,shop_name:shop_name,platform_id:platform_id},
@@ -86,7 +100,7 @@
             cache : false,
             success : function (data){
                console.log(data);
-               location.href=admin.url+"merchant_issue_try2?act_id="+data;
+               location.href=admin.url+"merchant_issue_try2?act_id="+data+"&platform_id="+platform_id;
             },
             error : function (XMLHttpRequest, textStatus){
                 console.log("insert_fake_activity false");

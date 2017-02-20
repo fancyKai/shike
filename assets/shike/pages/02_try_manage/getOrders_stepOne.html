@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>领取下单</title>
+    <link rel="stylesheet" href="../../css/location_title.css">
+    <link rel="stylesheet" href="../../css/getOrder_stepOne.css">
+    <link rel="stylesheet" href="../../css/modal_alert.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_content">
+        <div class="location_title">
+            <ul>
+                <li>您的位置：</li>
+                <li><a href="../01_personal_center/personal_center.html">个人中心</a></li>
+                <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+                <li><a href="02_try_winningManage.html">试用中奖管理</a></li>
+                <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+                <li>领取下单</li>
+            </ul>
+        </div>
+        <!--步骤介绍-->
+        <div class="step_introduce">
+            <!--步骤进度条所处状态-->
+            <div class="step_picture">
+                <img src="../../images/sk_zjgl_lqxd_bg_jdt1_default.png" alt="">
+            </div>
+            <!--试用商品-->
+            <div class="try_good">
+                <h1>1.进入试用商品详情页</h1>
+                <h2>第一步：搜索商品</h2>
+                <p>1.请访问天猫<b>www.tmall.com或者打开手机天猫APP</b>，登录账号：<b>asd</b>，并刷新天猫页面确认账号是否已登录；</p>
+                <p>2.天猫搜索关键字：<b>yingying</b>如果您找不到试用商品可以花20积分获得一个新的搜索关键词：
+                    <input id="search_keyword" type="button" value="查看新关键词">
+                </p>
+                <p>3.搜索结果页筛选商品分类：<b>毛衣、修身</b></p>
+                <p>4.筛选价格区间为：<b>200-500</b>，筛选商品所在地为：<b>全国</b></p>
+                <p>5.选择折扣和服务：<b>包邮、天猫、正品保障</b></p>
+                <h2>第二步：确认商品</h2>
+                <p>点击进入宝贝详情页后，请确认商品信息是否正确。</p>
+                <div class="commodity">
+                    <div class="content">
+                        <p><img src="../../images/picture.png" alt=""></p>
+                        <div class="good_introduce">
+                            <p class="good_name"><span>冬季学院风宽松连帽保暖中长款羽绒服加厚过膝面包服</span></p>
+                            <p>店铺：<span>海澜之家官方旗舰店</span></p>
+                            <p>规格：<span>红色 大号</span></p>
+                        </div>
+                    </div>
+                    <p>需拍下数量：<span>1</span>件 &nbsp; 金额<span>&yen;200.00</span></p>
+                </div>
+
+            </div>
+            <p class="step_btn">
+                <input  onclick="location.href='getOrders_stepTwo.html'" class="next_step" type="button" value="下一步">
+            </p>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+
+<div class="modal">
+    <div class="modal_box">
+        <div class="modal_prompt">
+            <span>提示</span>
+            <a class="close" href="javascript:void(0);">
+                <img src="../../images/sj_grzx_tc_off_default.png" alt="">
+            </a>
+        </div>
+        <div class="modal_content">
+            <p>确定花<b>5点夺宝币</b>查看新关键词吗？</p>
+        </div>
+        <div class="modal_submit">
+            <input class="confirm" type="button" value="确定"/>
+            <input class="confirm" type="button" value="取消"/>
+        </div>
+    </div>
+    <div class="mask_layer"></div>
+</div>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script src="../../js/modal_scrollbar.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('.mask_layer').height(document.body.scrollHeight+500);
+
+        $('#search_keyword').bind('click',function(){
+            $('.modal').css('display','block');
+            disableScroll();
+        });
+        $('.close,.cancel,.confirm').bind('click',function(){
+            $('.modal').css('display','none');
+            enableScroll();
+        });
+    })
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@ function ydcountdown(s,obj){
 	// console.log(s);
 	//console.log(obj);
 	var remain_seconds = s;
-	remain_seconds = remain_seconds%(3600*24);
+	//remain_seconds = remain_seconds%(3600*24);
 	var hour = parseInt(remain_seconds/3600);
 	hour = (hour<10?'0'+hour:hour);
 	var minutes = parseInt(remain_seconds%3600/60);
@@ -25,22 +25,22 @@ function ydcountdown(s,obj){
 	var order_id = objid.substring(9);
 	//console.log(objid.substring(9));
 	if(s == 0){
-		$.ajax({
-		url : admin.url+'merchant_personal/cancle_order',
-		type : 'POST',
-		dataType: "json",
-		cache : false,
-		timeout : 20000,
-		data : {orderid:order_id},
-		success : function (result){
-			// console.log(result);
+		// $.ajax({
+		// url : admin.url+'merchant_personal/cancle_order',
+		// type : 'POST',
+		// dataType: "json",
+		// cache : false,
+		// timeout : 20000,
+		// data : {orderid:order_id},
+		// success : function (result){
+		// 	// console.log(result);
 			window.location.reload();
-		},
-		error : function (XMLHttpRequest, textStatus){
-			console.log(XMLHttpRequest);
-			console.log(textStatus);
-		}
-	})
+	// 	},
+	// 	error : function (XMLHttpRequest, textStatus){
+	// 		console.log(XMLHttpRequest);
+	// 		console.log(textStatus);
+	// 	}
+	// })
 	}
 	setTimeout("ydcountdown("+(s-1)+",$(\"#"+objid+"\"))","1000");
 }

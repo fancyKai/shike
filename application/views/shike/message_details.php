@@ -16,7 +16,11 @@
             <ul>
                 <li>你所在的位置：</li>
                 <li class="order">
-                    <a class="personal_active" href="/shike_personal">个人中心</a>
+                    <a class="personal_active" href='<?=base_url('')?>'>首页</a>
+                </li>
+                <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
+                <li class="order">
+                    <a class="personal_active" href="/shike_personal">试客中心</a>
                 </li>
                 <li class="order"><img src="images/shike/sj_hdgl_icon_arrow_default.png" alt=""></li>
                 <li class="order">
@@ -43,7 +47,7 @@
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.message_center').find('a').addClass('left_nav_active');
+            $('.message_center').find('a').addClass('left_nav_active');
         // });
 
     })

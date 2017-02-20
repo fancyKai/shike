@@ -5,6 +5,9 @@
     <title>帮助中心</title>
     <link rel="stylesheet" href="<?=base_url('/css/mall/reset.css')?>">
     <link rel="stylesheet" href="<?=base_url('/css/mall/help_center.css')?>">
+    <script src="<?=base_url('/js/mall/html5shiv.min.js')?>"></script>
+    <script src="<?=base_url('/js/mall/respond.min.js')?>"></script>
+    <script src="<?=base_url('/js/mall/selectivizr-min.js')?>"></script>
 </head>
 <body>
 <header id="header"></header>
@@ -89,9 +92,9 @@
                         <ul>
                             <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">商家试用活动支持哪几种搜索/下单渠道？</a></li>
                             <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">商家发布任务支持哪几种支付方式？</a></li>
-                            <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">商家发布的试用活动需要审核么？审核一般需要多久？</a></li>
-                            <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">审核上线的任务可以中途修改、撤销或者暂停么？</a></li>
-                            <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">审核上线的任务可以中途修改、撤销或者暂停么？</a></li>
+                            <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">商家如何发货？</a></li>
+                            <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">试客下单后要在多久之内操作发货？</a></li>
+                            <li><a href="<?=base_url('mall/help_center/merchant_aboutTry')?>">商家如何给试客返款？</a></li>
                         </ul>
                     </li>
                     <li>
@@ -114,7 +117,7 @@
                     <p><img src="<?=base_url('/images/mall/bzzz_bg_erji_default.png')?>" alt=""></p>
                     <p><span>在线客服</span></p>
                     <p>人工服务时间：周一至周五：9:00-18:00</p>
-                    <p><img src="<?=base_url('/images/mall/login_button_QQ_default.png')?>" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=861571200&site=qq&menu=yes')" alt=""></p>
+                    <p><img style="cursor:pointer;" src="<?=base_url('/images/mall/login_button_QQ_default.png')?>" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=861571200&site=qq&menu=yes')" alt=""></p>
                 </div>
                 <div class="right contact_way">
                     <p><img src="<?=base_url('/images/mall/bzzz_bg_dinahua_default.png')?>" alt=""></p>

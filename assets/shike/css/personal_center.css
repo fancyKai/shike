@@ -41,6 +41,10 @@
 #section .section_main .content_main .member_power .personal_details .username > h1 span a {
   color: #005ea7;
 }
+#section .section_main .content .member_power .personal_details .username > h1 span b,
+#section .section_main .content_main .member_power .personal_details .username > h1 span b {
+  color: #f10180;
+}
 #section .section_main .content .member_power .personal_details .username > p,
 #section .section_main .content_main .member_power .personal_details .username > p {
   padding: 13px 0;
@@ -81,7 +85,7 @@
 }
 #section .section_main .content .member_power .capital_sum p > input,
 #section .section_main .content_main .member_power .capital_sum p > input {
-  width: 120px;
+  width: 110px;
   height: 34px;
   line-height: 34px;
   background-color: #f10180;
@@ -89,8 +93,8 @@
   margin-right: 18px;
   color: #fff;
   font-size: 14px;
-  margin-bottom: 42px;
-  margin-left: 20px;
+  margin-bottom: 15px;
+  margin-left: 10px;
 }
 #section .section_main .content .member_power .capital_sum p > span,
 #section .section_main .content_main .member_power .capital_sum p > span {
@@ -323,4 +327,102 @@
   color: #fff;
   background-color: #f10180;
   border-radius: 5px;
+}
+.credits_exchange,
+.credits_get {
+  display: none;
+}
+.credits_exchange .succeed_content,
+.credits_get .succeed_content {
+  padding-top: 24px;
+}
+.credits_exchange .succeed_content p.payment_succeed,
+.credits_get .succeed_content p.payment_succeed {
+  color: #323232;
+  font-size: 16px;
+  padding: 15px 0 10px 0;
+}
+.credits_exchange .succeed_content p.payment_succeed span,
+.credits_get .succeed_content p.payment_succeed span {
+  color: #f10180;
+}
+.credits_exchange .succeed_content p,
+.credits_get .succeed_content p {
+  font-size: 14px;
+}
+.credits_exchange .exchange_details,
+.credits_get .exchange_details {
+  padding: 30px 75px 15px 75px;
+}
+.credits_exchange .exchange_details p.credits,
+.credits_get .exchange_details p.credits {
+  color: #323232;
+  font-size: 14px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.credits_exchange .exchange_details p.credits span,
+.credits_get .exchange_details p.credits span {
+  display: inline-block;
+}
+.credits_exchange .exchange_details p.credits span b,
+.credits_get .exchange_details p.credits span b {
+  color: #005ea7;
+}
+.credits_exchange .exchange_details .exchange_principal,
+.credits_get .exchange_details .exchange_principal {
+  width: 300px;
+  height: 100px;
+  background-color: #fbfcff;
+}
+.credits_exchange .exchange_details .exchange_principal .one,
+.credits_get .exchange_details .exchange_principal .one {
+  color: #323232;
+  font-size: 16px;
+  padding-top: 8px;
+}
+.credits_exchange .exchange_details .exchange_principal .two b,
+.credits_get .exchange_details .exchange_principal .two b {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  color: #323232;
+  font-size: 26px;
+  border-bottom: 1px solid #969696;
+  padding-top: 5px;
+}
+.credits_exchange .exchange_details .exchange_principal .three,
+.credits_get .exchange_details .exchange_principal .three {
+  padding-top: 5px;
+}
+.credits_exchange .exchange_details p.get_principal,
+.credits_get .exchange_details p.get_principal {
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  background-color: #fbfcff;
+  font-size: 14px;
+  color: #323232;
+}
+.credits_exchange .exchange_details p.get_principal span,
+.credits_get .exchange_details p.get_principal span {
+  color: #f10180;
+}
+.credits_exchange .modal_submit,
+.credits_get .modal_submit {
+  padding-top: 15px;
+}
+.credits_exchange .modal_submit input,
+.credits_get .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.credits_exchange .modal_submit input:nth-of-type(2),
+.credits_get .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
 }

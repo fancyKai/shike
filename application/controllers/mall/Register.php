@@ -29,7 +29,11 @@ class register extends MY_Controller
     {
         $user_name = $this->input->post('user_name');
         $type = $this->input->post('type');
-        if($type == 1)
+        //注册试客
+        $res = $this->db->query("select * from user where user_name = '$user_name'")->row_array();
+        //注册商家
+        $res2 = $this->db->query("select * from seller where user_name = '$user_name'")->row_array();
+        /*if($type == 1)
         {
             //注册试客
             $res = $this->db->query("select * from user where user_name = '$user_name'")->row_array();
@@ -37,8 +41,8 @@ class register extends MY_Controller
         {
             //注册商家
             $res = $this->db->query("select * from seller where user_name = '$user_name'")->row_array();
-        }
-        if(count($res))
+        }*/
+        if(count($res) || count($res2))
         {
             $data = array(
                 'success'=>false,
@@ -49,7 +53,31 @@ class register extends MY_Controller
         {
             $data = array(
                 'success'=>true,
-                'code'=>0,//用户名已被注册
+                'code'=>0,//用户名正常
+                'data'=>$this->out_data
+            );
+        }
+        echo json_encode($data);
+    }
+
+    //检查手机号是否注册
+    public function check_phone()
+    {
+        $phone = $this->input->post('phone');
+        $res1 = $this->db->query("select * from user where phone = $phone")->row_array();
+        $res2 = $this->db->query("select * from seller where tel = $phone")->row_array();
+        if(count($res1) or count($res2))
+        {
+            $data = array(
+                'success'=>false,
+                'code'=>1,//手机号已被注册
+                'data'=>$this->out_data
+            );
+        }else
+        {
+            $data = array(
+                'success'=>true,
+                'code'=>0,//手机号正常
                 'data'=>$this->out_data
             );
         }
@@ -89,20 +117,26 @@ class register extends MY_Controller
             echo json_encode($data);
             exit ;
         }
-        $this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");
+        $this->db->query("update telcode set status = 2 where id = '{$code_info['id']}'");
         $password = md5($password);
         $reg_time = date('Y-m-d H:i:s',time());
+        $taobao_status = 0;
+        $level = 1;
+        $money_use = 0;
+        $return_num = 0;
         $temp = array(
             'user_name'=>$user_name,
             'phone'=>$phone,
             'user_qq'=>$user_qq,
             'password'=>$password,
-            'reg_time'=>$reg_time
+            'reg_time'=>$reg_time,
+            'taobao_status'=>$taobao_status,
+            'level'=>$level,
+            'money_use'=>$money_use,
+            'return_num'=>$return_num
         );
         $this->db->insert('user',$temp);
         $user_id = $this->db->insert_id();
-        $this->session->set_userdata('user_name', $user_name);
-        $this->session->set_userdata('seller_id', $user_id);
         //TODO 登录
         $data = array(
             'success'=>true,
@@ -145,7 +179,7 @@ class register extends MY_Controller
             echo json_encode($data);
             exit ;
         }
-        $this->db->query("update telcode set status = 2 where session_id = '{$code_info['session_id']}'");
+        $this->db->query("update telcode set status = 2 where id = '{$code_info['id']}'");
         $password = md5($password);
         $reg_time = date('Y-m-d H:i:s',time());
         $temp = array(
@@ -158,8 +192,6 @@ class register extends MY_Controller
         );
         $this->db->insert('seller',$temp);
         $user_id = $this->db->insert_id();
-        $this->session->set_userdata('user_name', $user_name);
-        $this->session->set_userdata('user_id', $user_id);
         /*echo json_encode($_SESSION);
         exit;*/
         $data = array(

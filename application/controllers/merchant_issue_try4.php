@@ -30,13 +30,24 @@ class Merchant_issue_try4 extends MY_Controller {
 	public function update_fake_activity4(){
 		$act_id = $this->input->post('act_id');
 		$apply_amount = $this->input->post('apply_amount');
+		$act_info = $this->db->query("select * from activity where act_id={$act_id}")->row_array();
+		$total_money = $act_info['margin']*$apply_amount/2*1.05;
+		$guarantee = $act_info['margin']*$apply_amount/2*0.05;
+		$deposit = $act_info['margin']*$apply_amount/2;
+		$win_money = $this->input->post('win_money');
+		$win_url = $this->input->post('win_url');
         $is_real = 1;
         $status = 1;
         $time = date('Y-m-d H:i:s',time());
 		$info = array("apply_amount" => $apply_amount,
 			          "isreal" => $is_real,
 			          "status" => $status,
-			          "gene_time" => $time);
+                      "win_money" => $win_money,
+                      "win_url" => $win_url,
+			          "gene_time" => $time,
+			          "total_money" => $total_money,
+			          "guarantee" => $guarantee, 
+			          "deposit" => $deposit);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
 

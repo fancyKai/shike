@@ -320,6 +320,7 @@
 #section .order_details .commodity_information .btn {
   text-align: right;
   padding-top: 50px;
+  width: 100%;
 }
 #section .order_details .commodity_information .btn input {
   width: 150px;

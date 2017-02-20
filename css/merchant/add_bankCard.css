@@ -15,6 +15,16 @@
   border: 1px solid #969696;
   border-radius: 5px;
 }
+#section .section_main .add_bankCard .account_information select {
+  width: 200px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #969696;
+  border-radius: 5px;
+}
+#section .section_main .add_bankCard .account_information select .option {
+  color: #f0f0f0;
+}
 #section .section_main .add_bankCard .account_information p {
   height: 30px;
   padding-top: 3px;
@@ -24,25 +34,26 @@
   color: #e61e28;
   padding-left: 420px;
 }
-#section .section_main .add_bankCard .account_information p.btn {
+#section .section_main .add_bankCard .account_information p.btns {
   padding-left: 422px;
 }
-#section .section_main .add_bankCard .account_information p.btn input {
+#section .section_main .add_bankCard .account_information p.btns input {
   width: 80px;
   margin-right: 38px;
   color: #f10180;
   border: 1px solid #f10180;
   background-color: #fff;
 }
-#section .section_main .add_bankCard .account_information p.btn input:hover {
+#section .section_main .add_bankCard .account_information p.btns input:first-of-type {
   color: #fff;
   background-color: #f10180;
 }
 #section .section_main .add_bankCard .warm_prompt {
-  padding-top: 4px;
+  padding-top: 50px;
+  font-size: 14px;
 }
 #section .section_main .add_bankCard .warm_prompt span {
-  color: #e61e28;
+  color: #323232;
 }
 .add_modal,
 .addFailure_modal {

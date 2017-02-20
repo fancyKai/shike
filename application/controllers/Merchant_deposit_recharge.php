@@ -13,8 +13,10 @@ class Merchant_deposit_recharge extends MY_Controller {
 
         $seller_id = $this->session->userdata('seller_id');
         $this->out_data['sellerinfo'] = $this->db->query("select * from seller where seller_id ={$seller_id}")->row_array();
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 2")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
+                $this->out_data['charge_time'] = $this->db->query("select time from platformorder where seller_id={$seller_id} and user_type=0 order by time desc")->row_array();
+        $this->out_data['charge_time'] = $this->out_data['charge_time']['time'];
 		$this->out_data['con_page'] = 'merchant/deposit_recharge';
 		$this->load->view('merchant_default', $this->out_data);
 	}
@@ -32,12 +34,25 @@ class Merchant_deposit_recharge extends MY_Controller {
         	          'money_remain' => $sellerinfo['avail_deposit']+$money,
         	          'time' => date('Y-m-d H:i:s',time()),
         	          'flowid' => '123',
-        	          'status' => 1,
+        	          'status' => 4,
         	          'seller_id' => $seller_id,
         	          'user_type' => 0,
-        	          'remarks' => '充值成功');
+        	          'remarks' => 3);
         $res = $this->db->insert("platformorder",$info);
         echo json_encode($res);
 
 	}
+        public function pay_check(){
+                $seller_id = $this->session->userdata('seller_id');
+                $old_time = $this->input->post('old_time');
+                $now_time = $this->db->query("select time from platformorder where seller_id={$seller_id} and user_type=0 order by time desc")->row_array();
+                $now_time = $now_time['time'];
+                if($old_time == $now_time){
+                        $res = 0;
+                        echo json_encode($res);
+                }else{
+                        $res = 1;
+                        echo json_encode($res);
+                }
+        }
 }

@@ -19,6 +19,12 @@
   float: left;
   padding-left: 30px;
 }
+.header .top .top_main ul li span {
+  color: #f10180;
+}
+.header .top .top_main ul li span img {
+  margin-left: 10px;
+}
 .header .search {
   width: 1200px;
   height: 80px;

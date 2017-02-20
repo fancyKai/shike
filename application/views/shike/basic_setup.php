@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧店铺管理-->
-        <div class="basic_setup left">
+        <div id="my_main" class="basic_setup left">
             <h1 class="title">基本设置</h1>
             <div class="setup_content">
                 <ul>
@@ -37,14 +37,16 @@
                     <li>
                         <img src="images/shike/sj_zhxx_icon_no_default.png" alt="">
                     </li>
-                    <li><span>审核中</span></li>
+                    <li><span>淘宝账号</span></li>
                     <li>淘宝账号绑定后不能修改。</li>
+                    <li>绑定中</li>
                 <?php elseif($userinfo['taobao_status'] == 2):?>
                     <li>
                         <img src="images/shike/sj_zhxx_icon_right_default.png" alt="">
                     </li>
-                    <li><span>已绑定</span></li>
-                    <li>淘宝账号绑定后不能修改。</li>
+                    <li><span>淘宝账号</span></li>
+                    <li><?php echo $userinfo['taobao_id'];?></li>
+                    <li>已绑定</li>
                 <?php endif;?>
                 </ul>
                 <ul>
@@ -61,7 +63,7 @@
                     </li>
                     <li><span>提现密码</span></li>
                     <li>设置密码后开启提现功能，可将平台资产转出。</li>
-                    <li><input onclick="location.href='/shike_set_withdrawdepositPw'" type="button" value="修改"/></li>
+                    <li><input onclick="location.href='/shike_revamp_withdrawdepositPw'" type="button" value="修改"/></li>
                 <?php endif;?>
                 </ul>
                 <ul>
@@ -81,11 +83,16 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html");
+
+        // $('#left_nav').load("../common/left_nav.html",function(){
+            $('.account_information ul>li').find('a').eq(0).addClass('left_nav_active');
+        // });
     })
 </script>
 </body>

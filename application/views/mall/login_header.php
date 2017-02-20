@@ -14,15 +14,15 @@
     <div class="top">
         <div class="top_main">
             <ul>
-                <li><a href="<?=base_url('mall/homepage/index')?>">返回首页</a></li>
-                <li><a href="#">帮助中心</a></li>
+                <li><a href="<?=base_url('')?>">返回首页</a></li>
+                <li><a href="<?=base_url('mall/help_center/help_center')?>">帮助中心</a></li>
             </ul>
         </div>
     </div>
     <!--Logo和搜索框-->
     <div class="search">
-        <div class="">
-            <img class="logo" onclick="location.href='<?=base_url('mall/homepage/index')?>'" src="<?=base_url('images/mall/xqy_logo_default.png')?>" alt="">
+        <div style="padding-top:9px">
+            <img class="logo" onclick="location.href='<?=base_url('')?>'" src="<?=base_url('images/mall/xqy_logo_default.png')?>" alt="">
             <span class="details_title">欢迎登录</span>
         </div>
     </div>

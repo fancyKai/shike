@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧店铺管理-->
-        <div class="basic_setup left">
+        <div id="my_main" class="basic_setup left">
             <h1 class="title">绑定淘宝</h1>
             <div class="bound_taobao">
                 <label for="">淘宝账户名：</label>
@@ -32,13 +32,14 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html",function(){
+        //$('#left_nav').load("../common/left_nav.html",function(){
             $('.account_information ul>li').find('a').eq(0).addClass('left_nav_active');
-        });
+       // });
     })
 
      function info_post(){

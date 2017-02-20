@@ -9,6 +9,11 @@
   font-size: 16px;
   padding: 20px 0 18px 0;
 }
+#section .section_content .step_introduce .try_good h2 {
+  padding-bottom: 20px;
+  font-size: 14px;
+  color: #323232;
+}
 #section .section_content .step_introduce .try_good > p {
   padding-bottom: 20px;
   font-size: 14px;
@@ -16,6 +21,15 @@
 #section .section_content .step_introduce .try_good > p b {
   font-weight: bold;
   color: #323232;
+}
+#section .section_content .step_introduce .try_good > p input {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 5px;
+  border-radius: 5px;
+  background-color: #f10180;
+  color: #fff;
 }
 #section .section_content .step_introduce .try_good .commodity .content {
   width: 254px;
@@ -47,4 +61,36 @@
 }
 #section .section_content .step_introduce .try_good .commodity > p span {
   color: #e61e28;
+}
+#section .section_content .step_introduce .submit_btn {
+  overflow: hidden;
+  height: 40px;
+  margin-top: 50px;
+}
+#section .section_content .step_introduce .submit_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #f10180;
+  padding-left: 0;
+  background-color: #f10180;
+  color: #fff;
+  float: left;
+}
+#section .section_content .step_introduce .submit_btn span {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 22px;
+  float: left;
+}
+.modal {
+  display: none;
+}
+.modal .modal_content p {
+  color: #323232;
+}
+.modal .modal_content p b {
+  color: #005ea7;
 }

@@ -310,20 +310,18 @@
 #section .order_details .commodity_information .btn {
   text-align: right;
   padding-top: 50px;
+  width: 100%;
 }
 #section .order_details .commodity_information .btn input {
   width: 150px;
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  color: #f10180;
   font-size: 16px;
-  background-color: #fff;
   border: 1px solid #f10180;
-}
-#section .order_details .commodity_information .btn input:hover {
   background-color: #f10180;
   color: #fff;
+  padding-left: 0;
 }
 .delivery_modal,
 .audit_modal,

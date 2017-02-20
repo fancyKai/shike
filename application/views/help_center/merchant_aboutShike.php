@@ -12,7 +12,7 @@
                 <p>在试客巴商家只需用10-20件宝贝库存发试用和优惠，就能优化宝贝基础权重，提升排名，抢占流量入口。试客巴可以帮助商家提升关键词点击率、提升人气权重和买家喜好度。</p>
                 <h2>2、试用推广的好处是什么？</h2>
                 <p>1、优化店铺权重</p>
-                <p>琳琅试用通过创新性的试用流程及网页设计，可一条龙优化店铺销量搜索点击率、转换率、收藏分享、购物车、动销率、客单价、DSR动态评分等权重。</p>
+                <p>试客巴通过创新性的试用流程及网页设计，可一条龙优化店铺销量搜索点击率、转换率、收藏分享、购物车、动销率、客单价、DSR动态评分等权重。</p>
                 <p>2、增加重复访问率</p>
                 <p>试客在申请或下单领取时，根据平台任务设置需多次访问任务商品，产生重复访问率，从而提升店铺的综合排名。</p>
                 <p>3、丰富店铺评价</p>
@@ -45,6 +45,9 @@
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset_content.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/shike_center.css')?>">
 <footer id="footer"></footer>
 <script src="<?=base_url('/js/mall/jquery-1.10.2.js')?>"></script>
 <script src="<?=base_url('/js/mall/modal_scrollbar.js')?>"></script>
@@ -54,9 +57,9 @@
             $('.details_title').text('帮助中心');
         });
         $('#footer').load('../common/footer_other.html');
-        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+       // $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
             $('.account_information ul').find('a').eq(0).addClass('leftNav_active');
-        });
+       // });
 
     })
 </script>

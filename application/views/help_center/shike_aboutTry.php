@@ -26,7 +26,7 @@
                 <h2>8、返还的本金如何提现？</h2>
                 <p>试客提现细则如下：</p>
                 <p>1、平台满200元即可提现，试客每月有1次提现机会，提现金额必须为100元的整数倍且不少于200元。</p>
-                <p>2、本金提现时，平台将收取6%的手续费。</p>
+                <p>2、本金提现时，平台不收取手续费。</p>
                 <p>3、当试用品包邮，且金额大于100元，平台会收取运费：5元/单，作为补偿。</p>
                 <p>4、为了保障试客和商家交易金额的准确性，平台将预留5天的资金核查周期，返款到账户的资金将被冻结5天，5天后本金将自动解冻，之后方可自行提现。</p>
                 <h2>9、申请的提现什么时候可以到账？</h2>
@@ -35,6 +35,9 @@
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset_content.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/shike_center.css')?>">
 <footer id="footer"></footer>
 <script src="<?=base_url('/js/mall/jquery-1.10.2.js')?>"></script>
 <script src="<?=base_url('/js/mall/modal_scrollbar.js')?>"></script>
@@ -44,9 +47,9 @@
             $('.details_title').text('帮助中心');
         });
         $('#footer').load('../common/footer_other.html');
-        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+        //$('#left_nav').load("../common/helpCenter_leftNav.html",function(){
             $('.try_manage ul').find('a').eq(2).addClass('leftNav_active');
-        });
+       // });
 
     })
 </script>

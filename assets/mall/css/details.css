@@ -45,10 +45,11 @@
 }
 #section .section_content .commodity_details .commodity_content .serve {
   width: 550px;
-  height: 150px;
+  height: 138px;
   background-color: #f8f8f8;
-  margin: 23px 0;
-  padding: 20px 15px;
+  margin: 16px 0;
+  padding: 15px 15px;
+  padding-bottom: 0;
 }
 #section .section_content .commodity_details .commodity_content .serve b {
   font-weight: normal;
@@ -57,14 +58,14 @@
   font-size: 14px;
 }
 #section .section_content .commodity_details .commodity_content .serve .price {
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 #section .section_content .commodity_details .commodity_content .serve .price b {
   font-size: 24px;
   color: #f10180;
 }
 #section .section_content .commodity_details .commodity_content .serve .freight {
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 #section .section_content .commodity_details .commodity_content .serve .freight b {
   font-size: 14px;
@@ -84,21 +85,72 @@
   color: #f10180;
 }
 #section .section_content .commodity_details .commodity_content .standard,
-#section .section_content .commodity_details .commodity_content .number {
-  padding-bottom: 19px;
+#section .section_content .commodity_details .commodity_content .number,
+#section .section_content .commodity_details .commodity_content .integral {
+  margin-left: 15px;
   font-size: 14px;
+  margin-bottom: 8px;
 }
 #section .section_content .commodity_details .commodity_content .standard b,
-#section .section_content .commodity_details .commodity_content .number b {
+#section .section_content .commodity_details .commodity_content .number b,
+#section .section_content .commodity_details .commodity_content .integral b {
   font-weight: normal;
 }
-#section .section_content .commodity_details .commodity_content .application_button {
-  width: 200px;
-  height: 50px;
+#section .section_content .commodity_details .commodity_content .standard span,
+#section .section_content .commodity_details .commodity_content .number span,
+#section .section_content .commodity_details .commodity_content .integral span {
+  color: #f10180;
+}
+#section .section_content .commodity_details .commodity_content .integral {
+  padding-left: 30px;
+}
+#section .section_content .commodity_details .commodity_content .integral1 {
+  background: url(../images/xqy_icon_shang_default.png) left center no-repeat;
+}
+#section .section_content .commodity_details .commodity_content .integral2 {
+  background: url(../images/xqy_icon_zhui_default.png) left center no-repeat;
+}
+#section .section_content .commodity_details .commodity_content .btn_group {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 44px;
+}
+#section .section_content .commodity_details .commodity_content .btn_group .application_button,
+#section .section_content .commodity_details .commodity_content .btn_group .integral_button {
+  width: 180px;
+  height: 44px;
   color: #fff;
   font-size: 18px;
   background-color: #f10180;
-  margin-top: 9px;
+  margin-top: 4px;
+  padding-left: 0;
+  float: left;
+}
+#section .section_content .commodity_details .commodity_content .btn_group .integral_button {
+  margin-left: 20px;
+  background-color: #ff9c55;
+}
+#section .section_content .commodity_details .commodity_content .btn_group span {
+  display: inline-block;
+  float: left;
+  box-sizing: border-box;
+  width: 180px;
+  height: 44px;
+  color: #fff;
+  font-size: 14px;
+  background-color: #c8c8c8;
+  margin-top: 4px;
+  text-align: center;
+  margin-left: 25px;
+  padding-top: 3px;
+}
+#section .section_content .commodity_details .commodity_content .btn_group b {
+  height: 44px;
+  display: table-cell;
+  /*按照单元格的样式显示元素*/
+  padding-top: 33px;
+  float: right;
+  margin-left: 8px;
 }
 #section .section_content .commodity_details .activity {
   width: 230px;
@@ -113,7 +165,7 @@
 }
 #section .section_content .commodity_details .activity .apply_step {
   padding-top: 23px;
-  margin: 20px 0;
+  margin: 15px 0;
   border-top: 1px dashed #f0f0f0;
   border-bottom: 1px dashed #f0f0f0;
 }
@@ -122,8 +174,8 @@
   color: #323232;
   padding-bottom: 3px;
 }
-#section .section_content .commodity_details .activity .apply_step ul li {
-  margin: 20px 0;
+#section .section_content .commodity_details .activity .apply_step ul {
+  margin: 15px 0;
 }
 #section .section_content .commodity_details .activity .apply_step ul li span {
   display: inline-block;
@@ -133,8 +185,18 @@
   text-align: center;
   background: url(../images/xqy_icon_line_default.png) center no-repeat;
 }
-#section .section_content .commodity_details .activity > p {
-  color: #323232;
+#section .section_content .commodity_details .activity .apply_step ul li:nth-of-type(2) {
+  margin: 15px 0;
+}
+#section .section_content .commodity_details .activity table {
+  width: 218px;
+  margin-left: -10px;
+}
+#section .section_content .commodity_details .activity table td {
+  color: #969696;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 10px;
 }
 #section .section_content .use_flow {
   margin: 50px 0;
@@ -144,9 +206,11 @@
   line-height: 50px;
   border: 1px solid #f0f0f0;
   border-bottom: none;
+  overflow: hidden;
 }
 #section .section_content .use_flow .has_apply span {
   display: inline-block;
+  float: left;
   width: 150px;
   text-align: center;
   color: #323232;
@@ -157,12 +221,49 @@
   font-weight: normal;
   color: #f10180;
 }
+#section .section_content .use_flow .has_apply .tryAccount_carousel {
+  width: 1048px;
+  height: 50px;
+  line-height: 50px;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox #List1,
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox #List2 {
+  float: left;
+  min-width: 1048px;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox {
+  box-sizing: border-box;
+  width: 1048px;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+  background-color: transparent ;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox .Cont {
+  box-sizing: border-box;
+  width: 1048px;
+  background-color: transparent;
+  margin: 0 auto;
+  overflow: hidden;
+  float: left;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox .Cont .pic {
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  text-align: center;
+}
+#section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox .ScrCont {
+  width: 10000000px;
+}
 #section .section_content .commodity_try {
   overflow: hidden;
 }
 #section .section_content .commodity_try .others_try {
   width: 260px;
   border: 1px solid #f0f0f0;
+  padding-bottom: 30px;
 }
 #section .section_content .commodity_try .others_try h1 {
   padding: 0 20px;
@@ -171,7 +272,8 @@
 }
 #section .section_content .commodity_try .others_try .products {
   width: 220px;
-  margin: 20px 0 0 20px;
+  margin-left: 25px;
+  margin-top: 30px;
 }
 #section .section_content .commodity_try .others_try .products a img {
   width: 220px;
@@ -184,7 +286,9 @@
   white-space: nowrap;
   font-size: 14px;
   color: #323232;
-  padding-top: 8px;
+  margin-top: 8px;
+  background: url(../images/bg_tb_default.png) right center no-repeat;
+  padding-right: 26px;
 }
 #section .section_content .commodity_try .others_try .products .quantity {
   margin: 13px 0;
@@ -194,19 +298,26 @@
   height: 20px;
   line-height: 20px;
   border-radius: 5px;
-  color: #fff;
   font-size: 12px;
-  padding: 0 5px;
+  padding: 0 3px;
 }
 #section .section_content .commodity_try .others_try .products .quantity span:first-of-type {
-  background-color: #a766e6;
+  color: #a766e6;
+  border: 1px solid #a766e6;
 }
-#section .section_content .commodity_try .others_try .products .quantity span:last-of-type {
-  background-color: #36bc9e;
-  margin-left: 10px;
+#section .section_content .commodity_try .others_try .products .quantity span:nth-of-type(2) {
+  color: #36bc9e;
+  border: 1px solid #36bc9e;
+  margin-left: 5px;
+}
+#section .section_content .commodity_try .others_try .products .quantity span:nth-of-type(3) {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  padding-right: 0;
 }
 #section .section_content .commodity_try .others_try .products .price {
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   overflow: hidden;
 }
 #section .section_content .commodity_try .others_try .products .price span:first-of-type {
@@ -216,11 +327,19 @@
 }
 #section .section_content .commodity_try .others_try .products .price span:last-of-type {
   float: right;
-  font-size: 14px;
-  padding-top: 5px;
 }
-#section .section_content .commodity_try .others_try .products .price span:last-of-type b {
-  font-weight: normal;
+#section .section_content .commodity_try .others_try .products .price span:last-of-type input {
+  width: 80px;
+  height: 28px;
+  line-height: 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding-left: 0;
+  background-color: #f10180;
+}
+#section .section_content .commodity_try .others_try .products .progress_bar {
+  padding-bottom: 18px;
 }
 #section .section_content .commodity_try .try_details {
   width: 920px;
@@ -235,4 +354,108 @@
 #section .section_content .commodity_try .try_details .details_picture img {
   margin-top: 20px;
   max-width: 920px;
+}
+.exchange_modal,
+.exchangeSucceed_modal,
+.exchangeFailure_modal {
+  display: none;
+}
+.exchange_modal .modal_content,
+.exchangeSucceed_modal .modal_content,
+.exchangeFailure_modal .modal_content {
+  text-align: center;
+}
+.exchange_modal .modal_content p,
+.exchangeSucceed_modal .modal_content p,
+.exchangeFailure_modal .modal_content p {
+  font-size: 16px;
+  padding-top: 50px;
+}
+.exchange_modal .modal_content table,
+.exchangeSucceed_modal .modal_content table,
+.exchangeFailure_modal .modal_content table {
+  margin: 20px 0 25px 130px;
+  width: 187px;
+}
+.exchange_modal .modal_content table td,
+.exchangeSucceed_modal .modal_content table td,
+.exchangeFailure_modal .modal_content table td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+}
+.exchange_modal .modal_content table td input,
+.exchangeSucceed_modal .modal_content table td input,
+.exchangeFailure_modal .modal_content table td input {
+  width: 30px;
+  height: 30px;
+}
+.exchange_modal .modal_content table td input:focus,
+.exchangeSucceed_modal .modal_content table td input:focus,
+.exchangeFailure_modal .modal_content table td input:focus {
+  border: 1px solid #a6cef1;
+}
+.exchange_modal .exchange_content,
+.exchangeSucceed_modal .exchange_content,
+.exchangeFailure_modal .exchange_content {
+  padding: 43px 0;
+}
+.exchange_modal .exchange_content p,
+.exchangeSucceed_modal .exchange_content p,
+.exchangeFailure_modal .exchange_content p {
+  color: #323232;
+  font-size: 16px;
+  padding-top: 10px;
+}
+.exchange_modal .succeed_content,
+.exchangeSucceed_modal .succeed_content,
+.exchangeFailure_modal .succeed_content,
+.exchange_modal .failure_content,
+.exchangeSucceed_modal .failure_content,
+.exchangeFailure_modal .failure_content {
+  padding: 9px 0;
+}
+.exchange_modal .succeed_content p,
+.exchangeSucceed_modal .succeed_content p,
+.exchangeFailure_modal .succeed_content p,
+.exchange_modal .failure_content p,
+.exchangeSucceed_modal .failure_content p,
+.exchangeFailure_modal .failure_content p {
+  color: #323232;
+  font-size: 16px;
+  padding-top: 10px;
+}
+.exchange_modal .succeed_content .p3,
+.exchangeSucceed_modal .succeed_content .p3,
+.exchangeFailure_modal .succeed_content .p3,
+.exchange_modal .failure_content .p3,
+.exchangeSucceed_modal .failure_content .p3,
+.exchangeFailure_modal .failure_content .p3 {
+  font-size: 14px;
+  color: #646464;
+}
+.exchange_modal .failure_content,
+.exchangeSucceed_modal .failure_content,
+.exchangeFailure_modal .failure_content {
+  padding: 24px 0;
+}
+.exchange_modal .modal_submit,
+.exchangeSucceed_modal .modal_submit,
+.exchangeFailure_modal .modal_submit {
+  padding-top: 15px;
+}
+.exchange_modal .modal_submit input,
+.exchangeSucceed_modal .modal_submit input,
+.exchangeFailure_modal .modal_submit input {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.exchange_modal .modal_submit input:nth-of-type(2),
+.exchangeSucceed_modal .modal_submit input:nth-of-type(2),
+.exchangeFailure_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
 }

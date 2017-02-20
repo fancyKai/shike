@@ -14,15 +14,15 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--资金管理-->
-        <div class="funds_record left">
+        <div id="my_main" class="funds_record left">
             <h1 class="title">资金记录</h1>
             <ul class="allRecord">
-                <li class="record" <?php if(!$money_type):?> data-toggle="funds_detail"<?php endif;?> ><a  <?php if(!$money_type):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?money_type=0">资金明细</a><span>|</span></li>
-                <li class="record" <?php if($money_type == 1):?> data-toggle="recharge_record"<?php endif;?> ><a <?php if($money_type == 1):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?money_type=1">充值记录</a><span>|</span></li>
-                <li class="record" <?php if($money_type == 2):?> data-toggle="withdraw_record"<?php endif;?> ><a <?php if($money_type == 2):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?money_type=2">提现记录</a><span>|</span></li>
+                <li class="record" <?php if(!$remarks):?> data-toggle="funds_detail"<?php endif;?> ><a  <?php if(!$remarks):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?remarks=0">押金明细</a><span>|</span></li>
+                <li class="record" <?php if($remarks == 3):?> data-toggle="recharge_record"<?php endif;?> ><a <?php if($remarks == 3):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?remarks=3">充值记录</a><span>|</span></li>
+                <li class="record" <?php if($remarks == 8):?> data-toggle="withdraw_record"<?php endif;?> ><a <?php if($remarks == 8):?> style="color:#f10180"<?php endif;?> href="/merchant_funds_record?remarks=8">提现记录</a></li>
             </ul>
             <div>
-            <?php if(!$money_type):?>
+            <?php if(!$remarks):?>
             <!--资金明细-->
             <table class="funds_detail">
                 <tr>
@@ -31,24 +31,50 @@
                     <td>扣款</td>
                     <td>结余</td>
                     <td>备注</td>
+                    <td>状态</td>
                 </tr>
             <?php foreach($money_list as $v):?>
                 <tr>
                     <td><?php echo $v['time'];?></td>
                 <?php if($v['money_type'] == 1):?>
                     <td>&yen;<?php echo $v['money'];?></td>
-                    <td>&yen;0.00</td>
+                    <td></td>
                 <?php else:?>
-                    <td>&yen;0.00</td>
+                    <td></td>
                     <td>&yen;<?php echo $v['money'];?></td>
                 <?php endif;?>
                     <td>&yen;<?php echo $v['money_remain'];?></td>
-                    <td><?php echo $v['remarks'];?></td>
+
+                <?php if($v['remarks'] == 3):?>
+                    <td>押金充值</td>
+                <?php elseif($v['remarks'] == 4):?>
+                    <td>商品押金冻结</td>
+                <?php elseif($v['remarks'] == 5):?>
+                    <td>试用担保金冻结</td>
+                <?php elseif($v['remarks'] == 6):?>
+                    <td>试用担保金返款</td>
+                <?php elseif($v['remarks'] == 7):?>
+                    <td>商品押金返款</td>
+                <?php elseif($v['remarks'] == 8):?>
+                    <td>押金提现</td>
+                <?php endif;?>
+
+                <?php if($v['status'] == 1):?>
+                    <td>已返款</td>
+                <?php elseif($v['status'] == 2):?>
+                    <td>提现中</td>
+                <?php elseif($v['status'] == 3):?>
+                    <td>已提现</td>
+                <?php elseif($v['status'] == 4):?>
+                    <td>已到账</td>
+                <?php elseif($v['status'] == 5):?>
+                    <td>已扣款</td>
+                <?php endif;?>
                 </tr>
             <?php endforeach ?>
             </table>
             <?php endif;?>
-            <?php if($money_type == 1):?>
+            <?php if($remarks == 3):?>
             <!--充值记录-->
             <table class="recharge_record">
                 <tr>
@@ -62,12 +88,12 @@
                     <td><?php echo $v['time'];?></td>
                     <td><?php echo $v['flowid'];?></td>
                     <td>&yen;<?php echo $v['money'];?></td>
-                    <td><?php  echo ($v['status']==1 ? '充值成功':'充值失败');?></td>
+                    <td>已到账</td>
                 </tr>
             <?php endforeach ?>
             </table>
             <?php endif;?>
-             <?php if($money_type == 2):?>
+             <?php if($remarks == 8):?>
             <!--提现记录-->
             <table class="withdraw_record">
                 <tr>
@@ -83,7 +109,12 @@
                     <td><?php echo $v['flowid'];?></td>
                     <td>&yen;<?php echo $v['money'];?></td>
                     <td>&yen;<?php echo ($v['money']-$v['processfee']);?></td>
-                    <td>提现成功</td>
+                <?php if($v['status'] == 2):?>
+                    <td>提现中</td>
+                <?php elseif($v['status'] == 3):?>
+                    <td>已提现</td>
+                <?php endif;?>
+
                 </tr>
             <?php endforeach ?>
             </table>
@@ -93,12 +124,15 @@
     </div>
 </section>
 <footer id="footer"></footer>
-<script src="../../js/jquery-1.10.2.js"></script>
+<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        //$('#left_nav').load("../common/left_nav.html",function(){
+                    $('.fund_manage ul>li').find('a').eq(2).addClass('leftNav_active')
+               // });
         // $('.record').bind('click',function(){
         //     $(this).find('a').css('color','#f10180');
         //     $(this).siblings().find('a').css('color','#323232')

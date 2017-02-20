@@ -40,7 +40,7 @@
           height:348px;
         }
       }
-      //第二块---中
+      //第二块---中********************开始修改**************
       .commodity_content{
         height:350px;
         margin-right:40px;
@@ -55,10 +55,11 @@
         }
         .serve{
           width:550px;
-          height:150px;
+          height:138px;
           background-color:#f8f8f8;
-          margin:23px 0;
-          padding:20px 15px;
+          margin:16px 0;
+          padding:15px 15px;
+          padding-bottom:0;
           b{
             font-weight:normal;
           }
@@ -66,14 +67,14 @@
             font-size:14px;
           }
           .price{
-            padding-bottom:20px;
+            padding-bottom:15px;
             b{
               font-size:24px;
               color:@deepred_color;
             }
           }
           .freight{
-            padding-bottom:20px;
+            padding-bottom:15px;
             b{
               font-size:14px;
               color:#323232;
@@ -95,22 +96,69 @@
             }
           }
         }
-        .standard,.number{
-          padding-bottom:19px;
+        .standard,.number,.integral{
+          margin-left:15px;
           font-size:14px;
+          margin-bottom:8px;
           b{
             font-weight:normal;
           }
+          span{
+            color:@deepred_color;
+          }
         }
-        .application_button{
-          width:200px;
-          height:50px;
-          color:#fff;
-          font-size:18px;
-          background-color:@deepred_color;
-          margin-top:9px;
+        .integral{
+          padding-left:30px;
+        }
+        .integral1{
+          background:url(../images/xqy_icon_shang_default.png) left center no-repeat;
+        }
+        .integral2{
+          background:url(../images/xqy_icon_zhui_default.png) left center no-repeat;
+        }
+        .btn_group {
+          display:table-cell;
+          vertical-align:bottom;
+          height:44px;
+          .application_button,.integral_button {
+            width: 180px;
+            height: 44px;
+            color: #fff;
+            font-size: 18px;
+            background-color: @deepred_color;
+            margin-top:4px;
+            padding-left:0;
+            float:left;
+          }
+          .integral_button{
+            margin-left:20px;
+            background-color:#ff9c55;
+          }
+          span{
+            display:inline-block;
+            float:left;
+            box-sizing: border-box;
+            width: 180px;
+            height: 44px;
+            color: #fff;
+            font-size:14px;
+            background-color:#c8c8c8;
+            margin-top:4px;
+            text-align:center;
+            margin-left:25px;
+            padding-top:3px;
+          }
+          b{
+            //display:inline-block;
+            height:44px;
+            display:table-cell;      /*按照单元格的样式显示元素*/
+            padding-top:33px;
+            float:right;
+            margin-left:8px;
+          }
         }
       }
+      //********************修改end**************
       //第三块---又
       .activity{
         width:230px;
@@ -124,7 +172,7 @@
         }
         .apply_step{
           padding-top:23px;
-          margin:20px 0;
+          margin:15px 0;
           border-top:1px dashed @border_color;
           border-bottom:1px dashed @border_color;
           h1{
@@ -133,8 +181,8 @@
             padding-bottom:3px;
           }
           ul{
+            margin:15px 0;
             li{
-              margin:20px 0;
               span{
                 display:inline-block;
                 width:30px;
@@ -144,10 +192,20 @@
                 background:url(../images/xqy_icon_line_default.png) center no-repeat;
               }
             }
+            li:nth-of-type(2){
+              margin:15px 0;
+            }
           }
         }
-        >p{
-          color:@deepfont_color;
+        table{
+          width: 218px;
+          margin-left: -10px;
+          td{
+            color:#969696;
+            font-size:12px;
+            text-align:center;
+            padding-top:10px;
+          }
         }
       }
     }
@@ -159,8 +217,10 @@
         line-height:50px;
         border:1px solid @border_color ;
         border-bottom:none;
+        overflow:hidden;
         span{
           display:inline-block;
+          float:left;
           width:150px;
           text-align:center;
           color:@deepfont_color;
@@ -169,6 +229,41 @@
           b{
             font-weight:normal;
             color:@deepred_color;
+          }
+        }
+        .tryAccount_carousel{
+          width:1048px;
+          height:50px;
+          line-height:50px;
+          .rollBox #List1,.rollBox #List2{
+            float:left;
+            min-width:1048px;
+          }
+          .rollBox{
+            box-sizing:border-box;
+            width: 1048px;
+            height:50px;
+            margin:0 auto;
+            position:relative;
+            background-color:transparent ;
+            .Cont{
+              box-sizing:border-box;
+              width: 1048px;
+              background-color:transparent;
+              margin:0 auto;
+              overflow:hidden;
+              float:left;
+              .pic{
+                padding:0 20px;
+                height:50px;
+                line-height:50px;
+                float:left;
+                text-align:center;
+              }
+            }
+            .ScrCont{
+              width:10000000px;
+            }
           }
         }
       }
@@ -180,6 +275,7 @@
       .others_try{
         width:260px;
         border:1px solid @border_color;
+        padding-bottom:30px;
         h1{
           padding:0 20px;
           line-height:42px;
@@ -187,7 +283,8 @@
         }
         .products {
           width:220px;
-          margin:20px 0 0 20px;
+          margin-left:25px;
+          margin-top:30px;
           a{
             img{
               width:220px;
@@ -201,7 +298,9 @@
             white-space:nowrap;
             font-size:14px;
             color:@deepfont_color ;
-            padding-top:8px;
+            margin-top:8px;
+            background:url(../images/bg_tb_default.png)right center no-repeat;
+            padding-right:26px;
           }
           .quantity{
             margin:13px 0;
@@ -210,20 +309,29 @@
               height:20px;
               line-height:20px;
               border-radius:5px;
-              color:#fff;
               font-size:12px;
-              padding:0 5px;
+              padding:0 3px;
             }
             span:first-of-type{
-              background-color:#a766e6;
+              //background-color:#a766e6;
+              color:#a766e6;
+              border:1px solid #a766e6;
             }
-            span:last-of-type{
-              background-color:#36bc9e;
-              margin-left:10px;
+            span:nth-of-type(2){
+              //background-color:#36bc9e;
+              color:#36bc9e;
+              border:1px solid #36bc9e;
+              margin-left:5px;
+            }
+            span:nth-of-type(3){
+              display:inline-block;
+              float:right;
+              font-size:12px;
+              padding-right:0;
             }
           }
           .price{
-            padding-bottom:18px;
+            padding-bottom:10px;
             overflow:hidden;
             span:first-of-type {
               float:left;
@@ -232,12 +340,21 @@
             }
             span:last-of-type {
               float:right;
-              font-size:14px;
-              padding-top: 5px;
-              b{
-                font-weight:normal;
+              //padding-top: 5px;
+              input{
+                width:80px;
+                height:28px;
+                line-height:30px;
+                border-radius:5px;
+                color:#fff;
+                font-size:14px;
+                padding-left:0;
+                background-color:@deepred_color;
               }
             }
+          }
+          .progress_bar{
+            padding-bottom:18px;
           }
         }
       }
@@ -262,10 +379,76 @@
   }
 }
 
+///***********************************样式增加********************************/
+//兑换弹框
+.exchange_modal,.exchangeSucceed_modal,.exchangeFailure_modal {
+  display:none;
+  .modal_content {
+    text-align:center;
+    p{
+      font-size:16px;
+      padding-top:50px;
+    }
+    table {
+      margin:20px 0 25px 130px;
+      width: 187px;
+      td {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #c8c8c8;
+        input {
+          width: 30px;
+          height: 30px;
+          &:focus {
+            border: 1px solid #a6cef1;
+          }
+        }
+      }
+    }
+  }
 
+  .exchange_content{
+    padding:43px 0;
+    p{
+      color:#323232;
+      font-size:16px;
+      padding-top:10px;
+    }
+  }
+  .succeed_content,.failure_content{
+    padding:9px 0;
+    p{
+      color:#323232;
+      font-size:16px;
+      padding-top:10px;
+    }
+    .p3{
+      font-size:14px;
+      color:@font_color;
+    }
+  }
+  .failure_content{
+    padding: 24px 0;
+  }
 
+  .modal_submit {
+    padding-top:15px;
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
 
+    input:nth-of-type(2){
+      margin-left: 35px;
+    }
+  }
+}
 
+///***********************************样式增加end********************************/
 
 
 

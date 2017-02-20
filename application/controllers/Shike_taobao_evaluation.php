@@ -12,7 +12,11 @@ class Shike_taobao_evaluation extends MY_Controller {
 	{
 
         $order_id = $this->input->get("order_id");
-		$this->out_data['order'] = $this->db->query("select * from sorder where order_id=".$order_id)->row_array();
+		$order = $this->db->query("select * from sorder where order_id=".$order_id)->row_array();
+        $shop_id = $order['shop_id'];
+        $sellerwangwang = $this->db->query("select wangwang from shop where shop_id={$shop_id}")->row_array();
+        $order['sellerwangwang'] = $sellerwangwang['wangwang'];
+        $this->out_data['order'] = $order;
 		$user_id = $this->session->userdata('user_id');
 		$this->out_data['user'] = $this->db->query("select * from user where user_id=$user_id")->row_array();
 		$this->out_data['con_page'] = 'shike/taobao_evaluation';
@@ -33,7 +37,8 @@ class Shike_taobao_evaluation extends MY_Controller {
         $res = move_uploaded_file($tmp_file,$image_link);
         $info = array(
         	'comment_img' => $image_link,
-            'status' => 3
+            'status' => 3,
+            'time_3' => date('Y-m-d h:i:s',time()),
         );
 
     	

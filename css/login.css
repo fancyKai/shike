@@ -46,6 +46,7 @@
   height: 42px;
   line-height: 42px;
   margin-left: 42px;
+  font-size:14px;
 }
 #section .login_content .login_box ul li.account {
   background: url(../images/login_icon_zh_default.png) left no-repeat;
@@ -57,6 +58,7 @@
   text-align: center;
   height: 30px;
   line-height: 30px;
+  color: #e61e28;
 }
 #section .login_content .login_box .error span {
   color: #e61e28;
@@ -74,8 +76,14 @@
   float: right;
   margin-top: 35px;
 }
+#section .login_content .login_box .forget_password a:hover{
+  color:#f10180;
+  text-decoration: underline ;
+
+}
 #section .login_content .login_box .forget_password img {
   margin-top: -2px;
+  cursor:pointer;
 }
 #section .login_content .login_box .forget_password span {
   margin-left: 10px;

@@ -15,7 +15,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧活动中心-->
-        <div class="content left">
+        <div id="my_main" class="content left">
             <div class="activity_manage">
                 <h1 class="title">活动管理</h1>
                 <!--所有订单的状态种类-->
@@ -24,7 +24,7 @@
                         <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/merchant_activity_manage?order_status=0">所有活动（<span><?php echo $sum_activity_list['count'];?></span>）</a><b>|</b></li>
                         <li class="order"><a <?php if($order_status == 1):?> class="personal_active" <?php endif;?> href="/merchant_activity_manage?order_status=1">待付款活动（<span><?php echo $sum_1_activity_list['count'];?></span>）</a><b>|</b></li>
                         <li class="order"><a <?php if($order_status == 2):?> class="personal_active" <?php endif;?> href="/merchant_activity_manage?order_status=2">待发布活动（<span><?php echo $sum_2_activity_list['count'];?></span>）</a><b>|</b></li>
-                        <li class="order"><a <?php if($order_status == 3):?> class="personal_active" <?php endif;?> href="/merchant_activity_manage?order_status=3">待开奖活动（<span><?php echo $sum_3_activity_list['count'];?></span>）</a></li>
+                        <li class="order"><a <?php if($order_status == 3):?> class="personal_active" <?php endif;?> href="/merchant_activity_manage?order_status=3">待开奖活动（<span><?php echo $sum_3_activity_list['count'];?></span>）</a><b>|</b></li>
                         <li class="order"><a <?php if($order_status == 4):?> class="personal_active" <?php endif;?> href="/merchant_activity_manage?order_status=4">已开奖活动（<span><?php echo $sum_4_activity_list['count'];?></span>）</a></li>
                     </ul>
                 </div>
@@ -44,27 +44,31 @@
                     </div>
                     <div class="detalis">
                         <ul>
-                            <li><img style="width:120px;height:80px" src="<?php echo $v['picture_url'];?>" alt=""></li>
+                            <li><img style="width:80px;height:80px" src="<?php echo $v['picture_url'];?>" alt=""></li>
                             <li>
                                 <p>商品名称：<span><?php echo $v['product_name'];?></span></p>
                                 <p>店铺名称：<span><?php echo $v['shopname'];?></span></p>
                                 <p>商品来源：<span><?php echo ($v['platformid']==1?"淘宝":"天猫");?></span></p>
                                 <p>商品分类：<span>
-                                <?php if($v['product_classify']==1){
+                                <?php if($v['product_classify']==1) {
                                     echo "女装";
                                 }elseif ($v['product_classify']==2) {
                                     echo "男装";
                                 }elseif ($v['product_classify']==3) {
-                                    echo "鞋包配饰";
+                                    echo "美妆";
                                 }elseif ($v['product_classify']==4) {
-                                    echo "居家生活";
+                                    echo "鞋包配饰";
                                 }elseif ($v['product_classify']==5) {
-                                    echo "数码电器";
+                                    echo "居家生活";
                                 }elseif ($v['product_classify']==6) {
-                                    echo "母婴儿童";
+                                    echo "数码电器";
                                 }elseif ($v['product_classify']==7) {
-                                    echo "食品酒水";
+                                    echo "母婴儿童";
                                 }elseif ($v['product_classify']==8) {
+                                    echo "户外运动";
+                                }elseif ($v['product_classify']==9) {
+                                    echo "食品酒水";
+                                }elseif ($v['product_classify']==10) {
                                     echo "其他";
                                 }
                                 ?>
@@ -97,7 +101,7 @@
                             <li>
                                 <p class="status"><span>试用活动正在审核中</span></p>
                                 <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
-                                <p><span id="lefttime_<?php echo $v['act_id'];?>"></span></p>
+                                <p><span style="color:#969696;" id="lefttime_<?php echo $v['act_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 3):?>
@@ -107,7 +111,7 @@
                             <li>
                                 <p class="status"><span>试用活动待开奖</span></p>
                                 <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
-                                <p><span id="lefttime_<?php echo $v['act_id'];?>"></span></p>
+                                <p><span style="color:#969696;" id="lefttime_<?php echo $v['act_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
                             <?php if($v['status'] == 4):?>
@@ -128,8 +132,19 @@
                                 <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
                             </li>
                             <?php endif;?>
+                            <?php if($v['status'] == 6):?>
+                            <li>
+                                <p><span>审核不通过</span></p>
+                            </li>
+                            <li>
+                                <p><span>试用活动审核不通过，<br/>款项已打账户</span></p>
+                                <p>联系客服QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes"><img src="images/merchant/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                            <?php endif;?>
                             <input type="hidden" id="activity_list_id_<?php echo $activity_list_count;?>" value="<?php echo $v['act_id'];?>">
-                            <input type="hidden" id="activity_list_time_<?php echo $activity_list_count;?>" value="<?php echo strtotime($v['gene_time']);?>">
+                            <?php $time = max(strtotime($v['gene_time']),strtotime($v['time_3'])); ?>
+                            <input type="hidden" id="activity_list_time_<?php echo $activity_list_count;?>" value="<?php echo $time;?>">
+                            <input type="hidden" id="activity_money_<?php echo $v["act_id"];?>" value="<?php echo $v["total_money"];?>">
                         </ul>
                     </div>
                 </div>
@@ -155,15 +170,84 @@
            <p>请输入支付密码</p>
             <table>
                 <tr>
-                    <td><input id="pwd1" type="text"/></td>
-                    <td><input id="pwd2" type="text"/></td>
-                    <td><input id="pwd3" type="text"/></td>
-                    <td><input id="pwd4" type="text"/></td>
-                    <td><input id="pwd5" type="text"/></td>
-                    <td><input id="pwd6" type="text"/></td>
+                    <td><input onkeyup="keyup_pwd1()"  maxlength="1" id="pwd1" type="text"/></td>
+                    <td><input onkeyup="keyup_pwd2()"  maxlength="1" id="pwd2" type="text"/></td>
+                    <td><input onkeyup="keyup_pwd3()"  maxlength="1" id="pwd3" type="text"/></td>
+                    <td><input onkeyup="keyup_pwd4()"  maxlength="1" id="pwd4" type="text"/></td>
+                    <td><input onkeyup="keyup_pwd5()"  maxlength="1" id="pwd5" type="text"/></td>
+                    <td><input onkeyup="keyup_pwd6()"  maxlength="1" id="pwd6" type="text"/></td>
                 </tr>
             </table>
+            <span class="error" id="pwderror" style="color:red;text-align:right;"></span>
         </div>
+        <input type="hidden" id="hiddenpwd1">
+                <input type="hidden" id="hiddenpwd2">
+                <input type="hidden" id="hiddenpwd3">
+                <input type="hidden" id="hiddenpwd4">
+                <input type="hidden" id="hiddenpwd5">
+                <input type="hidden" id="hiddenpwd6">
+                <script>
+                    function keyup_pwd1(){
+                        $("#hiddenpwd1").val($('#pwd1').val());
+                        $('#pwd1').val('*');
+                        $('#pwd2').focus();
+                    }
+                    function keyup_pwd2(){
+                        $("#hiddenpwd2").val($('#pwd2').val());
+                        $('#pwd2').val('*');
+                        $('#pwd3').focus();
+
+                    }
+                    function keyup_pwd3(){
+                        $("#hiddenpwd3").val($('#pwd3').val());
+                        $('#pwd3').val('*');
+                        $('#pwd4').focus();
+
+                    }
+                    function keyup_pwd4(){
+                        $("#hiddenpwd4").val($('#pwd4').val());
+                        $('#pwd4').val('*');
+                        $('#pwd5').focus();
+
+                    }
+                    function keyup_pwd5(){
+                        $("#hiddenpwd5").val($('#pwd5').val());
+                        $('#pwd5').val('*');
+                        $('#pwd6').focus();
+
+                    }
+                    function keyup_pwd6(){
+                        $("#hiddenpwd6").val($('#pwd6').val());
+                        $('#pwd6').val('*');
+                        $('#pwd6').blur();
+
+                    }
+                    function focus_pwd1(){
+                        $('#pwd1').val('');
+
+                    }
+                     function focus_pwd2(){
+                        $('#pwd2').val('');
+
+                    }
+                     function focus_pwd3(){
+                        $('#pwd3').val('');
+
+                    }
+                     function focus_pwd4(){
+                        $('#pwd4').val('');
+
+                    }
+                     function focus_pwd5(){
+                        $('#pwd5').val('');
+
+                    }
+                     function focus_pwd6(){
+                        $('#pwd6').val('');
+
+                    }
+                   
+                </script>
         <div class="modal_submit">
             <input id="confirm_payment"type="button" value="确定" onclick="check_pay()"/>
         </div>
@@ -203,7 +287,7 @@
         <div class="succeed_content">
             <p><img src="images/merchant/sj_fbsy_tc_icon_no_default.png" alt=""></p>
             <p class="payment_succeed">支付失败！</p>
-            <p style="height:20px;"></p>
+            <p id="pay_error" style="height:20px;color:red"></p>
         </div>
         <div class="modal_submit">
             <input class="confirm" type="button" value="确定" onclick="end_act()"/>
@@ -214,6 +298,8 @@
 
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
+<script src="js/merchant/payPw_verify.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         var activity_list_count = <?php echo count($activity_list);?>;
@@ -228,9 +314,11 @@
             ydcountdown(leftseconds,obj);
         }
 
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html",function(){
+            $('.try_manage ul>li').find('a').eq(1).addClass('leftNav_active')
+        // });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');
@@ -311,13 +399,14 @@
 }
     function check_pay(){
         var act_id = $("#hidden_actid").val();
-        var pwd1=$("#pwd1").val();
-        var pwd2=$("#pwd2").val();
-        var pwd3=$("#pwd3").val();
-        var pwd4=$("#pwd4").val();
-        var pwd5=$("#pwd5").val();
-        var pwd6=$("#pwd6").val();
+        var pwd1=$("#hiddenpwd1").val();
+        var pwd2=$("#hiddenpwd2").val();
+        var pwd3=$("#hiddenpwd3").val();
+        var pwd4=$("#hiddenpwd4").val();
+        var pwd5=$("#hiddenpwd5").val();
+        var pwd6=$("#hiddenpwd6").val();
         if( pwd1 == '' || pwd2 == '' || pwd3 == '' ||pwd4 == '' ||pwd5 == '' ||pwd6 == ''){
+            $("#pwderror").text("支付密码不能为空");
             return;
         }
         pwd = pwd1;
@@ -326,6 +415,16 @@
         pwd += pwd4;
         pwd += pwd5;
         pwd += pwd6;
+        if(<?php echo (empty($seller['paypw'])==1?1:2);?> == 1){
+            $("#pwderror").text("请先设置支付密码");
+            return;
+        }
+        var avail = <?php echo $seller['avail_deposit'];?>;
+        var need_pay = $("#activity_money_"+act_id).val();
+        /*if (avail < need_pay){
+            $("#pwderror").text("可用押金不足，请先充值押金，然后在试用活动-待付款活动中进行支付");
+            return;
+        }*/
 
         $.ajax({
             url : admin.url+'merchant_activity_manage/check_pay',
@@ -335,7 +434,12 @@
             success : function (result){
                 if(result == "1"){
                     $('.payment_modal').css('display','block');
+                }else if(result == "2"){
+                    //$("#pay_error").text("可用押金不足，请先充值押金，然后在试用活动-待付款活动中进行支付");
+                    $("#pwderror").text("可用押金不足，请先充值押金，然后在试用活动-待付款活动中进行支付");
+                    //$('.paymentFailure_modal').css('display','block');
                 }else{
+                    $("#pay_error").text("支付密码错误");
                     $('.paymentFailure_modal').css('display','block');
                 }
             },

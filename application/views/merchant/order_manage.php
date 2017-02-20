@@ -16,7 +16,7 @@
         <aside class="left" id="left_nav"></aside>
         <!--右侧个人中心-->
             <!--任务说明-->
-        <div class="store_content left">
+        <div id="my_main" class="store_content left">
             <h1 class="title">试用订单管理</h1>
                 <!--所有订单的状态种类-->
             <div class="order_status">
@@ -36,7 +36,7 @@
                     <p class="left">
                         <span><?php echo substr($v['time'],0,10);?></span>
                         <span>任务编号：<?php echo $v['order_id'];?></span>
-                        <span>淘宝商品订单号：<?php echo $v['out_sorderid']?></span>
+                        <span>淘宝商品订单号：<?php echo $v['outer_orderid']?></span>
                     </p>
                     <p class="right">
                         <a href="/merchant_order_details?order_id=<?php echo $v['order_id'];?>">查看详情</a>
@@ -51,7 +51,7 @@
                                 <p><span>来源：</span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></p>
                         </li>
                         <li>
-                            <p><span>试客：</span><?php echo $v['shikename'];?></p>
+                            <p><span>试客：</span><?php echo $v['user_name'];?></p>
                         </li>
 
                         <?php if($v['status'] == 1):?>
@@ -60,7 +60,7 @@
                         </li>
                         <li>
                             <p class="status" id="delivery" onclick="show_deliver_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认发货"/></p>
-                            <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
+                         <!--   <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>-->
                         </li>
                         <?php endif;?>
 
@@ -145,7 +145,8 @@
                         </li>
                         <?php endif;?>
                         <input type="hidden" id="order_list_id_<?php echo $order_list_count;?>" value="<?php echo $v['order_id'];?>">
-                        <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo strtotime($v['time']);?>">
+                        <?php $time = max(strtotime($v['time']),strtotime($v['time_2']),strtotime($v['time_3'])); ?>
+                        <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo $time;?>">
                     </ul>
                 </div>
             </div>
@@ -170,10 +171,10 @@
             <div class="confirm_delivery" action="">
                 <label for="logistics">物&nbsp; &nbsp;流</label>
                 <input id="logistics" type="text"/>
-                <p><span>物流不能为空</span></p>
+                <p><span id="logistics_error"></span></p>
                 <label for="waybill_number">运单号</label>
                 <input id="waybill_number" type="text"/>
-                <p><span></span></p>
+                <p><span id="waybill_number_error"></span></p>
             </div>
         </div>
         <div class="modal_submit">
@@ -226,6 +227,7 @@
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
 <script src="js/ydcountdown.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         var order_list_count = <?php echo count($order_list);?>;
@@ -241,7 +243,9 @@
         }
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
-        // $('#left_nav').load("../common/left_nav.html");
+         $('#left_nav').load("../common/left_nav.html",function(){
+            $('.try_manage ul>li').find('a').eq(2).addClass('leftNav_active')
+         });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');
@@ -276,6 +280,14 @@
         var wuliu = $("#logistics").val();
         var yundan = $("#waybill_number").val();
         var order_id = $("#hidden_orderid").val();
+        if(!wuliu){
+            $("#logistics_error").text("物流不能为空");
+            return;
+        }
+        if(!yundan){
+            $("#waybill_number_error").text("运单号不能为空");
+            return;
+        }
         $.ajax({
         url : admin.url+'merchant_personal/update_confirm_ship',
         data:{wuliu:wuliu,yundan:yundan,order_id:order_id},

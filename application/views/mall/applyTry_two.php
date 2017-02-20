@@ -13,7 +13,7 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="<?php echo base_url().'mall/homepage/index'; ?>">首页</a></li>
+                <li><a href="<?php echo base_url().''; ?>">首页</a></li>
                 <li><img src="<?=base_url('/images/mall/icon_arrow_default.png')?>" alt=""></li>
                 <li><a href="<?php echo base_url().'mall/homepage/productdetails/'.$act_id; ?>">商品详情</a></li>
                 <li><img src="<?=base_url('/images/mall/icon_arrow_default.png')?>" alt=""></li>
@@ -31,13 +31,19 @@
                 <div class="good_detail">
                     <table>
                         <tr>
-                            <th>商品图片</th>
+                            <th>商品主图</th>
                             <th>商家旺旺</th>
                             <th>商品价格</th>
                         </tr>
                         <tr>
-                            <td><img src="<?php echo $product_details['picture_url']; ?>" alt=""></td>
-                            <td><?php echo $shop_info['wangwang']; ?></td>
+                            <td><img src="<?php echo $product_details['t_picture_url']; ?>" alt=""></td>
+                            <td><?php
+                                $name = $shop_info['wangwang'];
+                                $strlen = mb_strlen($name, 'utf-8');
+                                $firstStr = mb_substr($name, 0, $strlen-2, 'utf-8');
+                                $lastStr = mb_substr($name, 0, 1, 'utf-8');
+                                echo $strlen <= 2 ? $lastStr . '*' : $firstStr . '**';
+                                ?></td>
                             <td>&yen;<?php echo $product_details['unit_price']; ?></td>
                         </tr>
                     </table>
@@ -75,8 +81,11 @@
 
     function check_product_url() {
         var product_url_input = $(".product_url").val();
-        var product_url = "<?php echo $product_details['product_link'];?>"
-        if (product_url != product_url_input)
+        var product_url = "<?php echo $product_details['product_link'];?>";
+        var id_input = getQueryStringByName(product_url_input,"id");
+        var id = getQueryStringByName(product_url,"id");
+
+        if (id_input != id)
         {
             $('.error span').text('商品链接不正确');
         }else
@@ -86,14 +95,24 @@
     }
 
     function next_step() {
-        var url_error = $('.error span').val();
-        if(url_error == '商品链接不正确')
+        var url_error = $('.error span').text();
+        if(url_error != '商品链接正确')
         {
             return
         }else
         {
             location.href='<?=base_url('mall/applyTry/applyTry_three').'/'.$act_id?>';
         }
+
+    }
+
+    //querystring处理
+    function getQueryStringByName(str,name){
+        var result = str.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+        if(result == null || result.length < 1){
+            return "";
+        }
+        return result[1];
 
     }
 </script>

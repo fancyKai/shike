@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧申请记录-->
-        <div class="content_main left">
+        <div id="my_main" class="content_main left">
            <h1 class="title">申请记录</h1>
             <!--任务说明--进展-->
             <div class="application_record">
@@ -22,7 +22,7 @@
                 <div class="order_status">
                     <ul>
                         <li class="order"><a <?php if(!$order_status):?> class="personal_active"  <?php endif;?> href="/shike_application_record?order_status=0">所有申请（<span><?php echo $sum_apply_list['count'];?></span>）</a><b>|</b></li>
-                        <li class="order"><a <?php if(!$order_status):?> class="personal_active" <?php endif;?> href="/shike_application_record?order_status=3">已中奖申请（<span><?php echo $sum_win_apply_list['count'];?></span>）</a></li>
+                        <li class="order"><a <?php if($order_status==3):?> class="personal_active" <?php endif;?> href="/shike_application_record?order_status=3">已中奖申请（<span><?php echo $sum_win_apply_list['count'];?></span>）</a></li>
                     </ul>
                 </div>
                 <!--商品发货状态-->
@@ -67,7 +67,7 @@
                             </li>
                             <li>
                                 <p class="status">恭喜您中了免费试用商品！</p>
-                                <p>快去<a href="/shike_try_winningManage">试用中奖管理</a>领取吧！</p>
+                                <p>立即前往<a href="/shike_try_winningManage">中奖管理</a>领取吧！</p>
                             </li>
                         <?php endif;?>
                         <?php if($v['apply_status'] == 4):?>
@@ -92,6 +92,7 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
 
@@ -101,7 +102,7 @@
             var now ="<?php echo time();?>";
             var order_id = $("#apply_list_id_"+i).val();
             var obj = $("#lefttime_"+order_id);
-            leftseconds = parseInt(timestamp)+ 3600*48 - parseInt(now);
+            leftseconds = parseInt(timestamp)+ 3600*72 - parseInt(now);
             console.log(leftseconds);
             //console.log(obj);
             ydcountdown(leftseconds,obj);
@@ -119,7 +120,7 @@
     // console.log(s);
     //console.log(obj);
     var remain_seconds = s;
-    remain_seconds = remain_seconds%(3600*24);
+    // remain_seconds = remain_seconds%(3600*24);
     var hour = parseInt(remain_seconds/3600);
     hour = (hour<10?'0'+hour:hour);
     var minutes = parseInt(remain_seconds%3600/60);

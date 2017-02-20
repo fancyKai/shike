@@ -30,20 +30,21 @@
 #section .section_main .basic_setup .revamp_content p span {
   font-size: 12px;
   color: #e61e28;
-  padding-left: 420px;
+  padding-left: 425px;
 }
-#section .section_main .basic_setup .revamp_content p.btn {
-  padding-left: 417px;
-  padding-top: 20px;
+#section .section_main .basic_setup .revamp_content p.btns {
+  width: 100%;
+  padding-left: 92px;
+  text-align: center;
 }
-#section .section_main .basic_setup .revamp_content p.btn input {
+#section .section_main .basic_setup .revamp_content p.btns input {
   width: 80px;
   margin-right: 32px;
   color: #f10180;
   border: 1px solid #f10180;
   background-color: #fff;
 }
-#section .section_main .basic_setup .revamp_content p.btn input:first-of-type {
+#section .section_main .basic_setup .revamp_content p.btns input:first-of-type {
   background-color: #f10180;
   color: #fff;
 }

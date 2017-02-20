@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--修改登录密码成功-->
-        <div class="basic_setup left">
+        <div id="my_mian" class="basic_setup left">
             <h1 class="title">设置提现密码</h1>
             <div class="revamp_succeed">
                 <p><img src="images/merchant/sj_zhxx_icon_right_default.png" alt=""></p>
@@ -29,11 +29,14 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+           $('.account_information ul>li').find('a').eq(0).addClass('leftNav_active')
+        });
     })
 </script>
 </body>

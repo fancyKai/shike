@@ -13,9 +13,11 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="/shike_personal">个人中心</a></li>
+                <li><a href="<?=base_url('')?>">首页</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
-                <li><a href="/shike_try_winningManage">使用管理</a></li>
+                <li><a href="/shike_personal">试客中心</a></li>
+                <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
+                <li><a href="/shike_try_winningManage">试用管理</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
                 <li>领取下单</li>
             </ul>
@@ -36,10 +38,13 @@
                         <div class="good_introduce">
                             <p class="good_name"><span><?php echo $orderinfo['product_name'];?></span></p>
                             <p>店铺：<span><?php echo $orderinfo['shopname'];?></span></p>
-                            <p>规格：<span><?php echo $orderinfo['size'];?> <?php echo $orderinfo['color'];?></span></p>
+                            <p>规格：<span><?php
+                                    $temp = $orderinfo['color'].' '.$orderinfo['size'];
+                                    echo ($temp == ' ')?'请选择任意规格（请注意下单价格）':$temp;
+                                    ?></span></p>
                         </div>
                     </div>
-                    <p>需拍下数量：<span><?php echo $orderinfo['buy_sum'];?></span>件 &nbsp; 金额<span>&yen;<?php echo $orderinfo['buy_sum']*$orderinfo['unit_price'];?></span></p>
+                    <p>需拍下数量：<span><?php echo $orderinfo['buy_sum'];?></span>件 &nbsp; 金额：<span>&yen;<?php echo $orderinfo['buy_sum']*$orderinfo['unit_price'];?></span></p>
                 </div>
 
             </div>

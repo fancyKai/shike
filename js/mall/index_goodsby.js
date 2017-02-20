@@ -2,7 +2,7 @@
  * Created by 二更 on 2016/11/3.
  */
 
-var Speed = 80; //启动速度(毫秒)
+var Speed = 20; //启动速度(毫秒)
 var Space = 1; //每次移动(px)
 var PageWidth = 100; //翻页宽度
 var fill = 0; //整体移位

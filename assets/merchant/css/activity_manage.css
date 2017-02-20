@@ -126,6 +126,12 @@
   font-size: 14px;
   padding-bottom: 10px;
 }
+#section .section_main .content .activity_manage .delivery_status .detalis ul li.last {
+  padding-top: 5px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li.last > p {
+  line-height: 24px;
+}
 .pay_now_modal,
 .payment_modal,
 .paymentFailure_modal {
@@ -160,6 +166,7 @@
 .paymentFailure_modal .modal_content table td input {
   width: 30px;
   height: 30px;
+  padding-left: 12px;
 }
 .pay_now_modal .modal_content table td input:focus,
 .payment_modal .modal_content table td input:focus,

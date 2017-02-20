@@ -21,28 +21,43 @@
 }
 #section .section_main .store_content .confirm_payment .payment_content > table {
   width: 940px;
-  height: 154px;
   margin-top: 10px;
 }
 #section .section_main .store_content .confirm_payment .payment_content > table td,
 #section .section_main .store_content .confirm_payment .payment_content > table th {
   border: 1px  solid #c8c8c8;
   text-align: center;
-  width: 140px;
   height: 50px;
   font-size: 14px;
+  color: #646464;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td {
+  padding: 10px 0 20px 0;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td p {
+  padding-top: 10px;
 }
 #section .section_main .store_content .confirm_payment .payment_content > table td span {
-  color: #323232;
+  color: #e61e28;
+  margin: 0 5px;
 }
 #section .section_main .store_content .confirm_payment .payment_content > table td b {
-  color: #e61e28;
+  color: #323232;
 }
-#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) {
-  width: 375px;
-}
-#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(4) p {
+#section .section_main .store_content .confirm_payment .payment_content > table tr.other td:nth-of-type(1) p {
   font-size: 12px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table td:nth-of-type(2) p {
+  font-size: 12px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table th:nth-of-type(1) {
+  width: 160px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table th:nth-of-type(2) {
+  width: 614px;
+}
+#section .section_main .store_content .confirm_payment .payment_content > table th:nth-of-type(3) {
+  width: 160px;
 }
 #section .section_main .store_content .confirm_payment .payment_content p.total {
   text-align: right;
@@ -59,8 +74,21 @@
   color: #646464;
   padding: 8px 0;
 }
+#section .section_main .store_content .confirm_payment .payment_content p.deposit b {
+  color: #e61e28;
+  font-size: 18px;
+  margin-right: 5px;
+}
 #section .section_main .store_content .confirm_payment .payment_content p.deposit span {
   color: #e61e28;
+}
+#section .section_main .store_content .confirm_payment .payment_content p.recharge {
+  color: #e61e28;
+  font-size: 12px;
+}
+#section .section_main .store_content .confirm_payment .payment_content p.recharge a {
+  color: #2685d5;
+  text-decoration: underline ;
 }
 #section .section_main .store_content .confirm_payment .payment_content p {
   color: #969696;
@@ -85,27 +113,26 @@
 #section .section_main .store_content .confirm_payment .payment_content div.payment_code > table td input {
   width: 30px;
   height: 30px;
+  padding-left: 12px;
 }
 #section .section_main .store_content .confirm_payment .payment_content div.payment_code > table td input:focus {
-  border: 1px solid #a6cef1;
+  border: 2px solid #a6cef1;
 }
 #section .section_main .store_content .confirm_payment .nextStep_btn input {
   width: 150px;
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  color: #f10180;
   font-size: 16px;
-  background-color: #fff;
   border: 1px solid #f10180;
   margin: 30px 30px 30px 0;
-}
-#section .section_main .store_content .confirm_payment .nextStep_btn input:hover {
   background-color: #f10180;
   color: #fff;
 }
 #section .section_main .store_content .confirm_payment .nextStep_btn input:first-of-type {
   margin-left: 100px;
+  background-color: #fff;
+  color: #f10180;
 }
 .payment_modal,
 .paymentFailure_modal {

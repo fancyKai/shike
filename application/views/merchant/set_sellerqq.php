@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--修改登录密码-->
-        <div class="basic_setup left">
+        <div id="my_main" class="basic_setup left">
             <h1 class="title">修改QQ</h1>
             <form class="revamp_content">
                 <label for="qq">新的QQ号：</label>
@@ -22,7 +22,7 @@
                 <br/>
                 <p><span id="qq_errors">QQ格式不正确</span></p>
 
-                <p class="btn">
+                <p class="btns">
                     <input onclick="info_post()" type="button" value="确定"/>
                     <input type="button" value="取消" onclick="location.href='/merchant_basic_setup'"/>
                 </p>
@@ -32,11 +32,14 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+        $('.account_information ul>li').find('a').eq(0).addClass('leftNav_active')
+        });
     })
 
      function check_qq(){

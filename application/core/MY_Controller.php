@@ -15,13 +15,15 @@ class MY_Controller extends CI_Controller {
 		$this->out_data['current_function'] = '';
 		$this->load->database();
 		$this->load->library('session');
+		header( 'Access-Control-Allow-Origin:http://shike8888.com' );
 	}
 
 	public function check_merchant_login(){
 		$merchant_login = $this->session->userdata('merchant_login');
 		if(!$merchant_login)
 		{
-			header("Location: /merchant_login");
+			header("Location: /login");
+                        exit();
 		}
 	}
 
@@ -29,10 +31,19 @@ class MY_Controller extends CI_Controller {
 		$shike_login = $this->session->userdata('shike_login');
 		if(!$shike_login)
 		{
-			header("Location: /shike_login");
+			header("Location: /login");
+			exit();
 		}
 	}
 
+	public function check_admin_login()
+	{
+		$admin_login = $this->session->userdata('admin_login');
+		if(!$admin_login)
+		{
+			header("Location: /admin_login");
+		}
+	}
 	private function check_login()
 	{
 		$admin_login = $this->session->userdata('admin_login');
@@ -79,7 +90,7 @@ class MY_Controller extends CI_Controller {
 		$config['uri_segment'] = $uri_segment;
 		$config['use_page_numbers'] = TRUE;
 
-		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_open'] = '<ul class="pagination pagination-sm">';
 		$config['full_tag_close'] = '</ul>';
 		$config['first_tag_open'] = '<li>';
 		$config['first_tag_close'] = '</li>';
@@ -89,7 +100,7 @@ class MY_Controller extends CI_Controller {
 		$config['next_tag_close'] = '</li>';
 		$config['prev_tag_open'] = '<li>';
 		$config['prev_tag_close'] = '</li>';
-		$config['cur_tag_open'] = '<li><a><strong>';
+		$config['cur_tag_open'] = '<li class="active"><a><strong>';
 		$config['cur_tag_close'] = '</strong></a></li>';
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';
@@ -97,6 +108,6 @@ class MY_Controller extends CI_Controller {
 
 		$this->pagination->initialize($config); 
 
-		return $this->pagination->create_links();
+		return '<div style="text-align:center;">'.$this->pagination->create_links().'</div>';
 	}
 }

@@ -35,6 +35,8 @@
 }
 .modal_content {
   min-height: 149px;
+  line-height:149px;
+  font-size:18px;
 }
 .modal_submit {
   padding-top: 15px;

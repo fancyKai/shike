@@ -1,0 +1,86 @@
+.search_active {
+  background: url(../images/spot.png) left center no-repeat !important;
+}
+#section .section_main .store_content {
+  padding-bottom: 20px;
+}
+#section .section_main .store_content .progress_bar {
+  padding: 50px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+#section .section_main .store_content .settings_search h2.title {
+  font-size: 16px;
+  padding-top: 18px;
+}
+#section .section_main .store_content .settings_search .search_content {
+  padding-left: 20px;
+}
+#section .section_main .store_content .settings_search .search_content .part_one,
+#section .section_main .store_content .settings_search .search_content .part_two {
+  overflow: hidden;
+}
+#section .section_main .store_content .settings_search .search_content .part_one h3,
+#section .section_main .store_content .settings_search .search_content .part_two h3 {
+  float: left;
+  font-size: 14px;
+  color: #323232;
+  margin-top: 20px;
+}
+#section .section_main .store_content .settings_search .search_content .part_one .part_content,
+#section .section_main .store_content .settings_search .search_content .part_two .part_content {
+  float: left;
+}
+#section .section_main .store_content .settings_search .search_content p.keyword {
+  padding: 15px 0 10px 16px;
+}
+#section .section_main .store_content .settings_search .search_content p.keyword span {
+  color: #646464 !important ;
+}
+#section .section_main .store_content .settings_search .search_content p.checkbox_title {
+  padding-bottom: 0;
+  color: #323232;
+  background: url(../images/sj_fbsy_icon_quan_default.png) left center no-repeat;
+  margin-top: 21px;
+  padding-top: 0;
+}
+#section .section_main .store_content .settings_search .search_content .search_active {
+  background: url(../images/spot.png) left center no-repeat !important;
+}
+#section .section_main .store_content .settings_search .search_content p {
+  font-size: 14px;
+  color: #969696;
+  padding-top: 7px;
+  padding-left: 24px;
+}
+#section .section_main .store_content .settings_search .search_content p span {
+  display: inline-block;
+  color: #f10180;
+  margin-left: 8px;
+}
+#section .section_main .store_content .settings_search .search_content p b {
+  display: inline-block;
+  font-weight: bold;
+  color: #646464;
+}
+#section .section_main .store_content .settings_search .search_content p input {
+  border: 1px solid #969696;
+  border-radius: 5px;
+  width: 100px;
+  height: 28px;
+}
+#section .section_main .store_content .settings_search .nextStep_btn input {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #f10180;
+  margin: 50px 30px 30px 0;
+  background-color: #f10180;
+  color: #fff;
+}
+#section .section_main .store_content .settings_search .nextStep_btn input:first-of-type {
+  background-color: #fff;
+  margin-left: 100px;
+  color: #f10180;
+}

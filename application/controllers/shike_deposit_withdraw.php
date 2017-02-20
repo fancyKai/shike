@@ -14,7 +14,7 @@ class Shike_deposit_withdraw extends MY_Controller {
 		$user_id = $this->session->userdata('user_id');
         $bankcard = $this->db->query("select * from bankbind where user_id=$user_id and type='1'")->row_array();
         $user = $this->db->query("select * from user where user_id=$user_id")->row_array();
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 1")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
         $this->out_data['bankcard'] = $bankcard;
         $this->out_data['user'] = $user;
@@ -30,19 +30,20 @@ class Shike_deposit_withdraw extends MY_Controller {
         if($user['tx_password'] != md5($tixian_pwd)){
         	$res = 0;
         	echo json_encode($res);
+                exit;
         }else{
         	$this->db->update('user',array('money_use' => $user['money_use']-$money),array('user_id' => $user_id));
         }
         $info = array('money' => $money, 
         	          'money_type' => 2,
-        	          'processfee' => $money*0.01,
-        	          'money_remain' => $sellerinfo['avail_deposit']-$money,
+        	          'processfee' => 0,
+        	          'money_remain' => $user['money_use']-$money,
         	          'time' => date('Y-m-d H:i:s',time()),
         	          'flowid' => '123',
-        	          'status' => 3,
+        	          'status' => 2,
         	          'seller_id' => $user_id,
         	          'user_type' => 1,
-        	          'remarks' => '提现成功');
+        	          'remarks' => 2);
         $res = $this->db->insert("platformorder",$info);
         echo json_encode($res);
 

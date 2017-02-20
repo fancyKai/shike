@@ -26,7 +26,7 @@
             </ul>
             <p class="error" id="inputerror"><span></span></p>
             <p class="login_btn">
-                <input type="button" value="登录" onclick="login()" />
+                <input class="enter" type="button" value="登录" onclick="login()" />
             </p>
             <div class="forget_password">
                 <a href="/forget_password">忘记密码</a>
@@ -39,10 +39,11 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="<?=base_url("js/common.js")?>"></script>
 <script>
     $(function(){
-        $('#header').load('../common/login_header.html');
-        $('#footer').load('../common/footer.html');
+        // $('#header').load('../common/login_header.html');
+        // $('#footer').load('../common/footer.html');
     })
     function login(){
         var name = $("#account").val();
@@ -62,11 +63,36 @@
                     console.log(result);
                     result = $.parseJSON(result);
                     if(result.status){
-                    	if(result.seller_id){
-                        	location.href = '/merchant_personal';
-                    	}else{
-                            location.href = '/shike_personal';
-                    	}
+                    	var pre_url = document.referrer;
+                        console.log(pre_url.indexOf("register"));
+                        if(pre_url.indexOf("search")!=-1)
+                        {
+                            history.back();
+                        }else if(pre_url.indexOf("classify")!=-1)
+                        {
+                            history.back();
+                        }else if(pre_url.indexOf("productdetails")!=-1)
+                        {
+                            history.back();
+                        }else
+                        {
+                            location.href = '';
+                        }
+                        /*if(pre_url.indexOf("register")!=-1)
+                        {
+                            location.href = '';
+                        }else if(pre_url.indexOf("forget_password")!=-1)
+                        {
+                            location.href = '';
+                        }else {
+                            if(result.seller_id){
+                                //location.href = '/merchant_personal';
+                                history.back();
+                            }else{
+                                //location.href = '/shike_personal';
+                                history.back();
+                            }
+                        }*/
                     }else{
                         $("#inputerror").text("用户名或密码不正确");
                         return;

@@ -13,12 +13,12 @@ class Merchant_funds_record extends MY_Controller {
 
         $seller_id = $this->session->userdata('seller_id');
 		$orderwhere = '';
-		$money_type = $this->input->get('money_type');
-		$this->out_data['money_type'] = $money_type;
-		if(!$money_type){
+		$remarks = $this->input->get('remarks');
+		$this->out_data['remarks'] = $remarks;
+		if(!$remarks){
 			$orderwhere .= " where seller_id=$seller_id and user_type='0'";
 		}else{
-			$orderwhere .= " where seller_id=$seller_id and user_type='0' and money_type=".$money_type;
+			$orderwhere .= " where seller_id=$seller_id and user_type='0' and remarks=".$remarks;
 		}
 		$this->out_data['money_list'] = $this->db->query("select * from platformorder".$orderwhere." order by time desc")->result_array();
 

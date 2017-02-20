@@ -296,6 +296,37 @@
                     </ul>
                 </div>
             </div>
+            <div class="delivery_status">
+                <div class="title">
+                    <p class="left">
+                        <span>2016.11.18</span>
+                        <span>任务编号：123460000</span>
+                        <span>淘宝商品订单号：2222222222</span>
+                    </p>
+                    <p class="right">
+                        <a href="0303_addEvaluate_details.html">查看详情</a>
+                    </p>
+                </div>
+                <div class="detalis">
+                    <ul>
+                        <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                        <li>
+                            <p class="clothes_name">韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcdp/>
+                            <p class="two"><span>店铺：</span>夏季尼官方旗舰店</p>
+                            <p><span>来源：</span>淘宝</p>
+                        </li>
+                        <li>
+                            <p><span>试客：</span>li***ying</p>
+                        </li>
+                        <li>
+                            <p>已追评</p>
+                        </li>
+                        <li>
+                            <p class="status finish" >试用已结束，试客已追评</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -373,7 +404,9 @@
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.try_manage ul>li').find('a').eq(2).addClass('leftNav_active')
+        });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');

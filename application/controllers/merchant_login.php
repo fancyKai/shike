@@ -9,7 +9,7 @@ class Merchant_login extends MY_Controller {
 
 	public function index()
 	{
-		$this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+		$this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 1")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 		$this->load->view('merchant/login',$this->out_data);
 	}

@@ -5,18 +5,19 @@ class admin_message_manage extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		parent::check_admin_login();
 		// parent::check_permission('admin');
 	}
 
 	public function index()
 	{
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
-		$limit = 5;
+		$limit = 20;
 		$start = ($page - 1)*$limit;
 		$count = $this->db->query("select count(*) as count from message_type")->row_array();
 		$count = $count['count'];
 		$base_url = "/admin_message_manage/?";
-		$this->out_data['messages'] = $this->db->query("select * from message_type limit {$start},{$limit}")->result_array();
+		$this->out_data['messages'] = $this->db->query("select * from message_type order by time desc limit {$start},{$limit}")->result_array();
 		$this->out_data['pagin'] = parent::get_pagin($base_url, $count, $limit, 3,  true);
 		$this->out_data['con_page'] = 'admin/message_manage';
 		$this->load->view('admin_default', $this->out_data);
@@ -33,6 +34,7 @@ class admin_message_manage extends MY_Controller {
 			          'description' => $description);
 		$this->db->insert('message_type', $info);
 		$message_id = $this->db->insert_id();
+		//echo json_encode($message_id);return;
 		if($user_type == 0){
 			$users = $this->db->query("select user_id from user")->result_array();
 			foreach ($users as $user) {
@@ -60,13 +62,30 @@ class admin_message_manage extends MY_Controller {
 		}
 		echo json_encode($res);
 	}
+
+	public function get_message_info(){
+		$message_id = $this->input->post('message_id');
+		$message_info = $this->db->query("select * from message_type where message_id = {$message_id}")->row_array();
+		echo json_encode($message_info);
+	}
+
 	public function edit_message(){
 		$message_id = $this->input->post('message_id');
 		$title = $this->input->post('title');
 		$description = $this->input->post('description');
 		$this->db->update("message_type",array("title"=>$title,"description"=>$description),array("message_id"=>$message_id));
-		$messages = $this->db->query("select id from seller where message_id={$message_id}")->result_array();
+		$messages = $this->db->query("select message_id from message_type where message_id={$message_id}")->row_array();
 		$res = $this->db->update("message",array("title"=>$title,"description"=>$description),$messages);
+		echo json_encode($res);
+	}
+
+	public function test(){
+		$message_id = 9;
+		$title = '11111';
+		$description = '111111111';
+		$this->db->update("message_type",array("title"=>$title,"description"=>$description),array("message_id"=>$message_id));
+		$messages = $this->db->query("select message_id from message_type where message_id={$message_id}")->row_array();
+		$res = $this->db->update("message",array("title"=>$title),$messages);
 		echo json_encode($res);
 	}
 }

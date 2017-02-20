@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>虚拟币记录</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/member_manage.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--会员管理-->
+        <div class="member_manage left">
+            <h1 class="title">虚拟币记录</h1>
+            <ul class="allRecord">
+                <li class="record" data-toggle="duobao_record"><a href="javascript:void(0);">夺宝币记录</a><span>|</span></li>
+                <li class="record" data-toggle="shangjin_record"><a href="javascript:void(0);">赏金记录</a></li>
+            </ul>
+            <div>
+            <!--虚拟币记录-->
+            <table  class="member_state duobao_record">
+                <tr>
+                    <td>时间</td>
+                    <td>夺宝币增减</td>
+                    <td>剩余夺宝币</td>
+                    <td>备注</td>
+                </tr>
+                <tr>
+                    <td>2016.11.09 10:15:32</td>
+                    <td>+500</td>
+                    <td>1000</td>
+                    <td>回访任务奖励</td>
+                </tr>
+                <tr>
+                    <td>2016.11.09 10:15:32</td>
+                    <td>+500</td>
+                    <td>2000</td>
+                    <td>兑换试用</td>
+                </tr>
+                <tr>
+                    <td>2016.11.09 10:15:32</td>
+                    <td>-500</td>
+                    <td>1000</td>
+                    <td>注册登录</td>
+                </tr>
+            </table>
+            <!--赏金记录-->
+            <table style="display:none;" class="member_state shangjin_record">
+                <tr>
+                    <td>时间</td>
+                    <td>赏金增减</td>
+                    <td>剩余赏金</td>
+                    <td>备注</td>
+                </tr>
+                <tr>
+                    <td>2016.11.09 10:15:32</td>
+                    <td>+500</td>
+                    <td>1000</td>
+                    <td>兑换本金</td>
+                </tr>
+                <tr>
+                    <td>2016.11.09 10:15:32</td>
+                    <td>+500</td>
+                    <td>2000</td>
+                    <td>试用好评关键词奖励</td>
+                </tr>
+                <tr>
+                    <td>2016.11.09 10:15:32</td>
+                    <td>-500</td>
+                    <td>1000</td>
+                    <td>试用买家秀奖励</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.account_information ul>li').find('a').eq(3).addClass('left_nav_active');
+        });
+        $('.record').bind('click',function(){
+            $(this).find('a').css('color','#f10180');
+            $(this).siblings().find('a').css('color','#323232')
+        });
+        $('[data-toggle="duobao_record"]').bind('click',function(){
+            $('.duobao_record').css('display','block');
+            $('.duobao_record').siblings().css('display','none');
+        });
+        $('[data-toggle="shangjin_record"]').bind('click',function(){
+            $('.shangjin_record').css('display','block');
+            $('.shangjin_record').siblings().css('display','none');
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

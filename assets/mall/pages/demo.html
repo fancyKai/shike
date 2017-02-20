@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<p class="change">
+    <img src="" alt="">
+</p>
+</body>
+
+<script src="../js/jquery-1.10.2.js "></script>
+<script>
+    $(function(){
+        function la(birth) {
+            var now = new Date();
+            var days = parseInt((now - birth) / 24 / 3600 / 1000);
+            console.log(days);
+            var number=new Array('jd1','jd2','jd3','jd4','jd5','jd6','jd7');
+//          初始的情况
+            $('.change').find('img').attr('src','../images/sc_bg_'+number[days]+'_selected.png');
+//            鼠标移入时的图片
+            $('.change').mouseover(function(){
+                var imgValue='../images/sc_bg_'+number[days]+'_default.png';
+                $(this).find('img').attr('src',imgValue);
+            });
+//            鼠标移除时的图片
+            $('.change').mouseout(function(){
+                var imgValue='../images/sc_bg_'+number[days]+'_selected.png';
+                $(this).find('img').attr('src',imgValue);
+            });
+            if(days>7){
+                alert('下线');
+                $('.change').css('display','none');
+
+            }
+
+        }
+        la(new Date("2017/01/16"));
+    })
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

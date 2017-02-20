@@ -10,25 +10,30 @@
 <body>
 <header id="header"></header>
 <section id="section">
-    <!--<div class="classify_title">-->
-    <!--<ul>-->
-    <!--<li>您的位置：</li>-->
-    <!--<li>首页</li>-->
-    <!--<li><img src="../../images/icon_arrow_default.png" alt=""></li>-->
-    <!--<li>女装</li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--分类导航-->
+    <div class="search_title">
+        <ul>
+            <li>您的位置：</li>
+            <li>最新试用</li>
+            <li><img src="<?=base_url("images/mall/icon_arrow_default.png")?>" alt=""></li>
+            <li>试用分类</li>
+            <li><img src="<?=base_url("images/mall/icon_arrow_default.png")?>" alt=""></li>
+            <li>全部</li>
+        </ul>
+    </div>
+<!--    分类导航-->
     <div class="classify_nav">
         <ul>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/11') ?>">全部</a><span>/</span></li>
             <li class="nav"><a href="<?=base_url('mall/homepage/classify/1') ?>">女装</a><span>/</span></li>
             <li class="nav"><a href="<?=base_url('mall/homepage/classify/2') ?>">男装</a><span>/</span></li>
-            <li class="nav"><a href="<?=base_url('mall/homepage/classify/3') ?>">鞋包配饰</a><span>/</span></li>
-            <li class="nav"><a href="<?=base_url('mall/homepage/classify/4') ?>">居家生活</a><span>/</span></li>
-            <li class="nav"><a href="<?=base_url('mall/homepage/classify/5') ?>">数码电器</a><span>/</span></li>
-            <li class="nav"><a href="<?=base_url('mall/homepage/classify/6') ?>">母婴儿童</a><span>/</span></li>
-            <li class="nav"><a href="<?=base_url('mall/homepage/classify/7') ?>">食品酒水</a><span>/</span></li>
-            <li class="nav"><a href="<?=base_url('mall/homepage/classify/8') ?>">其他</a></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/3') ?>">美妆</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/4') ?>">鞋包配饰</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/5') ?>">居家生活</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/6') ?>">数码电器</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/7') ?>">母婴儿童</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/8') ?>">户外运动</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/9') ?>">食品酒水</a><span>/</span></li>
+            <li class="nav"><a href="<?=base_url('mall/homepage/classify/10') ?>">其他</a></li>
         </ul>
     </div>
     <div class="classify_commodity">
@@ -45,13 +50,15 @@
 <script src="<?=base_url("js/mall/jquery.twbsPagination.js")?>"></script>
 <script>
     $(function(){
-        $('#header').load('<a>2</a>',function(){
+        /*$('#header').load('<a>2</a>',function(){
 //            $('.search .right ul').find('a').removeClass('header_active');
-            $('.search .right ul').find('a').eq(1).addClass('header_active');
-            conversion(1);
-            $('.details_title').text('最新试用');
-        });
-        $('#footer').load('<a>2</a>');
+        });*/
+        $('.search .right ul').find('a').removeClass('header_active');
+        $('.search .right ul').find('a').eq(1).addClass('header_active');
+        $('.classify_nav .nav').find('a').eq(0).addClass('classify_active');
+        conversion(1);
+        $('.details_title').text('最新试用');
+        //$('#footer').load('<a>2</a>');
         $('.nav').bind('click',function(){
             $(this).find('a').addClass('classify_active');
             $(this).siblings().find('a').removeClass('classify_active');
@@ -77,10 +84,10 @@
                             '<a href="<?=base_url('mall/homepage/productdetails/')?>'+ e.act_id+ '"><img src="'+ e.picture_url + '" alt=""></a>'+
                             '<p class="product_introduction">'+ e.product_name +'</p>'+
                             '<p class="quantity">'+
-                            '<span>限量版'+ e.amount + '份</span>'+ freight+
+                            '<span>限量版'+ e.apply_amount + '份</span>'+ freight+
                             '</p>'+
                             '<p class="price">'+
-                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.applyed_num+'</b>次</span>'+
+                            '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_count+'</b>次</span>'+
                             '</p>'+
                             '</div>';
                         console.log(e)
@@ -132,10 +139,10 @@
                                     '<a href="<?=base_url('mall/homepage/productdetails/')?>'+ e.act_id+ '"><img src="'+ e.picture_url + '" alt=""></a>'+
                                     '<p class="product_introduction">'+ e.product_name +'</p>'+
                                     '<p class="quantity">'+
-                                    '<span>限量版'+ e.amount + '份</span>'+ freight+
+                                    '<span>限量版'+ e.apply_amount + '份</span>'+ freight+
                                     '</p>'+
                                     '<p class="price">'+
-                                    '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.applyed_num+'</b>次</span>'+
+                                    '<span>&yen;'+ e.unit_price +'</span><span>已申请<b>'+ e.apply_count+'</b>次</span>'+
                                     '</p>'+
                                     '</div>';
                                 console.log(e)

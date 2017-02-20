@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧店铺管理-->
-        <div class="store_content left">
+        <div id="my_main" class="store_content left">
             <h1 class="title">发布试用</h1>
             <!--进度条-->
             <div class="progress_bar">
@@ -30,21 +30,25 @@
                         </li>
                         <li>
                             <p>商品名称：<span><?php echo $activity_list['product_name']?></span></p>
-                            <p>商品分类：<span><?php if($activity_list['product_classify']==1){
+                            <p>商品分类：<span><?php if($activity_list['product_classify']==1) {
                                     echo "女装";
                                 }elseif ($activity_list['product_classify']==2) {
                                     echo "男装";
                                 }elseif ($activity_list['product_classify']==3) {
-                                    echo "鞋包配饰";
+                                    echo "美妆";
                                 }elseif ($activity_list['product_classify']==4) {
-                                    echo "居家生活";
+                                    echo "鞋包配饰";
                                 }elseif ($activity_list['product_classify']==5) {
-                                    echo "数码电器";
+                                    echo "居家生活";
                                 }elseif ($activity_list['product_classify']==6) {
-                                    echo "母婴儿童";
+                                    echo "数码电器";
                                 }elseif ($activity_list['product_classify']==7) {
-                                    echo "食品酒水";
+                                    echo "母婴儿童";
                                 }elseif ($activity_list['product_classify']==8) {
+                                    echo "户外运动";
+                                }elseif ($activity_list['product_classify']==9) {
+                                    echo "食品酒水";
+                                }elseif ($activity_list['product_classify']==10) {
                                     echo "其他";
                                 }
                                 ?></span></p>
@@ -68,6 +72,18 @@
                                 echo "销量从高到低";
                             }elseif($activity_list['t_sort']==3){
                                 echo "信用从高到低";
+                            }elseif($activity_list['t_sort']==4){
+                                echo "价格从低到高";
+                            }elseif($activity_list['t_sort']==5){
+                                echo "价格从高到低";
+                            }elseif($activity_list['t_sort']==6){
+                                echo "总价从低到高";
+                            }elseif($activity_list['t_sort']==7){
+                                echo "总价从高到低";
+                            }elseif($activity_list['t_sort']==8){
+                                echo "人气从高到低";
+                            }elseif($activity_list['t_sort']==9){
+                                echo "新品排序";
                             }
                             ?>
                             </span></p>
@@ -75,19 +91,41 @@
                         <li>
                             <p>价格：<span>&yen;<?php echo $activity_list['margin']?></span></p>
                             <p>发货地：<span><?php echo $activity_list['t_delivery_place']?></span></p>
-                            <p>商品运费：<?php if ($activity_list['freight']==0){echo "全国包邮";}else{echo $activity_list['freight'];}
-                            ?><span></span></p>
+                            <p>商品运费：<span><?php if ($activity_list['freight']==0){echo "全国包邮";}else{echo $activity_list['freight'];}
+                            ?></span></p>
                         </li>
                     </ul>
                     <div class="try_num">
                         <p>
                         投放试用总份数：
-                        <input id="apply_amount" type="text" placeholder="份" value="<?php echo $activity['apply_amount'];?>" onblur="check_apply_amount()">
-                        <b>（试用份数不得少于5件）</b>
+                        <input id="apply_amount" type="text" placeholder="份" onblur="get_right()" value="<?php echo $activity['apply_amount'];?>">
+                        <b>（试用份数不得少于10份且必须为偶数）</b>
                         </p>
-                        <p class="error_hint"><span id="apply_amount_error">投放份数不能为空</span></p>
+                        <p class="error_hint"><span id="apply_amount_error"></span></p>
+                        <p class="different_good">
+                           <b>1.免费试用商品<span id="free_count"></span>份</b>
+                           <br/>
+                           <b>2.优惠购买商品<span id="buy_count"></span>份</b>
+                        </p>
+                        <p>优惠券金额：
+                            <input id="win_money" type="text" placeholder="元" value="<?php echo $activity['win_money'];?>"/>
+                            <b>（优惠券金额必须大于商品价格的50%）</b>
+                        </p>
+                        <p class="discount_couponURL">
+                            优惠券链接：<input id="win_url" type="text" value="<?php echo $activity['win_url'];?>">
+                        </p>
                     </div>
                 </div>
+
+                <div class="notes">
+                    <p>注意：<span>1、总份数必须为偶数，且不得少于10份；</span></p>
+                    <p><span>2、优惠金额必须大于商品价格的50%；</span></p>
+                    <p><span>3、优惠券链接必须是独家优惠券；</span></p>
+                    <p><span>4、优惠券有效时间至少要12天以上；</span></p>
+                    <p><span>5、优惠券每人领取数量可以设置1-2张，不用太多；</span></p>
+                    <p><span>6、优惠券总数量不用设置太多，但是不能低于10份。</span></p>
+                </div>
+
 
                 <div class="nextStep_btn">
                     <input onclick="location.href='/merchant_issue_try3?act_id=<?php echo $act_id ?>'" type="button" value="上一步"/>
@@ -99,11 +137,14 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+       // $('#left_nav').load("../common/left_nav.html",function(){
+                    $('.try_manage ul>li').find('a').eq(0).addClass('leftNav_active')
+               // });
 
         $('[data-toggle="search"]').bind('click',function(){
             $(this).addClass('search_active');
@@ -123,27 +164,37 @@
     })
 </script>
 <script>
-    function next_step(){
-        //var seller_id = <?php echo $seller_id ?>;
-        if($("#apply_amount").val() == '' || $("#apply_amount").val() == 0){
+    function get_right(){
+        var apply_amount = $("#apply_amount").val();
+        if((apply_amount%2) != 0 || apply_amount<10){
+            $("#apply_amount_error").text("投放份数不得少于10份且必须为偶数");
             return;
         }
+        $("#apply_amount_error").text("");
+        $("#free_count").text(apply_amount/2);
+        $("#buy_count").text(apply_amount/2);
+        return;
+    }
+
+    function next_step(){
+        //var seller_id = <?php echo $seller_id ?>;
+
+        var apply_amount = $("#apply_amount").val();
+        if(apply_amount=='' || apply_amount==0){
+            $("#apply_amount_error").text("投放数量不得为0");
+            return;
+        }else{
+            $("#apply_amount_error").text("");
+        }
+
         var act_id = "<?php echo $act_id ?>";
         var apply_amount = $("#apply_amount").val();
-        // var shop_url = $("#shop_url").val();
-        // var commodity_classify = $("#commodity_classify").val();
-        // var commodity_picture = $("#commodity_picture").val();
-        // var thecolor = $("#thecolor").val();
-        // var thesize = $("#thesize").val();
-        // var unit_price = $("#unit_price").val();
-        // var buy_num = $("#buy_num").val();
-        // var freight = $("#freight").val();
-        // alert(shop_name);
-        // alert(platform_id);
-        // alert(seller_id);
+        var win_money = $("#win_money").val();
+        var win_url = $("#win_url").val();
         $.ajax({
             url : admin.url+'merchant_issue_try4/update_fake_activity4',
-            data:{act_id:act_id,apply_amount:apply_amount},
+            data:{act_id:act_id,apply_amount:apply_amount,
+                  win_money:win_money,win_url:win_url},
             type : 'post',
             cache : false,
             success : function (data){

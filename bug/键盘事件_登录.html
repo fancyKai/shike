@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="uname">账户</label>
+<input type="text" id="uname" value="">
+<br/>
+<label for="password">密码</label>
+<input type="password" id="password">
+<br/>
+<input id="input1" value="登录" type="button">
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script>
+$(function(){
+    $('#input1').click(function(){
+        alert(3*0.1);
+    });
+    $(document).keydown(function(event){
+        var code=event.keyCode;
+//        alert(code);
+        if(code==13){
+            $("#input1").click(); //调用登录按钮的登录事件
+        }
+    })
+})
+</script>
+</body>
+</html>
+
+
+

@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--修改登录密码-->
-        <div class="bound_bankCard left">
+        <div id="my_main" class="bound_bankCard left">
             <h1 class="title">绑定银行卡</h1>
             <div class="bankCard_kind">
                 <p class="bound_num">
@@ -32,6 +32,7 @@
 <footer id="footer"></footer>
 
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");

@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧店铺管理-->
-        <div class="basic_setup left">
+        <div id="my_main" class="basic_setup left">
             <h1 class="title">基本设置</h1>
             <div class="setup_content">
                 <ul>
@@ -39,7 +39,7 @@
                     </li>
                     <li><span>支付密码</span></li>
                     <li>设置密码后开启支付功能，保障虚拟资产安全。</li>
-                    <li><input onclick="location.href='/merchant_set_payPw'" type="button" value="修改"/></li>
+                    <li><input onclick="location.href='/merchant_revamp_payPw'" type="button" value="修改"/></li>
                 <?php endif;?>
                 </ul>
                 <ul>
@@ -56,7 +56,7 @@
                     </li>
                     <li><span>提现密码</span></li>
                     <li>设置密码后开启提现功能，可将平台资产转出。</li>
-                    <li><input onclick="location.href='/merchant_set_withdrawdepositPw'" type="button" value="修改"/></li>
+                    <li><input onclick="location.href='/merchant_revamp_withdrawdepositPw'" type="button" value="修改"/></li>
                 <?php endif;?>
                 </ul>
                 <ul>
@@ -75,12 +75,15 @@
     </div>
 </section>
 <footer id="footer"></footer>
-<script src="../../js/jquery-1.10.2.js"></script>
+<script src="js/merchant/jquery-1.10.2.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
-        $('#header').load("../common/merchant_header.html");
-        $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        // $('#header').load("../common/merchant_header.html");
+        // $('#footer').load("../common/footer.html");
+        // $('#left_nav').load("../common/left_nav.html",function(){
+            $('.account_information ul>li').find('a').eq(0).addClass('leftNav_active')
+        // });
     })
 </script>
 </body>

@@ -28,8 +28,43 @@
                 <br/>
                 <p><span></span></p>
 
+                <!--<label for="selectBank">选择银行：</label>-->
+                <!--<input id="selectBank" type="text"/>-->
                 <label for="selectBank">选择银行：</label>
-                <input id="selectBank" type="text"/>
+                <select id="selectBank">
+                    <option value ="">--请选择银行--</option>
+                    <option value ="">中国工商银行</option>
+                    <option value="">中国农业银行</option>
+                    <option value="">中国建设银行</option>
+                    <option value="">中国银行</option>
+                    <option value="">招商银行</option>
+                    <option value="">交通银行</option>
+                    <option value="">中国民生银行</option>
+                    <option value="">兴业银行</option>
+                    <option value="">深圳发展银行</option>
+                    <option value="">北京银行</option>
+                    <option value="">华夏银行</option>
+                    <option value="">广发银行</option>
+                    <option value="">浦发银行</option>
+                    <option value="">中国光大银行</option>
+                    <option value="">广州银行</option>
+                    <option value="">上海农商银行</option>
+                    <option value="">中国邮政储蓄银行</option>
+                    <option value="">中国邮政</option>
+                    <option value="">渤海银行</option>
+                    <option value="">北京农商银行</option>
+                    <option value="">南京银行</option>
+                    <option value="">中信银行</option>
+                    <option value="">宁波银行</option>
+                    <option value="">平安银行</option><option value="">渤海银行</option>
+                    <option value="">杭州银行</option>
+                    <option value="">徽商银行</option>
+                    <option value="">浙商银行</option>
+                    <option value="">上海银行</option>
+                    <option value="">江苏银行</option>
+                    <option value="">BEA东亚银行</option>
+                    <option value="">农信银资金清算中心</option>
+                </select>
                 <br/>
                 <p><span></span></p>
 
@@ -102,7 +137,9 @@
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.account_information ul>li').find('a').eq(1).addClass('leftNav_active')
+        });
 
         $('.mask_layer').height(document.body.offsetHeight+500);
 //        添加成功弹框

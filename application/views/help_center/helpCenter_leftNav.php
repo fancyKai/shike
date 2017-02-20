@@ -16,7 +16,7 @@
         </ul>
     </div>
     <div class="title account_information">
-        <a href="javascript:void(0);">商家</a>
+        <a href="javascript:void(0);">商家中心</a>
         <ul>
             <li><a href="<?=base_url('mall/help_center/merchant_aboutShike')?>">关于试客巴</a></li>
             <li><a href="<?=base_url('mall/help_center/merchant_aboutAccount')?>">关于账户</a></li>

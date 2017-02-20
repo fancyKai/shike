@@ -23,8 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
-$config['base_url'] = 'http://115.29.150.1';
+//$config['base_url'] = 'http://120.27.143.236';
+//$config['base_url'] = 'http://www.shike8888.com/';
+$config['base_url'] = 'http://localhost/shike_php/';
 
 /*
 |--------------------------------------------------------------------------

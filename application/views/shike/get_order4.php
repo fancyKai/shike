@@ -13,9 +13,11 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="/shike_personal">个人中心</a></li>
+                <li><a href="<?=base_url('')?>">首页</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
-                <li><a href="/shike_try_winningManage">使用管理</a></li>
+                <li><a href="/shike_personal">试客中心</a></li>
+                <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
+                <li><a href="/shike_try_winningManage">试用管理</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
                 <li>领取下单</li>
             </ul>
@@ -55,6 +57,7 @@
                             上传文件
                         </a>
                         <span id="chatlog_value">未选择文件</span>
+                        <span id="chatlog_error" style="color:red"></span>
                     </p>
                     <p><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
                 </div>
@@ -86,6 +89,7 @@
 
     function check_form(){
         if($("#chatlog").val()==''){
+            $("#chatlog_error").text("请上传聊天记录截图");
             return false;
         }
         return true;

@@ -10,7 +10,6 @@
   color:@deepred_color!important;
   text-decoration:underline;
 }
-
 #section{
   width:1200px;
   margin:0 auto;
@@ -41,6 +40,7 @@
         a{
           color:@deepfont_color ;
           font-size:14px;
+          cursor:pointer !important ;
           &:hover{
             color:@deepred_color;
             text-decoration:underline;
@@ -58,6 +58,19 @@
   //搜索页商品和分类页商品的详情
   .search_commodity,.classify_commodity{
     overflow:hidden;
+
+    //<!--搜索页没有商品-->
+    .search_page_noGood{
+      padding:50px 0 100px 0;
+      p{
+        text-align:center;
+      }
+      p.introductions{
+        padding-top:30px;
+        color:@deepfont_color;
+        font-size:16px;
+      }
+    }
     .products {
       width:220px;
       margin-left:25px;
@@ -75,7 +88,12 @@
         white-space:nowrap;
         font-size:14px;
         color:@deepfont_color ;
-        padding-top:8px;
+        //margin-top:8px;
+        //background:url(../images/bg_tb_default.png)right center no-repeat;
+        padding-right:26px;
+      }
+      img{
+        margin-top:1.5px !important ;
       }
       .quantity{
         margin:13px 0;
@@ -84,20 +102,29 @@
           height:20px;
           line-height:20px;
           border-radius:5px;
-          color:#fff;
           font-size:12px;
-          padding:0 5px;
+          padding:0 3px;
         }
         span:first-of-type{
-          background-color:#a766e6;
+          //background-color:#a766e6;
+          color:#a766e6;
+          border:1px solid #a766e6;
         }
-        span:last-of-type{
-          background-color:#36bc9e;
-          margin-left:10px;
+        span:nth-of-type(2){
+          //background-color:#36bc9e;
+          color:#36bc9e;
+          border:1px solid #36bc9e;
+          margin-left:5px;
+        }
+        span:nth-of-type(3){
+          display:inline-block;
+          float:right;
+          font-size:12px;
+          padding-right:0;
         }
       }
       .price{
-        padding-bottom:18px;
+        padding-bottom:10px;
         overflow:hidden;
         span:first-of-type {
           float:left;
@@ -106,12 +133,22 @@
         }
         span:last-of-type {
           float:right;
-          font-size:14px;
-          padding-top: 5px;
-          b{
-            font-weight:normal;
+          //padding-top: 5px;
+          input{
+            width:80px;
+            height:28px;
+            line-height:28px;
+            border-radius:5px;
+            color:#fff;
+            font-size:14px;
+            padding-left:0;
+            background-color:@deepred_color;
           }
         }
+      }
+      .progress_bar{
+        padding-bottom:16px;
+        height:34px;
       }
     }
     .products:nth-of-type(5n+1){
@@ -131,6 +168,15 @@
       }
     }
   }
-
-
+}
+//返回顶部
+.return_top {
+  overflow: hidden;
+  position: fixed;
+  z-index: 99;
+  bottom:20%;
+  right:10%;
+  img{
+    cursor:pointer;
+  }
 }

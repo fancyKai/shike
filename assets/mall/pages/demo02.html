@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title旤</title>
+</head>
+<body>
+<div>
+    <input id="lala" type="button" value="点我复制">
+    <textarea id="copy_content" style="width:500px;height:50px;">在w3school，你可以找到你所需要的所有的网站建设教程。</textarea>
+</div>
+
+
+<!--<input type="text" value="好烦啊！">-->
+
+
+
+<script src="../js/jquery-1.10.2.js "></script>
+<script>
+    $(function(){
+        $('#lala').click(function(){
+            //$("#copy_content").clone(false);
+            $("#copy_content").select(); // 选择对象
+//        执行复制命令
+            document.execCommand("Copy");
+        })
+    })
+</script>
+</body>
+</html>

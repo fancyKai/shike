@@ -15,7 +15,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--修改登录密码-->
-        <div class="bound_bankCard left">
+        <div id="my_main" class="bound_bankCard left">
             <h1 class="title">绑定银行卡</h1>
             <div class="bankCard_kind">
                 <p class="bound_num">
@@ -25,7 +25,68 @@
                 <div class="bankCard">
                     <p class="one">
                         <span class="bank_logo">
-                            <img src="images/merchant/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <?php if ($bankcard['banktype']==1):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zgzsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==2):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_nyyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==3):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zgjsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==4):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zgyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==5):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==6):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_jtyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==7):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zgmsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==8):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_xyyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==9):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_szfzyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==10):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_bjyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==11):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_hxyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==12):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_gfyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==13):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_pfyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==14):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zggdyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==15):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_gzyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==16):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_shnsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==17):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zgyzcxyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==18):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zgyz_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==19):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_bhyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==20):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_bjnsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==21):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_njyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==22):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zxyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==23):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_nbyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==24):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_payh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==25):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_hzyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==26):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_hsyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==27):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_zheshangyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==28):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_shyh_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==29):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_jiangsu_five_default.png" alt="">
+                        <?php elseif ($bankcard['banktype']==30):?>
+                            <img src="images/bank/sj_zhxx_bg_bdyhk_dyyh_five_default.png" alt="">
+                        <?php endif;?>
+
                         </span>
                         <a id="delete" href="javascript:void(0);">删除</a>
                     </p>
@@ -59,11 +120,14 @@
 </div>
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
-        // $('#left_nav').load("../common/left_nav.html");
+         $('#left_nav').load("../common/left_nav.html",function(){
+            $('.account_information ul>li').find('a').eq(1).addClass('leftNav_active')
+         });
 
 //        确认审核
         $('.mask_layer').height(document.body.offsetHeight+500);

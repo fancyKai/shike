@@ -112,31 +112,46 @@
         }
       }
       >table{
-        height:154px;
         margin-top:10px;
         td,th{
           border:1px  solid #c8c8c8;
           text-align:center;
           height:50px;
           font-size:14px;
-          width:160px;
+          color:#646464;
+        }
+        tr.other{
+          td:nth-of-type(1){
+            p {
+              font-size: 12px;
+            }
+          }
         }
         td{
-          span {
-            color: @deepfont_color;
+          padding: 10px 0 20px 0;
+          p{
+            padding-top:10px;
           }
-          b{
+          span {
             color:@span_color;
           }
+          b{
+            color:@deepfont_color;
+          }
         }
-        td:nth-of-type(4){
-          width:504px;
+        td:nth-of-type(2){
           p {
             font-size: 12px;
           }
         }
-        td:nth-of-type(5){
-          width:150px;
+        th:nth-of-type(1){
+          width:260px;
+        }
+        th:nth-of-type(2){
+          width:614px;
+        }
+        th:nth-of-type(3){
+          width:260px;
         }
       }
       p.total{
@@ -202,7 +217,7 @@
         .actual_payment{
           float:right;
           width:484px;
-          height:222px;
+          height:320px;
           border:1px solid @deepred_color;
           padding:25px 50px 30px;
           p{
@@ -226,8 +241,12 @@
             }
           }
           p.explain {
-            color: #969696;
+            color: @span_color;
             font-size:12px;
+            a{
+              color:#2685d5;
+              text-decoration: underline ;
+            }
           }
           div.payment_code {
             padding-top: 20px;
@@ -265,17 +284,15 @@
           height: 40px;
           line-height: 40px;
           border-radius: 5px;
-          color:@deepred_color;
           font-size: 16px;
-          background-color:#fff;
           border:1px solid @deepred_color;
-          &:hover{
             background-color:@deepred_color;
             color:#fff;
-          }
         }
         input:first-of-type{
           margin-right:30px;
+          color:@deepred_color;
+          background-color:#fff;
         }
       }
       p.try_task{

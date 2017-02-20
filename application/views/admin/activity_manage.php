@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/select.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<link href="css/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="css/admin/js/jquery.js"></script>
 <!-- <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="js/select-ui.min.js"></script>
 <script type="text/javascript" src="editor/kindeditor.js"></script>
@@ -29,6 +29,7 @@ $(document).ready(function(e) {
 
 </head>
 <script>
+ $('.activity_manage').find('a').eq(0).addClass('leftNav_active')
     // $(document).click(function(){
     //     $(".edit_activity_block").hide();
     //     $(".edit_shike_info_block").hide();
@@ -40,10 +41,134 @@ $(document).ready(function(e) {
     // event.stopPropagation();});
 </script>
 <style>
+    .seachform .li{width:370px;}
+     .leftNav_active{
+         color:#f10180 !important ;
+         text-decoration:underline ;
+     }
+     .tablelist th:last-of-type{
+         min-width:60px;
+         text-align:center;
+         text-indent:0;
+     }
+     .tablelist td:last-of-type{
+         min-width:60px;
+         text-align:center;
+         text-indent:0;
+     }
+</style>
+<div class="tip-wrapper edit_activity_block" style="overflow:auto;position:fixed;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,.5);z-index:999;display:none">
+<div class="tip" style="width:780px;display:block;height:auto;">
+    <div class="tiptop"><span>编辑</span><a onclick="hide_edit_activity_block()"></a></div>
+    <ul class="seachform" style="margin:10px 0px 10px 10px;">
+        <li class="li"><label>活动订单号:</label><label id="edit_act_id"></label></li>
+        <li class="li"><label>生成时间:</label><label id="edit_gene_time"></label></li>
+        <li class="li"><label>账号:</label><label id="edit_account"></label></li>
+        <li class="li"><label>商品名称</label><input id="edit_product_name" name="name" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li style="width:760px;"><label>商品链接</label><input id="edit_product_link"  name="name" id="" value="" type="text" class="scinput" style="width:600px"/></li>
+        <li class="li"><label>店铺名称</label><input id="edit_shop_name" name="name" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>平台</label><input id="edit_platform" name="name" id="" value="" type="text" class="scinput" readonly="readonly"  style="width:300px"/></li>
+        <li style="width:760px;"><label>商品主图</label><input id="edit_picture_url" name="name" id="" value="" type="text" class="scinput" style="width:600px"/></li>
+        <li class="li">
+            <label>商品分类</label>
+            <select id="edit_product_classify" class="scinput" style="width:200px;opacity:1">
+                <option value="1">女装</option>
+                <option value="2">男装</option>
+                <option value="3">美妆</option>
+                <option value="4">鞋包配饰</option>
+                <option value="5" selected="selected">居家生活</option>
+                <option value="6">数码电器</option>
+                <option value="7">母婴儿童</option>
+                <option value="8">户外运动</option>
+                <option value="9">食品酒水</option>
+                <option value="10">其他</option>
+            </select>
+            <!-- <input id="edit_product_classify" name="name" id="" value="" type="text" class="scinput" style="width:300px"/> -->
+        </li>
+        <li class="li"><label>商品规格</label><input name="name" id="edit_color" value="" type="text" class="scinput" style="width:145px"/>-<input name="name" id="edit_size" value="" type="text" class="scinput" style="width:145px"/></li>
+        <li class="li"><label>单品价格:</label><label id="edit_unit_price"></label></li>
+        <li class="li"><label>每单拍 件</label><label id="edit_buy_sum"></label></li>
+        <li style="width:760px;">
+            <label>商品运费:</label><input name="name" id="check_freight1" value="" type="radio" class="scinput" style="width:10px;float:left;height:25px;"/>
+            <label>全国包邮</label><input name="name" id="check_freight2" value="" type="radio" class="scinput" style="width:10px;float:left;height:25px;"/>
+            <label>收取费用</label><input name="name" id="edit_freight" value="" type="text" class="scinput" style="float:left;"/><label>元</label></li>
+        <li class="li"><label>搜索方式:</label><label id="edit_search_platform"></label></li>
+        <li class="li"><label>搜索关键字:</label><!-- <label id="edit_key_words"></label> --><input id="edit_key_words" name="name" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li style="width:760px;"><label>商品搜索主图</label><input name="name" id="edit_t_picture_url" value="" type="text" class="scinput" style="width:600px"/></li>
+        <li style="width:760px;"><label>筛选列表</label>
+            <input name="name" id="edit_t_classify1" value="" type="text" class="scinput" style="width:125px"/>&nbsp;
+            <input name="name" id="edit_t_classify2" value="" type="text" class="scinput" style="width:125px"/>&nbsp;
+            <input name="name" id="edit_t_classify3" value="" type="text" class="scinput" style="width:125px"/>&nbsp;
+            <input name="name" id="edit_t_classify4" value="" type="text" class="scinput" style="width:125px"/>&nbsp;
+            <input name="name" id="edit_t_classify5" value="" type="text" class="scinput" style="width:125px"/>&nbsp;
+        </li>
+        <li id="zkfw1" style="width:760px;"><label>折扣服务:</label>
+            <input name="name" id="edit_ser1" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>全国包邮</label>
+            <input name="name" id="edit_ser2" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>赠送退货运费险</label>
+            <input name="name" id="edit_ser3" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>货到付款</label>
+            <input name="name" id="edit_ser4" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>海外商品</label>
+            <input name="name" id="edit_ser5" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>二手</label>
+            <input name="name" id="edit_ser6" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>天猫</label>
+            <input name="name" id="edit_ser7" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>正品保障</label>
+            <input name="name" id="edit_ser8" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>24小时内发货</label>
+            <input name="name" id="edit_ser9" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>7+天退换货</label>
+            <input name="name" id="edit_ser10" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>旺旺在线</label>
+            <input name="name" id="edit_ser11" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>新品</label>
+        </li>
+        <li id="zkfw2" style="width:760px;" style="display:none"><label>折扣服务:</label>
+            <input name="name" id="edit_ser12" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>新到商品</label>
+            <input name="name" id="edit_ser1_" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>包邮</label>
+            <input name="name" id="edit_ser13" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>折扣</label>
+            <input name="name" id="edit_ser14" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>搭配减价</label>
+            <input name="name" id="edit_ser15" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>满就减</label>
+            <input name="name" id="edit_ser3_" value="" type="checkbox" class="scinput" style="width:10px;float:left;height:25px;"/><label>货到付款</label>
+        </li>
+        <li style="width:760px;"><label>排序方式</label>
+            <select id="edit_t_sort" class="scinput" style="width:200px;opacity:1">
+                <option value="1">综合排序</option>
+                <option value="2">销量从高到低</option>
+                <option value="3">信用从高到低</option>
+                <option value="4">价格从低到高</option>
+                <option value="5">价格从高到低</option>
+                <option value="6">总价从低到高</option>
+                <option value="7">总价从高到低</option>
+                <option value="8">人气从高到低</option>
+                <option value="9">新品排序</option>
+            </select>
+            <!-- <input name="name" id="edit_t_sort" value="" type="text" class="scinput" style="width:100px"/> -->
+        </li>
+        <li style="width:760px;"><label>价格:</label>
+            <input name="name" id="edit_lower_price" value="" type="text" class="scinput" style="float:left;"/><label>元&nbsp;&nbsp;-</label>
+            <input name="name" id="edit_higher_price" value="" type="text" class="scinput" style="float:left;"/><label>元</label>
+        </li>
+        <li class="li" id="fhd"><label>发货地</label><input id="edit_t_delivery_place" name="name" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>商品押金:</label><label id="edit_deposit"></label></li>
+        <li class="li"><label>试用担保金:</label><label id="edit_guarantee"></label></li>
+        <li  style="width:760px;"><label>订单合计:</label><label id="edit_total_money"></label></li>
+        <li  style="width:760px;"><label>优惠券价格:</label><label id="edit_win_money"></label></li>
+        <li  style="width:760px;"><label>优惠券链接:</label><input type="text" id="edit_win_url" class="scinput" style="width:300px"></li>
+        <li  style="width:760px;"><label>二合一链接:</label><input type="text" id="edit_win_two_url" class="scinput" style="width:300px"></li>
+        <li  style="width:760px;"><label>状态:</label><label id="edit_status"></label></li>
+        <li  id="edit_apply_user_li" style="width:760px;"><label>申请试客:</label><label id="edit_apply_user"></label></li>
+        <li  id="edit_apply_user_suc_li" style="width:760px;"><label>中奖试客:</label><label id="edit_apply_user_suc"></label></li>
+
+        <div style="clear:both;"></div>
+    </ul>
+    <input name="Orid" id="Orid1" type="hidden"  value="" />
+    <div class="tipbtn" style="margin-left:120px;margin-bottom:20px;float:left">
+        <input name="sure" id="release_activity" type="button"  class="sure" value="发布" style="float:left"/>&nbsp;
+        <input id="cancle_button" name="cancel" type="button"  class="cancel" value="确定" style="margin-left:70px;float:left" onclick="hide_edit_activity_block()"/>
+        <input name="cancel" id="ban_activity" type="button"  class="sure" value="驳回" style="margin-left:70px;float:left" />
+        <input name="save" id="save_activity" type="button"  class="sure" value="保存" style="margin-left:70px;float:lefti;display:none" />
+    </div>
+</div>
+</div>
+
+<style>
     .edit_merchant_block div{height:55px;}
 </style>
 <body>
-    <div class="edit_activity_block" style="position:absolute;width:800px;height:800px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
+    <!-- <div class="edit_activity_block" style="position:absolute;width:800px;height:800px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
         <img src="images/close.jpg" style="width:30px;height:30px;position:absolute;top:0;right:0;cursor:pointer" onclick="hide_edit_activity_block()">
         <div style="overflow:hidden">
             <div style="width:300px;float:left"><p id="edit_act_id" style="font-size:24px;width:270px;margin:auto">活动订单号:</p></div>
@@ -147,10 +272,11 @@ $(document).ready(function(e) {
             <div style="width:300px;float:left"><p id="edit_apply_user_suc" style="font-size:24px;width:270px;margin:auto">中奖试客:</p></div>
         </div>
          <div style="overflow:hidden">
-            <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:24px;margin-left:95px" value="确定" onclick="hide_edit_activity_block()"></div>
-            <!-- <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:24px;margin-left:95px" value="取消" onclick="cancle_seller_info()"></div> -->
+            <div style="width:260px;float:left" id="release_activity"><input type="button" style="width:200px;height:55px;font-size:24px;margin-left:95px" value="发布"></div>
+            <div style="width:260px;float:left"><input type="button" style="width:200px;height:55px;font-size:24px;margin-left:95px" value="取消" onclick="hide_edit_activity_block()"></div>
+            <div style="width:260px;float:left" id="ban_activity"><input type="button" style="width:200px;height:55px;font-size:24px;margin-left:95px" value="驳回"></div>
         </div>
-    </div>
+    </div> -->
 
     <div class="edit_shike_info_block" style="position:absolute;width:280px;height:400px;border:1px solid;background:white;z-index:101;top:500px;right:200px;display:none">
         <img src="images/close.jpg" style="width:30px;height:30px;position:absolute;top:0;right:0;cursor:pointer" onclick="hide_edit_shike_info_block()">
@@ -168,6 +294,391 @@ $(document).ready(function(e) {
     </style>
 
     <script>
+        function release_activity(count){
+            var edit_search_platform_string = $("#edit_search_platform").text();
+            if(edit_search_platform_string == '淘宝自然搜索'){
+                ser_platformid = 1;
+            }else{
+                ser_platformid = 2;
+            }
+            var act_id = $("#tag_"+count).val();
+            var product_name = $("#edit_product_name").val();
+            var product_link = $("#edit_product_link").val();
+            var shop_name = $("#edit_shop_name").val();
+            var platform = $("#edit_platform").val();
+            if(platform=='淘宝'){
+                platform = 1;
+            }else{
+                platform = 2;
+            }
+            var key_words = $("#edit_key_words").val();
+            var picture_url = $("#edit_picture_url").val();
+            var product_classify = $("#edit_product_classify").val();
+            var color = $("#edit_color").val();
+            var size = $("#edit_size").val();
+            var freight = $("#edit_freight").val();
+            var t_picture_url = $("#edit_t_picture_url").val();
+            var t_classify1 = $("#edit_t_classify1").val();
+            var t_classify2 = $("#edit_t_classify2").val();
+            var t_classify3 = $("#edit_t_classify3").val();
+            var t_classify4 = $("#edit_t_classify4").val();
+            var t_classify5 = $("#edit_t_classify5").val();
+            if($("#edit_ser1").prop('checked')){
+                dis_ser1 = 1;
+            }else{
+                dis_ser1 = 0;
+            }
+            if($("#edit_ser2").prop('checked')){
+                dis_ser2 = 1;
+            }else{
+                dis_ser2 = 0;
+            }
+            if($("#edit_ser3").prop('checked')){
+                dis_ser3 = 1;
+            }else{
+                dis_ser3 = 0;
+            }
+            if($("#edit_ser4").prop('checked')){
+                dis_ser4 = 1;
+            }else{
+                dis_ser4 = 0;
+            }
+            if($("#edit_ser5").prop('checked')){
+                dis_ser5 = 1;
+            }else{
+                dis_ser5 = 0;
+            }
+            if($("#edit_ser6").prop('checked')){
+                dis_ser6 = 1;
+            }else{
+                dis_ser6 = 0;
+            }
+            if($("#edit_ser7").prop('checked')){
+                dis_ser7 = 1;
+            }else{
+                dis_ser7 = 0;
+            }
+            if($("#edit_ser8").prop('checked')){
+                dis_ser8 = 1;
+            }else{
+                dis_ser8 = 0;
+            }
+            if($("#edit_ser9").prop('checked')){
+                dis_ser9 = 1;
+            }else{
+                dis_ser9 = 0;
+            }
+            if($("#edit_ser10").prop('checked')){
+                dis_ser10 = 1;
+            }else{
+                dis_ser10 = 0;
+            }
+            if($("#edit_ser11").prop('checked')){
+                dis_ser11 = 1;
+            }else{
+                dis_ser11 = 0;
+            }
+            if($("#edit_ser12").prop('checked')){
+                dis_ser12 = 1;
+            }else{
+                dis_ser12 = 0;
+            }
+            if($("#edit_ser13").prop('checked')){
+                dis_ser13 = 1;
+            }else{
+                dis_ser13 = 0;
+            }
+            if($("#edit_ser14").prop('checked')){
+                dis_ser14 = 1;
+            }else{
+                dis_ser14 = 0;
+            }
+            if($("#edit_ser15").prop('checked')){
+                dis_ser15 = 1;
+            }else{
+                dis_ser15 = 0;
+            }
+            if($("#edit_ser1_").prop('checked')){
+                dis_ser1_ = 1;
+            }else{
+                dis_ser1_ = 0;
+            }
+            if($("#edit_ser3_").prop('checked')){
+                dis_ser3_ = 1;
+            }else{
+                dis_ser3_ = 0;
+            }
+            var t_sort = $("#edit_t_sort").val();
+            var lower_price = $("#edit_lower_price").val();
+            var higher_price = $("#edit_higher_price").val();
+            var t_delivery_place = $("#edit_t_delivery_place").val();
+            var win_url = $("#edit_win_url").val();
+            var win_two_url = $("#edit_win_two_url").val();
+            $.ajax({
+                url:"/admin_activity_manage/release_activity",
+                data:{
+                    act_id:act_id,
+                    product_name:product_name,
+                    product_link:product_link,
+                    shop_name:shop_name,
+                    platform:platform,
+                    picture_url:picture_url,
+                    product_classify:product_classify,
+                    color:color,
+                    size:size,
+                    freight:freight,
+                    t_key_words:key_words,
+                    t_picture_url:t_picture_url,
+                    t_classify1:t_classify1,
+                    t_classify2:t_classify2,
+                    t_classify3:t_classify3,
+                    t_classify4:t_classify4,
+                    t_classify5:t_classify5,
+                    dis_ser1:dis_ser1,
+                    dis_ser2:dis_ser2,
+                    dis_ser3:dis_ser3,
+                    dis_ser4:dis_ser4,
+                    dis_ser5:dis_ser5,
+                    dis_ser6:dis_ser6,
+                    dis_ser7:dis_ser7,
+                    dis_ser8:dis_ser8,
+                    dis_ser9:dis_ser9,
+                    dis_ser10:dis_ser10,
+                    dis_ser11:dis_ser11,
+                    dis_ser12:dis_ser11,
+                    dis_ser13:dis_ser11,
+                    dis_ser14:dis_ser11,
+                    dis_ser15:dis_ser11,
+                    dis_ser1_:dis_ser1_,
+                    dis_ser3_:dis_ser3_,
+                    ser_platformid:ser_platformid,
+                    t_sort:t_sort,
+                    lower_price:lower_price,
+                    higher_price:higher_price,
+                    t_delivery_place:t_delivery_place,
+                    win_url:win_url,
+                    win_two_url:win_two_url,
+                },
+                type:'post',  
+                cache:false,  
+                dataType:'json',  
+                async: false,
+                success:function(data){
+                    console.log(data);
+                    location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+        }
+
+        function save_activity(count){
+            var edit_search_platform_string = $("#edit_search_platform").text();
+            if(edit_search_platform_string == '淘宝自然搜索'){
+                ser_platformid = 1;
+            }else{
+                ser_platformid = 2;
+            }
+            var act_id = $("#tag_"+count).val();
+            var product_name = $("#edit_product_name").val();
+            var product_link = $("#edit_product_link").val();
+            var shop_name = $("#edit_shop_name").val();
+            var platform = $("#edit_platform").val();
+            if(platform=='淘宝'){
+                platform = 1;
+            }else{
+                platform = 2;
+            }
+            var key_words = $("#edit_key_words").val();
+            var picture_url = $("#edit_picture_url").val();
+            var product_classify = $("#edit_product_classify").val();
+            var color = $("#edit_color").val();
+            var size = $("#edit_size").val();
+            var freight = $("#edit_freight").val();
+            var t_picture_url = $("#edit_t_picture_url").val();
+            var t_classify1 = $("#edit_t_classify1").val();
+            var t_classify2 = $("#edit_t_classify2").val();
+            var t_classify3 = $("#edit_t_classify3").val();
+            var t_classify4 = $("#edit_t_classify4").val();
+            var t_classify5 = $("#edit_t_classify5").val();
+            if($("#edit_ser1").prop('checked')){
+                dis_ser1 = 1;
+            }else{
+                dis_ser1 = 0;
+            }
+            if($("#edit_ser2").prop('checked')){
+                dis_ser2 = 1;
+            }else{
+                dis_ser2 = 0;
+            }
+            if($("#edit_ser3").prop('checked')){
+                dis_ser3 = 1;
+            }else{
+                dis_ser3 = 0;
+            }
+            if($("#edit_ser4").prop('checked')){
+                dis_ser4 = 1;
+            }else{
+                dis_ser4 = 0;
+            }
+            if($("#edit_ser5").prop('checked')){
+                dis_ser5 = 1;
+            }else{
+                dis_ser5 = 0;
+            }
+            if($("#edit_ser6").prop('checked')){
+                dis_ser6 = 1;
+            }else{
+                dis_ser6 = 0;
+            }
+            if($("#edit_ser7").prop('checked')){
+                dis_ser7 = 1;
+            }else{
+                dis_ser7 = 0;
+            }
+            if($("#edit_ser8").prop('checked')){
+                dis_ser8 = 1;
+            }else{
+                dis_ser8 = 0;
+            }
+            if($("#edit_ser9").prop('checked')){
+                dis_ser9 = 1;
+            }else{
+                dis_ser9 = 0;
+            }
+            if($("#edit_ser10").prop('checked')){
+                dis_ser10 = 1;
+            }else{
+                dis_ser10 = 0;
+            }
+            if($("#edit_ser11").prop('checked')){
+                dis_ser11 = 1;
+            }else{
+                dis_ser11 = 0;
+            }
+            if($("#edit_ser12").prop('checked')){
+                dis_ser12 = 1;
+            }else{
+                dis_ser12 = 0;
+            }
+            if($("#edit_ser13").prop('checked')){
+                dis_ser13 = 1;
+            }else{
+                dis_ser13 = 0;
+            }
+            if($("#edit_ser14").prop('checked')){
+                dis_ser14 = 1;
+            }else{
+                dis_ser14 = 0;
+            }
+            if($("#edit_ser15").prop('checked')){
+                dis_ser15 = 1;
+            }else{
+                dis_ser15 = 0;
+            }
+            if($("#edit_ser1_").prop('checked')){
+                dis_ser1_ = 1;
+            }else{
+                dis_ser1_ = 0;
+            }
+            if($("#edit_ser3_").prop('checked')){
+                dis_ser3_ = 1;
+            }else{
+                dis_ser3_ = 0;
+            }
+            var t_sort = $("#edit_t_sort").val();
+            var lower_price = $("#edit_lower_price").val();
+            var higher_price = $("#edit_higher_price").val();
+            var t_delivery_place = $("#edit_t_delivery_place").val();
+            var win_url = $("#edit_win_url").val();
+            var win_two_url = $("#edit_win_two_url").val();
+            $.ajax({
+                url:"/admin_activity_manage/save_activity",
+                data:{
+                    act_id:act_id,
+                    product_name:product_name,
+                    product_link:product_link,
+                    shop_name:shop_name,
+                    platform:platform,
+                    picture_url:picture_url,
+                    product_classify:product_classify,
+                    color:color,
+                    size:size,
+                    freight:freight,
+                    t_key_words:key_words,
+                    t_picture_url:t_picture_url,
+                    t_classify1:t_classify1,
+                    t_classify2:t_classify2,
+                    t_classify3:t_classify3,
+                    t_classify4:t_classify4,
+                    t_classify5:t_classify5,
+                    dis_ser1:dis_ser1,
+                    dis_ser2:dis_ser2,
+                    dis_ser3:dis_ser3,
+                    dis_ser4:dis_ser4,
+                    dis_ser5:dis_ser5,
+                    dis_ser6:dis_ser6,
+                    dis_ser7:dis_ser7,
+                    dis_ser8:dis_ser8,
+                    dis_ser9:dis_ser9,
+                    dis_ser10:dis_ser10,
+                    dis_ser11:dis_ser11,
+                    dis_ser12:dis_ser11,
+                    dis_ser13:dis_ser11,
+                    dis_ser14:dis_ser11,
+                    dis_ser15:dis_ser11,
+                    dis_ser1_:dis_ser1_,
+                    dis_ser3_:dis_ser3_,
+                    ser_platformid:ser_platformid,
+                    t_sort:t_sort,
+                    lower_price:lower_price,
+                    higher_price:higher_price,
+                    t_delivery_place:t_delivery_place,
+                    win_url:win_url,
+                    win_two_url:win_two_url,
+                },
+                type:'post',  
+                cache:false,  
+                dataType:'json',  
+                async: false,
+                success:function(data){
+                    console.log(data);
+                    location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+        }
+
+        function ban_activity(count){
+            var act_id = $("#tag_"+count).val();
+            $.ajax({
+                url:"/admin_activity_manage/ban_activity",
+                data:{
+                    act_id:act_id,
+                },
+                type:'post',  
+                cache:false,  
+                dataType:'json',  
+                async: false,
+                success:function(data){
+                    console.log(data);
+                    location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+            });
+        }
+
         function hide_edit_activity_block(){
             $(".edit_activity_block").css("display","none");
         }
@@ -187,36 +698,163 @@ $(document).ready(function(e) {
                 async: false,
                 success:function(data){
                     console.log(data);
-                    $("#edit_act_id").text("活动订单号: "+data.act_id);
-                    $("#edit_gene_time").text("生成时间: "+data.gene_time.substring(0,10));
-                    $("#edit_account").text("账号: "+data.seller_id);
+                    $("#edit_act_id").text(data.act_id);
+                    $("#edit_gene_time").text(data.gene_time.substring(0,10));
+                    $("#edit_account").text(data.seller_name);
                     $("#edit_product_name").val(data.product_name);
                     $("#edit_product_link").val(data.product_link);
                     $("#edit_shop_name").val(data.shopname);
-                    $("#edit_platform").val(data.platformid);
+                    $("#edit_platform").val((data.platformid==1)?'淘宝':'天猫');
                     $("#edit_picture_url").val(data.picture_url);
                     $("#edit_product_classify").val(data.product_classify);
                     $("#edit_color").val(data.color);
                     $("#edit_size").val(data.size);
-                    $("#edit_unit_price").text("单品价格:"+data.unit_price);
-                    $("#edit_buy_sum").text("每单拍"+data.buy_sum+"件");
-                    $("#edit_freight").val(data.freight);
-                    $("#edit_search_platform").text(data.platformid);
-                    $("#edit_key_words").text(data.t_key_words);
+                    $("#edit_unit_price").text(data.unit_price);
+                    $("#edit_buy_sum").text(data.buy_sum);
+                    if(data.status == 2){
+                        $("#save_activity").css("display","inline-block");
+                    }else{
+                        $("#save_activity").css("display","none");
+                    }
+                    if(data.freight>0){
+                        $("#edit_freight").val(data.freight);
+                        $("#check_freight2").attr('checked','checked');
+                        $("#check_freight1").attr('checked',false);
+                    }else{
+                        $("#check_freight1").attr('checked','checked');
+                        $("#check_freight2").attr('checked',false);
+                    }
+
+                    if(data.dis_ser1 == 1){
+                        $("#edit_ser1").prop('checked','checked');
+                        $("#edit_ser1_").prop('checked','checked');
+                    }else{
+                        $("#edit_ser1").prop('checked',false);
+                        $("#edit_ser1_").prop('checked',false);
+                    }
+                    if(data.dis_ser2 == 1){
+                        $("#edit_ser2").prop('checked','checked');
+                    }else{
+                        $("#edit_ser2").prop('checked',false);
+                    }
+                    if(data.dis_ser3 == 1){
+                        $("#edit_ser3").prop('checked','checked');
+                        $("#edit_ser3_").prop('checked','checked');
+                    }else{
+                        $("#edit_ser3").prop('checked',false);
+                        $("#edit_ser3_").prop('checked',false);
+                    }
+                    if(data.dis_ser4 == 1){
+                        $("#edit_ser4").prop('checked','checked');
+                    }else{
+                        $("#edit_ser4").prop('checked',false);
+                    }
+                    if(data.dis_ser5 == 1){
+                        $("#edit_ser5").prop('checked','checked');
+                    }else{
+                        $("#edit_ser5").prop('checked',false);
+                    }
+                    if(data.dis_ser6 == 1){
+                        $("#edit_ser6").prop('checked','checked');
+                    }else{
+                        $("#edit_ser6").prop('checked',false);
+                    }
+                    if(data.dis_ser7 == 1){
+                        $("#edit_ser7").prop('checked','checked');
+                    }else{
+                        $("#edit_ser7").prop('checked',false);
+                    }
+                    if(data.dis_ser8 == 1){
+                        $("#edit_ser8").prop('checked','checked');
+                    }else{
+                        $("#edit_ser8").prop('checked',false);
+                    }
+                    if(data.dis_ser9 == 1){
+                        $("#edit_ser9").prop('checked','checked');
+                    }else{
+                        $("#edit_ser9").prop('checked',false);
+                    }
+                    if(data.dis_ser10 == 1){
+                        $("#edit_ser10").prop('checked','checked');
+                    }else{
+                        $("#edit_ser10").prop('checked',false);
+                    }
+                    if(data.dis_ser11 == 1){
+                        $("#edit_ser11").prop('checked','checked');
+                    }else{
+                        $("#edit_ser11").prop('checked',false);
+                    }
+                    if(data.ser_platformid==1){
+                        $("#zkfw1").css("display","block");
+                        $("#zkfw2").css("display","none");
+                        $("#fhd").css("display","block");
+                    }else{
+                        $("#zkfw2").css("display","block");
+                        $("#zkfw1").css("display","none");
+                        $("#fhd").css("display","none");
+                    }
+                    $("#edit_search_platform").text((data.ser_platformid==1)?'淘宝自然搜索':'天猫自然搜索');
+                    $("#edit_key_words").val(data.t_key_words);
                     $("#edit_t_picture_url").val(data.t_picture_url);
+                    $("#edit_t_delivery_place").val(data.t_delivery_place);
                     $("#edit_t_classify1").val(data.t_classify1);
                     $("#edit_t_classify2").val(data.t_classify2);
                     $("#edit_t_classify3").val(data.t_classify3);
                     $("#edit_t_classify4").val(data.t_classify4);
                     $("#edit_t_classify5").val(data.t_classify5);
                     $("#edit_t_sort").val(data.t_sort);
-                    $("#edit_deposit").text("商品押金:"+data.deposit);
-                    $("#edit_guarantee").text("试用担保金"+data.guarantee);
-                    $("#edit_total_money").text("订单合计："+data.total_money);
-                    $("#edit_status").text("状态"+data.status);
+                    $("#edit_deposit").text(data.deposit);
+                    $("#edit_guarantee").text(data.guarantee);
+                    $("#edit_total_money").text(data.total_money);
+                    $("#edit_win_money").text(data.win_money);
+                    $("#edit_win_url").val(data.win_url);
+                    $("#edit_win_two_url").val(data.win_two_url);
+                    var status='';
+                    $("#edit_apply_user_li").css("display","block");
+                    $("#edit_apply_user_suc_li").css("display","block");
+                    $("#release_activity").css("display","none");
+                    $("#ban_activity").css("display","none");
+                    $("#cancle_button").val("确定");
+                    switch(data.status){
+                        case "1":
+                            status='待付款';
+                            break;
+                        case "2":
+                            status='待发布';
+                            $("#edit_apply_user_li").css("display","none");
+                            $("#edit_apply_user_suc_li").css("display","none");
+                            $("#release_activity").css("display","block");
+                            $("#ban_activity").css("display","block");
+                            $("#cancle_button").val("取消");
+                            break;
+                        case "3":
+                            status='待开奖';
+                            break;
+                        case "4":
+                            status='已开奖';
+                            break;
+                        case "5":
+                            status='已取消';
+                            break;
+                        case "6":
+                            status='审核不通过';
+                            break;    
+                        default:
+                            // ...
+                    }
+                    $("#edit_status").text(status);
                     $("#edit_apply_user").text("申请试客：查看（"+data.apply_amount+"）");
                     $("#edit_apply_user").bind("click",function(){
                       edit_shike_info(count);
+                    });
+                    $("#release_activity").bind("click",function(){
+                      release_activity(count);
+                    });
+                    $("#save_activity").bind("click",function(){
+                      save_activity(count);
+                    });
+                    $("#ban_activity").bind("click",function(){
+                      ban_activity(count);
                     });
                     $("#edit_apply_user_suc").text("中奖试客");
                     // $("#edit_reg_time").text("注册时间: "+data.reg_time.substring(0,10));
@@ -225,7 +863,9 @@ $(document).ready(function(e) {
                     // $("#edit_merchant_qq").val(data.qq);
                     // $("#edit_merchant_type").text("会员类型: "+(data.reg_time==1 ? '试用会员':'正式会员'));
                     // $("#edit_end_time").text("会员到期时间: "+data.end_time.substring(0,10));
-
+                    if(data.status !=2){
+                        $("#release_activity").css("display","none");
+                    }
                     $(".edit_activity_block").css("display","block");
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -241,7 +881,7 @@ $(document).ready(function(e) {
             $.ajax({
                 url:"/admin_activity_manage/get_shike_info_by_apply2",
                 data:{
-                    user_id:search,
+                    user_name:search,
                     act_id:act_id,
                 },
                 type:'post',  
@@ -253,8 +893,9 @@ $(document).ready(function(e) {
                     $(".shike_info_block2").children().remove();
                     var html = '<div>试客账号</div>';
                      for(var i=0;i<data.length;i++){
-                        html += "<div>"+data[i].user_id+"</div>"
+                        html += "<div>"+data[i].user_name+"</div>"
                     }
+                     //$(".shike_info_block2").empty();
                     $(".shike_info_block2").append(html);
                     // var html = '';
                     // for(var i=0;i<data.length;i++){
@@ -294,22 +935,23 @@ $(document).ready(function(e) {
     <div class="rightinfo">
     
 	    <ul class="seachform">
-		  <li><label></label><input name="" type="text" class="scinput" /></li>
+		  <li><label></label><input name="" type="text" class="scinput1" /></li>
 		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="search()"/></li>
 	    </ul>
     <script>
         function search(){
-            var account = $(".scinput").val();
+            var account = $(".scinput1").val();
             location.href="/admin_activity_manage/search?search="+account;
         }
     </script>
-	<div class="formtitle1"><span>商家基本信息</span></div>
+	<div class="formtitle1"><span>活动管理</span></div>
     <table class="tablelist">
     	<thead>
     	<tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
         <th>活动订单号</th>
         <th>生成时间</th>
+        <th>商家账号</th>
         <th>商品名称</th>
         <th>商品链接</th>
         <th>店铺名称</th>
@@ -332,8 +974,9 @@ $(document).ready(function(e) {
         <td><input name="" type="checkbox" value="" /></td>
         <td><?php echo $v['act_id'];?></td>
         <td><?php echo $v['gene_time'];?></td>
+        <td><?php echo $v['user_name'];?></td>
         <td><?php echo $v['product_name'];?></td>
-        <td><?php echo $v['product_link'];?></td>
+        <td><a target="blank" href="<?php echo $v['product_link'];?>"><?php echo $v['show_product_link'];?></a></td>
         <td><?php echo $v['shopname'];?></td>
         <td><?php echo ($v['platformid']==1 ? '淘宝':'天猫');?></td>
         <td><?php echo $v['apply_amount'];?></td>
@@ -341,10 +984,10 @@ $(document).ready(function(e) {
         <td><?php echo $v['deposit'];?></td>
         <td><?php echo $v['guarantee'];?></td>
         <td><?php echo $v['total_money'];?></td>
-        <?php if(!$v['apply_amount']):?>
-        <td onclick="javascript:void(0)">查看（<?php echo $v['apply_amount'];?>）</td>
+        <?php if(!$v['apply_count']):?>
+        <td onclick="javascript:void(0)"></td>
         <?php else:?>
-        <td style="color:#00a4ac;cursor:pointer" onclick="edit_shike_info(<?php echo $count;?>)">查看（<?php echo $v['apply_amount'];?>）</td>
+        <td style="color:#00a4ac;cursor:pointer" onclick="edit_shike_info(<?php echo $count;?>)">查看（<?php echo $v['apply_count'];?>）</td>
         <?php endif;?>
         <td><?php if($v['status']==1){
             echo "待付款";
@@ -408,9 +1051,10 @@ $(document).ready(function(e) {
                     console.log(data.length);
                     var html = '';
                     for(var i=0;i<data.length;i++){
-                        html += "<div>"+data[i].user_id+"</div>"
+                        html += "<div>"+data[i].user_name+"</div>"
                     }
                     console.log(html);
+                    $(".shike_info_block2").empty();
                     $(".shike_info_block2").append(html);
                     // $("#edit_merchant_id").text("商家ID: "+data.seller_id);
                     // $("#edit_reg_time").text("注册时间: "+data.reg_time.substring(0,10));

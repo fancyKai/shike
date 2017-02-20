@@ -6,6 +6,12 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
+<style>
+.leftNav_active{
+      color:#f10180 !important ;
+      text-decoration:underline ;
+    }
+</style>
 </head>
 <body>
 <section id="section">
@@ -22,7 +28,7 @@
     <div class="rightinfo">
     
 	    <ul class="seachform">
-		  <li><label>会员名</label><input name="" type="text" class="scinput" /></li>
+		  <li><label>商家账号</label><input name="" type="text" class="scinput1" /></li>
 		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="search()"/></li>
 	    </ul>
     
@@ -45,7 +51,7 @@
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td><?php echo $v['charge_time'];?></td>
-        <td><?php echo $v['seller_id'];?></td>
+        <td><?php echo $v['user_name'];?></td>
         <td><?php echo $v['open_duration'];?></td>
         <td><?php echo $v['end_time'];?></td>
         <td><?php echo $v['money'];?></td>
@@ -79,10 +85,11 @@
 </section>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+	$('.merchant_manage ul>li').find('a').eq(2).addClass('leftNav_active')
 	</script>
     <script>
         function search(){
-            var account = $(".scinput").val();
+            var account = $(".scinput1").val();
             location.href="/admin_merchant_recharge/search?search="+account;
         }
     </script>

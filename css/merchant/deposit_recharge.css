@@ -11,8 +11,8 @@
   border-spacing: 30px;
 }
 #section .section_main .deposit_recharge table td {
-  width: 180px;
-  height: 40px;
+  width: 182px;
+  height: 42px;
   line-height: 40px;
   border: 1px solid #c8c8c8;
   border-spacing: 15px;
@@ -20,8 +20,9 @@
   cursor: pointer;
 }
 #section .section_main .deposit_recharge table td img {
-  width: 105px;
-  height: 22px;
+  width: 180px;
+  height: 40px;
+  margin-top: -3px;
 }
 #section .section_main .deposit_recharge table td a {
   color: #005ea7;
@@ -70,13 +71,9 @@
   line-height: 40px;
   border: 1px solid #f10180;
   border-radius: 5px;
-  background-color: #fff;
-  color: #f10180;
-  font-size: 16px;
-}
-#section .section_main .deposit_recharge .confirm_btn input:hover {
   background-color: #f10180;
   color: #fff;
+  font-size: 16px;
 }
 #section .section_main .deposit_recharge .warm_prompt {
   padding-left: 20px;
@@ -93,4 +90,30 @@
 #section .section_main .deposit_recharge .warm_prompt p img {
   margin-top: -2px;
   cursor: pointer;
+}
+.pay_modal {
+  display: none;
+}
+.pay_modal .modal_content {
+  text-align: center;
+}
+.pay_modal .modal_content p {
+  font-size: 14px;
+  color: #323232;
+  line-height: 32px;
+  margin: 43px 0;
+}
+.pay_modal .modal_submit {
+  padding-top: 15px;
+}
+.pay_modal .modal_submit input {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f10180;
+  border-radius: 5px;
+}
+.pay_modal .modal_submit input:nth-of-type(2) {
+  margin-left: 35px;
 }

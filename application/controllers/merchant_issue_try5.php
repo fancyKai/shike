@@ -46,6 +46,30 @@ class Merchant_issue_try5 extends MY_Controller {
             	          'freeze_deposit' => $freeze_deposit+$need_pay);
 		    $this->db->update("seller",$info,array("seller_id"=>$seller_id));
             $this->db->update("activity",array('status' => 2),array("act_id"=>$act_id));
+
+            $info = array('money' => $need_pay*1/1.05, 
+        	          	  'money_type' => 1,
+        	              'processfee' => 0,
+        	              'money_remain' => $avail-$need_pay*1/1.05,
+        	              'time' => date('Y-m-d H:i:s',time()),
+        	              'flowid' => '123',
+        	              'status' => 5,
+        	              'seller_id' => $seller_id,
+        	              'user_type' => 0,
+        	              'remarks' => 4);
+        	$res = $this->db->insert("platformorder",$info);
+
+        	$info = array('money' => $need_pay*0.05/1.05, 
+        	          	  'money_type' => 1,
+        	              'processfee' => 0,
+        	              'money_remain' => $avail-$need_pay,
+        	              'time' => date('Y-m-d H:i:s',time()),
+        	              'flowid' => '123',
+        	              'status' => 5,
+        	              'seller_id' => $seller_id,
+        	              'user_type' => 0,
+        	              'remarks' => 5);
+        	$res = $this->db->insert("platformorder",$info);
 		    $res = 1;
 		    echo json_encode($res);
 	    }

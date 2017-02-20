@@ -37,6 +37,21 @@
 
         }
       }
+      //充值类型
+      .recharge_active{
+        background:url(../images/spot.png)left center no-repeat !important ;
+      }
+      .recharge_type{
+        padding:20px 0 30px 0;
+        span{
+          display:inline-block;
+          margin-left:15px;
+          padding-left:26px;
+          height:16px;
+          font-size:14px;
+          background:url(../images/sj_fbsy_icon_quan_default.png)left center no-repeat;
+        }
+      }
       //充值金额
       .recharge_amount{
         p{
@@ -83,13 +98,9 @@
           line-height:40px;
           border:1px solid @deepred_color;
           border-radius:5px;
-          background-color:#fff;
-          color:@deepred_color;
           font-size:16px;
-          &:hover{
             background-color:@deepred_color;
             color:#fff;
-          }
 
         }
       }
@@ -110,6 +121,35 @@
           }
         }
       }
+    }
+  }
+}
+
+//支付弹框
+.pay_modal{
+  display:none;
+  .modal_content{
+    text-align:center;
+    p{
+      font-size:14px;
+      color:@deepfont_color;
+      line-height:32px;
+      margin:43px 0;
+    }
+  }
+  .modal_submit {
+    padding-top:15px;
+    input {
+      width: 120px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
     }
   }
 }

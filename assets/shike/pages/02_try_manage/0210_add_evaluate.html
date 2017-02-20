@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>追加评价</title>
+    <link rel="stylesheet" href="../../css/location_title.css">
+    <link rel="stylesheet" href="../../css/getOrder_stepTwo.css">
+    <link rel="stylesheet" href="../../css/add_evaluate.css">
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_content">
+        <div class="location_title">
+            <ul>
+                <li>您的位置：</li>
+                <li><a href="../01_personal_center/personal_center.html">试客中心</a></li>
+                <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+                <li><a href="02_try_winningManage.html">中奖管理</a></li>
+                <li><img src="../../images/icon_arrow_default.png" alt=""></li>
+                <li>追加评价</li>
+            </ul>
+        </div>
+        <!--步骤介绍-->
+        <div class="step_introduce">
+            <div class="try_good">
+                <h1 class="taobao_addEvaluate">淘宝追评</h1>
+                <!--第一步-->
+                <div class="first_step">
+                    <h2>
+                        第一步：请访问www.taobao.com，登录账号：asd，在“我的淘宝-已买到的宝贝”找到以下商品
+                    </h2>
+                    <!--示例图片-->
+                        <table>
+                            <tr>
+                                <th>店铺主旺旺ID</th>
+                                <th>商品名称</th>
+                                <th>单价</th>
+                                <th>购买数量</th>
+                                <th>规格</th>
+                            </tr>
+                            <tr>
+                                <td>liyingying</td>
+                                <td>2016秋冬新款韩版毛呢外套女中长款大码加厚修身显瘦学生呢子大衣</td>
+                                <td>&yen;300</td>
+                                <td>1</td>
+                                <td>每单拍1件 红色 大号</td>
+                            </tr>
+                        </table>
+                </div>
+                <!--第二步-->
+                <div class="second_step">
+                    <h2 style="padding-bottom:0;">第二步：追加评价</h2>
+                    <p class="title">1.在“全部商品”中找到试用商品</p>
+                    <div class="good_describe">
+                        <div class="left good_picture"><img src="../../images/picture.png" alt=""></div>
+                        <p class="left describe">2016秋冬新款韩版毛呢外套女中长款大码加厚修身显瘦学 <br>生呢子大衣</p>
+                    </div>
+                    <p class="title">2.点击“追加评价”后，请围绕以下关键词信息进行评价；</p>
+                    <p><b>追评关键词：女装、款式、给力。</b></p>
+                    <p class="title">
+                        3.提交评价后，截图上传成功发布的追评信息。
+                        <a id="second_step" href="javascript:void(0);">查看截图示例</a>
+                    </p>
+                    <!--示例图片-->
+                    <div class="example_images">
+                        <img src="../../images/sk_zjgl_lqxd_bg_scdp1_default.png" alt="">
+                    </div>
+                    <p class="uploading">
+                        请上传淘宝追评截图
+                        <a href="javascript:void(0);">
+                            <input type="file">
+                            上传文件
+                        </a>
+                        <span>店铺.png</span>
+                    </p>
+                    <p><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
+                </div>
+            </div>
+            <p class="step_btn">
+                <input type="button" value="提交追评">
+            </p>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+
+        $('#second_step').bind('click',function(){
+            $('.second_step .example_images').slideToggle();
+        });
+        $('#first_step').bind('click',function(){
+            $('.first_step .example_images').slideToggle();
+        })
+    })
+</script>
+</body>
+</html>

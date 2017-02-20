@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>个人中心</title>
-    <link rel="stylesheet" href="css/merchant/reset.css">
     <link rel="stylesheet" href="css/merchant/reset_content.css">
     <link rel="stylesheet" href="css/merchant/modal_alert.css">
     <link rel="stylesheet" href="css/merchant/personal_center.css">
@@ -16,7 +15,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--右侧个人中心-->
-        <div class="content left">
+        <div id="my_main" class="content left">
             <!--会员信息及试用押金说明-->
             <div class="member_power">
                 <!--个人信息-->
@@ -33,7 +32,8 @@
                 <!--试用任务-->
                 <div class="left try_task">
                     <div class="try_monery">
-                        <input type="button" value="发布试用任务" onclick="window.open('/merchant_issue_try')"/>
+                        <!--<input type="button" value="发布试用任务" onclick="window.open('/merchant_issue_try')"/>-->
+                        <input type="button" value="发布试用任务" onclick="issue_try()"/>
                         可用押金：<span><?php echo $sellerinfo['avail_deposit']?></span>元
                         <a href="/merchant_deposit_recharge">充值押金</a>
                         冻结押金：<span><?php echo $sellerinfo['freeze_deposit']?></span>元
@@ -42,7 +42,7 @@
                         押&nbsp; &nbsp;&nbsp; &nbsp;金：可用来支付平台一切费用，可提现。
                     </p>
                     <p>
-                        冻结押金：试用任务中支付的押金和保证金费用，试用任务结束，押金打给试客，保证金返还到银行卡上。
+                        冻结押金：试用任务中支付的押金和保证金，试用任务结束，押金打给试客，保证金返还到可用押金上。
                     </p>
                 </div>
             </div>
@@ -59,6 +59,7 @@
                         <li class="order"><a <?php if($order_status == 1):?>class="personal_active" <?php endif;?> href="/merchant_personal?order_status=1">待发货订单（<span><?php echo $sum_1_order_list['count'];?></span>）</a><b>|</b></li>
                         <li class="order"><a <?php if($order_status == 2):?>class="personal_active" <?php endif;?> href="/merchant_personal?order_status=2">待审核评价订单（<span><?php echo $sum_2_order_list['count'];?></span>）</a><b>|</b></li>
                         <li class="order"><a <?php if($order_status == 3):?>class="personal_active" <?php endif;?> href="/merchant_personal?order_status=3">待确认评价订单（<span><?php echo $sum_3_order_list['count'];?></span>）</a></li>
+
                     </ul>
                 </div>
                 <!--商品发货状态-->
@@ -70,7 +71,7 @@
                         <p class="left">
                             <span><?php echo substr($v['time'],0,10);?></span>
                             <span>任务编号：<?php echo $v['order_id'];?></span>
-                            <span>淘宝商品订单号：<?php echo $v['out_sorderid']?></span>
+                            <span>淘宝商品订单号：<?php echo $v['outer_orderid']?></span>
                         </p>
                         <p class="right">
                             <a href="/merchant_order_details?order_id=<?php echo $v['order_id'];?>">查看详情</a>
@@ -78,14 +79,14 @@
                     </div>
                     <div class="detalis">
                         <ul>
-                            <li><img src="images/merchant/order/order_<?php echo $v['order_id'];?>.png" alt=""></li>
+                            <li><img src="<?php echo $v['product_img'];?>" alt=""></li>
                             <li>
                                 <p class="clothes_name"><?php echo $v['product_name'];?>
                                 <p class="two"><span>店铺：</span><?php echo $v['shopname'];?></p>
                                 <p><span>来源：</span><?php  echo ($v['platform_id']==1 ? '淘宝':'天猫');?></p>
                             </li>
                             <li>
-                                <p><span>试客：</span><?php echo $v['shikename'];?></p>
+                                <p><span>试客：</span><?php echo $v['user_name'];?></p>
                             </li>
 
                             <?php if($v['status'] == 1):?>
@@ -94,7 +95,6 @@
                             </li>
                             <li>
                                 <p class="status" id="delivery" onclick="show_deliver_modal(<?php echo $v['order_id'];?>)"><input type="button" value="确认发货"/></p>
-                                <p><span id="lefttime_<?php echo $v['order_id'];?>"></span></p>
                             </li>
                             <?php endif;?>
 
@@ -179,14 +179,23 @@
                             </li>
                             <?php endif;?>
                             <input type="hidden" id="order_list_id_<?php echo $order_list_count;?>" value="<?php echo $v['order_id'];?>">
-                            <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo strtotime($v['time']);?>">
+                            <?php $time = max(strtotime($v['time']),strtotime($v['time_2']),strtotime($v['time_3'])); ?>
+                            <input type="hidden" id="order_list_time_<?php echo $order_list_count;?>" value="<?php echo $time;?>">
                         </ul>
                     </div>
                 </div>
                 <?php endforeach ?>
+                <?php if($count > 5):?>
                 <div class="see_more">
                     <input onclick="location.href='/merchant_order_manage'" type="button"/>
                 </div>
+                <?php endif;?>
+                <?php if($count == 0):?>
+                <div style="padding: 50px 0 100px 0;">
+                    <p style="text-align: center;"><img src="images/mall/ss_bg_wu_default.png" alt=""></p>
+                    <p style="text-align: center;padding-top: 30px;color: #323232;font-size: 16px;">亲，暂无任务进展信息哦!</p>
+                </div>
+            <?php endif;?>
             </div>
         </div>
     </div>
@@ -207,10 +216,10 @@
             <div class="confirm_delivery" action="">
                 <label for="logistics">物&nbsp; &nbsp;流</label>
                 <input id="logistics" type="text"/>
-                <p><span>物流不能为空</span></p>
+                <p><span id="logistics_error"></span></p>
                 <label for="waybill_number">运单号</label>
                 <input id="waybill_number" type="text"/>
-                <p><span></span></p>
+                <p><span id="waybill_number_error"></span></p>
             </div>
         </div>
         <div class="modal_submit">
@@ -262,6 +271,7 @@
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script src="js/merchant/modal_scrollbar.js"></script>
 <script src="js/ydcountdown.js"></script>
+<script src="js/merchant/left.js"></script>
 <script>
     $(function(){
         var order_list_count = <?php echo count($order_list);?>;
@@ -277,7 +287,9 @@
         }
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
-        // $('#left_nav').load("../common/left_nav.html");
+        // $('#left_nav').load("../common/left_nav.html",function(){
+            $('.personal_center').find('a').addClass('leftNav_active');
+        // });
 //        标题的点击事件   
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');
@@ -285,18 +297,18 @@
         });
 //          弹框
 //        模态框的高度(500：表示头部和尾部高度的和)；
-        $('.mask_layer').height(document.body.offsetHeight+500);
+        $('.mask_layer').height(document.body.offsetHeight+1600);
 //        确认发货
-        // $('#delivery').bind('click',function(){
-        //     $('.delivery_modal').css('display','block');
+         $('#delivery').bind('click',function(){
+            $('.delivery_modal').css('display','block');
 
-        //     disableScroll();
-        // });
+             disableScroll();
+         });
 //        确认审核
-        // $('#audit').bind('click',function(){
-        //     $('.audit_modal').css('display','block');
-        //     disableScroll();
-        // });
+         $('#audit').bind('click',function(){
+             $('.audit_modal').css('display','block');
+            disableScroll();
+         });
 
         $('.close,.cancel,.confirm').bind('click',function(){
             $('.delivery_modal,.audit_modal,.pass_modal').css('display','none');
@@ -309,6 +321,14 @@
         var wuliu = $("#logistics").val();
         var yundan = $("#waybill_number").val();
         var order_id = $("#hidden_orderid").val();
+        if(!wuliu){
+            $("#logistics_error").text("物流不能为空");
+            return;
+        }
+        if(!yundan){
+            $("#waybill_number_error").text("运单号不能为空");
+            return;
+        }
         $.ajax({
         url : admin.url+'merchant_personal/update_confirm_ship',
         data:{wuliu:wuliu,yundan:yundan,order_id:order_id},

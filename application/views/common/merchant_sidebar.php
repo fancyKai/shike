@@ -8,9 +8,9 @@
     <div class="title try_manage">
         <a  href="javascript:void(0);">试用管理</a>
         <ul>
-            <li><a href="/merchant_issue_try">发布试用</a></li>
-            <li><a id="act_num" href="/merchant_activity_manage">活动管理（0）</a></li>
-            <li><a id="order_num" href="/merchant_order_manage">试用订单管理（0）</a></li>
+            <li><a style=" cursor:pointer" onclick="issue_try()">发布试用</a></li>
+            <li><a id="act_num" href="/merchant_activity_manage">活动管理（20）</a></li>
+            <li><a id="order_num" href="/merchant_order_manage">订单管理（20）</a></li>
         </ul>
     </div>
     <div class="title account_information">
@@ -43,7 +43,7 @@
             cache : false,
             success : function (result){
                 $("#act_num").text("活动管理（"+result.act_count+"）");
-                $("#order_num").text("试用订单管理（"+result.order_count+"）");
+                $("#order_num").text("订单管理（"+result.order_count+"）");
                 $("#message_num").text("消息中心（"+result.mess_count+"）");
             },
             error : function (XMLHttpRequest, textStatus){

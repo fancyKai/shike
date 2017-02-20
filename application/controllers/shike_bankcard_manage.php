@@ -12,7 +12,7 @@ class Shike_bankcard_manage extends MY_Controller {
 	{
 		$seller_id = $this->session->userdata('user_id');
         $bankcard = $this->db->query("select * from bankbind where user_id=$seller_id and type='1'")->row_array();
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 1")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
         if(!$bankcard){
             $this->out_data['con_page'] = 'shike/bankcard_manage';

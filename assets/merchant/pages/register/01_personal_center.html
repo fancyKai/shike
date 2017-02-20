@@ -26,22 +26,27 @@
                     <div class="left username">
                         <h1>无所谓A</h1>
                         <p>会员等级：<span>试用会员</span> <b>2016.12.12会员到期</b></p>
-                        <input type="button" value="购买正式会员"/>
+                        <input onclick="location.href='0403_member_recharge.html'" type="button" value="购买正式会员"/>
+                        <input onclick="location.href='0301_issue_try.html'" type="button" value="发布试用任务"/>
                     </div>
                 </div>
                 <!--试用任务-->
                 <div class="left try_task">
                     <div class="try_monery">
-                        <input type="button" value="发布试用任务"/>
+                        <!--<input onclick="location.href='0301_issue_try.html'" type="button" value="发布试用任务"/>-->
                         可用押金：<span>890.00</span>元
                         <a href="#">充值押金</a>
                         冻结押金：<span>1590.00</span>元
+                        &nbsp; &nbsp;&nbsp;金币：<span>1590.00</span>元
                     </div>
                     <p>
-                        押&nbsp; &nbsp;&nbsp; &nbsp;金：可用来支付平台一切费用，可提现。
+                        押&nbsp; &nbsp;&nbsp; &nbsp;金：可用来支付试用任务的押金和试用担保金，可提现。
                     </p>
                     <p>
                         冻结押金：试用任务中支付的押金和保证金费用，试用任务结束，押金打给试客，保证金返还到银行卡上。
+                    </p>
+                    <p>
+                        金&nbsp; &nbsp;&nbsp; &nbsp;币：金币可用来支付试用任务的服务费，不可提现。
                     </p>
                 </div>
             </div>
@@ -252,7 +257,9 @@
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.personal_center').find('a').addClass('leftNav_active');
+        });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');

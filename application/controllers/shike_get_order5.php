@@ -14,6 +14,11 @@ class Shike_get_order5 extends MY_Controller {
 		$user_id = $this->session->userdata('user_id');
 		$order_id = $this->input->get("order_id");
 		$orderinfo = $this->db->query("select * from sorder where order_id=".$order_id)->row_array();
+		// var_dump($orderinfo);die();
+		$shop_id = $orderinfo['shop_id'];
+		//var_dump($shop_id);die();
+		$sellerwangwang = $this->db->query("select wangwang from shop where shop_id={$shop_id}")->row_array();
+		$orderinfo['sellerwangwang'] = $sellerwangwang['wangwang'];
 		$userinfo = $this->db->query("select * from user where user_id=".$user_id)->row_array();
 		$this->out_data['orderinfo'] = $orderinfo;
 		$this->out_data['userinfo'] = $userinfo;
@@ -36,14 +41,22 @@ class Shike_get_order5 extends MY_Controller {
       	}else{
          	mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
       	}
+      	
       	$tmp_file = $_FILES['orderdetail_img']['tmp_name'];
       	$filename = $_FILES['orderdetail_img']['name'];
      	$orderdetail_img = "images/shike/orderdetail_img/".$user_id."/".$filename;
-      	$res = move_uploaded_file($tmp_file,$chatlog);
+      	$res = move_uploaded_file($tmp_file,$orderdetail_img);
+      	//var_dump($res);die();
 
       	$info = array(
       		'orderdetail_img'=>$orderdetail_img,'outer_orderid'=>$outer_orderid,'real_paymoney'=>$pay_money,'status' => 1);
       	$this->db->update("sorder",$info,array("order_id"=>$order_id));
+
+      	$userinfo = $this->db->query("select * from user where user_id=".$user_id)->row_array();
+      	$info = array('money_return' => $userinfo["money_return"]+$pay_money, 
+      		          'return_num' => $userinfo["return_num"]+1);
+      	$this->db->update("user",$info,array("user_id"=>$user_id));
+      	
       	header("Location: /shike_try_winningManage");
         exit();
 	}

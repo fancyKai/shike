@@ -100,7 +100,6 @@
   line-height: 28px;
 }
 #section .activity_details .commodity_information > table {
-  height: 154px;
   margin-top: 10px;
 }
 #section .activity_details .commodity_information > table td,
@@ -109,22 +108,34 @@
   text-align: center;
   height: 50px;
   font-size: 14px;
-  width: 160px;
+  color: #646464;
 }
-#section .activity_details .commodity_information > table td span {
-  color: #323232;
-}
-#section .activity_details .commodity_information > table td b {
-  color: #e61e28;
-}
-#section .activity_details .commodity_information > table td:nth-of-type(4) {
-  width: 504px;
-}
-#section .activity_details .commodity_information > table td:nth-of-type(4) p {
+#section .activity_details .commodity_information > table tr.other td:nth-of-type(1) p {
   font-size: 12px;
 }
-#section .activity_details .commodity_information > table td:nth-of-type(5) {
-  width: 150px;
+#section .activity_details .commodity_information > table td {
+  padding: 10px 0 20px 0;
+}
+#section .activity_details .commodity_information > table td p {
+  padding-top: 10px;
+}
+#section .activity_details .commodity_information > table td span {
+  color: #e61e28;
+}
+#section .activity_details .commodity_information > table td b {
+  color: #323232;
+}
+#section .activity_details .commodity_information > table td:nth-of-type(2) p {
+  font-size: 12px;
+}
+#section .activity_details .commodity_information > table th:nth-of-type(1) {
+  width: 260px;
+}
+#section .activity_details .commodity_information > table th:nth-of-type(2) {
+  /*width: 614px;*/
+}
+#section .activity_details .commodity_information > table th:nth-of-type(3) {
+  width: 260px;
 }
 #section .activity_details .commodity_information p.total {
   text-align: right;
@@ -187,7 +198,7 @@
 #section .activity_details .commodity_information .payment_box .actual_payment {
   float: right;
   width: 484px;
-  height: 222px;
+  height: 320px;
   border: 1px solid #f10180;
   padding: 25px 50px 30px;
 }
@@ -212,8 +223,12 @@
   color: #e61e28;
 }
 #section .activity_details .commodity_information .payment_box .actual_payment p.explain {
-  color: #969696;
+  color: #e61e28;
   font-size: 12px;
+}
+#section .activity_details .commodity_information .payment_box .actual_payment p.explain a {
+  color: #2685d5;
+  text-decoration: underline ;
 }
 #section .activity_details .commodity_information .payment_box .actual_payment div.payment_code {
   padding-top: 20px;
@@ -249,17 +264,15 @@
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  color: #f10180;
   font-size: 16px;
-  background-color: #fff;
   border: 1px solid #f10180;
-}
-#section .activity_details .commodity_information .nextStep_btn input:hover {
   background-color: #f10180;
   color: #fff;
 }
 #section .activity_details .commodity_information .nextStep_btn input:first-of-type {
   margin-right: 30px;
+  color: #f10180;
+  background-color: #fff;
 }
 #section .activity_details .commodity_information p.try_task {
   text-align: right;

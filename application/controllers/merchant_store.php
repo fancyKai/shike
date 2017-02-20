@@ -11,9 +11,9 @@ class Merchant_store extends MY_Controller {
 	public function index()
 	{
       $seller_id = $this->session->userdata('seller_id');
-      $this->out_data['shops'] = $this->db->query("select * from shop where seller_id={$seller_id}")->result_array();
+      $this->out_data['shops'] = $this->db->query("select * from shop where seller_id={$seller_id} order by bind_time desc")->result_array();
 		  $this->out_data['con_page'] = 'merchant/store';
-      $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+      $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 2")->row_array();
       $this->out_data['qq'] = $this->out_data['qq']['qq'];
       $this->out_data['pwd'] = $this->get_random("8");
 		  $this->load->view('merchant_default', $this->out_data);
@@ -61,7 +61,7 @@ class Merchant_store extends MY_Controller {
         }else{
             $platform_id = "2";
         }
-        $time = date('y-m-d h:i:s',time());
+        $time = date('Y-m-d H:i:s',time());
         $info = array('seller_id' => $seller_id,
         	          'shop_link' => $shop_link,
         	          'shop_name' => $shop_name,
@@ -84,5 +84,11 @@ class Merchant_store extends MY_Controller {
             $key .= $pattern{mt_rand(0,61)}; //生成php随机数
         }
         return $key;
+    }
+
+    public function get_shop_detail(){
+        $shop_id = $this->input->post('shop_id');  
+        $shop = $this->db->query("select * from shop where shop_id={$shop_id}")->row_array();
+        echo json_encode($shop);
     }
 }

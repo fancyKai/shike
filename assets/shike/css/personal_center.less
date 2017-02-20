@@ -42,6 +42,9 @@
                 a{
                   color:@a_color;
                 }
+                b{
+                  color:@deepred_color;
+                }
               }
             }
             >p{
@@ -78,7 +81,7 @@
             font-size:14px;
             color:@deepfont_color ;
             >input{
-              width:120px;
+              width:110px;
               height:34px;
               line-height:34px;
               background-color:@deepred_color ;
@@ -86,8 +89,8 @@
               margin-right:18px;
               color:#fff;
               font-size:14px;
-              margin-bottom: 42px;
-              margin-left:20px;
+              margin-bottom: 15px;
+              margin-left:10px;
             }
             >span{
               color:@span_color;
@@ -311,8 +314,92 @@
   }
 }
 
+//弹框样式的添加
 
+.credits_exchange,.credits_get{
+  display:none;
+  .succeed_content{
+    padding-top:24px;
+    p.payment_succeed{
+      color:#323232;
+      font-size:16px;
+      padding:15px 0 10px 0;
+      span{
+        color:@deepred_color;
+      }
+    }
+    p{
+      font-size:14px;
+    }
+  }
+  .exchange_details{
+    padding:30px 75px 15px 75px;
+    p.credits{
+      color:#323232;
+      font-size:14px;
+      overflow:hidden;
+      margin-bottom:15px;
+      span{
+        display:inline-block;
+        b{
+          color:#005ea7;
+        }
+      }
+    }
+    .exchange_principal{
+      width:300px;
+      height:100px;
+      background-color:#fbfcff;
+      .one{
+        color:#323232;
+        font-size:16px;
+        padding-top:8px;
+      }
+      .two{
+        b{
+          display:inline-block;
+          width:100px;
+          text-align:center;
+          color:#323232;
+          font-size:26px;
+          border-bottom:1px solid #969696;
+          padding-top:5px;
+        }
+      }
+      .three{
+        padding-top:5px;
+      }
+    }
+    p.get_principal{
+      width:300px;
+      height:30px;
+      line-height:30px;
+      margin-top:10px;
+      background-color:#fbfcff;
+      font-size:14px;
+      color:#323232;
+      span{
+        color:@deepred_color;
+      }
+    }
+  }
 
+  .modal_submit {
+    padding-top:15px;
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
+    }
+  }
+}
 
 
 

@@ -53,6 +53,7 @@ class Shike_preliminary_evaluation extends MY_Controller {
 	        'shaidan4_img' => $image_link4,
 	        'shaidan5_img' => $image_link5,
 	        'status' => 2,
+            'time_2' => date('Y-m-d H:i:s',time())
         );
 
     	
@@ -60,4 +61,18 @@ class Shike_preliminary_evaluation extends MY_Controller {
         header("Location: /shike_try_winningManage");
         exit();
 	}
+    public function upload_shaidan(){
+        $order_id = $this->input->post("order_id");
+        $path = "images/merchant/order/".$order_id;
+        if (is_dir($path)){  
+
+        }else{
+           mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
+        }        
+        $tmp_file1 = $_FILES['upload_img']['tmp_name'];
+        $filename1 = $_FILES['upload_img']['name'];
+        $image_link1 = "images/merchant/order/".$order_id."/".$filename1;
+        $res1 = move_uploaded_file($tmp_file1,$image_link1);
+        echo json_encode($image_link1);
+    }
 }

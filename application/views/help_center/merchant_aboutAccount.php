@@ -12,7 +12,7 @@
                     注册时请填写真实的邮箱、QQ或者手机号，可以在忘记登陆用户名时进行联系客服找回。
                 </p>
                 <h2>2、忘记登录用户名怎么办？</h2>
-                <p>可以联系网站客服（QQ：xxxxxxxx），提供注册时填写的邮箱、QQ号或者手机号，由客服帮您找回您的用户名，也可以试用手机号进行登录。</p>
+                <p>可以联系网站客服（QQ：2088805907），提供注册时填写的邮箱、QQ号或者手机号，由客服帮您找回您的用户名，也可以试用手机号进行登录。</p>
                 <h2>3、忘记密码怎么办，怎样找回忘记密码？</h2>
                 <p>在登录页面，点击[找回密码]，然后按照页面的提示信息输入手机号进行密码重置。</p>
                 <h2>4、一个账户可以绑定几个店铺？</h2>
@@ -25,17 +25,20 @@
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset_content.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/shike_center.css')?>">
 <footer id="footer"></footer>
-
+<script src="<?=base_url('/js/mall/jquery-1.10.2.js')?>"></script>
 <script>
     $(function(){
         $('#header').load('../common/merchant_header.html',function(){
             $('.details_title').text('帮助中心');
         });
         $('#footer').load('../common/footer_other.html');
-        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
-            $('.account_information ul').find('a').eq(1).addClass('leftNav_active');
-        });
+            // $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+                   $('.account_information ul').find('a').eq(1).addClass('leftNav_active');
+              // });
 
     })
 </script>

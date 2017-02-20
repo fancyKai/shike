@@ -3,9 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/admin/css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="css/admin/js/jquery.js"></script>
+<style>
+    .leftNav_active{
+          color:#f10180 !important ;
+          text-decoration:underline ;
+        }
+</style>
 </head>
 <body>
 <section id="section">
@@ -22,12 +28,12 @@
     <div class="rightinfo">
     
         <ul class="seachform">
-          <li><label>会员名</label><input name="" type="text" class="scinput" /></li>
+          <li><label>试客账号</label><input name="" type="text" class="scinput1" /></li>
           <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="search()"/></li>
         </ul>
     <script>
         function search(){
-            var account = $(".scinput").val();
+            var account = $(".scinput1").val();
             location.href="/admin_shike_recharge/search?search="+account;
         }
     </script>
@@ -50,7 +56,7 @@
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td><?php echo $v['charge_time'];?></td>
-        <td><?php echo $v['seller_id'];?></td>
+        <td><?php echo $v['user_name'];?></td>
         <td><?php echo $v['open_duration'];?></td>
         <td><?php echo $v['end_time'];?></td>
         <td><?php echo $v['money'];?></td>
@@ -84,6 +90,7 @@
 </section>
     <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
+     $('.shike_manage ul>li').find('a').eq(1).addClass('leftNav_active')
     </script>
 
 </body>

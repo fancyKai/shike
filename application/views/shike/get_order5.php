@@ -14,9 +14,11 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="/shike_personal">个人中心</a></li>
+                <li><a href="<?=base_url('')?>">首页</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
-                <li><a href="/shike_try_winningManage">使用管理</a></li>
+                <li><a href="/shike_personal">试客中心</a></li>
+                <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
+                <li><a href="/shike_try_winningManage">试用管理</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
                 <li>领取下单</li>
             </ul>
@@ -44,7 +46,7 @@
                             <td><?php echo $orderinfo['sellerwangwang']?></td>
                             <td><?php echo $orderinfo['product_name']?></td>
                             <td><?php echo $orderinfo['unit_price']*$orderinfo['buy_sum'];?></td>
-                            <td><?php echo $orderinfo['amount']?></td>
+                            <td><?php echo $orderinfo['buy_sum']?></td>
                             <td>每单拍<?php echo $orderinfo['buy_sum']?>件 <?php echo $orderinfo['color']?> <?php echo $orderinfo['size']?></td>
                         </tr>
                     </table>
@@ -76,15 +78,16 @@
                             上传文件
                         </a>
                         <span id="orderdetail_img_value">未选择文件</span>
+                        <span id="orderdetail_img_error" style="color:red"></span>
                     </p>
                     <p class="picture_format"><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
                     <p class="look">2.请填写当前订单信息</p>
                         <label for="order">请填写订单号：</label>
-                        <input id="order" name="order" type="text" onblur="check_order()"/>
+                        <input id="order" name="order" type="text" onkeyup="clearNoNum(this)" />
                         <span id="order_error"></span>
                         <br/>
                         <label for="pay_money">实际付款金额：</label>
-                        <input id="pay_money" name="pay_money" type="text" onblur="check_pay_money()"/>
+                        <input id="pay_money" name="pay_money" type="text" onkeyup="clearNoNum(this)" />
                         <span id="pay_money_error"></span>
                         <br/>
                     <p class="oneWarning">注意事项：</p>
@@ -99,34 +102,47 @@
             <input type="hidden" name="order_id" value="<?php echo $orderinfo['order_id']?>">
             <p class="step_btn">
                 <input  onclick="location.href='shike_get_order4?order_id=<?php echo $orderinfo['order_id']?>'" type="button" value="上一步">
-                <input  type="submit" value="确认已付款">
+                <input  type="button" value="确认已付款" onclick="pay_check();">
             </p>
+            <div class="confirm_pay_modal">
+                <div class="modal_box">
+                    <div class="modal_prompt">
+                        <span>提示</span>
+                        <a class="close" href="javascript:void(0);">
+                            <img src="images/shike/sj_grzx_tc_off_default.png" alt="">
+                        </a>
+                    </div>
+                    <div class="modal_content">
+                        <!--确认审核-->
+                        <p class="confirm_audit">确定已付款，提交信息？</p>
+                    </div>
+                    <div class="modal_submit">
+                        <input class="confirm" type="submit" value="确定"/>
+                        <input class="confirm" onclick="$('.confirm_pay_modal').css('display','none');" type="button" value="取消"/>
+                    </div>
+                </div>
+                <div class="mask_layer"></div>
+            </div>
             </form>
         </div>
     </div>
 </section>
 <!--确定已付款弹框-->
-<div class="confirm_pay_modal">
-    <div class="modal_box">
-        <div class="modal_prompt">
-            <span>提示</span>
-            <a class="close" href="javascript:void(0);">
-                <img src="images/shike/sj_grzx_tc_off_default.png" alt="">
-            </a>
-        </div>
-        <div class="modal_content">
-            <!--确认审核-->
-            <p class="confirm_audit">确定已付款，提交信息？</p>
-        </div>
-        <div class="modal_submit">
-            <input class="confirm" type="button" value="确定"/>
-            <input class="confirm" type="button" value="取消"/>
-        </div>
-    </div>
-    <div class="mask_layer"></div>
-</div>
 <script src="js/shike/jquery-1.10.2.js"></script>
 <script src="js/shike/modal_scrollbar.js"></script>
+<script language="JavaScript" type="text/javascript">
+    function clearNoNum(obj)
+    {
+        //先把非数字的都替换掉，除了数字和.
+        obj.value = obj.value.replace(/[^\d.]/g,"");
+        //必须保证第一个为数字而不是.
+        obj.value = obj.value.replace(/^\./g,"");
+        //保证只有出现一个.而没有多个.
+        obj.value = obj.value.replace(/\.{2,}/g,".");
+        //保证.只出现一次，而不能出现两次以上
+        obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+    }
+    </script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
@@ -144,7 +160,7 @@
             disableScroll();
         });
 
-        $('.close,.cancel,.confirm').bind('click',function(){
+        $('.close,.cancel').bind('click',function(){
             $('.confirm_pay_modal').css('display','none');
             enableScroll();
         });
@@ -154,27 +170,47 @@
         $("#orderdetail_img_value").text($("#orderdetail_img").val());
     }
 
-    function check_order(){
-        if($("#order").val()==''){
-            $("#order_error").text("订单编号不得为空");
-        }else{
-            $("#order_error").text("");
-        }
-    }
+    // function check_order(){
+    //     if($("#order").val()==''){
+    //         $("#order_error").text("订单编号不得为空");
+    //     }else{
+    //         $("#order_error").text("");
+    //     }
+    // }
 
-    function check_pay_money(){
-        if($("#pay_money").val()==''){
-            $("#pay_money_error").text("付款金额不得为空");
-        }else{
-            $("#pay_money_error").text("");
-        }
-    }
+    // function check_pay_money(){
+    //     if($("#pay_money").val()==''){
+    //         $("#pay_money_error").text("付款金额不得为空");
+    //     }else{
+    //         $("#pay_money_error").text("");
+    //     }
+    // }
 
     function check_form(){
         if($("#pay_money").val()=='' || $("#order").val()=='' || $("#pay_money").val()==''){
             return false;
         }
         return true;
+    }
+
+    function pay_check(){
+        if($("#orderdetail_img").val()==''){
+            $("#orderdetail_img_error").text("请上传订单详情截图");
+            return;
+        }
+        if($("#order").val()==''){
+            $("#order_error").text("订单编号不得为空");
+            return;
+        }else{
+            $("#order_error").text("");
+        }
+        if($("#pay_money").val()==''){
+            $("#pay_money_error").text("付款金额不得为空");
+            return;
+        }else{
+            $("#pay_money_error").text("");
+        }
+        $('.confirm_pay_modal').css('display','block');
     }
 </script>
 </body>

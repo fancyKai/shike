@@ -14,16 +14,18 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="/shike_personal">个人中心</a></li>
+                <li><a href="<?=base_url('')?>">首页</a></li>
+                <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
+                <li><a href="/shike_personal">试客中心</a></li>
                 <li><img src="/images/shike/icon_arrow_default.png" alt=""></li>
                 <li><a href="/shike_try_winningManage">试用管理</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
-                <li>领取下单</li>
+                <li>淘宝评价晒单</li>
             </ul>
         </div>
         <div class="evaluate_content">
             <h1>淘宝评价晒单</h1>
-            <h2>第一步：请访问www.taobao.com，登录账号：asd，在“我的淘宝-已买到的宝贝”找到以下商品：</h2>
+            <h2>第一步：请访问www.taobao.com，登录账号：<?php echo $user['taobao_id'];?>，在“我的淘宝-已买到的宝贝”找到以下商品：</h2>
             <table>
                 <tr>
                     <th>店铺主人旺旺ID</th>
@@ -36,7 +38,7 @@
                     <td><?php echo $order['sellerwangwang'];?></td>
                     <td><?php echo $order['product_name'];?></td>
                     <td>&yen;<?php echo $order['unit_price'];?></td>
-                    <td><?php echo $order['amount_perorder'];?></td>
+                    <td><?php echo $order['amount'];?></td>
                     <td>每单拍<?php echo $order['buy_sum'];?>件 <?php echo $order['color'];?> <?php echo $order['size'];?></td>
                 </tr>
             </table>
@@ -60,7 +62,7 @@
             </h3>
             <div class="good_reputation">
                 <p class="left">好评内容：</p>
-                <textarea class="left" style="resize:none;" name="" autofocus>
+                <textarea class="left" disabled="disabled" style="resize:none;" name="" autofocus>
                     <?php echo $order['comment_detail'];?>
                 </textarea>
             </div>
@@ -93,12 +95,14 @@
             <form name="form1" id="form1" enctype="multipart/form-data" method="post" action="/shike_taobao_evaluation/submit_comment" >
             <div class="order_screenshot">
                 <p class="uploading">
-                    点击“收藏店铺”，收藏店铺后截图并上传
+                    请上传淘宝评价截图
                     <a href="javascript:void(0);">
                         <input type="file" id="comment_img" name="comment_img" onchange="change_span()">
                         上传文件
                     </a>
-                    <span id="upload_file_span"></span>
+                    <span id="upload_file_span">未选择任何文件</span>
+                    <span id="check_file" style="color:red"></span>
+
                 </p>
                 <p><span>图片的格式：gif、jpg、jpeg、png，图片大小不能大于1M。</span></p>
             </div>
@@ -109,7 +113,7 @@
                 <p>请按要求进行好评晒单，否则平台会冻结您的账户且试用本金将不予提现。</p>
             </div>
             <p class="step_btn">
-                <input id="confirm_submit" class="next_step" type="button" value="已晒单评价">
+                <input id="confirm_submit" class="next_step" type="button" value="已晒单评价" onclick="check_input()">
             </p>
         </div>
     </div>
@@ -117,6 +121,7 @@
 <script>
     function change_span(){
         $("#upload_file_span").text($("#comment_img").val());
+        $("#check_file").text("");
     }
 </script>
 <div id="footer"></div>
@@ -154,10 +159,10 @@
 //        模态框的高度(500：表示头部和尾部高度的和)；
         $('.mask_layer').height(document.body.offsetHeight+500);
 //        确认审核
-        $('#confirm_submit').bind('click',function(){
-            $('.confirm_submit_modal').css('display','block');
-            disableScroll();
-        });
+        // $('#confirm_submit').bind('click',function(){
+        //     $('.confirm_submit_modal').css('display','block');
+        //     disableScroll();
+        // });
 
         $('.close,.cancel,.confirm').bind('click',function(){
             $('.confirm_submit_modal').css('display','none');
@@ -167,10 +172,18 @@
 
      function submit_form1(){
         if($("#comment_img").val()==''){
-            alert("请上传图片");
+            ("#upload_file_span").text("请上传淘宝评价截图");
             return;
         }
         $('#form1').submit();
+    }
+
+    function check_input(){
+        if($("#comment_img").val()==''){
+            $("#check_file").text("请上传淘宝评价截图");
+            return;
+        }
+        $('.confirm_submit_modal').css('display','block');
     }
 </script>
 </body>

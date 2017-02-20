@@ -9,7 +9,7 @@ class Forget_password extends MY_Controller {
 
 	public function index()
 	{
-		$this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+		$this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 1")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 		$this->load->view('mall/login_header');
 		$this->load->view('forget_password',$this->out_data);

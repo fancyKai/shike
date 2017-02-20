@@ -212,6 +212,42 @@
                         </ul>
                     </div>
                 </div>
+                <div class="delivery_status">
+                    <div class="title">
+                        <p class="left">
+                            <span>2016.11.18</span>
+                            <span>任务编号：123460000</span>
+                            <span>淘宝商品订单号：2222222222</span>
+                        </p>
+                        <p class="right">
+                            <a href="0302_notpass_details.html">查看详情</a>
+                        </p>
+                    </div>
+                    <div class="detalis">
+                        <ul>
+                            <li><img src="../../images/sj_grzx_bg_sp_default.png" alt=""></li>
+                            <li>
+                                <p class="clothes_name">商品名称：<span>韩版冬季连帽外套女中长款宽松加厚棉衣xcsdcdsvcd</span></p>
+                                <p class="two">店铺名称：<span>夏季尼官方旗舰店</span></p>
+                                <p>商品来源：<span>米色.M</span></p>
+                                <p>商品分类：<span>女装，每单拍1个</span></p>
+                            </li>
+                            <li>
+                                <p>商品押金：<span>100.00元</span></p>
+                                <p>试用担保金：<span>5.00元</span></p>
+                                <p>商品运费：<span>0.00元</span></p>
+                                <p>订单合计：<span>105.00元</span></p>
+                            </li>
+                            <li>
+                                <p><span>审核不通过</span></p>
+                            </li>
+                            <li class="last">
+                                <p><span>试用活动审核不通过，<br/>款项已打账户</span></p>
+                                <p>联系客服QQ：<a href="javascript:void(0);"><img src="../../images/sj_grzx_icon_qq_default.png" alt=""></a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -231,12 +267,12 @@
            <p>请输入支付密码</p>
             <table>
                 <tr>
-                    <td><input type="text"/></td>
-                    <td><input type="text"/></td>
-                    <td><input type="text"/></td>
-                    <td><input type="text"/></td>
-                    <td><input type="text"/></td>
-                    <td><input type="text"/></td>
+                    <td><input class="pw" type="password" maxlength="1"/></td>
+                    <td><input class="pw" type="password" maxlength="1"/></td>
+                    <td><input class="pw" type="password" maxlength="1"/></td>
+                    <td><input class="pw" type="password" maxlength="1"/></td>
+                    <td><input class="pw" type="password" maxlength="1"/></td>
+                    <td><input class="pw" type="password" maxlength="1"/></td>
                 </tr>
             </table>
         </div>
@@ -290,11 +326,14 @@
 
 <script src="../../js/jquery-1.10.2.js"></script>
 <script src="../../js/modal_scrollbar.js"></script>
+<script src="../../js/payPw_verify.js"></script>
 <script>
     $(function(){
         $('#header').load("../common/merchant_header.html");
         $('#footer').load("../common/footer.html");
-        $('#left_nav').load("../common/left_nav.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.try_manage ul>li').find('a').eq(1).addClass('leftNav_active')
+        });
 //        标题的点击事件
         $('.order').bind('click',function(){
             $(this).find('a').addClass('personal_active');

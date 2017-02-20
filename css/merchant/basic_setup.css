@@ -29,10 +29,10 @@
 }
 #section .section_main .basic_setup .setup_content ul li:nth-of-type(4) {
   width: 135px;
+  text-align: center;
 }
 #section .section_main .basic_setup .setup_content ul li:nth-of-type(4) a {
   color: #005ea7;
-  margin-left: 30px;
 }
 #section .section_main .basic_setup .setup_content ul li:nth-of-type(4) input {
   height: 28px;

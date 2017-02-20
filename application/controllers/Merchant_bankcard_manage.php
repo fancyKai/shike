@@ -12,7 +12,7 @@ class Merchant_bankcard_manage extends MY_Controller {
 	{
         $seller_id = $this->session->userdata('seller_id');
         $bankcard = $this->db->query("select * from bankbind where user_id=$seller_id and type='0'")->row_array();
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 2")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
         if(!$bankcard){
             $this->out_data['con_page'] = 'merchant/bankcard_manage';

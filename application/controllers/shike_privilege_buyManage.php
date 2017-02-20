@@ -13,9 +13,7 @@ class Shike_privilege_buyManage extends MY_Controller {
 
 		$user_id = $this->session->userdata('user_id');
 
-		$date = date('Y-m-d H:i:s',time());
-		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(apply_time))>172800) and status != 2 ";
-		$res = $this->db->update("discount",array("status"=>3),$where);
+		$this->change_status();
 
 		$page = $this->input->get('per_page') ? $this->input->get('per_page') : 1;
 		$limit = 5;
@@ -32,11 +30,11 @@ class Shike_privilege_buyManage extends MY_Controller {
 
 		$count = $this->db->query("select count(*) as count from discount".$orderwhere)->row_array();
 		$count = $count['count'];
-		$this->out_data['discount_list'] = $this->db->query("select * from discount".$orderwhere." limit {$start},{$limit}")->result_array();
+		$this->out_data['discount_list'] = $this->db->query("select * from discount".$orderwhere." order by apply_time desc limit {$start},{$limit}")->result_array();
         $this->out_data['sum_discount_list'] = $this->db->query("select count(*) as count from discount where user_id=$user_id")->row_array();
         $this->out_data['sum_1_discount_list'] = $this->db->query("select count(*) as count from discount where status=1 and user_id=$user_id")->row_array();
 
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 1")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 
 		$this->out_data['pagin'] = parent::get_pagin($base_url, $count, $limit, 3,  true);
@@ -45,10 +43,19 @@ class Shike_privilege_buyManage extends MY_Controller {
 		$this->load->view('shike_default', $this->out_data);
 	}
 
-	public function cancle_discount(){
+	public function change_status(){
+		$date = date('Y-m-d H:i:s',time());
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(time))>172800) and status = 1 and click = 0";
+		$res = $this->db->update("discount",array("status"=>3),$where);
+		$where = "(UNIX_TIMESTAMP('{$date}')-(UNIX_TIMESTAMP(time))>172800) and status = 1 and click = 1";
+		$res = $this->db->update("discount",array("status"=>2),$where);
+	}
+
+	public function click_ok(){
 		$discount_id = $this->input->post('discount_id');
-		$res = $this->db->update("apply",array("status"=>'3'),array('discount_id'=>$discount_id));
-		echo json_encode($res);
+		$res = $this->db->update("discount",array("click"=>'1'),array('discount_id'=>$discount_id));
+		$win_url = $this->db->query("select win_url from discount where discount_id={$discount_id}")->row_array();
+		echo json_encode($win_url);
 		// echo 1;
 	}
 

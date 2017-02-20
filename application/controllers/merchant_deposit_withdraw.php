@@ -14,7 +14,7 @@ class Merchant_deposit_withdraw extends MY_Controller {
         $seller_id = $this->session->userdata('seller_id');
         $bankcard = $this->db->query("select * from bankbind where user_id=$seller_id and type='0'")->row_array();
         $seller = $this->db->query("select * from seller where seller_id=$seller_id")->row_array();
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 2")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
         $this->out_data['bankcard'] = $bankcard;
         $this->out_data['seller'] = $seller;
@@ -30,19 +30,20 @@ class Merchant_deposit_withdraw extends MY_Controller {
         if($seller['withdrawpw'] != md5($tixian_pwd)){
         	$res = 0;
         	echo json_encode($res);
+                exit;
         }else{
-        	$this->db->update('seller',array('avail_deposit' => $sellerinfo['avail_deposit']-$money),array('seller_id' => $seller_id));
+        	$this->db->update('seller',array('avail_deposit' => $seller['avail_deposit']-$money),array('seller_id' => $seller_id));
         }
         $info = array('money' => $money, 
         	          'money_type' => 2,
         	          'processfee' => $money*0.01,
-        	          'money_remain' => $sellerinfo['avail_deposit']-$money,
+        	          'money_remain' => $seller['avail_deposit']-$money,
         	          'time' => date('Y-m-d H:i:s',time()),
         	          'flowid' => '123',
-        	          'status' => 3,
+        	          'status' => 2,
         	          'seller_id' => $seller_id,
         	          'user_type' => 0,
-        	          'remarks' => '提现成功');
+        	          'remarks' => 8);
         $res = $this->db->insert("platformorder",$info);
         echo json_encode($res);
 

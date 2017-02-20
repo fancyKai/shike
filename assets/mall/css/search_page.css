@@ -133,3 +133,14 @@
 #section .classify_commodity .see_more input:hover {
   background: url(../images/button_more_buttom_selected.png) center no-repeat;
 }
+#section .search_page_noGood {
+  padding: 50px 0 100px 0;
+}
+#section .search_page_noGood p {
+  text-align: center;
+}
+#section .search_page_noGood p.introductions {
+  padding-top: 30px;
+  color: #323232;
+  font-size: 16px;
+}

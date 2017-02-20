@@ -115,15 +115,24 @@ width:100%;
           margin:9px 0 17px 0;
         }
         .register{
+          padding-bottom:14px;
+          color:@deepred_color;
+          font-size:14px;
           a{
             display:inline-block;
-            padding-bottom:14px;
+            font-size:12px;
+            color:@font_color;
           }
           a:first-of-type{
             margin-right:11px;
           }
           a:last-of-type{
             margin-left:11px;
+          }
+          img{
+            padding:0;
+            margin-top:-3px;
+            margin-right:5px;
           }
         }
         .project_pitching{
@@ -133,7 +142,7 @@ width:100%;
           ul{
             li{
               background:url(../images/nav_icon_dian_default.png)left no-repeat;
-              padding:7px 0 7px 16px;
+              padding:5px 0 7px 16px;
               a{
                 display:inline-block;
                 width:170px;
@@ -189,7 +198,9 @@ width:100%;
           white-space:nowrap;
           font-size:14px;
           color:@deepfont_color ;
-          padding-top:8px;
+          margin-top:8px;
+          background:url(../images/bg_tb_default.png)right center no-repeat;
+          padding-right:26px;
         }
         .quantity{
           margin:13px 0;
@@ -198,20 +209,29 @@ width:100%;
             height:20px;
             line-height:20px;
             border-radius:5px;
-            color:#fff;
             font-size:12px;
-            padding:0 5px;
+            padding:0 3px;
           }
           span:first-of-type{
-            background-color:#a766e6;
+            //background-color:#a766e6;
+            color:#a766e6;
+            border:1px solid #a766e6;
           }
-          span:last-of-type{
-            background-color:#36bc9e;
-            margin-left:10px;
+          span:nth-of-type(2){
+            //background-color:#36bc9e;
+            color:#36bc9e;
+            border:1px solid #36bc9e;
+            margin-left:5px;
+          }
+          span:nth-of-type(3){
+            display:inline-block;
+            float:right;
+            font-size:12px;
+            padding-right:0;
           }
         }
         .price{
-          padding-bottom:18px;
+          padding-bottom:10px;
           overflow:hidden;
           span:first-of-type {
             float:left;
@@ -220,12 +240,22 @@ width:100%;
           }
           span:last-of-type {
             float:right;
-            font-size:14px;
-            padding-top: 5px;
-            b{
-              font-weight:normal;
+            //padding-top: 5px;
+            input{
+              width:80px;
+              height:28px;
+              line-height:30px;
+              border-radius:5px;
+              color:#fff;
+              font-size:14px;
+              padding-left:0;
+              background-color:@deepred_color;
             }
           }
+        }
+        .progress_bar{
+          padding-bottom:16px;
+          height:34px;
         }
       }
       .products:nth-of-type(5n+1){
@@ -246,6 +276,18 @@ width:100%;
         }
       }
     }
+  }
+}
+
+
+//返回顶部
+.return_top {
+  position: fixed;
+  z-index: 99;
+  top:1000px;
+  right:350px;
+  img{
+    cursor:pointer;
   }
 }
 

@@ -1,6 +1,7 @@
 #section {
   width: 100%;
   padding: 0 0 50px 0;
+  background-color: #fff;
 }
 #section .transition_line {
   width: 100%;
@@ -95,10 +96,10 @@
   border-right: none;
 }
 #section .section_content .common_problem .shike_content {
-  background: url(../../images/mall/bzzz_bg_shike_default.png) left center no-repeat;
+  background: url(../images/bzzz_bg_shike_default.png) left center no-repeat;
 }
 #section .section_content .common_problem .merchant_content {
-  background: url(../../images/mall/bzzz_bg_shangjia_default.png) left center no-repeat;
+  background: url(../images/bzzz_bg_shangjia_default.png) left center no-repeat;
   margin-bottom: 50px;
 }
 #section .section_content .common_problem .contact_us {

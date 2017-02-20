@@ -31,6 +31,10 @@ $(document).ready(function(e) {
 
 <style>
     .edit_merchant_block div{height:55px;}
+     .leftNav_active{
+                  color:#f10180 !important ;
+                  text-decoration:underline ;
+                }
 </style>
 <body>
     <div class="edit_merchant_block" style="position:absolute;width:800px;height:300px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
@@ -70,13 +74,13 @@ $(document).ready(function(e) {
     <div class="rightinfo">
     
 	    <ul class="seachform">
-		  <li><label>账号</label><input name="" type="text" class="scinput" /></li>
+		  <li><label>账号</label><input name="" type="text" class="scinput1" /></li>
 		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="search()"/></li>
 	    </ul>
     <script>
         function search(){
-            var account = $(".scinput").val();
-            location.href="/admin_merchant_basic/search?search="+account;
+            var account = $(".scinput1").val();
+            location.href="/admin_privilege_buyManage/search?search="+account;
         }
     </script>
 	<div class="formtitle1"><span>优惠购买管理</span></div>
@@ -106,16 +110,24 @@ $(document).ready(function(e) {
         <td><input name="" type="checkbox" value="" /></td>
         <td><?php echo $v['discount_id'];?></td>
         <td><?php echo $v['apply_time'];?></td>
-        <td><?php echo $v['user_id'];?></td>
-        <td></td>
+        <td><?php echo $v['shike_name'];?></td>
+        <td><?php echo $v['merchant_name'];?></td>
         <td><?php echo $v['product_name'];?></td>
         <td><?php echo $v['shopname'];?></td>
         <td><?php echo ($v['platform_id']==1 ? '淘宝':'天猫');?></td>
-		<td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><?php echo $v['status'];?></td>
+		<td><?php echo $v['product_link'];?></td>
+        <td><?php echo $v['win_money'];?></td>
+        <td><a target="blank" href="<?php echo $v['win_url'];?>"><?php echo $v['show_win_url'];?></a></td>
+        <td><a target="blank" href="<?php echo $v['win_two_url'];?>"><?php echo $v['show_win_two_url'];?></a></td>
+
+        <td><?php if($v['status']==1){
+            echo "待领取";
+        }elseif ($v['status']==2) {
+            echo "已领取";
+        }elseif ($v['status']==3) {
+            echo "超时已取消";
+        }
+        ?></td>
         </tr>
         <!-- <input type="hidden" id="tag_<?php echo $count;?>" value="<?php echo $v['seller_id'];?>"> -->
         <?php endforeach ?>
@@ -145,6 +157,7 @@ $(document).ready(function(e) {
 </section>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+	$('.lottery_manage ul>li').find('a').eq(1).addClass('leftNav_active')
 	</script>
     <script>
         function edit_merchant(count){

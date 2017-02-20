@@ -8,8 +8,8 @@
 
     <title>试客后台</title>
 
-    <link rel="stylesheet" href="css/merchant/reset.css">
-    <link rel="stylesheet" href="css/merchant/left_nav.css">
+    <link rel="stylesheet" href="css/shike/reset.css">
+    <link rel="stylesheet" href="css/shike/left_nav.css">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -42,10 +42,17 @@
     <div id="page-wrapper">
         <?php include $con_page.'.php'; ?>
     </div>
-
+    <?php include 'common/shike_foot.php'; ?>
 </div>
 
+<script>
+ $(function(){
+    $("aside").append($(".left_nav"));
+    $(".left_nav").css("display","none");
+    $("aside div").css("display","block");
+ })
 
+</script>
 </body>
 </html>
 

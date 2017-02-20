@@ -34,8 +34,9 @@ textarea{
 input[type='button']{
     cursor:pointer;
     text-align:center;
+    padding-left:0;
 }
-input[type='text']{
+input{
     padding-left:10px;
     /*padding-right:10px;*/
 }

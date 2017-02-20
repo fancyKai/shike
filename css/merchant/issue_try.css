@@ -35,6 +35,10 @@
   font-size: 14px;
   padding: 10px 0;
 }
+#section .section_main .store_content .have_bindingShops .shop_information .shop:first-of-type,
+#section .section_main .store_content .no_bindingShops .shop_information .shop:first-of-type {
+  border: 1px solid #f10180;
+}
 #section .section_main .store_content .have_bindingShops .nextStep_btn input,
 #section .section_main .store_content .no_bindingShops .nextStep_btn input {
   width: 150px;
@@ -47,7 +51,7 @@
 }
 #section .section_main .store_content .have_bindingShops .nextStep_btn input.one,
 #section .section_main .store_content .no_bindingShops .nextStep_btn input.one {
-  background-color: #c8c8c8;
+  background-color: #f10180;
 }
 #section .section_main .store_content .have_bindingShops .nextStep_btn input.two,
 #section .section_main .store_content .no_bindingShops .nextStep_btn input.two {

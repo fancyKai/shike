@@ -39,7 +39,7 @@
 <div id="wrapper">
     <?php include 'common/admin_top.php'; ?>
     <?php include 'common/admin_sidebar.php'; ?>
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="margin: 0 0 0 250px">
         <?php include $con_page.'.php'; ?>
     </div>
 

@@ -20,16 +20,17 @@
         border-collapse:separate;
         border-spacing:30px;
         td{
-          width:180px;
-          height:40px;
+          width:182px;
+          height:42px;
           line-height:40px;
           border:1px solid #c8c8c8;
           border-spacing:15px;
           text-align:center;
           cursor:pointer;
           img{
-            width:105px;
-            height:22px;
+            width: 180px;
+            height: 40px;
+            margin-top: -3px;
           }
           a{
             color:@a_color;
@@ -83,14 +84,15 @@
           line-height:40px;
           border:1px solid @deepred_color;
           border-radius:5px;
-          background-color:#fff;
-          color:@deepred_color;
+          //background-color:#fff;
+          //color:@deepred_color;
+          background-color:@deepred_color;
+          color:#fff;
           font-size:16px;
-          &:hover{
-            background-color:@deepred_color;
-            color:#fff;
-          }
-
+          //&:hover{
+          //  background-color:@deepred_color;
+          //  color:#fff;
+          //}
         }
       }
       //温馨提示
@@ -110,6 +112,35 @@
           }
         }
       }
+    }
+  }
+}
+
+//支付弹框
+.pay_modal{
+  display:none;
+  .modal_content{
+    text-align:center;
+    p{
+      font-size:14px;
+      color:@deepfont_color;
+      line-height:32px;
+      margin:43px 0;
+    }
+  }
+  .modal_submit {
+    padding-top:15px;
+    input {
+      width: 120px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background-color: @deepred_color;
+      border-radius: 5px;
+    }
+
+    input:nth-of-type(2){
+      margin-left: 35px;
     }
   }
 }

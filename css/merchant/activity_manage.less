@@ -105,6 +105,11 @@
               li:nth-of-type(3){
                 width:210px;
                 padding-left:40px;
+                P:last-of-type{
+                  span{
+                    color:@span_color;
+                  }
+                }
               }
               li:nth-of-type(4){
                 width:130px;
@@ -127,7 +132,7 @@
                   color: #f10180;
                   font-size: 14px;
                 }
-                padding:15px;
+                padding:10px;
                 p{
                   img{
                     margin-left:5px;
@@ -135,7 +140,12 @@
                 }
                 p:first-of-type {
                   font-size: 14px;
-                  padding-bottom:10px;
+                  padding-bottom:8px;
+                }
+                p:last-of-type{
+                  span{
+                    color:#969696;
+                  }
                 }
               }
             }
@@ -165,8 +175,9 @@
         input {
           width: 30px;
           height: 30px;
+          padding-left:12px;
           &:focus {
-            border: 1px solid #a6cef1;
+            border: 2px solid #a6cef1;
           }
         }
       }

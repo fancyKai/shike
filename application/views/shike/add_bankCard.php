@@ -15,7 +15,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--修改登录密码-->
-        <div class="add_bankCard left">
+        <div id="my_main" class="add_bankCard left">
             <h1 class="title">绑定银行卡</h1>
             <form action="" class="account_information">
                 <label for="username">姓名：</label>
@@ -28,8 +28,40 @@
                 <br/>
                 <p><span id="phoneerror"></span></p>
 
-                <label for="openBank">开户银行：</label>
-                <input id="openBank" type="text"/>
+                <label for="selectBank">选择银行：</label>
+                <select id="selectBank">
+                    <option value="">--请选择银行--</option>
+                    <option value="1">中国工商银行</option>
+                    <option value="2">中国农业银行</option>
+                    <option value="3">中国建设银行</option>
+                    <option value="4">中国银行</option>
+                    <option value="5">招商银行</option>
+                    <option value="6">交通银行</option>
+                    <option value="7">中国民生银行</option>
+                    <option value="8">兴业银行</option>
+                    <option value="9">深圳发展银行</option>
+                    <option value="10">北京银行</option>
+                    <option value="11">华夏银行</option>
+                    <option value="12">广发银行</option>
+                    <option value="13">浦发银行</option>
+                    <option value="14">中国光大银行</option>
+                    <option value="15">广州银行</option>
+                    <option value="16">上海农商银行</option>
+                    <option value="17">中国邮政储蓄银行</option>
+                    <option value="18">中国邮政</option>
+                    <option value="19">渤海银行</option>
+                    <option value="20">北京农商银行</option>
+                    <option value="21">南京银行</option>
+                    <option value="22">中信银行</option>
+                    <option value="23">宁波银行</option>
+                    <option value="24">平安银行</option>
+                    <option value="25">杭州银行</option>
+                    <option value="26">徽商银行</option>
+                    <option value="27">浙商银行</option>
+                    <option value="28">上海银行</option>
+                    <option value="29">江苏银行</option>
+                    <option value="30">BEA东亚银行</option>
+                </select>
                 <br/>
                 <p><span id="openBankerror"></span></p>
 
@@ -43,7 +75,7 @@
                 <br/>
                 <p><span id="bankCardNumerror"></span></p>
 
-                <p class="btn">
+                <p class="btns">
                     <input id="confirm" type="button" value="确定" onclick="post_add_bankcard()"/>
                     <input type="button" value="取消"/>
                 </p>
@@ -91,14 +123,15 @@
     </div>
     <div class="mask_layer"></div>
 </div>
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/modal_scrollbar.js"></script>
+<script src="../js/shike/jquery-1.10.2.js"></script>
+<script src="../js/shike/modal_scrollbar.js"></script>
+<script src="../js/shike/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.account_information ul>li').find('a').eq(1).addClass('left_nav_active');
+             $('.account_information ul>li').find('a').eq(1).addClass('left_nav_active');
         // });
 
         $('.mask_layer').height(document.body.offsetHeight+500);
@@ -121,7 +154,7 @@
     function post_add_bankcard(){
         var name = $("#username").val();
         var phone = $("#phone").val();
-        var banktype = $("#openBank").val();
+        var banktype = $("#selectBank").val();
         var branchbank = $("#openBankname").val();
         var banknum = $("#bankCardNum").val();
         if(!name){
@@ -130,10 +163,6 @@
         }
         if(!phone){
             $("#phoneerror").text("手机号不能为空");
-            return;
-        }
-        if(!banktype){
-            $("#openBankerror").text("开户银行不能为空");
             return;
         }
         if(!branchbank){

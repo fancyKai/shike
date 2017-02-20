@@ -42,6 +42,9 @@
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/reset_content.css')?>">
+<link rel="stylesheet" href="<?=base_url('/css/mall/shike_center.css')?>">
 <footer id="footer"></footer>
 <script src="<?=base_url('/js/mall/jquery-1.10.2.js')?>"></script>
 <script src="<?=base_url('/js/mall/modal_scrollbar.js')?>"></script>
@@ -51,9 +54,9 @@
             $('.details_title').text('帮助中心');
         });
         $('#footer').load('../common/footer_other.html');
-        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+        //$('#left_nav').load("../common/helpCenter_leftNav.html",function(){
             $('.try_manage ul').find('a').eq(3).addClass('leftNav_active');
-        });
+       // });
     })
 </script>
 

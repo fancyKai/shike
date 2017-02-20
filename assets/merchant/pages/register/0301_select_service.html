@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布试用</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reset_content.css">
+    <link rel="stylesheet" href="../../css/select_service.css">
+
+</head>
+<body>
+<header id="header"></header>
+<section id="section">
+    <div class="section_main">
+        <!--左侧导航-->
+        <aside class="left" id="left_nav"></aside>
+        <!--右侧店铺管理-->
+        <div class="store_content left">
+            <h1 class="title">发布试用</h1>
+            <!--进度条-->
+            <div class="progress_bar">
+                <img src="../../images/sj_fbsy_bg_jdt_five_default.png" alt="">
+            </div>
+            <!--3.设置商品搜索-->
+            <div class="settings_search">
+                <h2 class="title">5.选择增值服务</h2>
+                <div class="search_content">
+                    <div class="part_one">
+                        <h3>提升试客积极性：&nbsp;</h3>
+                        <div class="part_content">
+                            <p class="checkbox_title search_active">提升店铺回访<span>(50金币)</span></p>
+                            <p>选此服务后，连续3天访问店铺并完成试用申请的未中奖试客将获得积分奖励</p>
+                            <p>
+                                <b>（试客连续3天完成搜索商品、浏览店铺、加入购物车、收藏商品、收藏店铺，有助于提高：搜索点击率、重复访问率、
+                                <br>人气权重、无线个性化）
+                                </b>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="part_two">
+                        <h3>口&nbsp;&nbsp;&nbsp;碑&nbsp;&nbsp;&nbsp;营&nbsp;&nbsp;&nbsp;&nbsp;销：&nbsp;</h3>
+                        <div class="part_content">
+                            <p class="checkbox_title">设置好评管家词<span>(1金币/单)</span></p>
+                            <p>
+                                <input type="text" placeholder="填写关键词">
+                                <input type="text" placeholder="填写关键词">
+                                <input type="text" placeholder="填写关键词">
+                            </p>
+                            <p class="keyword"> <span>设置加好评关键词单数：</span><input style="margin-right:10px;" type="text" placeholder="单">单数不得大于总试用单数。</p>
+                            <p>选此服务后，部分试客进行评价时，需要在评价中加入要求的关键词。</p>
+                            <p>
+                                例如：设置<b>裙子、面料、给力</b>，试客将大致这样评论：<b>收到裙子后很惊喜，面料摸上去很舒服，，卖家很给力。</b>
+                                <br><b style="margin-top:7px;">平台会随机从中奖试用和兑换试用中抽取 <span>8单</span>，要求其在好评中加入关键词。</b>
+                            </p>
+                            <p class="checkbox_title">普通图文好评<span>(网站新上线优惠，暂时免费)</span></p>
+                            <p>选择此服务后，中奖试客需进行图文好评，商家不可强求试客真人露脸上镜，试客可选择只拍商品照片。</p>
+                            <p class="checkbox_title">卖家秀<span>(10金币/单)</span></p>
+                            <p class="keyword"> <span>设置加好评关键词单数：</span><input style="margin-right:10px;" type="text" placeholder="单">单数不得大于总试用单数。</p>
+                            <p><b>平台会随机从中奖试用和兑换试用中抽取<span>8单</span>，要求其进行买家秀任务。</b></p>
+                            <p>选此服务后，试客上传图片必须真人露脸上镜（建议服饰、箱包类商家选此项），中奖试客均为平台挑选的优质试客，</p>
+                            <p>买家秀能极大提示商品转化率。</p>
+                            <p class="checkbox_title">追加评价<span>(5金币)</span></p>
+                            <p>选择此服务，会在试客完成试用后开启追评任务，试客完成追评将会给与奖励；若没有选择此任务，则不会引导试客进行追评。</p>
+                            <p><b>设置追评关键词：</b></p>
+                            <p>
+                                <input type="text" placeholder="填写关键词">
+                                <input type="text" placeholder="填写关键词">
+                                <input type="text" placeholder="填写关键词">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="part_two">
+                        <h3>安&nbsp;&nbsp;&nbsp;全&nbsp;&nbsp;&nbsp;防&nbsp;&nbsp;&nbsp;&nbsp;护：&nbsp;</h3>
+                        <div class="part_content">
+                            <p class="checkbox_title">防IP重复，防小号<span>(网站新上线优惠，暂时免费)</span></p>
+                        </div>
+                    </div>
+                    <div class="part_two">
+                        <h3>精 准投 放 人群：&nbsp;</h3>
+                        <div class="part_content">
+                            <p class="checkbox_title">精准投放<span>(10金币)</span></p>
+                            <p>选此服务后，平台会根据淘宝账户信用、地区、性别、收入、职业筛选精准试用人群</p>
+                    </div>
+                </div>
+
+                <div class="nextStep_btn">
+                    <input onclick="location.href='0301_settings_trialNumber.html'" type="button" value="上一步"/>
+                    <input onclick="location.href='0301_confirm_payment.html'" type="button" value="下一步"/>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"></footer>
+<script src="../../js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $('#header').load("../common/merchant_header.html");
+        $('#footer').load("../common/footer.html");
+        $('#left_nav').load("../common/left_nav.html",function(){
+            $('.try_manage ul>li').find('a').eq(0).addClass('leftNav_active')
+        });
+
+        $('.checkbox_title').click(function(){
+            $(this).toggleClass('search_active');
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

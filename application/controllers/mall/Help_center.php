@@ -9,7 +9,7 @@ class help_center extends MY_Controller
 
     public function help_center()
     {
-        $this->load->view('mall/header');
+        $this->load->view('mall/details_header');
         $this->load->view('help_center/help_center');
         $this->load->view('mall/footer');
     }
@@ -61,5 +61,11 @@ class help_center extends MY_Controller
     public function service_agreement()
     {
         $this->load->view('help_center/service_agreement');
+    }
+
+    //中奖秘笈
+    public function winning_miji()
+    {
+        $this->load->view('help_center/winning_miji');
     }
 }

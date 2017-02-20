@@ -31,9 +31,9 @@
         $('#header').load('../common/merchant_header.html',function(){
             $('.details_title').text('帮助中心');
         });
-        $('#left_nav').load("../common/helpCenter_leftNav.html",function(){
+        //$('#left_nav').load("../common/helpCenter_leftNav.html",function(){
             $('.try_manage ul').find('a').eq(0).addClass('leftNav_active');
-        });
+      //  });
 
     })
 </script>

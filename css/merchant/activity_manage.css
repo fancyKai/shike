@@ -96,6 +96,9 @@
   width: 210px;
   padding-left: 40px;
 }
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(3) P:last-of-type span {
+  color: #e61e28;
+}
 #section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(4) {
   width: 130px;
   text-align: center;
@@ -107,7 +110,7 @@
 #section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) {
   text-align: center;
   width: 210px;
-  padding: 15px;
+  padding: 10px;
 }
 #section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) input {
   width: 100px;
@@ -124,7 +127,10 @@
 }
 #section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) p:first-of-type {
   font-size: 14px;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
+}
+#section .section_main .content .activity_manage .delivery_status .detalis ul li:nth-of-type(5) p:last-of-type span {
+  color: #969696;
 }
 .pay_now_modal,
 .payment_modal,
@@ -160,11 +166,12 @@
 .paymentFailure_modal .modal_content table td input {
   width: 30px;
   height: 30px;
+  padding-left: 12px;
 }
 .pay_now_modal .modal_content table td input:focus,
 .payment_modal .modal_content table td input:focus,
 .paymentFailure_modal .modal_content table td input:focus {
-  border: 1px solid #a6cef1;
+  border: 2px solid #a6cef1;
 }
 .pay_now_modal .succeed_content,
 .payment_modal .succeed_content,

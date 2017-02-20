@@ -3,59 +3,84 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/merchant/store_manage.css">
-<script type="text/javascript" src="js/jquery.js"></script>
+<link href="css/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="css/admin/js/jquery.js"></script>
 </head>
-<body>
 <style>
-    .edit_shop_block div{height:55px;}
+    .seachform .li{width:370px;}
+    .leftNav_active{
+      color:#f10180 !important ;
+      text-decoration:underline ;
+    }
+    .tablelist th:last-of-type{
+             min-width:60px;
+             text-align:center;
+             text-indent:0;
+         }
+         .tablelist td:last-of-type{
+             min-width:60px;
+             text-align:center;
+             text-indent:0;
+         }
 </style>
-<div class="edit_shop_block" style="position:absolute;width:800px;height:450px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
-    <form enctype="multipart/form-data" method="post" action="/admin_merchant_shop/edit_shop_info">
-    <div style="overflow:hidden">
-        <div style="width:300px;float:left"><p id="edit_shop_id" style="font-size:30px;width:270px;margin:auto">店铺ID:</p></div>
-        <div style="width:490px;float:left"><p id="edit_bind_time" style="font-size:30px;width:470px;margin:auto">绑定时间:</p></div>
-    </div>
-    <div style="overflow:hidden">
-        <div style="width:300px;float:left"><p id="edit_account" style="font-size:30px;width:250px;margin:auto">账号:</p></div>
-        <div style="width:140px;float:left"><p style="font-size:30px;width:140px;margin:auto">店铺名称:</p></div>
-        <div style="width:350px;float:left"><input name="edit_shop_name" id="edit_shop_name" type="text" style="height:40px;border:1px solid;width:100%"></div>
-    </div>
-    <div style="overflow:hidden">
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">店铺链接:</p></div>
-        <div style="width:650px;float:left"><input name="edit_shop_link" type="text" id="edit_shop_link" style="font-size:30px;width:100%;margin:auto;border:1px solid;"></div>
-    </div>
-    <div style="overflow:hidden">
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">平台:</p></div>
-        <div style="width:650px;float:left"><p id="edit_shop_platform" style="font-size:30px;width:50%;"></p></div>
-    </div>
-    <div style="overflow:hidden">
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">店铺logo:</p></div>
-        <div style="width:300px;float:left"><input name="edit_shop_logo" type="file" id="edit_shop_logo" style="font-size:30px;width:100%;" onchange="change_logo_value()"></div>
-        <div style="width:300px;float:left"><p id="shop_logo_value" style="font-size:30px;width:100%;margin-left:-160px;z-index:103;background:white"></p></div>
-    </div>
-    <div style="overflow:hidden">
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">旺旺:</p></div>
-        <div style="width:250px;float:left"><input name="edit_wangwang" type="text" id="edit_wangwang" style="font-size:30px;width:100%;margin:auto;border:1px solid;"></div>
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">QQ:</p></div>
-        <div style="width:250px;float:left"><input name="edit_qq" type="text" id="edit_qq" style="font-size:30px;width:100%;margin:auto;border:1px solid;"></div>
-    </div>
-    <div style="overflow:hidden">
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">微信:</p></div>
-        <div style="width:250px;float:left"><input name="edit_wx" type="text" id="edit_wx" style="font-size:30px;width:100%;margin:auto;border:1px solid;"></div>
-        <div style="width:140px;float:left"><p style="font-size:30px;width:100%;margin:auto">手机:</p></div>
-        <div style="width:250px;float:left"><input name="edit_tel" type="text" id="edit_tel" style="font-size:30px;width:100%;margin:auto;border:1px solid;"></div>
-    </div>
-     <div style="overflow:hidden">
-        <div style="width:390px;float:left"><input type="submit" style="width:200px;height:55px;font-size:30px;margin-left:95px" value="保存"></div>
-        <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:30px;margin-left:95px" value="取消" onclick="cancle_shop_info()"></div>
+<script>
+function yd_edit_link(link){
+    return 1;
+}
+
+</script>
+<div class="tip-wrapper edit_shop_block" style="overflow:auto;position:fixed;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,.5);z-index:999;display:none">
+<div class="tip" style="width:780px;display:block;height:auto;">
+    <div class="tiptop"><span>编辑</span><a onclick="cancle_shop_info()"></a></div>
+    <form enctype="multipart/form-data" method="post" action="/admin_merchant_shop/edit_shop_info" onsubmit=" return mysubmit();">
+    <ul class="seachform" style="margin:10px 0px 10px 10px;">
+        <li class="li"><label>店铺ID:</label><label id="edit_shop_id"></label></li>
+        <li class="li"><label>绑定时间:</label><label id="edit_bind_time"></label></li>
+        <li class="li"><label>账号:</label><label id="edit_account"></label></li>
+        <li class="li"><label>店铺名称:</label><input id="edit_shop_name"  name="edit_shop_name" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>店铺链接:</label><input id="edit_shop_link"  name="edit_shop_link" id="" value="" type="text" class="scinput" style="width:300px" onblur="set_platform()"/></li>
+        <li class="li"><label>平台:</label><label id="edit_shop_platform"></label></li>
+        <li class="li"><label>店铺logo:</label><input id="edit_shop_logo" onchange="change_logo_value()" name="edit_shop_logo" id="" value="" type="file" class="scinput" style="float:left;width:115px"/><p id="shop_logo_value" style="float:left;width:180px;z-index:1000;background:white"></p></li>
+        <li class="li"><label>旺旺:</label><input id="edit_wangwang" name="edit_wangwang" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>QQ:</label><input id="edit_qq" name="edit_qq" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>微信:</label><input id="edit_wx" name="edit_wx" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>手机:</label><input id="edit_tel" name="edit_tel" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <input type="hidden" name="platformid" id="platformid">
+    </ul>
+    <input name="Orid" id="Orid1" type="hidden"  value="" />
+    <div class="tipbtn" style="margin-left:120px;margin-bottom:20px;">
+    <input name="sure" type="submit"  class="sure" value="保存"/>&nbsp;
+    <input name="cancel" type="button"  class="cancel" value="取消" style="margin-left:120px;" onclick="cancle_shop_info()"/>
     </div>
     <input type="hidden" id="edit_seller_id" name="edit_seller_id">
     <input type="hidden" id="edit_shop_idd" name="edit_shop_idd">
     </form>
 </div>
+</div>
+<body>
+<script>
+    function set_platform(){
+        var str = $("#edit_shop_link").val();
+        var res_taobao = str.indexOf('taobao');
+        var res_tmall = str.indexOf('tmall')
+        if(res_taobao>=0){
+            $("#edit_shop_platform").text('淘宝');
+            $("#platformid").val(1);
+        }else if(res_tmall>=0){
+            $("#edit_shop_platform").text('天猫');
+            $("#platformid").val(2);
+        }else{
+
+        }
+    }
+    function mysubmit(){
+        set_platform();
+        return true;
+    }
+</script>
+
 
 <section id="section">
     <div class="section_main">
@@ -71,13 +96,13 @@
         <div class="rightinfo">
     
 	    <ul class="seachform">
-		  <li><label>店铺名</label><input name="" type="text" class="scinput" /></li>
+		  <li><label>店铺名</label><input name="" type="text" class="scinput1" /></li>
 		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="search()"/></li>
 		
         </ul>
         <script>
             function search(){
-                var account = $(".scinput").val();
+                var account = $(".scinput1").val();
                 location.href="/admin_merchant_shop/search?search="+account;
             }
         </script>
@@ -109,9 +134,9 @@
                 <td><input name="" type="checkbox" value="" /></td>
                 <td><?php echo $v['shop_id'];?></td>
                 <td><?php echo $v['bind_time'];?></td>
-                <td><?php echo $v['seller_id'];?></td>
+                <td><?php echo $v['user_name'];?></td>
                 <td><?php echo $v['shop_name'];?></td>
-                <td><?php echo $v['shop_link'];?></td>
+                <td><a target="blank" href="<?php echo $v['shop_link'];?>"><?php echo $v['show_shop_link'];?></a></td>
                 <td><?php echo ($v['platform_id']==1 ? '淘宝':'天猫');?></td>
         		<td><img style="width:100px;height:25px" src="<?php echo $v['logo_link'];?>"></td>
                 <td><?php echo $v['wangwang'];?></td>
@@ -147,6 +172,8 @@
     </div>
 </section>
 <script type="text/javascript">
+
+$('.merchant_manage ul>li').find('a').eq(1).addClass('leftNav_active')
 	$('.tablelist tbody tr:odd').addClass('odd');
     function change_shop(){
         $('.modify_modal').css('display','block');
@@ -167,7 +194,7 @@
                     console.log(data);
                     $("#edit_shop_id").text("店铺ID: "+data.shop_id);
                     $("#edit_bind_time").text("绑定时间: "+data.bind_time.substring(0,10));
-                    $("#edit_account").text("账号: "+data.account);
+                    $("#edit_account").text("账号: "+data.user_name);
                     $("#edit_shop_name").val(data.shop_name);
                     $("#edit_shop_link").val(data.shop_link);
                     $("#edit_shop_platform").text(data.platform_id==1?'淘宝':'天猫');

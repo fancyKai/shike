@@ -105,6 +105,9 @@
 #section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) .status {
   padding: 15px 0 10px 0;
 }
+#section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) > p {
+  padding-bottom: 5px;
+}
 #section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) > p input {
   width: 100px;
   height: 30px;
@@ -133,7 +136,7 @@
   padding-top: 25px;
 }
 #section .section_main .content_main .task_specification .delivery_status .detalis ul li:nth-of-type(4) p.place_order {
-  padding: 8px 0 5px 0;
+  padding-bottom: 8px;
 }
 #section .section_main .content_main .task_specification .see_more {
   text-align: center;

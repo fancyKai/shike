@@ -17,7 +17,11 @@
             <ul>
                 <li>你所在的位置：</li>
                 <li class="order">
-                    <a class="personal_active" href="javascript:void(0);">首页</a>
+                    <a class="personal_active" href='<?=base_url('')?>'>首页</a>
+                </li>
+                <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
+                <li class="order">
+                    <a class="personal_active" href="/merchant_personal">商家中心</a>
                 </li>
                 <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
                 <li class="order">
@@ -38,26 +42,30 @@
                     </div>
             <div class="details">
                 <ul>
-                            <li><img style='width: 80px;height: 80x' src="<?php echo $act['picture_url'];?>" alt=""></li>
+                            <li><img style='width: 80px;height: 80px' src="<?php echo $act['picture_url'];?>" alt=""></li>
                             <li>
                                 <p>商品名称：<span><?php echo $act['product_name'];?></span></p>
                                 <p>商品分类：<span><?php echo $act['product_classify'];?></span></p>
                                 <p>商品规格：<span><?php echo $act['color'];?>.<?php echo $act['size'];?></span></p>
-                                <p>商品分类：<span><a href="javascript:void(0);"><?php if($act['product_classify']==1){
+                                <p>商品分类：<span><a href="javascript:void(0);"><?php if($act['product_classify']==1) {
                                     echo "女装";
                                 }elseif ($act['product_classify']==2) {
                                     echo "男装";
                                 }elseif ($act['product_classify']==3) {
-                                    echo "鞋包配饰";
+                                    echo "美妆";
                                 }elseif ($act['product_classify']==4) {
-                                    echo "居家生活";
+                                    echo "鞋包配饰";
                                 }elseif ($act['product_classify']==5) {
-                                    echo "数码电器";
+                                    echo "居家生活";
                                 }elseif ($act['product_classify']==6) {
-                                    echo "母婴儿童";
+                                    echo "数码电器";
                                 }elseif ($act['product_classify']==7) {
-                                    echo "食品酒水";
+                                    echo "母婴儿童";
                                 }elseif ($act['product_classify']==8) {
+                                    echo "户外运动";
+                                }elseif ($act['product_classify']==9) {
+                                    echo "食品酒水";
+                                }elseif ($act['product_classify']==10) {
                                     echo "其他";
                                 }
                                 ?></a></span></p>
@@ -65,7 +73,7 @@
                             <li>
                                 <p>店铺名称：<span><?php echo $act['shopname'];?></span></p>
                                 <p>平台：<span><?php echo ($act['platformid']==1?"淘宝":"天猫");?></span></p>
-                                <p><span>通过<?php echo ($act['platformid']==1?"淘宝":"天猫");?>自然搜索</span></p>
+                                <p><span>通过<?php echo ($act['ser_platformid']==1?"淘宝":"天猫");?>自然搜索</span></p>
                             </li>
                             <li>
                                 <p>商品关键词：<span><?php echo $act['t_key_words'];?></span></p>
@@ -78,11 +86,23 @@
                                 echo "销量从高到低";
                             }elseif($act['t_sort']==3){
                                 echo "信用从高到低";
+                            }elseif($act['t_sort']==4){
+                                echo "价格从低到高";
+                            }elseif($act['t_sort']==5){
+                                echo "价格从高到低";
+                            }elseif($act['t_sort']==6){
+                                echo "总价从低到高";
+                            }elseif($act['t_sort']==7){
+                                echo "总价从高到低";
+                            }elseif($act['t_sort']==8){
+                                echo "人气从高到低";
+                            }elseif($act['t_sort']==9){
+                                echo "新品排序";
                             }
                             ?></span></p>
                             </li>
                             <li>
-                                <p>单价：<span><b>&yen;<?php echo $act['unit_price']?></b>每单拍<b><?php echo $act['buy_sum']?></b>件</span></p>
+                                <p>单价：<span><b style="margin-right:10px;">&yen;<?php echo $act['unit_price']?></b>每单拍<b><?php echo $act['buy_sum']?></b>件</span></p>
                                 <p>试用份数：<b><?php echo $act['apply_amount'];?>份</b></p>
                                 <p>发货地：<span><?php echo $act['t_delivery_place'];?></span></p>
                                 <p>商品运费：<span><?php if ($act['freight']==0){echo "全国包邮";}else{echo $act['freight']."元";}
@@ -93,16 +113,16 @@
             <h1>订单信息：</h1>
             <table>
                 <tr>
-                    <th></th>
-                    <th>商品单价</th>
+                    <th style="width:150px"></th>
+                    <th style="width:150px">商品单价</th>
                     <th>免单数量</th>
-                    <th>备注</th>
-                    <th>合计</th>
+                    <th style="width:500px">备注</th>
+                    <th style="width:200px">合计</th>
                 </tr>
                 <tr>
                     <td>商品押金</td>
                     <td><span><?php echo $act['margin'];?>元</span></td>
-                    <td><span>5单</span></td>
+                    <td><span><?php echo $act['apply_amount']/2;?>单</span></td>
                     <td>
                         <p><span>商品押金=商品单价*免单数量</span></p>
                         <p>试用完成后，平台直接将押金返给试客</p>
@@ -112,12 +132,12 @@
                 <tr>
                     <td>试用担保金</td>
                     <td><span><?php echo $act['margin'];?>元</span></td>
-                    <td><span>5单</span></td>
+                    <td><span><?php echo $act['apply_amount']/2;?>单</span></td>
                     <td>
                         <p><span>试用担保金=商品押金*5%</span></p>
                         <p>试用完成后，平台会自动将试用担保金返回到您的账户可用押金中。</p>
                     </td>
-                    <td><b><?php echo ($act['margin'])*5*0.05;?>元</b></td>
+                    <td><b><?php echo ($act['margin'])*$act['apply_amount']/2*0.05;?>元</b></td>
                 </tr>
             </table>
             <p class="total">订单合计：<span><?php echo $act['total_money'];?>元</span></p>
@@ -126,29 +146,99 @@
             <?php if($act['status'] == 1):?>
             <div class="order_status">
                 <p>订单状态：<span>待付款</span></p>
-                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
+                <p>联系客服：<img style="cursor:pointer;" src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <!--实际付款-->
             <div class="payment_box">
             <div class="actual_payment">
                 <p class="real_payment">实付款：<span>&yen;<?php echo $act['total_money'];?></span></p>
                 <p class="deposit">使用押金支付：可用押金：<span>&yen;<?php echo $seller_info['avail_deposit'];?></span></p>
-                <p class="explain" id="moneyerror"></p>
+                <p class="explain" id="moneyerror" style="color:red"></p>
                 <div class="payment_code">
                     <p>请输入支付密码：</p>
                     <table>
                         <tr>
-                            <td><input id="pwd1" type="text"/></td>
-                            <td><input id="pwd2" type="text"/></td>
-                            <td><input id="pwd3" type="text"/></td>
-                            <td><input id="pwd4" type="text"/></td>
-                            <td><input id="pwd5" type="text"/></td>
-                            <td><input id="pwd6" type="text"/></td>
+                            <td><input onkeyup="keyup_pwd1()" onfocus="focus_pwd1()" maxlength="1" id="pwd1" type="text"/></td>
+                            <td><input onkeyup="keyup_pwd2()" onfocus="focus_pwd2()" maxlength="1" id="pwd2" type="text"/></td>
+                            <td><input onkeyup="keyup_pwd3()" onfocus="focus_pwd3()" maxlength="1" id="pwd3" type="text"/></td>
+                            <td><input onkeyup="keyup_pwd4()" onfocus="focus_pwd4()" maxlength="1" id="pwd4" type="text"/></td>
+                            <td><input onkeyup="keyup_pwd5()" onfocus="focus_pwd5()" maxlength="1" id="pwd5" type="text"/></td>
+                            <td><input onkeyup="keyup_pwd6()" onfocus="focus_pwd6()" maxlength="1" id="pwd6" type="text"/></td>
                         </tr>
                     </table>
+                    <p style="padding-right:0;padding-left:195px;height:20px;">
+                     <span class="error" id="pwderror" style="color:red;text-align:right;"></span></p>
                 </div>
             </div>
             </div>
+            <input type="hidden" id="hiddenpwd1">
+                <input type="hidden" id="hiddenpwd2">
+                <input type="hidden" id="hiddenpwd3">
+                <input type="hidden" id="hiddenpwd4">
+                <input type="hidden" id="hiddenpwd5">
+                <input type="hidden" id="hiddenpwd6">
+                <script>
+                    function keyup_pwd1(){
+                        $("#hiddenpwd1").val($('#pwd1').val());
+                        $('#pwd1').val('*');
+                        $('#pwd2').focus();
+                    }
+                    function keyup_pwd2(){
+                        $("#hiddenpwd2").val($('#pwd2').val());
+                        $('#pwd2').val('*');
+                        $('#pwd3').focus();
+
+                    }
+                    function keyup_pwd3(){
+                        $("#hiddenpwd3").val($('#pwd3').val());
+                        $('#pwd3').val('*');
+                        $('#pwd4').focus();
+
+                    }
+                    function keyup_pwd4(){
+                        $("#hiddenpwd4").val($('#pwd4').val());
+                        $('#pwd4').val('*');
+                        $('#pwd5').focus();
+
+                    }
+                    function keyup_pwd5(){
+                        $("#hiddenpwd5").val($('#pwd5').val());
+                        $('#pwd5').val('*');
+                        $('#pwd6').focus();
+
+                    }
+                    function keyup_pwd6(){
+                        $("#hiddenpwd6").val($('#pwd6').val());
+                        $('#pwd6').val('*');
+                        $('#pwd6').blur();
+
+                    }
+                    function focus_pwd1(){
+                        $('#pwd1').val('');
+
+                    }
+                     function focus_pwd2(){
+                        $('#pwd2').val('');
+
+                    }
+                     function focus_pwd3(){
+                        $('#pwd3').val('');
+
+                    }
+                     function focus_pwd4(){
+                        $('#pwd4').val('');
+
+                    }
+                     function focus_pwd5(){
+                        $('#pwd5').val('');
+
+                    }
+                     function focus_pwd6(){
+                        $('#pwd6').val('');
+
+                    }
+                   
+                </script>
             <div class="nextStep_btn">
                 <input id="cancel_order" type="button" value="取消订单" />
                 <input id="confirm_payment" type="button" value="确认付款" onclick="check_pay()"/>
@@ -195,6 +285,14 @@
             <?php if($act['status'] == 5):?>
             <div class="order_status">
                 <p>订单状态：<span>已取消</span></p>
+                <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
+            </div>
+            <?php endif;?>
+            <?php if($act['status'] == 6):?>
+            <p class="total">已冻结押金：<span><?php echo $act['total_money'];?>元</span></p>
+            <p class="total"><span>冻结押金已返回账户可用押金中</span></p>
+            <div class="order_status">
+                <p>订单状态：<span>审核不通过</span></p>
                 <p>联系客服：<img src="images/merchant/sj_grzx_icon_qq_default.png" alt="" onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qq;?>&site=qq&menu=yes')"></p>
             </div>
             <?php endif;?>
@@ -279,7 +377,7 @@
         });
 //          弹框
 //        模态框的高度(500：表示头部和尾部高度的和)；
-        $('.mask_layer').height(document.body.offsetHeight+500);
+        $('.mask_layer').height(document.body.offsetHeight+1600);
 //        确认付款弹框
         $('#cancel_order').bind('click',function(){
             $('.cancel_order_modal').css('display','block');
@@ -311,13 +409,14 @@
             $("#moneyerror").text("可用押金不足，请先充值押金，然后在试用活动-待付款活动中进行支付");
             return;
         }
-        var pwd1=$("#pwd1").val();
-        var pwd2=$("#pwd2").val();
-        var pwd3=$("#pwd3").val();
-        var pwd4=$("#pwd4").val();
-        var pwd5=$("#pwd5").val();
-        var pwd6=$("#pwd6").val();
+        var pwd1=$("#hiddenpwd1").val();
+        var pwd2=$("#hiddenpwd2").val();
+        var pwd3=$("#hiddenpwd3").val();
+        var pwd4=$("#hiddenpwd4").val();
+        var pwd5=$("#hiddenpwd5").val();
+        var pwd6=$("#hiddenpwd6").val();
         if( pwd1 == '' || pwd2 == '' || pwd3 == '' ||pwd4 == '' ||pwd5 == '' ||pwd6 == ''){
+            $("#pwderror").text("支付密码不能为空");
             return;
         }
         pwd = pwd1;
@@ -326,6 +425,10 @@
         pwd += pwd4;
         pwd += pwd5;
         pwd += pwd6;
+        if(<?php echo (empty($seller_info['paypw'])==1?1:2);?> == 1){
+            $("#pwderror").text("请先设置支付密码");
+            return;
+        }
 
         $.ajax({
             url : admin.url+'merchant_issue_try5/check_pay',

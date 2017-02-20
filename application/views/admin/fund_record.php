@@ -6,6 +6,12 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
+<style>
+     .leftNav_active{
+                      color:#f10180 !important ;
+                      text-decoration:underline ;
+                    }
+</style>
 </head>
 <body>
 <section id="section">
@@ -15,7 +21,7 @@
         <span>位置：</span>
         <ul class="placeul">
             <li><a href="/admin">首页</a></li>
-            <li><a href="/admin_bankcard_manage">银行卡管理</a></li>
+            <li><a href="/admin_bankcard_manage">资金记录</a></li>
         </ul>
     </div>
     
@@ -26,7 +32,7 @@
           <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="merchant_search()"/></li>
         </ul>
     
-    <div class="formtitle1"><span>商家信息</span></div>
+    <div class="formtitle1"><span>资金记录</span></div>
     <table class="tablelist">
         <thead>
         <tr>
@@ -47,14 +53,26 @@
         <tr>
             <td><input name="" type="checkbox" value="" /></td>
             <td><?php echo $v['time'];?></td>
-            <td><?php echo $v['seller_id'];?></td>
+            <td><?php echo $v['user_name'];?></td>
             <td><?php if($v['money_type'] == 1){ echo $v['money'];}else{echo "";}?></td>
             <td><?php if($v['money_type'] == 2){ echo $v['money'];}else{echo "";}?></td>
             <td><?php echo $v['money_remain'];?></td>
             <td><?php echo $v['flowid'];?></td>
             <td><?php if($v['money_type'] == 2){ echo $v['processfee'];}else{echo "";}?></td>
             <td><?php if($v['money_type'] == 2){ echo $v['money']-$v['processfee'];}else{echo "";}?></td>
-            <td><?php echo $v['remarks'];?></td>
+            <?php if($v['remarks'] == 3):?>
+                <td>押金充值</td>
+            <?php elseif($v['remarks'] == 4):?>
+                <td>押金冻结</td>
+            <?php elseif($v['remarks'] == 5):?>
+                <td>试用担保金冻结</td>
+            <?php elseif($v['remarks'] == 6):?>
+                <td>试用担保金返款</td>
+            <?php elseif($v['remarks'] == 7):?>
+                <td>押金返款</td>
+            <?php elseif($v['remarks'] == 8):?>
+                <td>押金提现</td>
+            <?php endif;?>
         </tr>
         <?php endforeach ?>
         </tbody>
@@ -62,7 +80,7 @@
 
     <ul class="seachform">
           <li><label></label><input name="" type="text" class="scinput" id="merchant_scinput"/></li>
-          <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="merchant_search()"/></li>
+          <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="shike_search()"/></li>
     </ul>
 
     <div class="formtitle1"><span>试客信息</span></div>
@@ -86,14 +104,18 @@
         <tr>
             <td><input name="" type="checkbox" value="" /></td>
             <td><?php echo $v['time'];?></td>
-            <td><?php echo $v['seller_id'];?></td>
+            <td><?php echo $v['user_name'];?></td>
             <td><?php if($v['money_type'] == 1){ echo $v['money'];}else{echo "";}?></td>
             <td><?php if($v['money_type'] == 2){ echo $v['money'];}else{echo "";}?></td>
             <td><?php echo $v['money_remain'];?></td>
             <td><?php echo $v['flowid'];?></td>
             <td><?php if($v['money_type'] == 2){ echo $v['processfee'];}else{echo "";}?></td>
             <td><?php if($v['money_type'] == 2){ echo $v['money']-$v['processfee'];}else{echo "";}?></td>
-            <td><?php echo $v['remarks'];?></td>
+            <?php if($v['remarks'] == 1):?>
+                <td>试用返款</td>
+            <?php elseif($v['remarks'] == 2):?>
+                <td>本金提现</td>
+            <?php endif;?>
         </tr>
         <?php endforeach ?>
         </tbody>
@@ -121,13 +143,14 @@
 </section>
     <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
+    $('.account_information ul>li').find('a').eq(3).addClass('leftNav_active');
     function merchant_search(){
             var account = $("#merchant_scinput").val();
-            location.href="/admin_bankcard_manage/merchant_search?search="+account;
+            location.href="/admin_fund_record/merchant_search?search="+account;
         }
      function shike_search(){
             var account = $("#shike_scinput").val();
-            location.href="/admin_bankcard_manage/shike_search?search="+account;
+            location.href="/admin_fund_record/shike_search?search="+account;
         }
     </script>
 

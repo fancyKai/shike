@@ -29,17 +29,17 @@ class Shike_application_record extends MY_Controller {
 		if(!$order_status){
 			$base_url = "/shike_application_record/?";
 		}else{
-			$orderwhere = " where apply_status=3 or apply_status=4 and user_id=$user_id";
+			$orderwhere = " where (apply_status=3 or apply_status=4) and user_id=$user_id";
 			$base_url = "/shike_application_record/?order_status=".$order_status;
 		}
 
 		$count = $this->db->query("select count(*) as count from apply".$orderwhere)->row_array();
 		$count = $count['count'];
-		$this->out_data['apply_list'] = $this->db->query("select * from apply".$orderwhere." limit {$start},{$limit}")->result_array();
+		$this->out_data['apply_list'] = $this->db->query("select * from apply".$orderwhere." order by apply_time desc limit {$start},{$limit}")->result_array();
         $this->out_data['sum_apply_list'] = $this->db->query("select count(*) as count from apply where user_id=$user_id")->row_array();
-        $this->out_data['sum_win_apply_list'] = $this->db->query("select count(*) as count from apply where apply_status=3 or apply_status=4 and user_id=$user_id")->row_array();
+        $this->out_data['sum_win_apply_list'] = $this->db->query("select count(*) as count from apply where (apply_status=3 or apply_status=4) and user_id=$user_id")->row_array();
 
-        $this->out_data['qq'] = $this->db->query("select qq from qqkefu")->row_array();
+        $this->out_data['qq'] = $this->db->query("select qq from qqkefu where type = 1")->row_array();
 		$this->out_data['qq'] = $this->out_data['qq']['qq'];
 
 		$this->out_data['pagin'] = parent::get_pagin($base_url, $count, $limit, 3,  true);

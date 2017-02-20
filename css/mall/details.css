@@ -43,6 +43,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+#section .section_content .commodity_details .commodity_content h1 > b {
+  font-weight: bold !important;
+  display: inline-block;
+  float: left;
+}
+#section .section_content .commodity_details .commodity_content h1 > img {
+  margin-top: 3px;
+  margin-left: 10px;
+}
 #section .section_content .commodity_details .commodity_content .serve {
   width: 550px;
   height: 150px;
@@ -113,7 +122,7 @@
 }
 #section .section_content .commodity_details .activity .apply_step {
   padding-top: 23px;
-  margin: 20px 0;
+  margin: 15px 0;
   border-top: 1px dashed #f0f0f0;
   border-bottom: 1px dashed #f0f0f0;
 }
@@ -122,8 +131,8 @@
   color: #323232;
   padding-bottom: 3px;
 }
-#section .section_content .commodity_details .activity .apply_step ul li {
-  margin: 20px 0;
+#section .section_content .commodity_details .activity .apply_step ul {
+  margin: 15px 0;
 }
 #section .section_content .commodity_details .activity .apply_step ul li span {
   display: inline-block;
@@ -131,10 +140,20 @@
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background: url(../../images/mall/xqy_icon_line_default.png) center no-repeat;
+  background: url(../images/xqy_icon_line_default.png) center no-repeat;
 }
-#section .section_content .commodity_details .activity > p {
-  color: #323232;
+#section .section_content .commodity_details .activity .apply_step ul li:nth-of-type(2) {
+  margin: 15px 0;
+}
+#section .section_content .commodity_details .activity table {
+  width: 218px;
+  margin-left: -10px;
+}
+#section .section_content .commodity_details .activity table td {
+  color: #969696;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 10px;
 }
 #section .section_content .use_flow {
   margin: 50px 0;
@@ -167,6 +186,7 @@
 #section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox #List1,
 #section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox #List2 {
   float: left;
+  min-width: 1048px;
 }
 #section .section_content .use_flow .has_apply .tryAccount_carousel .rollBox {
   box-sizing: border-box;
@@ -208,7 +228,8 @@
 }
 #section .section_content .commodity_try .others_try .products {
   width: 220px;
-  margin: 20px 0 0 20px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 #section .section_content .commodity_try .others_try .products a img {
   width: 220px;
@@ -221,7 +242,10 @@
   white-space: nowrap;
   font-size: 14px;
   color: #323232;
-  padding-top: 8px;
+  padding-right: 26px;
+}
+#section .section_content .commodity_try .others_try .products img {
+  margin-top: 1.5px !important ;
 }
 #section .section_content .commodity_try .others_try .products .quantity {
   margin: 13px 0;
@@ -231,19 +255,26 @@
   height: 20px;
   line-height: 20px;
   border-radius: 5px;
-  color: #fff;
   font-size: 12px;
-  padding: 0 5px;
+  padding: 0 3px;
 }
 #section .section_content .commodity_try .others_try .products .quantity span:first-of-type {
-  background-color: #a766e6;
+  color: #a766e6;
+  border: 1px solid #a766e6;
 }
-#section .section_content .commodity_try .others_try .products .quantity span:last-of-type {
-  background-color: #36bc9e;
-  margin-left: 10px;
+#section .section_content .commodity_try .others_try .products .quantity span:nth-of-type(2) {
+  color: #36bc9e;
+  border: 1px solid #36bc9e;
+  margin-left: 5px;
+}
+#section .section_content .commodity_try .others_try .products .quantity span:nth-of-type(3) {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  padding-right: 0;
 }
 #section .section_content .commodity_try .others_try .products .price {
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   overflow: hidden;
 }
 #section .section_content .commodity_try .others_try .products .price span:first-of-type {
@@ -253,23 +284,106 @@
 }
 #section .section_content .commodity_try .others_try .products .price span:last-of-type {
   float: right;
+}
+#section .section_content .commodity_try .others_try .products .price span:last-of-type input {
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 5px;
+  color: #fff;
   font-size: 14px;
-  padding-top: 5px;
+  padding-left: 0;
+  background-color: #f10180;
 }
-#section .section_content .commodity_try .others_try .products .price span:last-of-type b {
-  font-weight: normal;
+#section .section_content .commodity_try .others_try .products .progress_bar {
+  padding-bottom: 16px;
+  height: 34px;
 }
-#section .section_content .commodity_try .try_details {
+#section .section_content .commodity_try .others_try .product_introduction {
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #323232;
+  padding-right: 26px;
+}
+#section .section_content .commodity_try .others_try img {
+  margin-top: 1.5px !important ;
+}
+#section .section_content .commodity_try .others_try .quantity {
+  margin: 13px 0;
+}
+#section .section_content .commodity_try .others_try .quantity span {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 0 3px;
+}
+#section .section_content .commodity_try .others_try .quantity span:first-of-type {
+  color: #a766e6;
+  border: 1px solid #a766e6;
+}
+#section .section_content .commodity_try .others_try .quantity span:nth-of-type(2) {
+  color: #36bc9e;
+  border: 1px solid #36bc9e;
+  margin-left: 5px;
+}
+#section .section_content .commodity_try .others_try .quantity span:nth-of-type(3) {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  padding-right: 0;
+}
+#section .section_content .commodity_try .others_try .price {
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+#section .section_content .commodity_try .others_try .price span:first-of-type {
+  float: left;
+  color: #f10180;
+  font-size: 20px;
+}
+#section .section_content .commodity_try .others_try .price span:last-of-type {
+  float: right;
+}
+#section .section_content .commodity_try .others_try .price span:last-of-type input {
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding-left: 0;
+  background-color: #f10180;
+}
+#section .section_content .commodity_try .others_try .progress_bar {
+  padding-bottom: 16px;
+  height: 34px;
+}
+#section .section_content .try_details {
   width: 920px;
   margin-left: 20px;
 }
-#section .section_content .commodity_try .try_details h1 {
+#section .section_content .try_details h1 {
   padding: 0 20px;
   line-height: 42px;
   background-color: #f5f5f5;
   border: 1px solid #f0f0f0;
 }
-#section .section_content .commodity_try .try_details .details_picture img {
+#section .section_content .try_details .details_picture img {
   margin-top: 20px;
   max-width: 920px;
+}
+.return_top {
+  overflow: hidden;
+  position: fixed;
+  z-index: 99;
+  bottom: 20%;
+  right: 10%;
+}
+.return_top img {
+  cursor: pointer;
 }

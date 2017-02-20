@@ -16,7 +16,11 @@
             <ul>
                 <li>你所在的位置：</li>
                 <li class="order">
-                    <a class="personal_active" href="/merchant_personal">个人中心</a>
+                    <a class="personal_active" href='<?=base_url('')?>'>首页</a>
+                </li>
+                <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
+                <li class="order">
+                    <a class="personal_active" href="/merchant_personal">商家中心</a>
                 </li>
                 <li class="order"><img src="images/merchant/sj_hdgl_icon_arrow_default.png" alt=""></li>
                 <li class="order">

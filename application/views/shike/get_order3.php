@@ -13,9 +13,11 @@
         <div class="location_title">
             <ul>
                 <li>您的位置：</li>
-                <li><a href="/shike_personal">个人中心</a></li>
+                <li><a href="<?=base_url('')?>">首页</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
-                <li><a href="/shike_try_winningManage">使用管理</a></li>
+                <li><a href="/shike_personal">试客中心</a></li>
+                <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
+                <li><a href="/shike_try_winningManage">试用管理</a></li>
                 <li><img src="images/shike/icon_arrow_default.png" alt=""></li>
                 <li>领取下单</li>
             </ul>
@@ -45,19 +47,19 @@
                     <p><b>注意：4个宝贝页面地址不可重复，如果搜到的商品少于4个，可填写淘宝其他链接。</b></p>
                     <form action="">
                         <label for="babyOne">宝贝页地址1：</label>
-                        <input id="babyOne" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url1'];?>" onblur="check_product()">
+                        <input id="babyOne" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url1'];?>">
                         <span id="babyone_error"></span>
                         <br/>
                         <label for="babyTwo">宝贝页地址2：</label>
-                        <input id="babyTwo" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url2'];?>" onblur="check_product()">
+                        <input id="babyTwo" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url2'];?>">
                         <span id="babytwo_error"></span>
                         <br/>
                         <label for="babyThree">宝贝页地址3：</label>
-                        <input id="babyThree" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url3'];?>" onblur="check_product()">
+                        <input id="babyThree" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url3'];?>">
                         <span id="babythree_error"></span>
                         <br/>
                         <label for="babyFour">宝贝页地址4：</label>
-                        <input id="babyFour" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url4'];?>" onblur="check_product()">
+                        <input id="babyFour" type="text" placeholder="将浏览器的商品链接复制粘贴到此处" value="<?php echo $orderinfo['product_url4'];?>">
                         <span id="babyfour_error"></span>
                         <br/>
                     </form>
@@ -108,8 +110,32 @@
     }
 
     function next_step(){
-        if($("#babyOne").val()=='' || $("#babyTwo").val()=='' || $("#babyThree").val()=='' || $("#babyFour").val()==''){
+        if($("#babyOne").val()==''){
+            $("#babyone_error").text('商品链接不能为空');
             return;
+        }else{
+            $("#babyone_error").text('');
+        }
+
+        if($("#babyTwo").val()==''){
+            $("#babytwo_error").text('商品链接不能为空');
+            return;
+        }else{
+            $("#babytwo_error").text('');
+        }
+
+        if($("#babyThree").val()==''){
+            $("#babythree_error").text('商品链接不能为空');
+            return;
+        }else{
+            $("#babythree_error").text('');
+        }
+
+        if($("#babyFour").val()==''){
+            $("#babyfour_error").text('商品链接不能为空');
+            return;
+        }else{
+            $("#babyfour_error").text('');
         }
         var order_id = $("#order_id").val();
         var babyone = $("#babyOne").val();

@@ -106,15 +106,26 @@
   font-size: 14px;
   margin: 9px 0 17px 0;
 }
+#nav .nav_content .right_login .store_login .register {
+  padding-bottom: 14px;
+  color: #f10180;
+  font-size: 14px;
+}
 #nav .nav_content .right_login .store_login .register a {
   display: inline-block;
-  padding-bottom: 14px;
+  font-size: 12px;
+  color: #646464;
 }
 #nav .nav_content .right_login .store_login .register a:first-of-type {
   margin-right: 11px;
 }
 #nav .nav_content .right_login .store_login .register a:last-of-type {
   margin-left: 11px;
+}
+#nav .nav_content .right_login .store_login .register img {
+  padding: 0;
+  margin-top: -3px;
+  margin-right: 5px;
 }
 #nav .nav_content .right_login .store_login .project_pitching {
   margin: 0 15px;
@@ -123,7 +134,7 @@
 }
 #nav .nav_content .right_login .store_login .project_pitching ul li {
   background: url(../images/nav_icon_dian_default.png) left no-repeat;
-  padding: 7px 0 7px 16px;
+  padding: 5px 0 7px 16px;
 }
 #nav .nav_content .right_login .store_login .project_pitching ul li a {
   display: inline-block;
@@ -174,7 +185,9 @@
   white-space: nowrap;
   font-size: 14px;
   color: #323232;
-  padding-top: 8px;
+  margin-top: 8px;
+  background: url(../images/bg_tb_default.png) right center no-repeat;
+  padding-right: 26px;
 }
 #section .section_content .latest_trial .products .quantity,
 #section .section_content .recommend_trial .products .quantity {
@@ -186,22 +199,30 @@
   height: 20px;
   line-height: 20px;
   border-radius: 5px;
-  color: #fff;
   font-size: 12px;
-  padding: 0 5px;
+  padding: 0 3px;
 }
 #section .section_content .latest_trial .products .quantity span:first-of-type,
 #section .section_content .recommend_trial .products .quantity span:first-of-type {
-  background-color: #a766e6;
+  color: #a766e6;
+  border: 1px solid #a766e6;
 }
-#section .section_content .latest_trial .products .quantity span:last-of-type,
-#section .section_content .recommend_trial .products .quantity span:last-of-type {
-  background-color: #36bc9e;
-  margin-left: 10px;
+#section .section_content .latest_trial .products .quantity span:nth-of-type(2),
+#section .section_content .recommend_trial .products .quantity span:nth-of-type(2) {
+  color: #36bc9e;
+  border: 1px solid #36bc9e;
+  margin-left: 5px;
+}
+#section .section_content .latest_trial .products .quantity span:nth-of-type(3),
+#section .section_content .recommend_trial .products .quantity span:nth-of-type(3) {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  padding-right: 0;
 }
 #section .section_content .latest_trial .products .price,
 #section .section_content .recommend_trial .products .price {
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   overflow: hidden;
 }
 #section .section_content .latest_trial .products .price span:first-of-type,
@@ -213,12 +234,22 @@
 #section .section_content .latest_trial .products .price span:last-of-type,
 #section .section_content .recommend_trial .products .price span:last-of-type {
   float: right;
-  font-size: 14px;
-  padding-top: 5px;
 }
-#section .section_content .latest_trial .products .price span:last-of-type b,
-#section .section_content .recommend_trial .products .price span:last-of-type b {
-  font-weight: normal;
+#section .section_content .latest_trial .products .price span:last-of-type input,
+#section .section_content .recommend_trial .products .price span:last-of-type input {
+  width: 80px;
+  height: 28px;
+  line-height: 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding-left: 0;
+  background-color: #f10180;
+}
+#section .section_content .latest_trial .products .progress_bar,
+#section .section_content .recommend_trial .products .progress_bar {
+  padding-bottom: 16px;
+  height: 34px;
 }
 #section .section_content .latest_trial .products:nth-of-type(5n+1),
 #section .section_content .recommend_trial .products:nth-of-type(5n+1) {
@@ -235,4 +266,13 @@
 }
 #section .section_content .recommend_trial .see_more input:hover {
   background: url(../images/button_more_buttom_selected.png) center no-repeat;
+}
+.return_top {
+  position: fixed;
+  z-index: 99;
+  top: 1000px;
+  right: 350px;
+}
+.return_top img {
+  cursor: pointer;
 }

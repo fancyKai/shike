@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/select.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<link href="css/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="css/admin/js/jquery.js"></script>
 <!-- <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="js/select-ui.min.js"></script>
 <script type="text/javascript" src="editor/kindeditor.js"></script>
@@ -30,10 +30,34 @@ $(document).ready(function(e) {
 </head>
 
 <style>
-    .edit_merchant_block div{height:55px;}
+    .seachform .li{width:370px;}
+
+    .leftNav_active{
+      color:#f10180 !important ;
+      text-decoration:underline ;
+    }
 </style>
+<div class="tip-wrapper edit_merchant_block" style="overflow:auto;position:fixed;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,.5);z-index:999;display:none">
+<div class="tip" style="width:780px;display:block;height:auto;">
+    <div class="tiptop"><span>编辑</span><a onclick="cancle_seller_info()"></a></div>
+    <ul class="seachform" style="margin:10px 0px 10px 10px;">
+        <li class="li"><label>商家ID:</label><label id="edit_merchant_id"></label></li>
+        <li class="li"><label>注册时间:</label><label id="edit_reg_time"></label></li>
+        <li class="li"><label>账号:</label><label id="edit_account"></label></li>
+        <li class="li"><label>手机号</label><input id="edit_merchant_phone" name="name" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>QQ号</label><input id="edit_merchant_qq" name="name" id="" value="" type="text" class="scinput" style="width:300px"/></li>
+        <li class="li"><label>会员类型ID:</label><label id="edit_merchant_type"></label></li>
+        <li class="li"><label>会员到期时间:</label><label id="edit_end_time"></label></li>
+    </ul>
+    <input name="Orid" id="Orid1" type="hidden"  value="" />
+    <div class="tipbtn" style="margin-left:120px;margin-bottom:20px;">
+    <input name="sure" type="button"  class="sure" value="保存" onclick="set_seller_info()"/>&nbsp;
+    <input name="cancel" type="button"  class="cancel" value="取消" style="margin-left:120px;" onclick="cancle_seller_info()"/>
+    </div>
+</div>
+</div>
 <body>
-    <div class="edit_merchant_block" style="position:absolute;width:800px;height:300px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
+   <!--  <div class="edit_merchant_block" style="position:absolute;width:800px;height:300px;border:1px solid;background:white;z-index:101;top:500px;right:0;display:none">
         <div style="overflow:hidden">
             <div style="width:300px;float:left"><p id="edit_merchant_id" style="font-size:30px;width:270px;margin:auto">商家ID:</p></div>
             <div style="width:490px;float:left"><p id="edit_reg_time" style="font-size:30px;width:470px;margin:auto">注册时间:</p></div>
@@ -55,7 +79,7 @@ $(document).ready(function(e) {
             <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:30px;margin-left:95px" value="保存" onclick="set_seller_info()"></div>
             <div style="width:390px;float:left"><input type="button" style="width:200px;height:55px;font-size:30px;margin-left:95px" value="取消" onclick="cancle_seller_info()"></div>
         </div>
-    </div>
+    </div> -->
 <section id="section">
     <div class="section_main">
     <aside class="left" id="left_nav" style="margin-left:-91px;"></aside>
@@ -70,12 +94,12 @@ $(document).ready(function(e) {
     <div class="rightinfo">
     
 	    <ul class="seachform">
-		  <li><label>账号</label><input name="" type="text" class="scinput" /></li>
+		  <li><label>账号</label><input name="" type="text" class="scinput1" /></li>
 		  <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="search()"/></li>
 	    </ul>
     <script>
         function search(){
-            var account = $(".scinput").val();
+            var account = $(".scinput1").val();
             location.href="/admin_merchant_basic/search?search="+account;
         }
     </script>
@@ -137,6 +161,9 @@ $(document).ready(function(e) {
 </section>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+
+
+	 $('.merchant_manage ul>li').find('a').eq(0).addClass('leftNav_active')
 	</script>
     <script>
         function edit_merchant(count){
@@ -152,13 +179,13 @@ $(document).ready(function(e) {
                 async: false,
                 success:function(data){
                     console.log(data);
-                    $("#edit_merchant_id").text("商家ID: "+data.seller_id);
-                    $("#edit_reg_time").text("注册时间: "+data.reg_time.substring(0,10));
-                    $("#edit_account").text("账号: "+data.account);
+                    $("#edit_merchant_id").text(data.seller_id);
+                    $("#edit_reg_time").text(data.reg_time.substring(0,10));
+                    $("#edit_account").text(data.user_name);
                     $("#edit_merchant_phone").val(data.tel);
                     $("#edit_merchant_qq").val(data.qq);
-                    $("#edit_merchant_type").text("会员类型: "+(data.reg_time==1 ? '试用会员':'正式会员'));
-                    $("#edit_end_time").text("会员到期时间: "+data.end_time.substring(0,10));
+                    $("#edit_merchant_type").text((data.level==1 ? '试用会员':'正式会员'));
+                    $("#edit_end_time").text(data.end_time.substring(0,10));
 
                     $(".edit_merchant_block").css("display","block");
                 },
@@ -171,7 +198,7 @@ $(document).ready(function(e) {
         }
 
         function set_seller_info(){
-            var seller_id =  $("#edit_merchant_id").text().substring(6);
+            var seller_id =  $("#edit_merchant_id").text();
             var tel = $("#edit_merchant_phone").val();
             var qq = $("#edit_merchant_qq").val();
             // console.log(seller_id);
@@ -180,6 +207,9 @@ $(document).ready(function(e) {
             // console.log(typeof tel);
             // console.log(qq);
             // console.log(typeof qq);
+            // alert(seller_id);
+            // alert(tel);
+            // alert(qq);
             // return;
             $.ajax({
                 url:"/admin_merchant_basic/set_seller_info",

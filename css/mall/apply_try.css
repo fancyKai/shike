@@ -36,8 +36,14 @@
   padding-bottom: 5px;
   font-size: 14px;
 }
+#section .section_content .step_introduce .search_good > p img {
+  cursor: pointer;
+}
 #section .section_content .step_introduce .search_good > p b {
   font-weight: bold;
+}
+#section .section_content .step_introduce .search_good > p b a {
+  color: #323232;
 }
 #section .section_content .step_introduce .search_good > p span {
   color: #969696;
@@ -67,6 +73,8 @@
 }
 #section .section_content .step_introduce .search_good .good_detail table td {
   height: 292px;
+  font-size: 14px;
+  color: #323232;
 }
 #section .section_content .step_introduce .search_good .good_detail table td img {
   width: 252px;
@@ -85,10 +93,12 @@
   border: 1px solid #969696;
 }
 #section .section_content .step_introduce .search_good .check_url p input[type='button'] {
+  height: 30px;
+  line-height: 30px;
   width: 120px;
-  border: 1px solid #f10180;
-  color: #f10180;
-  background-color: #fff;
+  border: 1px solid #969696;
+  color: #646464;
+  background-color: #f0f0f0;
   margin-left: 10px;
 }
 #section .section_content .step_introduce .search_good .check_url p.error {
@@ -122,6 +132,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+#section .section_content .step_introduce .search_good .commodity p b {
+  color: #323232;
 }
 #section .section_content .step_introduce .search_good .commodity > h2 {
   font-size: 14px;
@@ -161,7 +174,6 @@
   display: none;
 }
 .pass_modal .confirm_audit {
-  padding: 67px 0;
   font-size: 16px;
 }
 .pass_modal .modal_submit {

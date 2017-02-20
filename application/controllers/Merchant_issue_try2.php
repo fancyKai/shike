@@ -22,6 +22,7 @@ class Merchant_issue_try2 extends MY_Controller {
 		$this->out_data['seller_id'] = $user_id;
 		$this->out_data['shoplist'] = $this->db->query("select * from shop where seller_id=".$user_id)->result_array();
 		$this->out_data['activity'] = $this->db->query("select * from activity where act_id=".$this->out_data['act_id'])->row_array();
+		$this->out_data['platform_id'] = $this->input->get("platform_id");
 		//var_dump($this->out_data);die();
 		$this->out_data['con_page'] = 'merchant/issue_try2';
 		//var_dump($this->out_data);die();
@@ -33,6 +34,11 @@ class Merchant_issue_try2 extends MY_Controller {
 		$act_id = $this->input->post('act_id');
 		$commodity_name = $this->input->post('commodity_name');
 		$shop_url = $this->input->post('shop_url');
+		if (strstr($shop_url,"taobao",true)){
+            $platform_id = "1";
+        }else{
+            $platform_id = "2";
+        }
 		$commodity_classify = $this->input->post('commodity_classify');
 		$commodity_picture = $this->input->post('commodity_picture');
 		$thecolor = $this->input->post('thecolor');
@@ -41,11 +47,12 @@ class Merchant_issue_try2 extends MY_Controller {
 		$buy_sum = $this->input->post('buy_sum');
 		$freight = $this->input->post('freight');
 		$margin = $this->input->post('margin');
-		$total_money = $margin*5*1.05;
-		$guarantee = $margin*5*0.05;
-		$deposit = $margin*5;
+		// $total_money = $margin*5*1.05;
+		// $guarantee = $margin*5*0.05;
+		// $deposit = $margin*5;
         $data = $this->get_act_detail($shop_url);
-		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"unit_price" => $unit_price,"buy_sum" => $buy_sum,"freight" => $freight,"product_details" =>$data, "margin" => $margin, "total_money" => $total_money,"guarantee" => $guarantee, "deposit" => $deposit);
+		$data = stripslashes($data);
+		$info = array("product_name" => $commodity_name,"product_link" => $shop_url,"product_classify" => $commodity_classify,"picture_url" => $commodity_picture,"color" => $thecolor,"size" => $thesize,"unit_price" => $unit_price,"buy_sum" => $buy_sum,"freight" => $freight,"product_details" =>$data, "margin" => $margin, "platformid"=>$platform_id);
 		$res = $this->db->update("activity",$info,array("act_id"=>$act_id));
 		echo json_encode($res);
 

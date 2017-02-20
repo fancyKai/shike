@@ -40,8 +40,8 @@
 <script src="js/merchant/jquery-1.10.2.js"></script>
 <script>
     $(function(){
-        $('#header').load('../common/login_header.html');
-        $('#footer').load('../common/footer.html');
+        // $('#header').load('../common/login_header.html');
+        // $('#footer').load('../common/footer.html');
     })
     function login(){
         var name = $("#account").val();

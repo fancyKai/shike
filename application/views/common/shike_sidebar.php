@@ -6,8 +6,8 @@
         <a  href="javascript:void(0);">试用管理</a>
         <ul>
             <li><a href="/shike_application_record">申请记录</a></li>
-            <li><a id="win_num" href="/shike_try_winningManage">试用中奖管理（0）</a></li>
-            <li><a id="buy_num" href="/shike_privilege_buyManage">优惠购买管理（0）</a></li>
+            <li><a id="win_num" href="/shike_try_winningManage">中奖管理（99）</a></li>
+            <li><a id="buy_num" href="/shike_privilege_buyManage">优惠购买（50）</a></li>
         </ul>
     </div>
     <div class="title account_information">
@@ -38,8 +38,8 @@
             dataType : 'json',
             cache : false,
             success : function (result){
-                $("#win_num").text("试用中奖管理（"+result.win_count+"）");
-                $("#buy_num").text("优惠购买管理（"+result.buy_count+"）");
+                $("#win_num").text("中奖管理（"+result.win_count+"）");
+                $("#buy_num").text("优惠购买（"+result.buy_count+"）");
                 $("#mess_num").text("消息中心（"+result.mess_count+"）");
             },
             error : function (XMLHttpRequest, textStatus){

@@ -14,7 +14,7 @@
         <!--左侧导航-->
         <aside class="left" id="left_nav"></aside>
         <!--消息通知-->
-        <div class="message_notification left">
+        <div id="my_main" class="message_notification left">
             <h1 class="title">消息通知</h1>
             <table>
             <?php foreach($messages as $v):?>
@@ -38,12 +38,13 @@
 </section>
 <footer id="footer"></footer>
 <script src="js/shike/jquery-1.10.2.js"></script>
+<script src="js/shike/left.js"></script>
 <script>
     $(function(){
         // $('#header').load("../common/merchant_header.html");
         // $('#footer').load("../common/footer.html");
         // $('#left_nav').load("../common/left_nav.html",function(){
-        //     $('.message_center').find('a').addClass('left_nav_active');
+            $('.message_center').find('a').addClass('left_nav_active');
         // });
     })
 </script>
